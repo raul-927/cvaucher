@@ -1,0 +1,51 @@
+package uy.com.cvaucher.services;
+
+import static org.junit.Assert.assertNotNull;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import uy.com.cvaucher.services.domain.TipoTratamiento;
+import uy.com.cvaucher.services.domain.Tratamiento;
+import uy.com.cvaucher.services.services.TratamientoService;
+
+
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:root-Context.xml")
+public class TratamientoTest 
+{
+	
+	@Autowired
+	TratamientoService tratamientoService;
+	
+	
+	@Test
+	public void createNewTratamiento()
+	{
+		TipoTratamiento tipoTratamiento = new TipoTratamiento();
+		tipoTratamiento.setTipTratId(1);
+		tipoTratamiento.setTipTratDesc("Terapeutico");
+		
+		Tratamiento tratamiento = new Tratamiento();
+		
+		tratamiento.setTipoTratamiento(tipoTratamiento);
+		tratamiento.setTratDescripcion("Masaje modelador");
+		
+		
+		tratamientoService.insertTratamiento(tratamiento);
+		
+		assertNotNull(tratamiento);
+		
+		assertEquals(1,tratamiento.getTipoTratamiento().getTipTratId());
+		assertEquals("Masaje modelador", tratamiento.getTratDescripcion());
+	}
+	
+	
+
+}

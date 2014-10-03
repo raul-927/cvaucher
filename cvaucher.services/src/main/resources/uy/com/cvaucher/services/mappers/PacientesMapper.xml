@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.PacientesMapper">
+		  	
+  	<resultMap type="Pacientes" id="PacientesResult">
+  	    
+  		<id 	property="pacId" 						column = "pac_id"/>
+  		
+		<result property = "pacNombre" 					column = "pac_nombre"/>
+		<result property = "pacApellido" 				column = "pac_apellido"/>
+		<result property = "cedula"	 					column = "cedula"/>
+		<result property = "ocupacion" 					column = "pac_ocupacion"/>
+		<result property = "sociedadMedica" 			column = "pac_soc_med"/>
+		<result property = "emergenciaMovil" 			column = "pac_em_movil"/>
+  	</resultMap>
+  	
+  
+</mapper>

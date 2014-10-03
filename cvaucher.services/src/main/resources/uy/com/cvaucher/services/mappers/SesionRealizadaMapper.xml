@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.SesionRealizadaMapper">
+		  	
+  	<resultMap type="SesionPagada" id="SesionRealizadaResult">
+  		<id property="sesRealizadaId" column="ses_realizada_id"/>
+		<result property="sesiones.sesId" column="ses_id"/>
+		<result property = "sesCantidad" column ="ses_cant"/>
+		<result property = "sesFechaRalizada" column ="ses_fecha_realizada"/>
+  	</resultMap>
+  	
+  
+</mapper>

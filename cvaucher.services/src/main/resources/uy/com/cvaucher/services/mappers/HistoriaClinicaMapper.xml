@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.HistoriaClinicaMapper">
+		  	
+  	<resultMap type="HistoriaClinica" id="HistoriaClinicaResult">
+  	    
+  		<id property="histCliId" column="hist_id"/>
+  		
+  		<result property =		"diabetes" 				column ="diabetes"/>
+		<result property=		"epilepsia" 			column="epilepsia"/>
+		<result property = 		"marcaPaso" 			column ="marcaPaso"/>
+		<result property = 		"diu" 					column ="diu"/>
+		<result property = 		"problemasCardiacos" 	column ="problemas_cardiacos"/>
+		<result property = 		"medicacion" 			column ="medicacion"/>
+		<result property = 		"cantHijos" 			column ="cant_hijos"/>
+		<result property = 		"operaciones" 			column ="operaciones"/>
+		<result property = 		"hipertension" 			column ="hipertension"/>
+		<result property = 		"procesosOncologicos" 	column ="procesos_oncologicos"/>
+		<result property = 		"tiroides" 				column ="tiroides"/>
+		<result property = 		"actividadFisica" 		column ="actividad_fisica"/>
+		<result property = 		"cantConsumoAguaDiaria" column ="agua_diaria"/>
+		<result property = 		"alimentacion" 			column ="alimentacion"/>
+		
+		<association property = "pacientes" 			resultMap ="uy.com.cvaucher.services.mappers.PacientesMapper.PacientesResult"/>
+  	</resultMap>
+  	
+  
+</mapper>
