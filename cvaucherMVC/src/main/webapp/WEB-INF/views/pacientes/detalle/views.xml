@@ -1,0 +1,34 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+<!--<start id="tile_template"/>-->
+
+   <definition name="templatePacientesDetalle_" 
+             template="/WEB-INF/views/pacientes/detalle/detallePacientesTemplate.jsp">
+             
+	<put-attribute name="formPacientesDetalle"
+   		value = "/WEB-INF/views/pacientes/detalle/detallePacientesForm.jsp"/>
+   		             
+   	<put-attribute name="tablePacientesDetalle1"
+   		value = "/WEB-INF/views/pacientes/tableDetalle1.jsp"/>
+   	
+   	<put-attribute name="tablePacientesDetalle2"
+   	    value ="/WEB-INF/views/pacientes/tableDetalle2.jsp"/>
+   	
+   	<put-attribute name="tablePacientesDetalle3"
+   	    value ="/WEB-INF/views/pacientes/tableDetalle3.jsp"/>
+   </definition>
+   
+ 
+<!--<end id="tile_template"/>-->
+ 
+<!--<start id="edit"/>-->	  
+	<definition name ="pacientes/detallePacientes_" extends ="templatePacientesDetalle_">
+		<put-attribute name="content1" value ="/WEB-INF/views/pacientes/detalle/detallePacientes.jsp"/>
+	</definition>
+<!--<end id="edit"/>-->
+	
+  
+</tiles-definitions>

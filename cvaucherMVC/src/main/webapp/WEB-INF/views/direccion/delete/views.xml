@@ -1,0 +1,28 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+<!--<start id="tile_template"/>-->
+
+   <definition name="templateDireccionDelete" 
+             template="/WEB-INF/views/direccion/delete/deleteDireccionTemplate.jsp">
+             
+	<put-attribute name="formDireccionDelete"
+   		value = "/WEB-INF/views/direccion/delete/deleteDireccionForm.jsp"/>
+   		             
+   	<put-attribute name="tableDireccion"
+   		value = "/WEB-INF/views/direccion/tableDireccion.jsp"/>
+   </definition>
+   
+ 
+<!--<end id="tile_template"/>-->
+ 
+<!--<start id="edit"/>-->	  
+	<definition name ="direccion/deleteDireccion" extends ="templateDireccionDelete">
+		<put-attribute name="content1" value ="/WEB-INF/views/direccion/delete/deleteDireccion.jsp"/>
+	</definition>
+<!--<end id="edit"/>-->
+	
+  
+</tiles-definitions>

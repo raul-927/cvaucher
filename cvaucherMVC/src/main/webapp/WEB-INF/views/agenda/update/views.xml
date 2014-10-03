@@ -1,0 +1,41 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+ 
+<tiles-definitions>
+
+   <definition name="templateAgenda" 
+             template="/WEB-INF/views/agenda/update/updateAgendaTemplate.jsp">
+             
+	<put-attribute name="header"
+       		value ="/WEB-INF/views/layout/layoutHead.jsp"/>
+       
+     <put-attribute name="menu"
+           value = "/WEB-INF/views/layout/layoutMenu.jsp"/>   
+     
+     
+     
+	<put-attribute name="left"
+   		value = ""/>
+   		             
+   	<put-attribute name="content"
+   		value = ""/>
+   	
+   	<put-attribute name="right"
+           
+           value = ""/>
+           
+     <put-attribute name="footer"
+           value = "/WEB-INF/views/layout/layoutFooter.jsp"/>
+   </definition>
+   
+ 
+  
+	<definition name ="agenda/updateAgenda" extends ="templateAgenda">
+		<put-attribute name="left" value = "/WEB-INF/views/agenda/update/updateAgendaForm.jsp"/>
+	</definition>
+
+	
+  
+</tiles-definitions>
+

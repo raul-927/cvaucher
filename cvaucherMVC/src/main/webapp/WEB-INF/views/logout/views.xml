@@ -1,0 +1,17 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+
+   <definition name="templateLogout" 
+             template="/WEB-INF/views/logout/logoutTemplate.jsp">
+   		<put-attribute name="content" value =""/>	
+   		<put-attribute name="formLogout" value ="/WEB-INF/views/logout/formLogout.jsp"></put-attribute>
+   </definition>
+   	  
+	<definition name ="logout/gslogout" extends ="templateLogout">
+		<put-attribute name="content"  value = "/WEB-INF/views/logout/logout.jsp"/>
+	</definition>	
+ 
+</tiles-definitions>

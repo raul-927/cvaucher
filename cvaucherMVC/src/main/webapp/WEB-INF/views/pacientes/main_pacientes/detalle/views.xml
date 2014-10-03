@@ -1,0 +1,76 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+<!--<start id="tile_template"/>-->
+
+   <definition name="templatePacientesDetalle" 
+       template="/WEB-INF/views/pacientes/main_pacientes/detalle/detallePacientesTemplate.jsp">
+             
+       <put-attribute name="header"
+           value ="/WEB-INF/views/layout/layoutHead.jsp"/>
+       
+       <put-attribute name="menu"
+           value = "/WEB-INF/views/layout/layoutMenu.jsp"/>
+       
+       <put-attribute name="left"
+           value = ""/>
+       
+       <put-attribute name="content"
+           value =""/>
+           
+      <put-attribute name="right"
+           value = ""/>
+       
+       <put-attribute name="footer"
+           value = "/WEB-INF/views/layout/layoutFooter.jsp"/>
+           
+	   <put-attribute name="tableDPacientes"
+	   	   value =""/>
+	   	
+	   <put-attribute name="tableDDireccion"
+	   	   value =""/>
+	   	
+	   <put-attribute name="tableDAgenda"
+	   	   value =""/>
+	   	
+	   <put-attribute name="tableDTratamientos"
+	   	   value =""/>
+	   	
+	   <put-attribute name="tableDHistoriaClinica"
+	   	   value =""/>
+	   	
+	   <put-attribute name="tableDSeguimientoPacientes"
+	   	   value =""/>
+	
+	   <put-attribute name="tableDSesiones"
+	   	   value =""/> 	
+	   	
+	</definition> 
+	 
+   <definition name="pacientes/detallePacientes" extends ="templatePacientesDetalle">
+       <put-attribute name="tableDPacientes"
+	   		value = "/WEB-INF/views/pacientes/main_pacientes/detalle/tableDetallePacientes.jsp"/> 
+   	   
+   	   <put-attribute name="tableDDireccion"
+	   	    value ="/WEB-INF/views/pacientes/main_pacientes/detalle/tableDetalleDireccion.jsp"/>
+   	   
+   	   <put-attribute name="tableDAgenda"
+         value ="/WEB-INF/views/pacientes/main_pacientes/detalle/tableDetalleAgenda.jsp"/>
+   	   
+   	   <put-attribute name="tableDTratamientos"
+         value ="/WEB-INF/views/pacientes/main_pacientes/detalle/tableDetalleTratamientos.jsp"/>
+   	   
+   	   <put-attribute name="tableDHistoriaClinica"
+	   	   value ="/WEB-INF/views/pacientes/main_pacientes/detalle/tableDetalleHistoriaClinica.jsp"/>
+	   	
+	   <put-attribute name="tableDSeguimientoPacientes"
+	   	   value ="/WEB-INF/views/pacientes/main_pacientes/detalle/tableDetalleSeguimientoPacientes.jsp"/>
+	
+	   <put-attribute name="tableDSesiones"
+	   	   value ="/WEB-INF/views/pacientes/main_pacientes/detalle/tableDetalleSesiones.jsp"/> 
+	   	   
+   </definition>   
+
+</tiles-definitions>

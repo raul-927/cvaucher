@@ -1,0 +1,22 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+<!--<start id="tile_template"/>-->
+
+	 <definition name ="pacientes/searchPacientes" extends ="layout">
+	    
+	    <put-attribute name="left"
+   			value ="/WEB-INF/views/pacientes/main_pacientes/search/searchPacientesForm.jsp"/>
+	    	
+		<put-attribute name="content"
+   			value ="/WEB-INF/views/pacientes/main_pacientes/search/tableSearch.jsp"/>
+   			
+   		<put-attribute name="right"
+   			value =""/>
+		
+	</definition>
+	
+  
+</tiles-definitions>

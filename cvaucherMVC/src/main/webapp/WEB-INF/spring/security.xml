@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    	
+     <!--  <beans:import resource="root-context.xml"/>-->
+    	
+     <global-method-security secured-annotations='enabled' /> 	
+     
+   
+    <http pattern="/resources/**" security="none"/>
+    
+    
+    
+    <http auto-config="true">
+    
+    	<intercept-url pattern="/login"
+			access="ROLE_ANONYMOUS"/>
+			
+		<intercept-url pattern="/"
+			access="ROLE_USER,ROLE_ADMIN"/>
+			
+		<intercept-url pattern="/**" 
+			access="ROLE_USER,ROLE_ADMIN"/>
+			
+		<intercept-url pattern="/logout"
+			access="ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMIN"/>
+			
+		
+		
+		<form-login login-page="/login"
+                login-processing-url="/j_spring_security_check" 
+                username-parameter="j_username"
+				password-parameter="j_password"
+                 />
+                
+    	<logout invalidate-session="true" 
+        	logout-success-url="/pacsearch" 
+        	logout-url="/logout" delete-cookies="JSESSIONID" />	
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+		
+			<!-- <user-service>
+				<user authorities="ROLE_USER" 
+						name="raul" 
+						password ="rulo"/>
+				
+				<user authorities="ROLE_ADMIN" 
+						name="gaby" 
+						password  = "gaby20"/>
+			</user-service> -->
+			<jdbc-user-service data-source-ref="dataSource"
+		  		users-by-username-query = "SELECT username, password, enabled FROM users WHERE username= ? AND enabled = 1"
+		  		authorities-by-username-query =	"SELECT username, authority FROM authorities WHERE username = ?" />
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>

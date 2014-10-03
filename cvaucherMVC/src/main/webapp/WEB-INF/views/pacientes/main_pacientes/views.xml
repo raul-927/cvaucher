@@ -1,0 +1,19 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+
+
+   <definition name="templatemenup" 
+             template="/WEB-INF/views/pacientes/main_pacientes/menupTemplate.jsp">
+             
+   		 <put-attribute name="botonera"
+   				value = "/WEB-INF/views/pacientes/main_pacientes/botonera.jsp"/>  
+   </definition>
+   
+   <definition name="/principalPacientes_" extends ="templatemenup">
+     <put-attribute name="content" value="/WEB-INF/views/pacientes/main_pacientes/menup.jsp" />
+   </definition>  
+
+</tiles-definitions>
