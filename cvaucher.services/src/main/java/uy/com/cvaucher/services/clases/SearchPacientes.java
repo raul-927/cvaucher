@@ -24,6 +24,7 @@ public class SearchPacientes implements Serializable
 	}
 	public void setCedula(int cedula) 
 	{
+		
 		this.cedula = cedula;
 	}
 	
