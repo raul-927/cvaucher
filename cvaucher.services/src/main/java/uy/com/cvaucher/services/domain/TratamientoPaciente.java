@@ -20,6 +20,7 @@ public class TratamientoPaciente implements Serializable
 	private int 		costoTratSesion;
 	private int 		importePagado;
 	private int 		saldoPendiente;
+	private int 		cantSesiones;
 
 	
 	public String getFecha() {
@@ -70,6 +71,12 @@ public class TratamientoPaciente implements Serializable
 	}
 	public void setCostoTratSesion(int costoTratSesion) {
 		this.costoTratSesion = costoTratSesion;
+	}
+	public int getCantSesiones() {
+		return cantSesiones;
+	}
+	public void setCantSesiones(int cantSesiones) {
+		this.cantSesiones = cantSesiones;
 	}
 	
 

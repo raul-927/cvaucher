@@ -33,9 +33,9 @@ public interface TratamientoPacienteMapper
 	List<TratamientoPaciente> findAllTratamientoPaciente();
 	
 	@Insert("INSERT INTO tratamiento_paciente (fecha, pac_cedula, trat_id, "
-			+ "costo_tratamiento, importe_pagado, saldo_pendiente) "
+			+ "costo_tratamiento, importe_pagado, saldo_pendiente, cant_sesiones) "
 			+ "VALUES (#{fecha}, #{pacientes.cedula}, #{tratamiento}, "
-			+ "#{costoTratSesion}, #{importePagado}, #{saldoPendiente})")
+			+ "#{costoTratSesion}, #{importePagado}, #{saldoPendiente}, #{cantSesiones})")
 	@Options(useGeneratedKeys=true, keyProperty="tratPacId")
 	void insertTratamientoPacienteMapper(TratamientoPaciente tratamientoPaciente);
 	
