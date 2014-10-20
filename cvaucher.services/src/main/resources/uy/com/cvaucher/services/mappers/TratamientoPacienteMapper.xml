@@ -24,6 +24,7 @@
   		<result property ="costoTratamiento" column ="Monto"/>
   		<result property ="importePagado"	column ="Pagado"/>
   		<result property ="saldoPendiente"	column ="Saldo"/>
+  		<result property ="cantSesiones"	column ="Sesiones"/>
   		
   	
   	</resultMap>

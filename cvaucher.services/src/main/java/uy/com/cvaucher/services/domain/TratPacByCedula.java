@@ -11,6 +11,7 @@ public class TratPacByCedula implements Serializable
 	//private int 	tratPacId;
 	private String 	fecha;
 	private String 	tratDesc;
+	private int		cantSesiones;
 	private int 	costoTratamiento;
 	private int 	importePagado;
 	private int 	saldoPendiente;
@@ -44,6 +45,12 @@ public class TratPacByCedula implements Serializable
 	}
 	public void setTratDesc(String tratDesc) {
 		this.tratDesc = tratDesc;
+	}
+	public int getCantSesiones() {
+		return cantSesiones;
+	}
+	public void setCantSesiones(int cantSesiones) {
+		this.cantSesiones = cantSesiones;
 	}
 	
 	

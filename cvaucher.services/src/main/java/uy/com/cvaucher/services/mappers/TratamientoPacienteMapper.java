@@ -17,6 +17,7 @@ public interface TratamientoPacienteMapper
 	
 	@Select("SELECT tp.fecha Fecha, "
 			+ "t.trat_descripcion Tratamiento, "
+			+ "t.cant_sesiones Sesiones "
 			+ "tp.costo_tratamiento Monto, "
 			+ "tp.importe_pagado Pagado, "
 			+ "tp.saldo_pendiente Saldo"
