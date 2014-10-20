@@ -30,6 +30,13 @@
 		 	
 		 </div>
 		 
+		 <div class="form-group">
+			 	<sf:label path="cantSesiones" for ="cantSesiones">Sesiones</sf:label>
+			 	<sf:input cssClass ="form-control" path="cantSesiones" placeholder ="cantSesiones" size ="30" />
+			 	<sf:errors path ="cantSesiones" cssClass ="error"/>
+		 </div>
+		 	
+		 
 		 	<div class="form-group">
 			 	<sf:label path="costoTratSesion" for ="costoTratSesion">Importe</sf:label>
 			 	<sf:input cssClass ="form-control" path="costoTratSesion" placeholder ="costoTratSesion" size ="30" id="descCAT"/>

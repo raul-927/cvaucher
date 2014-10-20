@@ -12,9 +12,11 @@
 			
 			<th>Fecha</th>
 			<th>Tratamiento</th>
+			<th>Sesiones</th>
 			<th>Monto </th>
 			<th>Pagado</th>
 			<th>Saldo</th>
+			
 		</tr>
 	</thead>
 	<tbody class ="table-striped">
@@ -23,6 +25,7 @@
 				
 			  	<td >${tratPac.fecha}</td>
 				<td >${tratPac.tratDesc}</td>
+				<td >${tratPac.cantSesiones}</td>
 				<td >${tratPac.costoTratamiento}</td>
 				<td >${tratPac.importePagado}</td>
 				<td >${tratPac.saldoPendiente}</td>
