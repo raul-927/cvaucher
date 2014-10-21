@@ -26,6 +26,12 @@
 			 	<sf:textarea cssClass ="inputText" path="tratDescripcion" size ="30" id="descCAT"/>
 			 	<sf:errors path ="tratDescripcion" cssClass ="error"/>
 		 	</div>
+		 	
+		 	<div class="form-group">
+		 	<sf:label path="tratCantSesiones" for ="tratId">Sesiones</sf:label>
+		 	<sf:input cssClass ="inputText" path="tratCantSesiones" size ="10" id="descCAT"/>
+		 	<sf:errors path ="tratCantSesiones" cssClass ="error"/>
+		</div>
 
 		 </fieldset>
 		 <div class="botonForm">

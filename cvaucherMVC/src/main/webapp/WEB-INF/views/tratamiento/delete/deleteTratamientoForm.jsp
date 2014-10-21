@@ -11,11 +11,11 @@
 		method ="POST" 
 		modelAttribute ="tratamiento" >
 		 <fieldset style="width: 350px;">
-		 
+		 <div class="form-group">
 		 	<sf:label path="tratId" for ="tratId">Id</sf:label>
 		 	<sf:input cssClass ="inputText" path="tratId" size ="10" id="descCAT"/>
 		 	<sf:errors path ="tratId" cssClass ="error"/>
-
+		</div>
 		 </fieldset>
 		 <div class="botonForm">
 		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar"/>
