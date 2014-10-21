@@ -26,7 +26,6 @@
 	  
 	  <beans:bean id="tilesViewResolver"
 			class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
-			
 			<beans:property name="viewClass" value="org.springframework.webflow.mvc.view.FlowAjaxTilesView" />
 	 </beans:bean>
 	  
