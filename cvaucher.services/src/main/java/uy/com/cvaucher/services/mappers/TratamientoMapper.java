@@ -29,7 +29,7 @@ public interface TratamientoMapper
 	List<Tratamiento> findTratamientoByCedula(int cedula);
 	
 	
-	@Insert("INSERT INTO tratamiento (trat_tpo_id, trat_descripcion)VALUES(#{tipoTratamiento.tipTratId}, #{tratDescripcion})")
+	@Insert("INSERT INTO tratamiento (trat_tpo_id, trat_descripcion,trat_cant_sesiones)VALUES(#{tipoTratamiento.tipTratId}, #{tratDescripcion}, #{tratCantSesiones})")
 	@Options(useGeneratedKeys=true, keyProperty="tratId")
 	void insertTratamiento(Tratamiento tratamiento);
 	

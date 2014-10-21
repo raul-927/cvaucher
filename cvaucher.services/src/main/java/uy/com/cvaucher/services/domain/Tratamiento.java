@@ -11,7 +11,7 @@ public class Tratamiento implements Serializable
 	private int 				tratId;
 	private TipoTratamiento 	tipoTratamiento;
 	private String 				tratDescripcion;
-	
+	private int					tratCantSesiones;
 	
 	public int getTratId() {
 		return tratId;
@@ -30,6 +30,12 @@ public class Tratamiento implements Serializable
 	}
 	public void setTratDescripcion(String tratDescripcion) {
 		this.tratDescripcion = tratDescripcion;
+	}
+	public int getTratCantSesiones() {
+		return tratCantSesiones;
+	}
+	public void setTratCantSesiones(int tratCantSesiones) {
+		this.tratCantSesiones = tratCantSesiones;
 	}
 	
 	
