@@ -4,17 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="uy.com.cvaucher.services.mappers.TratamientoMapper">
-		  	
-    
-    
-  	
-    
+
   	<resultMap type="Tratamiento" id="TratResult">
   		<id property="tratId" column="trat_id"/>
 		<result property="tratDescripcion" column="trat_descripcion"/>
 		<result property ="tratCantSesiones" column ="trat_cant_sesiones"/>
 		<association  property ="tipoTratamiento" resultMap ="uy.com.cvaucher.services.mappers.TipoTratamientoMapper.TipoTratResult"/>
 		
+  	</resultMap>
+  	
+  	<resultMap type="Tratamiento" id="SesionResult">
+  	
+  		<result property ="tratCantSesiones"	column ="trat_cant_sesiones"/>
+  	
   	</resultMap>
  
 </mapper>

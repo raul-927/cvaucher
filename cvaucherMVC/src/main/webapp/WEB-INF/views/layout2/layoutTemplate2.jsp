@@ -40,9 +40,7 @@
 			
 			<div class="row">
 			
-					<div class="col-xs-6 col-xs-offset-4 col-lg-offset-5 col1">
-						<h3>Datos Basicos</h3>
-					</div>
+					
 					
 				  <div class="col-sm-4 col-xs-8 col-lg-8 col-md-10 col-xs-offset-2 col-lg-offset-2 col1">
 				  

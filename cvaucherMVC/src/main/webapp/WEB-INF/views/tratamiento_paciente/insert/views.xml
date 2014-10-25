@@ -11,7 +11,7 @@
    		value = "/WEB-INF/views/tratamiento_paciente/insert/insertTratamientoPacienteForm.jsp"/>
    		             
    	<put-attribute name="content"
-   		value = ""/>
+   		value = "/WEB-INF/views/tratamiento_paciente/insert/cantSes.jsp"/>
    </definition>
 
 </tiles-definitions>

@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+        
+     <!-- Inicio Variables paciente, direccion, agenda, historiaClinica, tratamientoPaciente -->
 	 <on-start>
 		<set name="flowScope.pacientes"
 			value="new uy.com.cvaucher.services.domain.Pacientes()"
@@ -26,17 +28,20 @@
 		
 	 </on-start>
 	 
+	 <!-- Paciente -->
 	<view-state id="inicioAltaPaciente" view ="pacientes/insertPacientes" model ="pacientes">
 		<transition on="pacienteIngresado" to="cargoPacientesEnDireccion" bind="true">
 			 <evaluate expression="flowPacientesService.insertPacientes(flowScope.pacientes)"/>
 		</transition>
 	</view-state>
 	 
+	 <!-- Cargo Pacientes en Direccion -->
 	 <action-state id="cargoPacientesEnDireccion">
 	 	<evaluate  expression="flowScope.direccion.pacientes = flowScope.pacientes"/>
 	 	<transition to= "direccionInsert"/>
 	 </action-state>
 	 
+	 <!-- Direccion -->
 	<view-state id="direccionInsert" view ="direccion/insertDireccion" model ="direccion">
 		<on-render>		
 			<evaluate result ="viewScope.tipviv" expression="T(uy.com.cvaucher.services.enumerador.TipoVivienda).values()"/>
@@ -51,13 +56,14 @@
 		<transition on ="direccionOk" to ="cargoPacientesEnAgenda"/>
 	</view-state>
 	
+	<!-- Cargo Pacientes en Agenda -->
 	<action-state id="cargoPacientesEnAgenda">
 	 	<evaluate  expression="flowScope.agenda.pacientes = flowScope.pacientes"/>
 	 	<transition to= "agendaInsert"/>
 	 </action-state>
 	
+	<!-- Agenda -->
 	<view-state id="agendaInsert" view ="agenda/insertAgenda" model ="agenda">
-	
 		<on-render>
 			<evaluate result ="viewScope.tipage" expression="T(uy.com.cvaucher.services.enumerador.TipoAgenda).values()"/>
 			<evaluate result ="viewScope.ag" expression="flowPacientesService.findAgendaByCedula(flowScope.pacientes.cedula)"/>
@@ -67,31 +73,45 @@
 			<evaluate expression="flowPacientesService.insertAgenda(flowScope.agenda)"/>
 			<evaluate  expression="flowScope.agenda.pacientes = flowScope.pacientes"/>
 		</transition>
-		
+
 		<transition on ="agendaIngresadaOK" to ="cargoPacientesEnHistoriaClinica"/>
 	</view-state>
 	
+	<!-- Cargo Pacientes en Historia Clinica -->
 	<action-state id="cargoPacientesEnHistoriaClinica">
 	 	<evaluate  expression="flowScope.historiaClinica.pacientes = flowScope.pacientes"/>
 	 	<transition to= "historiaClinicaInsert"/>
 	</action-state>
 	 
+	 <!-- Historia Clinica -->
 	<view-state id="historiaClinicaInsert" view ="historiaClinica/insertHistoriaClinica" model ="historiaClinica">
-		<transition on ="historiaClinicaIngresado" to ="cargoPacientesEnTratamientos">
+		<transition on ="seguirIngresandoTratamiento" to ="cargoPacientesEnTratamientos">
 			<evaluate expression="flowPacientesService.insertHistoriaClinica(flowScope.historiaClinica)"/>
 		</transition>
-	
+		<transition on ="historiaClinicaIngresado" to ="finIngresoPacientes">
+			<evaluate expression="flowPacientesService.insertHistoriaClinica(flowScope.historiaClinica)"/>
+		</transition>
 	</view-state>
 	
+	<!-- Cargo Pacientes en Tratamientos -->
 	<action-state id="cargoPacientesEnTratamientos">
 		 <evaluate expression="flowScope.tratamientoPaciente.pacientes = flowScope.pacientes"/>
 		<transition to ="tratamientoPacienteInsert"/>
 	</action-state>
 	
+	<!-- Tratamientos -->
 	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
 		<on-render>
 			<evaluate result ="viewScope.tratP" expression="flowPacientesService.findAllTratamientos()"/>
+			
+			
 		</on-render>
+		<!--  
+		<on-entry>
+			<render fragments="content" />
+		</on-entry>
+		-->
+		<transition on ="cantSesionesTratamiento" to ="tratamientoPacienteInsert" bind ="true"/>
 		
 		<transition on ="tratamientoPacienteIngresado" to ="finIngresoPacientes" bind="true">
 			 <evaluate expression="flowPacientesService.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>

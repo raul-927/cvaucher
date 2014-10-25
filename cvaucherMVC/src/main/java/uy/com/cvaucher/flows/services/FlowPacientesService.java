@@ -93,7 +93,14 @@ public class FlowPacientesService
 		List<Tratamiento> tratamiento =  this.tratamientoServices.findAllTratamientos();
 		return tratamiento;
 	}
-	
+	public Tratamiento findTratamientoById(int tratId)
+	{
+		return this.tratamientoServices.findTratamientoById(tratId);
+	}
+	public int findSesionesByTratamiento(int tratId)
+	{
+		return this.tratamientoServices.findSesionesByTratamientoId(tratId);
+	}
 	
 	
 }

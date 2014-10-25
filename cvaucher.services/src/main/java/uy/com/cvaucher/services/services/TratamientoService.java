@@ -62,5 +62,11 @@ public class TratamientoService implements TratamientoInt
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int findSesionesByTratamientoId(int tratId) {
+		
+		return tratamientoMapper.findSesionesByTratamientoId(tratId);
+	}
 	
 }

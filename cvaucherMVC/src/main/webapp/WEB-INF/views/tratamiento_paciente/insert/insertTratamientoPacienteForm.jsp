@@ -5,6 +5,10 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
+
+
+						<h3>Ingresar Tratamiento</h3>
+
 <div class="well well-lg">
 	
 	<sf:form cssClass = "form"
@@ -26,17 +30,16 @@
 		 	<sf:select cssClass ="form-control" path="tratamiento" size ="1" id="descCAT">
 		 		<sf:options path="tratamiento" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId" />
 		 	</sf:select>
+		 	
 		 	<sf:errors path ="tratamiento" cssClass ="error"/>
 		 	
 		 </div>
 		 
-		 <div class="form-group">
-			 	<sf:label path="cantSesiones" for ="cantSesiones">Sesiones</sf:label>
-			 	<sf:input cssClass ="form-control" path="cantSesiones" placeholder ="cantSesiones" size ="30" />
-			 	<sf:errors path ="cantSesiones" cssClass ="error"/>
+		<t:insertAttribute name ="content"/>
+			
+		 <div class="botonForm">
+		 	 <input class="btn btn-primary" type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
 		 </div>
-		 	
-		 
 		 	<div class="form-group">
 			 	<sf:label path="costoTratSesion" for ="costoTratSesion">Importe</sf:label>
 			 	<sf:input cssClass ="form-control" path="costoTratSesion" placeholder ="costoTratSesion" size ="30" id="descCAT"/>

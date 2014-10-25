@@ -103,7 +103,8 @@
 		 
 		<div class="botonForm">
 			<input class ="btn btn-default" type ="reset" value ="Cancelar" name ="_eventId_cancelar"/>
-			<input class="btn btn-primary" type ="submit" value ="Agregar" name ="_eventId_historiaClinicaIngresado"/>
+			<input class="btn btn-primary" type ="submit" value ="Agregar y Finalizar" name ="_eventId_historiaClinicaIngresado"/>
+			<input class="btn btn-primary" type ="submit" value ="Agregar e ingresar Tratamiento" name ="_eventId_seguirIngresandoTratamiento"/>
 		</div>
 	 </sf:form>
 </div>

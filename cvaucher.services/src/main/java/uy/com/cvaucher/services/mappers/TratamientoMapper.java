@@ -28,6 +28,10 @@ public interface TratamientoMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratResult")
 	List<Tratamiento> findTratamientoByCedula(int cedula);
 	
+	@Select("SELECT trat_cant_sesiones FROM tratamiento WHERE trat_id = #{tratId}")
+	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.SesionResult")
+	int findSesionesByTratamientoId(int tratId);
+	
 	
 	@Insert("INSERT INTO tratamiento (trat_tpo_id, trat_descripcion,trat_cant_sesiones)VALUES(#{tipoTratamiento.tipTratId}, #{tratDescripcion}, #{tratCantSesiones})")
 	@Options(useGeneratedKeys=true, keyProperty="tratId")

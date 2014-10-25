@@ -11,6 +11,8 @@ public interface TratamientoInt {
 	 
 	 Tratamiento findTratamientoById(int tratId);
 	 
+	 int findSesionesByTratamientoId(int tratId);
+	 
 	 void insertTratamiento(Tratamiento tratamiento);
 	 void updateTratamiento(Tratamiento tratamiento);
 	 void deleteTratamiento(int tratId);
