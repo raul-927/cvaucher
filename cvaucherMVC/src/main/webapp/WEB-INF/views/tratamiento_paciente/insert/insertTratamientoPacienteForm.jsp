@@ -11,7 +11,9 @@
 
 <div class="well well-lg">
 	
-	<sf:form cssClass = "form"
+	<sf:form 
+		id ="insertTratamientoForm" 
+		cssClass = "form"
 		modelAttribute ="tratamientoPaciente"
 		commandName ="tratamientoPaciente">
 		
@@ -35,7 +37,7 @@
 		 	
 		 </div>
 		 
-		<t:insertAttribute name ="content"/>
+		<t:insertAttribute name ="showCantSes"/>
 			
 		 <div class="botonForm">
 		 	 <input class="btn btn-primary" type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>

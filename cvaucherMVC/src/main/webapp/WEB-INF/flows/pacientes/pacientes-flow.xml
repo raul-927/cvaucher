@@ -25,6 +25,10 @@
 		<set name ="flowScope.tratamientoPaciente"
 			value ="new uy.com.cvaucher.services.domain.TratamientoPaciente()"
 			type ="uy.com.cvaucher.services.domain.TratamientoPaciente"/>
+			
+		<set name ="flowScope.tratamiento"
+			value =" new uy.com.cvaucher.services.domain.Tratamiento()"
+			type ="uy.com.cvaucher.services.domain.Tratamiento"/>
 		
 	 </on-start>
 	 
@@ -104,14 +108,15 @@
 		<on-render>
 			<evaluate result ="viewScope.tratP" expression="flowPacientesService.findAllTratamientos()"/>
 			
-			
 		</on-render>
 		<!--  
 		<on-entry>
-			<render fragments="content" />
+			<render fragments="showCantSes"/>
 		</on-entry>
 		-->
-		<transition on ="cantSesionesTratamiento" to ="tratamientoPacienteInsert" bind ="true"/>
+		<transition on ="cantSesionesTratamiento" to ="tratamientoPacienteInsert" bind ="true">
+			<render fragments="showCantSes"/>
+		</transition>
 		
 		<transition on ="tratamientoPacienteIngresado" to ="finIngresoPacientes" bind="true">
 			 <evaluate expression="flowPacientesService.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>

@@ -20,6 +20,7 @@
    		             
    	<put-attribute name="content"
    		value = ""/>
+   		
    	
    	<put-attribute name="right"
            

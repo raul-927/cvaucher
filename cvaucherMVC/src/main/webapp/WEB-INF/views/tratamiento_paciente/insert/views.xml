@@ -8,10 +8,14 @@
    <definition name="tratamientoPaciente/insertTratamientoPaciente" extends ="layout2">
              
 	<put-attribute name="left"
-   		value = "/WEB-INF/views/tratamiento_paciente/insert/insertTratamientoPacienteForm.jsp"/>
-   		             
-   	<put-attribute name="content"
+   		value = "content"/>
+  
+   </definition>
+   
+   <definition name ="content" template ="/WEB-INF/views/tratamiento_paciente/insert/insertTratamientoPacienteForm.jsp">
+   	<put-attribute name="showCantSes"
    		value = "/WEB-INF/views/tratamiento_paciente/insert/cantSes.jsp"/>
+   
    </definition>
 
 </tiles-definitions>

@@ -5,8 +5,11 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
-	<div class="form-group">
-			 	<sf:label path="cantSesiones" for ="cantSesiones">Sesiones</sf:label>
-			 	<sf:input cssClass ="form-control" path="cantSesiones" value ="${cantSes}" placeholder ="cantSesiones" size ="30" />
-			 	<sf:errors path ="cantSesiones" cssClass ="error"/>
-	</div>
+
+<div class="form-group">
+	<sf:label path="tratamiento" for ="tratamiento">Sesiones</sf:label>
+	<sf:input cssClass ="form-control" path="tratamiento" value ="#{tratCantSes}"  size ="30" />
+	<sf:errors path ="tratamiento" cssClass ="error"/>
+</div>
+	
+	
