@@ -54,7 +54,7 @@ public class DetallePacientesController
 	
 		Pacientes pacientes = 			this.pacientesServices.findPacientesByCedula(pacCedula);
 		
-		model.addAttribute("pacien",	this.pacientesServices.findPacientesByCedula(pacCedula));
+		model.addAttribute("pacien",	this.pacientesServices.findPacientesByCedula(pacientes.getCedula()));
 		model.addAttribute("direc", 	this.direccionServices.findDireccionByCedula(pacientes.getCedula()));
 		model.addAttribute("ag", 		this.agendaServices.findAgendaById(pacientes.getCedula()));
 		model.addAttribute("historiaC", this.historiaClinicaServices.findHistoriaClinicaByCedula(pacientes.getCedula()));
