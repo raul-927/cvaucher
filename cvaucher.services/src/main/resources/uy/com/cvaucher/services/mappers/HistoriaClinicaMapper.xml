@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.HistoriaClinicaMapper">
 		  	
-  	<resultMap type="HistoriaClinica" id="HistoriaClinicaResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.HistoriaClinica" id="HistoriaClinicaResult">
   	    
   		<id property="histCliId" column="hist_id"/>
   		

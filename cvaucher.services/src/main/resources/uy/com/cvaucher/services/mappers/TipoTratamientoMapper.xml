@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.TipoTratamientoMapper">
 		  	
-  	<resultMap type="TipoTratamiento" id="TipoTratResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.TipoTratamiento" id="TipoTratResult">
   		<id property="tipTratId" column="tip_trat_id"/>
 		<result property="tipTratDesc" column="tip_trat_descripcion"/>
   	</resultMap>

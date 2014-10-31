@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.TipoAgendaMapper">
 		  	
-  	<resultMap type="TipoAgenda" id="TipoAgendaResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.TipoAgenda" id="TipoAgendaResult">
   		<id property="tpoAgId" column="tpo_ag_id"/>
 		<result property="tpoAgText" column="tpo_ag_text"/>
 	

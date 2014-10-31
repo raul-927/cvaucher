@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.PacientesMapper">
 		  	
-  	<resultMap type="Pacientes" id="PacientesResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.Pacientes" id="PacientesResult">
   	    
   		<id 	property="pacId" 						column = "pac_id"/>
   		

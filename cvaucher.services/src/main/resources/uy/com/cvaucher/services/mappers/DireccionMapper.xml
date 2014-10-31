@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.DireccionMapper">
 		  	
-  	<resultMap type="Direccion" id="DireccionResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.Direccion" id="DireccionResult">
   	    
   		<id property="dirId" column="dir_id"/>
   		

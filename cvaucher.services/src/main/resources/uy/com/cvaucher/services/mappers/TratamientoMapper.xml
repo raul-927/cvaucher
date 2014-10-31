@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.TratamientoMapper">
 
-  	<resultMap type="Tratamiento" id="TratResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.Tratamiento" id="TratResult">
   		<id property="tratId" column="trat_id"/>
 		<result property="tratDescripcion" column="trat_descripcion"/>
 		<result property ="tratCantSesiones" column ="trat_cant_sesiones"/>
@@ -13,7 +13,7 @@
 		
   	</resultMap>
   	
-  	<resultMap type="Tratamiento" id="SesionResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.Tratamiento" id="SesionResult">
   	
   		<result property ="tratCantSesiones"	column ="trat_cant_sesiones"/>
   	

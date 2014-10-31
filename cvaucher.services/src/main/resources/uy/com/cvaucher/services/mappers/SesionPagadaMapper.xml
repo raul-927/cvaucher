@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.SesionPagadaMapper">
 		  	
-  	<resultMap type="SesionPagada" id="SesionPagadaResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.SesionPagada" id="SesionPagadaResult">
   		<id property="sesPagoId" column="ses_pago_id"/>
 		<result property = "sesMontoPago" column ="ses_monto_pagado"/>
 		<result property = "sesFecha" column ="ses_fecha"/>

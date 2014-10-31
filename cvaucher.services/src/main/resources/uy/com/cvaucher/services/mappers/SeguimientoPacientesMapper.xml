@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.SeguimientoPacientesMapper">
 		  	
-  	<resultMap type="SeguimientoPacientes" id="SeguimientoPacientesResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.SeguimientoPacientes" id="SeguimientoPacientesResult">
   		<id property="pacientes.pacId" column="pac_id"/>
 		<result property="fechComTrat" column="fecha_comienzo_tratamiento"/>
 		<result property = "frecuencia" column ="frecuencia"/>

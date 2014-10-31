@@ -5,7 +5,7 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.AgendaMapper">
 		  	
-  	<resultMap type="Agenda" id="AgendaResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.Agenda" id="AgendaResult">
   	    
   		<id property="agPacId" column="ag_pac_Id"/>
   		

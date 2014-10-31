@@ -5,10 +5,10 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.TratamientoPacienteMapper">
 		  	
-  	<resultMap type="TratamientoPaciente" id="TratamientoPacienteResult">
+  	<resultMap type="uy.com.cvaucher.services.domain.TratamientoPaciente" id="TratamientoPacienteResult">
   		<id property="tratPacId" column="trat_pac_id"/>
 		<result property = "fecha" column ="fecha"/>  
-  		<result property = "costoTratamiento" column ="costo_tratamiento"/>
+  		<result property = "costoTratSesion" column ="costo_tratamiento"/>
   		<result property = "importePagado" column ="importe_pagado"/>
   		<result property = "saldoPendiente" column ="saldo_pendiente"/>  
   		
@@ -18,7 +18,7 @@
   		
   	</resultMap>
   	
-  	<resultMap type ="TratPacByCedula" id ="TratamientoPacienteByCedulaResult">
+  	<resultMap type ="uy.com.cvaucher.services.domain.TratPacByCedula" id ="TratamientoPacienteByCedulaResult">
  
   		<result property ="fecha" column ="Fecha"/>
   		<result property ="tratDesc"	column ="Tratamiento" />
