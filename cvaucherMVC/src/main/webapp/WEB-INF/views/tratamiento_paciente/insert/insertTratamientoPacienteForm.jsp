@@ -10,24 +10,6 @@
 						<h3>Ingresar Tratamiento</h3>
 
 <div class="well well-lg">
-	<sf:form cssClass = "form"
-		modelAttribute ="tratamientoPaciente"
-		commandName ="tratamientoPaciente">
-		
-			<input type="hidden" name="_flowExecutionKey" 
-             value="${flowExecutionKey}"/>
-		
-		<div class="form-group">
-		 	
-		 	<sf:label path="tratamiento" for ="tratamiento">Tratamiento</sf:label>
-		 	<sf:select cssClass ="form-control" path="tratamiento" size ="1" id="descCAT">
-		 		<sf:options path="tratamiento" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId" />
-		 	</sf:select>
-		 	<sf:errors path ="tratamiento" cssClass ="error"/>
-		 	
-		 </div>
-	</sf:form>	
-	
 	<sf:form 
 		id ="insertTratamientoForm" 
 		cssClass = "form"

@@ -7,9 +7,9 @@
 
 
 <div class="form-group">
-	<sf:label path="tratamiento" for ="tratamiento">Sesiones</sf:label>
-	<sf:input cssClass ="form-control" path="tratamiento" value ="#{tratCantSes}"  size ="30" />
-	<sf:errors path ="tratamiento" cssClass ="error"/>
+	<sf:label path="cantSesiones" for ="cantSesiones">Sesiones</sf:label>
+	<sf:input cssClass ="form-control" path="cantSesiones" value ="${tratP[3]}"  size ="30" />
+	<sf:errors path ="cantSesiones" cssClass ="error"/>
 </div>
 	
-	
+
