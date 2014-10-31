@@ -27,14 +27,13 @@ public interface TratamientoPacienteMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoPacienteMapper.TratamientoPacienteByCedulaResult")
 	List<TratPacByCedula> findTratamientoPacienteByCedula(int cedula);
 	
-	@Select("SELECT * FROM tratamiento_paciente tp, tratamiento t"
-			+ "WHERE tp.trat_id = t.trat_id	")
+	@Select("SELECT * FROM tratamiento_paciente ")
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoPacienteMapper.TratamientoPacienteResult")
 	List<TratamientoPaciente> findAllTratamientoPaciente();
 	
 	@Insert("INSERT INTO tratamiento_paciente (fecha, pac_cedula, trat_id, "
 			+ "costo_tratamiento, importe_pagado, saldo_pendiente, cant_sesiones) "
-			+ "VALUES (#{fecha}, #{pacientes.cedula}, #{tratamiento}, "
+			+ "VALUES (#{fecha}, #{pacientes.cedula}, #{tratamiento.tratId}, "
 			+ "#{costoTratSesion}, #{importePagado}, #{saldoPendiente}, #{cantSesiones})")
 	@Options(useGeneratedKeys=true, keyProperty="tratPacId")
 	void insertTratamientoPacienteMapper(TratamientoPaciente tratamientoPaciente);

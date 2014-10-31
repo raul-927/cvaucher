@@ -17,17 +17,17 @@ import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 import uy.com.cvaucher.services.services.TipoTratamientoService;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:root-Context.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations="classpath:root-Context.xml")
 public class TipoTratamientoTest 
 {
 	
-	@Autowired
+	//@Autowired
 	TipoTratamientoInt tipoTratamientoService;
 	
 	
 	
-	@Test
+	//@Test
 	public void createNewTipoTratamiento()
 	{
 		TipoTratamiento tipoTratamiento = new TipoTratamiento();
@@ -41,7 +41,7 @@ public class TipoTratamientoTest
 		assertEquals("Estetico", tipoTratamiento.getTipTratDesc());
 	}
 	
-	@Test
+	//@Test
 	public void selectAllTipoTratamiento()
 	{
 	

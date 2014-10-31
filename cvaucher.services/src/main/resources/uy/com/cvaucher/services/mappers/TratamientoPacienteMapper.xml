@@ -11,9 +11,10 @@
   		<result property = "costoTratamiento" column ="costo_tratamiento"/>
   		<result property = "importePagado" column ="importe_pagado"/>
   		<result property = "saldoPendiente" column ="saldo_pendiente"/>  
-  		<result property = "tratamiento"	column ="trat_id"/>
   		
-  		<association property = "pacientes" 	resultMap ="uy.com.cvaucher.services.mappers.PacientesMapper.PacientesResult"/>
+  		
+  		<association property = "tratamiento" resultMap ="uy.com.cvaucher.services.mappers.TratamientoMapper.TratResult"/>
+  		<association property = "pacientes" resultMap ="uy.com.cvaucher.services.mappers.PacientesMapper.PacientesResult"/>
   		
   	</resultMap>
   	
