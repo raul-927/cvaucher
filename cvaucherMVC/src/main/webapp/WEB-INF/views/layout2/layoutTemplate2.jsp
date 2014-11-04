@@ -21,6 +21,9 @@
 			<script src="https://oss.maxcdn.com/libs/
 			respond.js/1.4.2/respond.min.js"></script>
 			<![endif]-->
+			<script type="text/javascript" src="<c:url value="/resources/js/dojo/dojo.js" />"> </script>
+			<script type="text/javascript" src="<c:url value="/resources/js/spring/Spring.js" />"> </script>
+			<script type="text/javascript" src="<c:url value="/resources/js/spring/Spring-Dojo.js" />"> </script>
 	</head>
 	<body>
 		<script src="<s:url value="/resources" />/js/jquery.js"></script>
