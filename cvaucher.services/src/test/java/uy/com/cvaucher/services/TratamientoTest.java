@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import uy.com.cvaucher.services.domain.TipoTratamiento;
 import uy.com.cvaucher.services.domain.Tratamiento;
-import uy.com.cvaucher.services.services.TratamientoService;
+import uy.com.cvaucher.services.interfaces.TratamientoInt;
 
 
 
@@ -22,10 +22,11 @@ public class TratamientoTest
 {
 	
 	@Autowired
-	TratamientoService tratamientoService;
+	TratamientoInt tratamientoService;
 	
 	
-	@Test
+	//@Test
+	/*
 	public void createNewTratamiento()
 	{
 		TipoTratamiento tipoTratamiento = new TipoTratamiento();
@@ -44,6 +45,26 @@ public class TratamientoTest
 		
 		assertEquals(1,tratamiento.getTipoTratamiento().getTipTratId());
 		assertEquals("Masaje modelador", tratamiento.getTratDescripcion());
+	}*/
+	
+	@Test
+	public void selectTratamientoById()
+	{
+		Tratamiento tratamiento = new Tratamiento();
+		tratamiento = tratamientoService.findTratamientoById(11);
+		
+		System.out.println("id =" +tratamiento.getTratId());
+		System.out.println("TipoTratamiento =" +tratamiento.getTipoTratamiento());
+		System.out.println("Descripcion = "+tratamiento.getTratDescripcion());
+		System.out.println("Cantidad de Sesiones = "+tratamiento.getTratCantSesiones());
+	}
+	
+	@Test
+	public void findSesionesByTratamiento()
+	{
+		int tratId = 11;
+		int cantSes = tratamientoService.findSesionesByTratamientoId(tratId);
+		System.out.println("Tratamiento 11, cantidad de SESIONES: "+cantSes);
 	}
 	
 	

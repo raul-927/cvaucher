@@ -16,7 +16,7 @@ public class TratamientoPaciente implements Serializable
 	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private String 		fecha ;
 	private Pacientes 	pacientes;
-	private Tratamiento	tratamiento;
+	private int			tratamId;
 	private int 		costoTratSesion;
 	private int 		importePagado;
 	private int 		saldoPendiente;
@@ -39,12 +39,6 @@ public class TratamientoPaciente implements Serializable
 		this.pacientes = pacientes;
 	}
 	
-	public Tratamiento getTratamiento() {
-		return tratamiento;
-	}
-	public void setTratamiento(Tratamiento tratamiento) {
-		this.tratamiento = tratamiento;
-	}
 	
 	public int getImportePagado() {
 		return importePagado;
@@ -78,6 +72,13 @@ public class TratamientoPaciente implements Serializable
 	public void setCantSesiones(int cantSesiones) {
 		this.cantSesiones = cantSesiones;
 	}
+	public int getTratamId() {
+		return tratamId;
+	}
+	public void setTratamId(int tratamId) {
+		this.tratamId = tratamId;
+	}
+	
 	
 
 }

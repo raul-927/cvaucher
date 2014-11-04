@@ -14,15 +14,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import uy.com.cvaucher.services.domain.TipoTratamiento;
 import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
-import uy.com.cvaucher.services.services.TipoTratamientoService;
 
 
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations="classpath:root-Context.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:root-Context.xml")
 public class TipoTratamientoTest 
 {
 	
-	//@Autowired
+	@Autowired
 	TipoTratamientoInt tipoTratamientoService;
 	
 	
@@ -41,7 +40,7 @@ public class TipoTratamientoTest
 		assertEquals("Estetico", tipoTratamiento.getTipTratDesc());
 	}
 	
-	//@Test
+	@Test
 	public void selectAllTipoTratamiento()
 	{
 	

@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
 import uy.com.cvaucher.services.mappers.DireccionMapper;
-import uy.com.cvaucher.services.enumerador.TipoVivienda;
 
 @Service
 @Transactional
