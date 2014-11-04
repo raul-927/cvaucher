@@ -97,6 +97,7 @@ public class FlowPacientesService
 	{
 		return this.tratamientoServices.findTratamientoById(tratId);
 	}
+	
 	public int findSesionesByTratamiento(int tratId)
 	{
 		return this.tratamientoServices.findSesionesByTratamientoId(tratId);

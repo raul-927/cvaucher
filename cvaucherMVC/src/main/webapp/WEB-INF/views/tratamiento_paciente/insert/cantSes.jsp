@@ -8,7 +8,13 @@
 
 <div class="form-group">
 	<sf:label path="cantSesiones" for ="cantSesiones">Sesiones</sf:label>
-	<sf:input cssClass ="form-control" path="cantSesiones" value ="${tratP[3]}"  size ="30" />
+	<c:forEach var = "aux" items ="${tratP}">
+			<c:set var = "aux2" value ="#{tratPacById}"/>
+			<c:if test ="${aux.tratId == tratPacById.tratId}">
+				<sf:input cssClass ="form-control" path="cantSesiones"   value ="${aux.tratCantSesiones}" size ="30" />
+			</c:if>
+
+	</c:forEach>
 	<sf:errors path ="cantSesiones" cssClass ="error"/>
 </div>
 	
