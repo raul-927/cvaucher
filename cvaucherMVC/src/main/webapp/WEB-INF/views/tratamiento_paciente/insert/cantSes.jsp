@@ -9,14 +9,12 @@
 <div class="form-group">
 	<sf:label path="cantSesiones" for ="cantSesiones">Sesiones</sf:label>
 	<c:forEach var = "aux" items ="${tratP}">
-	
-			<c:set var = "aux2" value ="#{tratPacById}"/>
 			
 			<c:if test ="${aux.tratId == tratPacById.tratId}">
-				<c:set var ="aux3" value ="#{tratPacById.tratCantSesiones}"/>
+				<c:set var ="aux2" value ="#{tratPacById.tratCantSesiones}"/>
 			</c:if>
 	</c:forEach>
-	<sf:input cssClass ="form-control" path="cantSesiones"   value ="${aux3}" size ="30" />
+	<sf:input cssClass ="form-control" path="cantSesiones"   value ="${aux2}" size ="30" />
 	<sf:errors path ="cantSesiones" cssClass ="error"/>
 </div>
 	
