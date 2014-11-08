@@ -14,8 +14,8 @@ import uy.com.cvaucher.services.domain.Tratamiento;
 
 public interface TratamientoMapper 
 {
-	@Select("SELECT trat_id, trat_tpo_id, trat_descripcion, trat_cant_sesiones FROM tratamiento "
-			+ "ORDER BY trat_id")
+	@Select("SELECT t.trat_id, tt.tip_trat_descripcion, trat_descripcion, trat_cant_sesiones FROM tratamiento t, tipo_tratamiento tt"
+			+ "WHERE t.trat_tpo_id = tt.tip_trat_id ORDER BY trat_id")
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratResult")
 	List<Tratamiento> findAllTratamientos();
 	
