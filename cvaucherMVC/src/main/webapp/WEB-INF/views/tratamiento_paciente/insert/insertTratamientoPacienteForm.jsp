@@ -1,10 +1,19 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="t" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-
+<script type="text/javascript">
+	dojo.addOnLoad(function() {
+		Spring.addDecoration(new Spring.AjaxEventDecoration({
+			elementId : "prueba",
+			event : "onclick",
+			formId: "insertTratamientoForm"
+		}));
+	});
+</script>
 
 
 						<h3>Ingresar Tratamiento</h3>
@@ -29,7 +38,7 @@
 		 	
 		 	<sf:label path="tratamId" for ="tratamId">Tratamiento</sf:label>
 		 	<sf:select cssClass ="form-control" path="tratamId" size ="1" >
-		 		<sf:options  path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId"/>
+		 		<sf:options  id ="prueba" path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId"/>
 		 	</sf:select>
 		 	<sf:errors path ="tratamId" cssClass ="error"/>
 		 	
@@ -38,7 +47,7 @@
 		<t:insertAttribute name ="showCantSes"/>
 			
 		 <div class="botonForm">
-		 	 <input class="btn btn-primary" type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
+		 	 <input class="btn btn-primary"  type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
 		 </div>
 		 	<div class="form-group">
 			 	<sf:label path="costoTratSesion" for ="costoTratSesion">Importe</sf:label>
