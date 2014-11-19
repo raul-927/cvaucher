@@ -23,7 +23,7 @@
 		<c:forEach var="tratPac" items="${tratPac}">
 			<tr>
 				
-			  	<td >${tratPac.fecha}</td>
+			  	<td ><a href="<s:url value ="/detallep/detPac/${tratPac.cedula}/${tratPac.fecha}"/>">${tratPac.fecha}</a></td>
 				<td >${tratPac.tratDesc}</td>
 				<td >${tratPac.cantSesiones}</td>
 				<td >${tratPac.costoTratamiento}</td>

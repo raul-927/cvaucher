@@ -9,6 +9,7 @@ public class TratPacByCedula implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	//private int 	tratPacId;
+	private int 	cedula;
 	private String 	fecha;
 	private String 	tratDesc;
 	private int		cantSesiones;
@@ -51,6 +52,12 @@ public class TratPacByCedula implements Serializable
 	}
 	public void setCantSesiones(int cantSesiones) {
 		this.cantSesiones = cantSesiones;
+	}
+	public int getCedula() {
+		return cedula;
+	}
+	public void setCedula(int cedula) {
+		this.cedula = cedula;
 	}
 	
 	

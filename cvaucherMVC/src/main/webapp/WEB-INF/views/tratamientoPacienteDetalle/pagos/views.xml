@@ -1,0 +1,50 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+<!--<start id="tile_template"/>-->
+
+   <definition name="templatePago" 
+             template="/WEB-INF/views/tratamientoPacienteDetalle/pagos/insertPagoTemplate.jsp">
+    
+    <put-attribute name="header"
+       		value ="/WEB-INF/views/layout/layoutHead.jsp"/>
+       
+     <put-attribute name="menu"
+           value = "/WEB-INF/views/layout/layoutMenu.jsp"/>   
+
+	<put-attribute name="left"
+   		value = ""/>
+   		             
+   	<put-attribute name="content"
+   		value = ""/>
+   	
+   	<put-attribute name="right"
+           
+           value = ""/>
+           
+    <put-attribute name="tabs"
+           value = ""/>
+           
+           
+     <put-attribute name="footer"
+           value = "/WEB-INF/views/layout/layoutFooter.jsp"/>
+   		             
+   </definition>
+   
+ 
+<!--<end id="tile_template"/>-->
+ 
+<!--<start id="edit"/>-->	  
+	<definition name ="pago/insertPago" extends ="templatePago">
+		<put-attribute name="left" 
+			value= "/WEB-INF/views/tratamientoPacienteDetalle/pagos/insertPagoForm.jsp"/>
+		
+		<put-attribute name="right"	
+			value= "/WEB-INF/views/tratamientoPacienteDetalle/pagos/tablePago.jsp"/>
+	</definition>
+<!--<end id="edit"/>-->
+	
+  
+</tiles-definitions>

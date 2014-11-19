@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import uy.com.cvaucher.services.domain.TratPacByCedula;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
@@ -15,7 +16,7 @@ public interface TratamientoPacienteMapper
 {
 	
 	
-	@Select("SELECT tp.fecha Fecha, "
+	@Select("SELECT tp.pac_cedula Cedula, tp.fecha Fecha, "
 			+ "t.trat_descripcion Tratamiento, "
 			+ "tp.cant_sesiones Sesiones, "
 			+ "tp.costo_tratamiento Monto, "
@@ -41,6 +42,22 @@ public interface TratamientoPacienteMapper
 	@Delete("DELETE FROM tratamiento_paciente WHERE trat_pac_id = #{tratPacId}")
 	void deleteTratamientoPacienteMapper(int tratPacId);
 	
-	
-	
+	@Update("CREATE TEMPORARY TABLE temp_importe_pagado "+
+			"SELECT trat_pac_id Id, importe_pagado Pago "+
+			"FROM	tratamiento_paciente WHERE trat_pac_id = #{tratPacId} "+
+			"UPDATE tratamiento_paciente "+
+			"SET 	importe_pagado = (SELECT Pago FROM temp_importe_pagado) + #{importe}, "+
+			"saldo_pendiente = costo_tratamiento - importe_pagado "+
+			"WHERE		trat_pac_id = #{tratPacId}")
+	void updateTratamientoPacienteMapper(int tratPacId, int importe);
+/*	
+	CREATE TEMPORARY TABLE temp_importe_pagado
+	SELECT	trat_pac_id Id, importe_pagado Pago 
+	FROM		tratamiento_paciente WHERE trat_pac_id = 41;
+
+	UPDATE	tratamiento_paciente
+	SET 		importe_pagado = (SELECT Pago FROM temp_importe_pagado) + 500,
+				saldo_pendiente = costo_tratamiento - importe_pagado
+	WHERE		trat_pac_id = 41;
+*/
 }

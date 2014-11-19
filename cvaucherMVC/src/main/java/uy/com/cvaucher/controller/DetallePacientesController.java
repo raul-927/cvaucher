@@ -63,4 +63,21 @@ public class DetallePacientesController
 		return "pacientes/detallePacientes";
 	}
 	
+	@RequestMapping(value ="/detPac/{pacCedula}/{fecha}", method = RequestMethod.GET)
+	public String showPacienteTratamientoDetalle(Model model,  @PathVariable("pacCedula") int pacCedula, @PathVariable("fecha") String fecha)
+	{
+		/*
+		Pacientes pacientes = 			this.pacientesServices.findPacientesByCedula(pacCedula);
+		
+		model.addAttribute("pacien",	this.pacientesServices.findPacientesByCedula(pacientes.getCedula()));
+		model.addAttribute("direc", 	this.direccionServices.findDireccionByCedula(pacientes.getCedula()));
+		model.addAttribute("ag", 		this.agendaServices.findAgendaById(pacientes.getCedula()));
+		model.addAttribute("historiaC", this.historiaClinicaServices.findHistoriaClinicaByCedula(pacientes.getCedula()));
+		model.addAttribute("tratPac", 	this.tratamientoPacienteServices.findTratamientoPacienteByCedula(pacientes.getCedula()));
+		
+		return "pacientes/detallePacientes";
+		*/
+		return "tratamientoPaciente/tratamientoPacienteDetalle";
+	}
+	
 }

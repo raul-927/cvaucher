@@ -5,6 +5,14 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="t" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
+<%@ page session="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -45,9 +53,29 @@
 					<t:insertAttribute name ="left"/>
 				</div>
 				 <div class="col-xs-10 col-sm-12 col-md-12 col-lg-12">
-					<t:insertAttribute name ="content"/>
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#Pagos" data-toggle="tab">Pagos</a></li>
+									
+							<li><a href="#Sesiones" data-toggle="tab">Sesiones</a></li>
+									
+							<li><a href ="#SeguimientoPaciente" data-toggle="tab">Seguimiento de Paciente</a></li>
+									
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="Pagos">
+								<t:insertAttribute name ="pagos"/>
+							</div>
+							<div class="tab-pane" id="Sesiones">
+								<t:insertAttribute name ="sesiones"/>				
+							</div>
+							<div class ="tab-pane" id="SeguimientoPaciente">
+								<t:insertAttribute name ="seguimientoPaciente"/>		
+							</div>
+							
+						</div>
+					</div>
 				</div>
-					
 				
 			</div>
 			
@@ -59,3 +87,28 @@
 		</footer>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+				
+				
+			
+			
+		
+		
