@@ -39,7 +39,7 @@
 	<definition name ="tratamientoPaciente/tratamientoPacienteDetalle"  extends = "tratamientoPacienteDetalleTemplate">
 		
 		<put-attribute name ="pagos"
-			value =""/>
+			value ="pago/insertPago"/>
 			
 		<put-attribute name ="sesiones"
 			value =""/>
@@ -48,5 +48,7 @@
 			value =""/>
 	
 	</definition>
+	
+	
   
 </tiles-definitions>

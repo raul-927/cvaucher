@@ -127,6 +127,11 @@
 		p:service-ref="tratamientoPacienteService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.TratamientoPacienteInt"/>
 	
+	<bean id ="httpHistorialPagosService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="historialPagosService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.HistorialPagosInt"/>
+	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -244,4 +249,13 @@
 		</property>	
 	</bean>
 	 
+	<bean id ="urlMappingHistorialPagos" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.historialPagos = httpHistorialPagosService
+			</value>
+		</property>	
+	</bean> 
 </beans>

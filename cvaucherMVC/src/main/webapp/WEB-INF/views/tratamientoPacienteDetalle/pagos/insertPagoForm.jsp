@@ -7,16 +7,12 @@
 
 <div class="well well-lg">
 	
-	<sf:form cssClass = "form"
-		model ="historialPagos">
-			
-			<!--  		
-			<input type="hidden" name="_flowExecutionKey" 
-             value="${flowExecutionKey}"/>
-             -->
+	<sf:form cssClass ="form"
+		modelAttribute ="historialPagos">
+
 	        <div class="form-group">
 			 	<sf:label path="histPagosFechaPago" for ="histPagosFechaPago">Fecha</sf:label>
-			 	<sf:input cssClass ="input-small " path="histPagosFechaPago" size ="8" placeholder ="Fecha"/>
+			 	<sf:input cssClass ="input-small " path="histPagosFechaPago"  value ="#{salida}" size ="8" enabled = "false"/>
 			 	<sf:errors path ="histPagosFechaPago" cssClass ="error"/>
 		 	</div>
 		 	<div class="form-group">

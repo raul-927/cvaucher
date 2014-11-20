@@ -7,9 +7,9 @@
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.HistorialPagos" id="HistorialPagosResult">
   	    
-  		<id 	property = "histPagosId" 		column = "hist_pagos_Id"/>
+  		<id 	property = "histPagosId" 		column = "hist_pagos_id"/>
   		
-		<result property = "histTratPacId" 		column = "hist__pagos_trat_pac_id"/>
+		<result property = "histTratPacId" 		column = "hist_pagos_trat_pac_id"/>
 		<result property = "histPagosFechaPago"	column = "hist_pagos_fecha_pago"/>
 		<result property = "histPagosMonto"		column = "hist_pagos_monto"/> 
   	</resultMap>

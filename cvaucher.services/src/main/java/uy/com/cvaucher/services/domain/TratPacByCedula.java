@@ -8,7 +8,13 @@ public class TratPacByCedula implements Serializable
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//private int 	tratPacId;
+	private int 	tratPacId;
+	public int getTratPacId() {
+		return tratPacId;
+	}
+	public void setTratPacId(int tratPacId) {
+		this.tratPacId = tratPacId;
+	}
 	private int 	cedula;
 	private String 	fecha;
 	private String 	tratDesc;

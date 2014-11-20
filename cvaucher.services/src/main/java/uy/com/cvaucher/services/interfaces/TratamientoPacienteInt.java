@@ -11,7 +11,7 @@ public interface TratamientoPacienteInt
 	List<TratamientoPaciente> findAllTratamientoPaciente();
 	
 	void insertTratamientoPaciente(TratamientoPaciente tratamientoPaciente);
-	void updateTratamientoPaciente(TratamientoPaciente tratamientoPaciente);
+	void updateTratamientoPacienteImporte(TratamientoPaciente tratamientoPaciente);
 	void deleteTratamientoPaciente(int tratPacId);
 
 }

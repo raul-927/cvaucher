@@ -82,4 +82,9 @@
 			class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.tratamientoPaciente"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TratamientoPacienteInt"/>
+	
+	<bean id ="historialPagosServices"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.historialPagos"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.HistorialPagosInt"/>
 </beans>

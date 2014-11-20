@@ -1,12 +1,22 @@
 package uy.com.cvaucher.services.domain;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class HistorialPagos 
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+public class HistorialPagos implements Serializable
 {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private int histPagosId;
+	
 	private int histTratPacId;
-	private Date histPagosFechaPago;
+	
+	@DateTimeFormat(pattern = "YYYY-MM-dd")
+	private String histPagosFechaPago;
+	
 	private int	histPagosMonto;
 	
 	public int getHistPagosId() {
@@ -22,10 +32,10 @@ public class HistorialPagos
 	public void setHistTratPacId(int histTratPacId) {
 		this.histTratPacId = histTratPacId;
 	}
-	public Date getHistPagosFechaPago() {
+	public String getHistPagosFechaPago() {
 		return histPagosFechaPago;
 	}
-	public void setHistPagosFechaPago(Date histPagosFechaPago) {
+	public void setHistPagosFechaPago(String histPagosFechaPago) {
 		this.histPagosFechaPago = histPagosFechaPago;
 	}
 	public int getHistPagosMonto() {

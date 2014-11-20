@@ -19,6 +19,7 @@
   	
   	<resultMap type ="uy.com.cvaucher.services.domain.TratPacByCedula" id ="TratamientoPacienteByCedulaResult">
  
+ 		<result property ="tratPacId"			column ="Id"/>
  		<result property ="cedula"				column ="Cedula"/>
   		<result property ="fecha"				column ="Fecha"/>
   		<result property ="tratDesc"			column ="Tratamiento" />

@@ -43,9 +43,8 @@ public class TratamientoPacienteService implements TratamientoPacienteInt {
 	}
 
 	@Override
-	public void updateTratamientoPaciente(
-			TratamientoPaciente tratamientoPaciente) {
-		// TODO Auto-generated method stub
+	public void updateTratamientoPacienteImporte(TratamientoPaciente tratamientoPaciente) {
+		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 
 	}
 

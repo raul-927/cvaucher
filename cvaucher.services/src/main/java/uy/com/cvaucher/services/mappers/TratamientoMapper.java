@@ -37,7 +37,7 @@ public interface TratamientoMapper
 	void insertTratamiento(Tratamiento tratamiento);
 	
 	
-	@Update("UPDATE tratamiento set trat_tpo_id = #{tipoTratamiento.tipTratId}, trat_descripcion = #{tratDescripcion} WHERE  trat_id=#{tratId}")
+	@Update("UPDATE tratamiento set trat_tpo_id = #{tipoTratamiento.tipTratId}, trat_descripcion = #{tratDescripcion} , trat_cant_sesiones = #{tratCantSesiones} WHERE  trat_id=#{tratId}")
 	void updateTratamiento(Tratamiento tratamiento);
 	
 	
