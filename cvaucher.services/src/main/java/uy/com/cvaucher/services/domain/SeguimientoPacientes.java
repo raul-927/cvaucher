@@ -8,128 +8,106 @@ public class SeguimientoPacientes implements Serializable
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private Pacientes 		pacientes;
-	private Date 			fechComTrat;
-	private int 			frecuencia;
-	private String 			observaciones;
-	private String			brazoI;
-	private String			brazoD;
-	private String			muzloI;
-	private String			muzloD;
-	private String			abdomen;
-	private String			cintura;
-	private String			cadera;
+	private static final long	serialVersionUID = 1L;
+	private int				segPacId;
+	private int				tratPacId;
+	private String 			fechControl;
+
+	private int				brazoI;
+	private int				brazoD;
+	private int				muzloI;
+	private int				muzloD;
+	private int				abdomen;
+	private int				cintura;
+	private int				cadera;
 	private int				peso;
-	private float			imc;
+	private double			imc;
+	private String 			observaciones;
 	
-	
-	public Pacientes getPacientes() 
-	{
-		return pacientes;
+	public int getSegPacId() {
+		return segPacId;
 	}
-	public void setPacientes(Pacientes pacientes) 
-	{
-		this.pacientes = pacientes;
+	public void setSegPacId(int segPacId) {
+		this.segPacId = segPacId;
 	}
-	
-	public Date getFechComTrat() 
-	{
-		return fechComTrat;
+	public int getTratPacId() {
+		return tratPacId;
 	}
-	public void setFechComTrat(Date fechComTrat) 
-	{
-		this.fechComTrat = fechComTrat;
+	public void setTratPacId(int tratPacId) {
+		this.tratPacId = tratPacId;
 	}
-	
-	public int getFrecuencia() 
-	{
-		return frecuencia;
+	public String getFechControl() {
+		return fechControl;
 	}
-	public void setFrecuencia(int frecuencia) 
-	{
-		this.frecuencia = frecuencia;
+	public void setFechControl(String fechControl) {
+		this.fechControl = fechControl;
 	}
-	public String getObservaciones() 
-	{
-		return observaciones;
-	}
-	public void setObservaciones(String observaciones) 
-	{
-		this.observaciones = observaciones;
-	}
-	public String getBrazoI() 
-	{
+	public int getBrazoI() {
 		return brazoI;
 	}
-	public void setBrazoI(String brazoI) 
-	{
+	public void setBrazoI(int brazoI) {
 		this.brazoI = brazoI;
 	}
-	public String getBrazoD() 
-	{
+	public int getBrazoD() {
 		return brazoD;
 	}
-	public void setBrazoD(String brazoD) 
-	{
+	public void setBrazoD(int brazoD) {
 		this.brazoD = brazoD;
 	}
-	public String getMuzloI() 
-	{
+	public int getMuzloI() {
 		return muzloI;
 	}
-	public void setMuzloI(String muzloI) 
-	{
+	public void setMuzloI(int muzloI) {
 		this.muzloI = muzloI;
 	}
-	public String getMuzloD() 
-	{
+	public int getMuzloD() {
 		return muzloD;
 	}
-	public void setMuzloD(String muzloD) 
-	{
+	public void setMuzloD(int muzloD) {
 		this.muzloD = muzloD;
 	}
-	public String getAbdomen() 
-	{
+	public int getAbdomen() {
 		return abdomen;
 	}
-	public void setAbdomen(String abdomen)
-	{
+	public void setAbdomen(int abdomen) {
 		this.abdomen = abdomen;
 	}
-	public String getCintura() 
-	{
+	public int getCintura() {
 		return cintura;
 	}
-	public void setCintura(String cintura) 
-	{
+	public void setCintura(int cintura) {
 		this.cintura = cintura;
 	}
-	public String getCadera() 
-	{
+	public int getCadera() {
 		return cadera;
 	}
-	public void setCadera(String cadera)
-	{
+	public void setCadera(int cadera) {
 		this.cadera = cadera;
 	}
-	public int getPeso() 
-	{
+	public int getPeso() {
 		return peso;
 	}
-	public void setPeso(int peso)
-	{
+	public void setPeso(int peso) {
 		this.peso = peso;
 	}
-	public float getImc() 
-	{
+	public double getImc() {
 		return imc;
 	}
-	public void setImc(float imc)
-	{
+	public void setImc(double imc) {
 		this.imc = imc;
 	}
+	public String getObservaciones() {
+		return observaciones;
+	}
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
+	
 	
 	
 	

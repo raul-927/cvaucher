@@ -175,7 +175,7 @@
 		
 		<property name="mappings">
 			<value>
-				/cvaucher.seguimientoPacientes= httpSeguimientoPacientesService
+				/cvaucher.seguimientopacientes= httpSeguimientoPacientesService
 			</value>
 		</property>	
 	</bean>

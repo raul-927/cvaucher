@@ -6,19 +6,21 @@
 <mapper namespace="uy.com.cvaucher.services.mappers.SeguimientoPacientesMapper">
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.SeguimientoPacientes" id="SeguimientoPacientesResult">
-  		<id property="pacientes.pacId" column="pac_id"/>
-		<result property="fechComTrat" column="fecha_comienzo_tratamiento"/>
-		<result property = "frecuencia" column ="frecuencia"/>
-  		<result property = "observaciones" column ="observaciones"/>
-  		<result property = "brazoI" column ="brazo_izquierdo"/>
-  		<result property = "brazoD" column ="brazo_derecho"/>
-  		<result property = "muzloI" column ="muzlo_izquierdo"/>
-  		<result property = "muzloD" column ="muzlo_derecho"/>
-  		<result property = "abdomen" column ="abdomen"/>
-  		<result property = "cintura" column ="cintura"/>
-  		<result property = "cadera" column ="cadera"/>
-  		<result property = "peso" column ="peso"/>
-  		<result property = "imc" column ="imc"/>
+  	
+  		<id 	property = "segPacId"			column = "seg_pac_id"/>
+  		
+  		<result property = "tratPacId"			column = "trat_pac_id"/>
+		<result property = "fechControl" 		column = "fecha_control"/>
+  		<result property = "observaciones" 		column = "observaciones"/>
+  		<result property = "brazoI" 			column = "brazo_izquierdo"/>
+  		<result property = "brazoD" 			column = "brazo_derecho"/>
+  		<result property = "muzloI" 			column = "muzlo_izquierdo"/>
+  		<result property = "muzloD" 			column = "muzlo_derecho"/>
+  		<result property = "abdomen" 			column = "abdomen"/>
+  		<result property = "cintura" 			column = "cintura"/>
+  		<result property = "cadera" 			column = "cadera"/>
+  		<result property = "peso" 				column = "peso"/>
+  		<result property = "imc" 				column = "imc"/>
   	</resultMap>
   	
   

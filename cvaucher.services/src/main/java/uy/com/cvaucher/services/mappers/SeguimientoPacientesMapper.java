@@ -19,31 +19,31 @@ import uy.com.cvaucher.services.domain.SeguimientoPacientes;
 public interface SeguimientoPacientesMapper 
 {
 	@Select("Select * FROM seguimiento_pacientes")
-	@ResultMap("uy.com.cvaucher.services.mappers.SeguimientoPacientesMapper")
+	@ResultMap("uy.com.cvaucher.services.mappers.SeguimientoPacientesMapper.SeguimientoPacientesResult")
 	List<SeguimientoPacientes> findAllSeguimientoPacientes();
 	
-	@Select("Select * FROM seguimiento_pacientes WHERE pac_id =#{pacId}")
-	@ResultMap("uy.com.cvaucher.services.mappers.SeguimientoPacientesMapper")
-	SeguimientoPacientes findSeguimientoPacientesByid( int pacId);
+	@Select("Select * FROM seguimiento_pacientes WHERE trat_pac_id =#{tratPacId}")
+	@ResultMap("uy.com.cvaucher.services.mappers.SeguimientoPacientesMapper.SeguimientoPacientesResult")
+	List<SeguimientoPacientes> findSeguimientoPacientesByTratPacId( int tratPacId);
 	
 	
 	@Insert(" INSERT INTO seguimiento_pacientes" +
-			"(pac_id, fecha_comienzo_tratamiento, " +
-			"frecuencia, observaciones, brazo_izquierdo, " +
+			"(trat_pac_id, fecha_control, " +
+			" brazo_izquierdo, " +
 			"brazo_derecho, muzlo_izquierdo, " +
-			"muzlo_derecho, abdomen, cintura, cadera, peso, imc)" +
+			"muzlo_derecho, abdomen, cintura, cadera, peso, imc, observaciones)" +
 			"VALUES" +
-			"(#{pacientes.pacId}, #{fechComTrat}, #{frecuencia}, " +
-			"#{observaciones}, #{brazoI}, #{brazoD}, " +
+			"(#{tratPacId}, #{fechControl}, " +
+			" #{brazoI}, #{brazoD}, " +
 			"#{muzloI}, #{muzloD}, #{abdomen}, " +
-			"#{cintura}, #{cadera}, #{peso}, #{imc})")
-	void insertSeguimientoPacientes(SeguimientoPacientes segpacientes);
+			"#{cintura}, #{cadera}, #{peso}, #{imc}, #{observaciones})")
+	@Options(useGeneratedKeys=true, keyProperty="segPacId")
+	void insertSeguimientoPacientes(SeguimientoPacientes seguimientoPacientes);
 	
 	
 	@Update("UPDATE seguimiento_pacientes" +
 			"SET  " +
-			"fecha_comienzo_tratamiento= #{fechComTrat}," +
-			"frecuencia =  #{frecuencia}," +
+			"fecha_control = #{fechControl}," +
 			"observaciones = #{observaciones}," +
 			"brazo_izquierdo = #{brazoI}," +
 			"brazo_derecho =  #{brazoD}," +
@@ -54,12 +54,12 @@ public interface SeguimientoPacientesMapper
 			"cadera = #{cadera}," +
 			"peso = #{peso}," +
 			"imc =  #{imc}" +
-			"WHERE	pac_id = #{pacientes.pacId}")
-	void updateSeguimientoPacientes(SeguimientoPacientes segpacientes);
+			"WHERE	seg_pac_id = #{segPacId}")
+	void updateSeguimientoPacientes(SeguimientoPacientes seguimientoPacientes);
 	
 	
-	@Delete("DELETE FROM seguimiento_pacientes WHERE pac_id = #{pacId}")
-	void deleteSeguimientoPacientes(int pacId);
+	@Delete("DELETE FROM seguimiento_pacientes WHERE seg_pac_id = #{segPacId}")
+	void deleteSeguimientoPacientes(int segPacId);
 	
 	
 }

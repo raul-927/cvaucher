@@ -31,35 +31,36 @@ public class SeguimientoPacientesService implements SeguimientoPacientesInt
 	}
 
 	@Override
-	public SeguimientoPacientes findSeguimientoPacientesByid(int pacId) {
+	public List<SeguimientoPacientes> findSeguimientoPacientesByTratPacId( int tratPacId) {
 
-		logger.debug("findSeguimientoPacientesByid : "+pacId);
+		logger.debug("findSeguimientoPacientesByid : "+tratPacId);
 		
-		return seguimientoPacientesMapper.findSeguimientoPacientesByid(pacId);
+		List<SeguimientoPacientes> seguimientoPacientes = seguimientoPacientesMapper.findSeguimientoPacientesByTratPacId(tratPacId);
+		return seguimientoPacientes;
 	}
 
 	@Override
-	public void insertSeguimientoPacientes(SeguimientoPacientes segpacientes) {
+	public void insertSeguimientoPacientes(SeguimientoPacientes seguimientoPacientes) {
 		
-		logger.debug("insertSeguimientoPacientes : "+segpacientes);
+		logger.debug("insertSeguimientoPacientes : "+seguimientoPacientes);
 		
-		seguimientoPacientesMapper.insertSeguimientoPacientes(segpacientes);
+		seguimientoPacientesMapper.insertSeguimientoPacientes(seguimientoPacientes);
 
 	}
 
 	@Override
-	public void updateSeguimientoPacientes(SeguimientoPacientes segpacientes) {
+	public void updateSeguimientoPacientes(SeguimientoPacientes seguimientoPacientes) {
 
-		seguimientoPacientesMapper.updateSeguimientoPacientes(segpacientes);
+		seguimientoPacientesMapper.updateSeguimientoPacientes(seguimientoPacientes);
 		
 	}
 
 	@Override
-	public void deleteSeguimientoPacientes(int pacId) {
+	public void deleteSeguimientoPacientes(int segPacId) {
 		
-		logger.debug("deleteSeguimientoPacientes : "+pacId);
+		logger.debug("deleteSeguimientoPacientes : "+segPacId);
 		
-		seguimientoPacientesMapper.deleteSeguimientoPacientes(pacId);
+		seguimientoPacientesMapper.deleteSeguimientoPacientes(segPacId);
 		
 	}
 

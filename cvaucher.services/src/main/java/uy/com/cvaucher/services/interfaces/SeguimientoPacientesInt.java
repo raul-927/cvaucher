@@ -7,9 +7,9 @@ import uy.com.cvaucher.services.domain.SeguimientoPacientes;
 public interface SeguimientoPacientesInt {
 	
 	List<SeguimientoPacientes> findAllSeguimientoPacientes();
-	SeguimientoPacientes findSeguimientoPacientesByid( int pacId);
-	void insertSeguimientoPacientes(SeguimientoPacientes segpacientes);
-	void updateSeguimientoPacientes(SeguimientoPacientes segpacientes);
-	void deleteSeguimientoPacientes(int pacId);
+	List<SeguimientoPacientes> findSeguimientoPacientesByTratPacId( int tratPacId);
+	void insertSeguimientoPacientes(SeguimientoPacientes seguimientoPacientes);
+	void updateSeguimientoPacientes(SeguimientoPacientes seguimientoPacientes);
+	void deleteSeguimientoPacientes(int segPacId);
 	
 }
