@@ -10,14 +10,14 @@
 	<thead>
 		<tr>
 			<th>Fecha control</th>
-			<th>Brazo Izquierdo</th>
-			<th>Brazo Derecho</th>
-			<th>Muzlo Izquierdo</th>
-			<th>Muzlo Derecho</th>
-			<th>Abdomen</th>
-			<th>Cintura</th>
-			<th>Cadera</th>
-			<th>Peso</th>
+			<th>Brazo Izquierdo (cm)</th>
+			<th>Brazo Derecho (cm)</th>
+			<th>Muzlo Izquierdo (cm)</th>
+			<th>Muzlo Derecho (cm)</th>
+			<th>Abdomen (cm)</th>
+			<th>Cintura (cm)</th>
+			<th>Cadera (cm)</th>
+			<th>Peso (Kg)</th>
 			<th>I.M.C</th>
 			<th>Observaciones</th>
 		</tr>

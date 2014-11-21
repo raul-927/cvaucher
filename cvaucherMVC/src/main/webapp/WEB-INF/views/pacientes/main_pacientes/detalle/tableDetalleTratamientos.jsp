@@ -13,7 +13,7 @@
 			<th>Fecha</th>
 			<th>Tratamiento</th>
 			<th>Sesiones</th>
-			<th>Monto </th>
+			<th>Importe </th>
 			<th>Pagado</th>
 			<th>Saldo</th>
 			
