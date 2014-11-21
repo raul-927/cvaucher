@@ -45,7 +45,7 @@
 			value =""/>
 			
 		<put-attribute name ="seguimientoPaciente"
-			value =""/>
+			value ="seguimientoPaciente/insertSeguimientoPaciente"/>
 	
 	</definition>
 	

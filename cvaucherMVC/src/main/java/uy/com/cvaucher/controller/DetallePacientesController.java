@@ -22,10 +22,12 @@ import uy.com.cvaucher.services.interfaces.TratamientoInt;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.TratamientoPacienteInt;
 import uy.com.cvaucher.services.interfaces.HistorialPagosInt;
+import uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt;
+
 import uy.com.cvaucher.services.domain.HistorialPagos;
 import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
-
+import uy.com.cvaucher.services.domain.SeguimientoPacientes;
 
 
 
@@ -40,17 +42,17 @@ public class DetallePacientesController
 	private final AgendaInt					agendaServices;
 	private final TratamientoPacienteInt	tratamientoPacienteServices;
 	private final HistorialPagosInt			historialPagosServices;
-	
+	private final SeguimientoPacientesInt	seguimientoPacientesServices;
 	@Autowired
-	public DetallePacientesController(PacientesInt pacientesServices, 
-									  DireccionInt direccionServices, 
-									  SesionesInt sesionesServices,
-									  HistoriaClinicaInt historiaClinicaServices, 
-									  SeguimientoPacientesInt seguimientoPacientesServices,
-									  TratamientoInt tratamientoServices,
-									  AgendaInt agendaServices,
+	public DetallePacientesController(PacientesInt				pacientesServices, 
+									  DireccionInt 				direccionServices, 
+									  SesionesInt 				sesionesServices,
+									  HistoriaClinicaInt 		historiaClinicaServices, 
+									  TratamientoInt 			tratamientoServices,
+									  AgendaInt 				agendaServices,
 									  TratamientoPacienteInt	tratamientoPacienteServices,
-									  HistorialPagosInt	historialPagosServices){
+									  HistorialPagosInt			historialPagosServices,
+									  SeguimientoPacientesInt	seguimientoPacientesServices){
 		
 		this.pacientesServices 				= pacientesServices;
 		this.direccionServices 				= direccionServices;
@@ -58,6 +60,7 @@ public class DetallePacientesController
 		this.agendaServices					= agendaServices;
 		this.tratamientoPacienteServices	= tratamientoPacienteServices;
 		this.historialPagosServices			= historialPagosServices;
+		this.seguimientoPacientesServices	= seguimientoPacientesServices;
 	}
 	
 	@RequestMapping(value ="/detPac/{pacCedula}", method = RequestMethod.GET)
@@ -83,13 +86,16 @@ public class DetallePacientesController
 		String patron = "YYYY-MM-dd";
 		SimpleDateFormat formato = new SimpleDateFormat(patron);
 		String salida = formato.format(hoy);
+		
 		model.addAttribute(new HistorialPagos());
+		model.addAttribute(new SeguimientoPacientes());
 		model.addAttribute("histPagosByTratPacId", this.historialPagosServices.findHistorialPagoByHistTratPacId(histTratPacId));
+		model.addAttribute("segP", this.seguimientoPacientesServices.findSeguimientoPacientesByTratPacId(histTratPacId));
 		model.addAttribute("salida", salida);
 		return "tratamientoPaciente/tratamientoPacienteDetalle";
 	}
 	
-	@RequestMapping(value ="/detPac/{pacCedula}/{histTratPacId}", method = RequestMethod.POST)
+	@RequestMapping(value ="/detPac/{pacCedula}/{histTratPacId}",params = "pagos", method = RequestMethod.POST)
 	public String insertPacienteTratamientoPago(Model model, @PathVariable("pacCedula")	int pacCedula, 
 			  @PathVariable("histTratPacId")int histTratPacId, @Valid HistorialPagos historialPagos, BindingResult bindingResult)
 	{
@@ -101,22 +107,67 @@ public class DetallePacientesController
 		{
 			System.out.println("Error en insertPacienteTratamientoPago");
 			model.addAttribute(new HistorialPagos());
+			model.addAttribute(new SeguimientoPacientes());
 			model.addAttribute("histPagosByTratPacId", this.historialPagosServices.findHistorialPagoByHistTratPacId(histTratPacId));
+			model.addAttribute("segP", this.seguimientoPacientesServices.findSeguimientoPacientesByTratPacId(histTratPacId));
 			model.addAttribute("salida", salida);
 			return "tratamientoPaciente/tratamientoPacienteDetalle";
 		}
 		
 		historialPagos.setHistTratPacId(histTratPacId);
-		this.historialPagosServices.insertHistorialPago(historialPagos);
+		if(historialPagos.getHistPagosMonto()!= 0)
+		{
+			this.historialPagosServices.insertHistorialPago(historialPagos);
+		}
+		
 		int tratPacId = histTratPacId;
 		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
+		SeguimientoPacientes seguimientoPacientes = new SeguimientoPacientes();
+		seguimientoPacientes.setTratPacId(tratPacId);
 		tratamientoPaciente.setTratPacId(tratPacId);
 		tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
 		this.tratamientoPacienteServices.updateTratamientoPacienteImporte(tratamientoPaciente);
+		
 		model.addAttribute(new HistorialPagos());
+		model.addAttribute(new SeguimientoPacientes());
 		model.addAttribute("histPagosByTratPacId", this.historialPagosServices.findHistorialPagoByHistTratPacId(histTratPacId));
+		model.addAttribute("segP", this.seguimientoPacientesServices.findSeguimientoPacientesByTratPacId(histTratPacId));
 		model.addAttribute("salida", salida);
 		return "tratamientoPaciente/tratamientoPacienteDetalle";
 	}
+	
+	@RequestMapping(value ="/detPac/{pacCedula}/{histTratPacId}",params = "seg", method = RequestMethod.POST)
+	public String insertPacienteTratamientoSeguimiento(Model model, @PathVariable("pacCedula")	int pacCedula, 
+			  @PathVariable("histTratPacId")int histTratPacId, @Valid SeguimientoPacientes seguimientoPacientes, BindingResult bindingResult)
+	{
+		Date hoy = new Date();
+		String patron = "YYYY-MM-dd";
+		SimpleDateFormat formato = new SimpleDateFormat(patron);
+		String salida = formato.format(hoy);
+		seguimientoPacientes.setTratPacId(histTratPacId);
+		if(bindingResult.hasErrors())
+		{
+			System.out.println("Error en insertPacienteTratamientoSeguimientoPaciente");
+			model.addAttribute(new HistorialPagos());
+			model.addAttribute(new SeguimientoPacientes());
+			model.addAttribute("histPagosByTratPacId", this.historialPagosServices.findHistorialPagoByHistTratPacId(histTratPacId));
+			model.addAttribute("segP", this.seguimientoPacientesServices.findSeguimientoPacientesByTratPacId(histTratPacId));
+			model.addAttribute("salida", salida);
+			return "tratamientoPaciente/tratamientoPacienteDetalle";
+		}
+		int tratPacId = histTratPacId;
+		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
+		
+		tratamientoPaciente.setTratPacId(tratPacId);
+
+		this.seguimientoPacientesServices.insertSeguimientoPacientes(seguimientoPacientes);
+		model.addAttribute(new HistorialPagos());
+		model.addAttribute(new SeguimientoPacientes());
+		model.addAttribute("histPagosByTratPacId", this.historialPagosServices.findHistorialPagoByHistTratPacId(histTratPacId));
+		model.addAttribute("segP", this.seguimientoPacientesServices.findSeguimientoPacientesByTratPacId(histTratPacId));
+		model.addAttribute("salida", salida);
+		return "tratamientoPaciente/tratamientoPacienteDetalle";
+	}
+	
 	
 }

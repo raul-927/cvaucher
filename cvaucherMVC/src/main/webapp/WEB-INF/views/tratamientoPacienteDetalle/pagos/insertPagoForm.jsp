@@ -7,7 +7,7 @@
 
 <div class="well well-lg">
 	
-	<sf:form cssClass ="form"
+	<sf:form cssClass ="form" action ="?pagos"
 		modelAttribute ="historialPagos">
 
 	        <div class="form-group">
