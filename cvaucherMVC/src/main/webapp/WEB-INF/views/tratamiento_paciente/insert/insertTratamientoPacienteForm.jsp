@@ -5,16 +5,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-<script type="text/javascript">
-	dojo.addOnLoad(function() {
-		Spring.addDecoration(new Spring.AjaxEventDecoration({
-			elementId : "prueba",
-			event : "onclick",
-			formId: "insertTratamientoForm"
-		}));
-	});
-</script>
-
 
 						<h3>Ingresar Tratamiento</h3>
 
