@@ -13,6 +13,9 @@
        
        <put-attribute name="menu"
            value = "/WEB-INF/views/layout/layoutMenu.jsp"/>
+           
+       <put-attribute name="menuPacientes"
+       	value ="/WEB-INF/views/tratamiento_paciente/tratamientoPaciente/menuTratamientoPaciente.jsp"/>
        
        <put-attribute name="left"
            value = ""/>

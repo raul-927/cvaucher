@@ -39,7 +39,9 @@
 			</div>
 			
 			<div class="row">
+				<t:insertAttribute name ="menuPacientes"/>
 				<div class="col-md-6 col2">
+					
 					<t:insertAttribute name ="tableDPacientes"/>
 				</div>
 				<div class="col-md-6 col2">
