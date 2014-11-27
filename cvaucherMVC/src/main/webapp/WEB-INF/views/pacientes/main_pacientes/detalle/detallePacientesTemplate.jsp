@@ -39,7 +39,11 @@
 			</div>
 			
 			<div class="row">
-				<t:insertAttribute name ="menuPacientes"/>
+				<div class="col-md-6 col-lg-12">
+				
+				<t:insertAttribute name ="menuPacientes"/>	
+			</div>
+				
 				<div class="col-md-6 col2">
 					
 					<t:insertAttribute name ="tableDPacientes"/>

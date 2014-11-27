@@ -49,8 +49,11 @@
 			</header>
 			
 			<div class="row">
-					<t:insertAttribute name ="menuPacientes"/>
-				  <div class="col-xs-10 col-sm-12 col-md-6 col-lg-6">
+				<div class="col-md-6 col-lg-12">
+				
+					<t:insertAttribute name ="menuPacientes"/>	
+				</div>
+				<div class="col-xs-10 col-sm-12 col-md-6 col-lg-6">
 				  
 					<t:insertAttribute name ="left"/>
 				</div>
