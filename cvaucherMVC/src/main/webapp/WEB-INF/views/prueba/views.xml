@@ -5,16 +5,16 @@
 <tiles-definitions>
 <!--<start id="tile_template"/>-->
 
-   <definition name="tratamientoPaciente_tratamientoPaciente/insertTratamientoPaciente" extends ="layout2">
+   <definition name="nada/prueba" extends ="layout2">
              
 	<put-attribute name="left"
    		value = "content"/>
   
    </definition>
    
-   <definition name ="content" template ="/WEB-INF/views/tratamiento_paciente/tratamientoPaciente/insertTratamientoPacienteForm.jsp">
+   <definition name ="content" template ="/WEB-INF/views/prueba/insertTratamientoPacienteForm.jsp">
    	<put-attribute name="showCantSes"
-   		value = "/WEB-INF/views/tratamiento_paciente/tratamientoPaciente/cantSes.jsp"/>
+   		value = "/WEB-INF/views/prueba/cantSes.jsp"/>
    
    </definition>
 

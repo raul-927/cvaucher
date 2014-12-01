@@ -4,6 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import uy.com.cvaucher.services.domain.Agenda;
 import uy.com.cvaucher.services.domain.Direccion;
@@ -28,6 +32,7 @@ public class FlowPacientesService
 	private final AgendaInt 				agendaServices;
 	private final HistoriaClinicaInt		historiaClinicaServices;
 	private final TratamientoPacienteInt	tratamientoPacienteServices;
+	private  static Pacientes 						pacientes ;
 	
 	@Autowired
 	public FlowPacientesService(PacientesInt 			pacientesServices, 
@@ -103,5 +108,40 @@ public class FlowPacientesService
 		return this.tratamientoServices.findSesionesByTratamientoId(tratId);
 	}
 	
+	public Pacientes findPacientesByCedula(int cedula)
+	{
+		return this.pacientesServices.findPacientesByCedula(cedula);
+	}
+	
+	@RequestMapping(value ="/detallep/detPac/{pacCedula}", params ="actualizar", method = RequestMethod.GET)
+	public String showIngresarTratamientoMain(Model model, @PathVariable("pacCedula") int pacCedula)
+	{
+		
+		pacientes = pacientesServices.findPacientesByCedula(pacCedula);
+		
+		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
+		tratamientoPaciente.setPacientes(pacientes);
+		model.addAttribute(tratamientoPaciente);
+		model.addAttribute("tratP", tratamientoServices.findAllTratamientos());
+		
+		return "redirect:/tratamientos";
+	}
+	@RequestMapping(value ="/detallep/detPac/{pacCedula}/{histTratPacId}", params ="actualizar", method = RequestMethod.GET)
+	public String showIngresarTratamientoEnTratamiento(Model model, @PathVariable("pacCedula") int pacCedula)
+	{
+		
+		pacientes = pacientesServices.findPacientesByCedula(pacCedula);
+		
+		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
+		tratamientoPaciente.setPacientes(pacientes);
+		model.addAttribute(tratamientoPaciente);
+		model.addAttribute("tratP", tratamientoServices.findAllTratamientos());
+		
+		return "redirect:/tratamientos";
+	}
+	public  static Pacientes returnPacientes()
+	{
+		return pacientes;
+	}
 	
 }
