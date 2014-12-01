@@ -1,4 +1,4 @@
-package uy.com.cvaucher.flows.services;
+package uy.com.cvaucher.controller.flow;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,7 +26,7 @@ import uy.com.cvaucher.services.interfaces.TratamientoInt;
 import uy.com.cvaucher.services.interfaces.TratamientoPacienteInt;
 
 @Controller
-public class FlowPacientesService 
+public class FlowPacientesController 
 {
 	private final PacientesInt 				pacientesServices;
 	private final TratamientoInt			tratamientoServices;
@@ -37,7 +37,7 @@ public class FlowPacientesService
 	private  static Pacientes 						pacientes ;
 	
 	@Autowired
-	public FlowPacientesService(PacientesInt 			pacientesServices, 
+	public FlowPacientesController(PacientesInt 			pacientesServices, 
 								DireccionInt 			direccionServices,
 								AgendaInt 				agendaServices,
 								TratamientoInt			tratamientoServices,

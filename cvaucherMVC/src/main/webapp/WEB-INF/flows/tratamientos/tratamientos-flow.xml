@@ -24,25 +24,25 @@
 	<!-- Cargo Pacientes en Tratamientos -->
 	<action-state id="cargoPacientesEnTratamientos">
 	
-		 <evaluate expression="flowScope.tratamientoPaciente.pacientes = flowPacientesService.returnPacientes()"/>
+		 <evaluate expression="flowScope.tratamientoPaciente.pacientes = flowPacientesController.returnPacientes()"/>
 		<transition to ="tratamientoPacienteInsert"/>
 	</action-state>
 	
 	<!-- Tratamientos -->
 	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
 		<on-render>
-			<evaluate result ="viewScope.salida" expression ="flowPacientesService.getFecha()"/>
-			<evaluate result ="viewScope.tratP" expression="flowPacientesService.findAllTratamientos()"/>
+			<evaluate result ="viewScope.salida" expression ="flowPacientesController.getFecha()"/>
+			<evaluate result ="viewScope.tratP" expression="flowPacientesController.findAllTratamientos()"/>
 		</on-render>
 		
 		<transition on ="cantSesionesTratamiento" to ="tratamientoPacienteInsert">
 			
-			<evaluate result ="flowScope.tratPacById" expression ="flowPacientesService.findTratamientoById(requestParameters.tratamId)"/>
+			<evaluate result ="flowScope.tratPacById" expression ="flowPacientesController.findTratamientoById(requestParameters.tratamId)"/>
 			<render fragments="showCantSes"/>
 		</transition>
 		
 		<transition on ="tratamientoPacienteIngresado" to ="finIngresoPacientes" bind="true">
-			 <evaluate expression="flowPacientesService.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>
+			 <evaluate expression="flowPacientesController.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>
 		</transition>
 	</view-state>
 	<end-state id="finIngresoPacientes"/>

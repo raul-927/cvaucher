@@ -130,7 +130,7 @@
                       <li class="dropdown-submenu">
                       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Lista de Precios</a>
                       	<ul class="dropdown-menu">
-                        	<li><a href="#">Crear Lista de Precios</a></li>
+                        	<li><a href='<s:url value="/listaPrecios"/>'>Crear Lista de Precios</a></li>
 		                 	<li><a href="#">Modificar Lista de Precios</a></li>
 		                 	<li><a href="#">Eliminar Lista de Precios</a></li>
 		                 	<li class="divider"></li>
