@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+        
+     <!-- Inicio Variables paciente, direccion, agenda, historiaClinica, tratamientoPaciente -->
+	 <on-start>
+		<set name="flowScope.pacientes"
+			value="new uy.com.cvaucher.services.domain.Pacientes()"
+			type="uy.com.cvaucher.services.domain.Pacientes" />
+
+		<set name ="flowScope.tratamientoPaciente"
+			value ="new uy.com.cvaucher.services.domain.TratamientoPaciente()"
+			type ="uy.com.cvaucher.services.domain.TratamientoPaciente"/>
+			
+		<set name ="flowScope.tratamiento"
+			value =" new uy.com.cvaucher.services.domain.Tratamiento()"
+			type ="uy.com.cvaucher.services.domain.Tratamiento"/>
+			
+				
+	 </on-start>
+	 	
+	<!-- Cargo Pacientes en Tratamientos -->
+	<action-state id="cargoPacientesEnTratamientos">
+	
+		 <evaluate expression="flowScope.tratamientoPaciente.pacientes = flowPacientesService.returnPacientes()"/>
+		<transition to ="tratamientoPacienteInsert"/>
+	</action-state>
+	
+	<!-- Tratamientos -->
+	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
+		<on-render>
+			<evaluate result ="viewScope.salida" expression ="flowPacientesService.getFecha()"/>
+			<evaluate result ="viewScope.tratP" expression="flowPacientesService.findAllTratamientos()"/>
+		</on-render>
+		
+		<transition on ="cantSesionesTratamiento" to ="tratamientoPacienteInsert">
+			
+			<evaluate result ="flowScope.tratPacById" expression ="flowPacientesService.findTratamientoById(requestParameters.tratamId)"/>
+			<render fragments="showCantSes"/>
+		</transition>
+		
+		<transition on ="tratamientoPacienteIngresado" to ="finIngresoPacientes" bind="true">
+			 <evaluate expression="flowPacientesService.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>
+		</transition>
+	</view-state>
+	<end-state id="finIngresoPacientes"/>
+	
+</flow>
