@@ -21,11 +21,7 @@
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pacientes<b class="caret"></b></a>
 	                 <ul class="dropdown-menu">
 		                 <li><a href='<s:url value="/pacientes"/>'>Crear un nuevo Paciente</a></li>
-		                 <li><a href="#">Modificar un paciente</a></li>
 		                 <li><a href="#">Eliminar un paciente</a></li>
-		                 <li class="divider"></li>
-		                 <li><a href="#">Ingresar Tratamiento</a></li>
-		                 <li><a href="#">Ingresar Sesiones</a></li>
 	                 </ul>
                 </li>
                

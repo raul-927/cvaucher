@@ -18,42 +18,39 @@
 			<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
              
-	        <div class="form-group">
+           
+             <div class="form-group">
 			 	<sf:label path="fecha" for ="fecha">Fecha</sf:label>
-			 	<sf:input type ="date" cssClass ="form-control input-small" path="fecha" placeholder = "Fecha" size ="8"/>
+			 	<sf:input cssClass ="input-small " path="fecha"  value ="#{salida}" size ="8" enabled = "false"/>
 			 	<sf:errors path ="fecha" cssClass ="error"/>
 		 	</div>
 		 	
 		 	<div class="form-group">
-		 	
-		 	<sf:label path="tratamId" for ="tratamId">Tratamiento</sf:label>
-		 	<sf:select cssClass ="form-control" path="tratamId" size ="1" >
-		 		<sf:options  id ="prueba" path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId"/>
-		 	</sf:select>
-		 	<sf:errors path ="tratamId" cssClass ="error"/>
-		 	
-		 </div>
+			 	<sf:label path="tratamId" for ="tratamId">Tratamiento</sf:label>
+			 	<sf:select cssClass ="form-control" path="tratamId" size ="1" >
+			 		<sf:options  id ="prueba" path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId"/>
+			 	</sf:select>
+			 	<sf:errors path ="tratamId" cssClass ="error"/>
+		 	</div>
 
 		<t:insertAttribute name ="showCantSes"/>
 			
-		<div class="botonForm">
-			<s:url value="?prueba">Actualizar</s:url>
-		 	 <input class="btn btn-primary"  type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
-		 </div>
-		 	
 		 <div class="botonForm">
-		 	 <a href="#" class="btn btn-primary">Actualizar</a>
+		 	<input class="btn btn-primary"  type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
 		 </div>
+
 		 	<div class="form-group">
 			 	<sf:label path="costoTratSesion" for ="costoTratSesion">Importe</sf:label>
 			 	<sf:input cssClass ="form-control" path="costoTratSesion" placeholder ="costoTratSesion" size ="30" id="descCAT"/>
 			 	<sf:errors path ="costoTratSesion" cssClass ="error"/>
 		 	</div>
+		 	
 		 	<div class="form-group">
 			 	<sf:label path="importePagado" for ="importePagado">Importe Pagado</sf:label>
 			 	<sf:input cssClass ="form-control" path="importePagado" placeholder ="importePagado" size ="30" id="descCAT"/>
 			 	<sf:errors path ="importePagado" cssClass ="error"/>
 		 	</div>
+		 	
 		 	<div class="form-group">
 			 	<sf:label path="saldoPendiente" for ="saldoPendiente">Saldo Pendiente</sf:label>
 			 	<sf:input cssClass ="form-control" path="saldoPendiente" placeholder ="saldoPendiente" size ="30" id="descCAT"/>

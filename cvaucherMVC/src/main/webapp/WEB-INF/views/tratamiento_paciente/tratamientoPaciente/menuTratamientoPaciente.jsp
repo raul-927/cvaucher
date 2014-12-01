@@ -28,6 +28,7 @@
 	                 <ul class="dropdown-menu">
 		                 <li><a href="#">Ingresar Direccion</a></li>
 		                 <li><a href="#">Modificar Direccion</a></li>
+		                 <li><a href="#">Eliminar Direccion</a></li>
 	                 </ul>
                 </li>
                 <li>
@@ -35,6 +36,7 @@
 	                 <ul class="dropdown-menu">
 		                 <li><a href="#">Ingresar Agenda</a></li>
 		                 <li><a href="#">Modificar Agenda</a></li>
+		                 <li><a href="#">Eliminar Agenda</a></li>
 	                 </ul>
                 </li>
                  <li>
@@ -42,6 +44,7 @@
 	                 <ul class="dropdown-menu">
 		                 <li><a href="#">Ingresar Historia Clinica</a></li>
 		                 <li><a href="#">Modificar Historia Clinica</a></li>
+		                 <li><a href="#">Eliminar Historia Clinica</a></li>
 	                 </ul>
                 </li>
                 
