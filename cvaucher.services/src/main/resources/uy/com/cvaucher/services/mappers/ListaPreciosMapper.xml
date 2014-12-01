@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.ListaPreciosMapper">
+		  	
+  	<resultMap type="uy.com.cvaucher.services.domain.ListaPrecios" id="ListaPreciosResult">
+  	    
+  		<id 	property = "listPrecId" 			column = "list_prec_id"></id>
+  		
+		<result property = "listPrecMonto" 			column = "list_prec_monto"/>
+		<result property = "listPrecDescripcion"	column = "list_prec_descripcion"/>
+		
+		<association  property ="tratamiento" 		resultMap ="uy.com.cvaucher.services.mappers.TratamientoMapper.TratResult"/>
+  	</resultMap>
+  	
+  
+</mapper>
