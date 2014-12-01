@@ -1,5 +1,7 @@
 package uy.com.cvaucher.flows.services;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,6 +144,14 @@ public class FlowPacientesService
 	public  static Pacientes returnPacientes()
 	{
 		return pacientes;
+	}
+	public String getFecha()
+	{
+		Date hoy = new Date();
+		String patron = "YYYY-MM-dd";
+		SimpleDateFormat formato = new SimpleDateFormat(patron);
+		String salida = formato.format(hoy);
+		return salida;
 	}
 	
 }

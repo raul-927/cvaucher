@@ -31,6 +31,7 @@
 	<!-- Tratamientos -->
 	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
 		<on-render>
+			<evaluate result ="viewScope.salida" expression ="flowPacientesService.getFecha()"/>
 			<evaluate result ="viewScope.tratP" expression="flowPacientesService.findAllTratamientos()"/>
 		</on-render>
 		

@@ -19,10 +19,9 @@
              value="${flowExecutionKey}"/>
              
            
-             
-	        <div class="form-group">
+             <div class="form-group">
 			 	<sf:label path="fecha" for ="fecha">Fecha</sf:label>
-			 	<sf:input type ="date" cssClass ="form-control input-small" path="fecha" placeholder = "Fecha" size ="8"/>
+			 	<sf:input cssClass ="input-small " path="fecha"  value ="#{salida}" size ="8" enabled = "false"/>
 			 	<sf:errors path ="fecha" cssClass ="error"/>
 		 	</div>
 		 	
