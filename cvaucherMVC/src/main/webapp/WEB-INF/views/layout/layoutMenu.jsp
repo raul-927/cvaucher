@@ -54,9 +54,9 @@
                                         <li class="dropdown-submenu">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">Crear un Nuevo Paciente</a></li>
-                                                <li><a href="#">Modificar un paciente</a></li>
-                                                <li><a href="#">Eliminar un paciente</a></li>
+                                                <li><a href="#">Opcion1</a></li>
+                                                <li><a href="#">Opcion1</a></li>
+                                                <li><a href="#">Opcion1</a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="#">Separated link</a></li>
                                                 <li class="divider"></li>
@@ -115,17 +115,7 @@
 		                 	<li class="divider"></li>
 		                </ul>
                       </li>
-                      
-                      <li class="dropdown-submenu">
-                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sesiones</a>
-                      	<ul class="dropdown-menu">
-                        	<li><a href="#">Opcion1</a></li>
-		                 	<li><a href="#">Opcion2</a></li>
-		                 	<li><a href="#">Opcion3</a></li>
-		                 	<li class="divider"></li>
-		                </ul>
-                      </li>
-                      
+                       
                       <li class="divider"></li>
                       <li class="dropdown-submenu">
                       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Lista de Precios</a>
