@@ -7,7 +7,7 @@
 
 
 <table class="table table-hover table-bordered well well-sm">
-	<caption><h1>Tratamientos</h1></caption>
+	<caption><h1>Ingrese Monto a cada tratamiento</h1></caption>
 	
 	<thead>
 		<td>#</td>
