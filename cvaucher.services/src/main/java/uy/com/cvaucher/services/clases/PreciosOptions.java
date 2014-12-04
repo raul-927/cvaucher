@@ -6,13 +6,13 @@ public class PreciosOptions implements Serializable
 {
 
 	private static final long serialVersionUID = 1L;
-	private int opcion;
+	private String opcion;
 
-	public int getOpcion() {
+	public String getOpcion() {
 		return opcion;
 	}
 
-	public void setOpcion(int opcion) {
+	public void setOpcion(String opcion) {
 		this.opcion = opcion;
 	}
 }

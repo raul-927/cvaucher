@@ -9,4 +9,23 @@
 			value= "/WEB-INF/views/lista_precios/principal/listaOpcionsForm.jsp"/>
 	</definition>
 	
+	<definition name ="listas/nuevaLista" extends  ="layout">
+	
+	<put-attribute name="left" 
+			value= "/WEB-INF/views/lista_precios/nueva/listaOpcionsForm.jsp"/>
+	</definition>
+	
+	<definition name ="listas/insertar" extends  ="layout">
+	
+	<put-attribute name="left" 
+			value= "/WEB-INF/views/lista_precios/insertar_trat_lista/listaOpcionsForm.jsp"/>
+	</definition>
+	
+	
+	<definition name ="listas/copia" extends  ="layout">
+	
+	<put-attribute name="left" 
+			value= "/WEB-INF/views/lista_precios/copia/listaOpcionsForm.jsp"/>
+	</definition>
+	
 </tiles-definitions>

@@ -34,13 +34,32 @@
 	 </on-start>
 	 
 	 <!-- Inicio vista insertListas -->
-	<view-state id="inicioAltaListaPrecios" view ="listas/InicioInsertlistas" model ="listaPrecios">
+	<view-state id="inicioAltaListaPrecios" view ="listas/InicioInsertlistas" model ="preciosOptions">
 		<on-render>
 			<evaluate result ="viewScope.tipOpcion" expression="T(uy.com.cvaucher.services.enumerador.ListaPreciosOptions).values()"/>
 		</on-render>
+		<transition on = "OpcSelect" to ="decisionSelect"/>		
 	</view-state>
+	
+	<decision-state id="decisionSelect">
+	 	<if test="flowScope.preciosOptions.opcion == 'NUEVA_LISTA_PRECIOS'" then="nuevaLista"/>
+	 	<if test="flowScope.preciosOptions.opcion == 'COPIAR_Y_MODIFICAR_LISTA_PRECIOS'" then="copiar"/>
+	 	<if test="flowScope.preciosOptions.opcion == 'INSERTAR_TRATAMIENTO_EN_LISTA_ACTUAL'" then="insertar"/>
+	 </decision-state>
 	 
 	 
-	<end-state id="finIngresoPacientes"/>
+	 <view-state id="nuevaLista" view ="listas/nuevaLista" model ="listaPrecios">
+	 	<transition on ="fin" to ="finListaPrecios"/>
+	 
+	 </view-state>
+	 <view-state id="copiar" view ="listas/copia" model ="listaPrecios">
+	 	<transition on ="fin" to ="finListaPrecios"/>
+	 
+	 </view-state>
+	 <view-state id="insertar" view ="listas/insertar" model ="listaPrecios">
+	 	<transition on ="fin" to ="finListaPrecios"/>
+	 
+	 </view-state>
+	<end-state id="finListaPrecios"/>
 	
 </flow>

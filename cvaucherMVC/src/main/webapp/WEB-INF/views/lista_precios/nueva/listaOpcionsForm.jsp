@@ -14,6 +14,7 @@
              value="${flowExecutionKey}"/>
              
 		 <div class="form-group">
+		 	<span>NUEVA</span>
 		 	<sf:label path="opcion" for ="opcion">Seleccione una opcion</sf:label>
 		 	<sf:select cssClass ="form-control" path="opcion" size ="1" id="descCAT">
 		 		<sf:options items="${tipOpcion}" />
