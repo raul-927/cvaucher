@@ -4,33 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
         
-     <!-- Inicio Variables paciente, direccion, agenda, historiaClinica, tratamientoPaciente -->
+     <!-- Inicio Variables  -->
 	 <on-start>
 		<set name="flowScope.preciosOptions"
 			value="new uy.com.cvaucher.services.clases.PreciosOptions()"
-			type="uy.com.cvaucher.services.clases.PreciosOptions" />
-			
-		<set name="flowScope.direccion"
-			value="new uy.com.cvaucher.services.domain.Direccion()"
-			type="uy.com.cvaucher.services.domain.Direccion" />
-			
-		<set name="flowScope.agenda"
-			value="new uy.com.cvaucher.services.domain.Agenda()"
-			type="uy.com.cvaucher.services.domain.Agenda" />
-			
-		<set name="flowScope.historiaClinica"
-			value="new uy.com.cvaucher.services.domain.HistoriaClinica()"
-			type="uy.com.cvaucher.services.domain.HistoriaClinica" />
-		
-		<set name ="flowScope.tratamientoPaciente"
-			value ="new uy.com.cvaucher.services.domain.TratamientoPaciente()"
-			type ="uy.com.cvaucher.services.domain.TratamientoPaciente"/>
-			
-		<set name ="flowScope.tratamiento"
-			value =" new uy.com.cvaucher.services.domain.Tratamiento()"
-			type ="uy.com.cvaucher.services.domain.Tratamiento"/>
-			
-				
+			type="uy.com.cvaucher.services.clases.PreciosOptions" />	
 	 </on-start>
 	 
 	 <!-- Inicio vista insertListas -->
@@ -42,24 +20,27 @@
 	</view-state>
 	
 	<decision-state id="decisionSelect">
-	 	<if test="flowScope.preciosOptions.opcion == 'NUEVA_LISTA_PRECIOS'" then="nuevaLista"/>
-	 	<if test="flowScope.preciosOptions.opcion == 'COPIAR_Y_MODIFICAR_LISTA_PRECIOS'" then="copiar"/>
+	 	<if test="flowScope.preciosOptions.opcion == 'NUEVA_LISTA_PRECIOS'" 				 then="nuevaLista"/>
+	 	<if test="flowScope.preciosOptions.opcion == 'COPIAR_Y_MODIFICAR_LISTA_PRECIOS'" 	 then="copiar"/>
 	 	<if test="flowScope.preciosOptions.opcion == 'INSERTAR_TRATAMIENTO_EN_LISTA_ACTUAL'" then="insertar"/>
 	 </decision-state>
 	 
 	 
 	 <view-state id="nuevaLista" view ="listas/nuevaLista" model ="listaPrecios">
+	 	<on-render>
+	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findAllTratamientos()"/>
+	 	</on-render>
 	 	<transition on ="fin" to ="finListaPrecios"/>
-	 
 	 </view-state>
+	 
 	 <view-state id="copiar" view ="listas/copia" model ="listaPrecios">
 	 	<transition on ="fin" to ="finListaPrecios"/>
-	 
 	 </view-state>
+	 
 	 <view-state id="insertar" view ="listas/insertar" model ="listaPrecios">
 	 	<transition on ="fin" to ="finListaPrecios"/>
-	 
 	 </view-state>
+	 
 	<end-state id="finListaPrecios"/>
 	
 </flow>

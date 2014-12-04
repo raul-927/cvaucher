@@ -5,20 +5,33 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
-<table class="table">
+
+<table class="table table-hover table-bordered well well-sm">
+	<caption><h1>Tratamientos</h1></caption>
 	
 	<thead>
-		<tr>
-			<th>Fecha</th>
-			<th>Importe</th>
-		</tr>
+		<td>#</td>
+		<td>Descripcion</td>
+		<td>Importe</td>
 	</thead>
-	<tbody class ="table-striped">
-		<c:forEach var="histP" items="${histPagosByTratPacId}">
-			<tr>
-			  	<td >${histP.histPagosFechaPago}</td>
-				<td >${histP.histPagosMonto}</td>
-			</tr>
-		</c:forEach>	
-	</tbody>
+		<tbody>
+			<% int count = 2;%>
+			<c:forEach var="trat" items="${trat}">
+			<%
+				if(count % 2 == 0) 
+				{ %>
+					<tr class ="filaImpar">
+			  <%}
+				else 
+				{%>
+					<tr class ="filaPar">
+			  <%} %>
+			  	<td >${trat.tratId}</td>
+				<td >${trat.tratDescripcion}</td>
+				
+				
+				</tr>
+				<%count ++; %>
+			</c:forEach>	
+		</tbody>
 </table>
