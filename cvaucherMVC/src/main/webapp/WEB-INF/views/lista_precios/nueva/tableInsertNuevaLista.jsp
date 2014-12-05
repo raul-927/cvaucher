@@ -8,9 +8,9 @@
 	<sf:form cssClass = "form" method ="POST" commandName ="listaPreciosArray" >
 		<table class="table table-hover table-bordered well well-sm">
 			<div class="form-group">
-				<sf:label path="listPrecTratId" for ="listPrecTratId">Id de Lista</sf:label>
-				<sf:input cssClass ="form-control" path="listPrecTratId"  size ="50" />
-				<sf:errors path ="listPrecTratId" cssClass ="error"/>
+				<sf:label path="listPrecId" for ="listPrecId">Id de Lista</sf:label>
+				<sf:input cssClass ="form-control" path="listPrecId"  size ="50" />
+				<sf:errors path ="listPrecId" cssClass ="error"/>
 			</div>
 			<caption><h3>Ingrese Monto a cada tratamiento</h3></caption>	
 			<thead>
