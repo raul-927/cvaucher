@@ -20,12 +20,7 @@ public class FlowListaPreciosController
 	}
 	
 	public void insertListaPrecios(ListaPreciosArray listaPreciosArray)
-	{	int i = 0;
-		while(i <20)
-		{
-			System.out.println("while en FlowListaPreciosController"+i);
-			i++;
-		}
+	{	
 		this.listaPreciosService.insertListaPrecios(listaPreciosArray);
 		
 	}

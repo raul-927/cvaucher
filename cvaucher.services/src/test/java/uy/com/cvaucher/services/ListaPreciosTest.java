@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.ListaPreciosArray;
 import uy.com.cvaucher.services.interfaces.ListaPreciosInt;
+import uy.com.cvaucher.services.mappers.ListaPreciosMapper;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,6 +22,9 @@ public class ListaPreciosTest
 {
 	@Autowired
 	ListaPreciosInt listaPreciosService;
+	
+	@Autowired 
+	ListaPreciosMapper listam;
 	
 	@Test
 	public void insertListaPreciosTest()
@@ -33,9 +37,9 @@ public class ListaPreciosTest
 		listaPrecios.setListPrecId(listPrecId);
 		listaPrecios.setListPrecTratId(listPrecTratId);
 		listaPrecios.setListPrecMonto(listPrecMonto);
-		ListaPreciosArray listaPreciosArray = new ListaPreciosArray();
-		
-		this.listaPreciosService.insertListaPrecios(listaPreciosArray);
+		//ListaPreciosArray listaPreciosArray = new ListaPreciosArray();
+		listam.insertListaPrecios(listaPrecios);
+		//this.listaPreciosService.insertListaPrecios(listaPreciosArray);
 	}
 
 }

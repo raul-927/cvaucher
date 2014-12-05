@@ -29,7 +29,7 @@ public interface ListaPreciosMapper
 	@Insert("INSERT INTO lista_precios "
 			+ "(list_prec_id, list_prec_id_trat, list_prec_monto) "
 			+ "VALUES "
-			+ "(#{listPrecId}, #{listPrecTratId}, #{list_prec_monto})") 
+			+ "(#{listPrecId}, #{listPrecTratId}, #{listPrecMonto})") 
 	void insertListaPrecios(ListaPrecios listaPrecios);
 	
 	@Update("UPDATE lista_precios "

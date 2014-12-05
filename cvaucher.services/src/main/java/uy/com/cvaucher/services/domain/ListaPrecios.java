@@ -9,8 +9,7 @@ public class ListaPrecios implements Serializable
 	private int listPrecId;
 	private int listPrecTratId;
 	private int	listPrecMonto;
-	
-	public int getListPrecId() {   
+	public int getListPrecId() {
 		return listPrecId;
 	}
 	public void setListPrecId(int listPrecId) {
@@ -28,7 +27,8 @@ public class ListaPrecios implements Serializable
 	public void setListPrecMonto(int listPrecMonto) {
 		this.listPrecMonto = listPrecMonto;
 	}
-
+	
+	
 }
 
 

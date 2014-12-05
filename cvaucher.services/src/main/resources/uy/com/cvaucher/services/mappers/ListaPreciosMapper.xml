@@ -6,12 +6,10 @@
 <mapper namespace="uy.com.cvaucher.services.mappers.ListaPreciosMapper">
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.ListaPrecios" id="ListaPreciosResult">
-  	    
   		<id 	property = "listPrecId" 			column = "list_prec_id"></id>
-  		
+  		<result property = "listPrecTratId" 		column = "list_prec_id_trat"/>
 		<result property = "listPrecMonto" 			column = "list_prec_monto"/>
-	
-		<result property = "listPrecTratId" 		column = "list_prec_id_trat"/>
+		
   	</resultMap>
   	
   
