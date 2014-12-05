@@ -5,6 +5,7 @@ import java.util.List;
 
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.ListaPreciosArray;
+import uy.com.cvaucher.services.domain.MaxIdListaPrecios;
 
 public interface ListaPreciosInt {
 
@@ -14,4 +15,5 @@ public interface ListaPreciosInt {
 	void insertListaPrecios(ListaPreciosArray listaPreciosArray);
 	void updateListaPrecios(ListaPrecios listaPrecios);
 	void deleteListaPrecios(Integer listPrecId);
+	MaxIdListaPrecios findMaxIdListaPrecios();
 }

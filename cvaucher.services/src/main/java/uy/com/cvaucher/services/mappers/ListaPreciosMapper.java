@@ -18,7 +18,7 @@ public interface ListaPreciosMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ListaPreciosResult")
 	List<ListaPrecios> findAllListaPrecios();
 	
-	@Select("SELECT MAX list_prec_id Maximo_Id FROM lista_precios")
+	@Select("SELECT MAX(list_prec_id) Maximo_id  FROM lista_precios")
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.MaxIdListaPreciosResult")
 	MaxIdListaPrecios findMaxIdListaPrecios();
 	

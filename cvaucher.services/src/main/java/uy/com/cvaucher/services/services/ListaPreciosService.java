@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.ListaPreciosArray;
+import uy.com.cvaucher.services.domain.MaxIdListaPrecios;
 import uy.com.cvaucher.services.interfaces.ListaPreciosInt;
 import uy.com.cvaucher.services.mappers.ListaPreciosMapper;
 
@@ -40,9 +41,9 @@ public class ListaPreciosService implements ListaPreciosInt
 	@Transactional
 	public void insertListaPrecios(ListaPreciosArray listaPreciosArray) 
 	{
-		logger.debug("listaPreciosArray: "+listaPreciosArray);
+		logger.debug("insertListaPrecios: "+listaPreciosArray);
 		int size = listaPreciosArray.getListPrecTratId().size();
-		System.out.println("size = "+size);
+		
 		ListaPrecios listaPrecios = new ListaPrecios();
 		int i = 0;
 		while( i < size)
@@ -53,9 +54,6 @@ public class ListaPreciosService implements ListaPreciosInt
 			listaPrecios.setListPrecId(listPrecId);
 			listaPrecios.setListPrecTratId(listPrecTratId);
 			listaPrecios.setListPrecMonto(listPrecMonto);
-			System.out.println("listaPrecios.getListPrecId() = "+listaPrecios.getListPrecId());
-			System.out.println("listaPrecios.getListPrecTratId() = "+listaPrecios.getListPrecTratId());
-			System.out.println("listaPrecios.getListPrecMonto() = "+listaPrecios.getListPrecMonto());
 			this.listaPreciosMapper.insertListaPrecios(listaPrecios);
 			i++;
 		}
@@ -71,6 +69,22 @@ public class ListaPreciosService implements ListaPreciosInt
 	public void deleteListaPrecios(Integer listPrecId) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public MaxIdListaPrecios findMaxIdListaPrecios() 
+	{
+		MaxIdListaPrecios maxIdListaPrecios = new MaxIdListaPrecios();
+		int max = 0;
+		if(this.listaPreciosMapper.findMaxIdListaPrecios()!= null)
+		{
+			max = this.listaPreciosMapper.findMaxIdListaPrecios().getMaxIdListPrecios();
+		}
+		 
+		max++;
+		maxIdListaPrecios.setMaxIdListPrecios(max);
+		
+		return maxIdListaPrecios;
 	}
 
 }

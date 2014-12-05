@@ -9,7 +9,7 @@
 		<table class="table table-hover table-bordered well well-sm">
 			<div class="form-group">
 				<sf:label path="listPrecId" for ="listPrecId">Id de Lista</sf:label>
-				<sf:input cssClass ="form-control" path="listPrecId"  size ="50" />
+				<sf:input cssClass ="form-control" path="listPrecId"  value = "#{maxId}" size ="50" />
 				<sf:errors path ="listPrecId" cssClass ="error"/>
 			</div>
 			<caption><h3>Ingrese Monto a cada tratamiento</h3></caption>	

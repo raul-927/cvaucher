@@ -15,7 +15,7 @@
   
   	<resultMap type = "uy.com.cvaucher.services.domain.MaxIdListaPrecios" id ="MaxIdListaPreciosResult">
   	
-  		<result property ="maxIdListPrecios" column = "Maximo_Id"/>
+  		<result property ="maxIdListPrecios" column = "Maximo_id"/>
   		
   	</resultMap>
   
