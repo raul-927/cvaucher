@@ -32,6 +32,18 @@ public class TratamientoController
 	@RequestMapping(method = RequestMethod.GET, params ="insert")
 	public String showInsertTratamiento(Model model)
 	{
+		System.out.println("a 0");
+		for(int i = 0; i == 20; i++)
+		{
+			System.out.println(" for a "+i);
+		}
+		System.out.println("a 0");
+		int i = 0;
+		while(i <20)
+		{
+			System.out.println("while a "+i);
+			i++;
+		}
 		model.addAttribute(new Tratamiento());
 		model.addAttribute("trat", tratamientoService.findAllTratamientos());
 		model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());

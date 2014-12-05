@@ -36,7 +36,7 @@
 						
 						<td>
 							<div class="form-group">
-						 		<sf:input cssClass ="form-control" path="listPrecMonto" size ="50" />
+						 		<sf:input cssClass ="form-control" path="listPrecMonto"  value = "0" size ="50" />
 						 		<sf:errors path ="listPrecMonto" cssClass ="error"/>
 						 	</div>
 					 	</td>

@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import uy.com.cvaucher.services.domain.ListaPrecios;
+import uy.com.cvaucher.services.domain.MaxIdListaPrecios;
 
 public interface ListaPreciosMapper 
 {
@@ -17,6 +18,10 @@ public interface ListaPreciosMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ListaPreciosResult")
 	List<ListaPrecios> findAllListaPrecios();
 	
+	@Select("SELECT MAX list_prec_id Maximo_Id FROM lista_precios")
+	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.MaxIdListaPreciosResult")
+	MaxIdListaPrecios findMaxIdListaPrecios();
+	
 	@Select("SELECT * FROM lista_precios WHERE list_prec_id = #{listPrecId}")
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ListaPreciosResult")
 	ListaPrecios findListaPreciosById(Integer listPrecId);
@@ -24,7 +29,7 @@ public interface ListaPreciosMapper
 	@Insert("INSERT INTO lista_precios "
 			+ "(list_prec_id, list_prec_id_trat, list_prec_monto) "
 			+ "VALUES "
-			+ "(#{listPrecId}, #{listPrecTratId}, #{listPrecMonto}") 
+			+ "(#{listPrecId}, #{listPrecTratId}, #{list_prec_monto})") 
 	void insertListaPrecios(ListaPrecios listaPrecios);
 	
 	@Update("UPDATE lista_precios "
