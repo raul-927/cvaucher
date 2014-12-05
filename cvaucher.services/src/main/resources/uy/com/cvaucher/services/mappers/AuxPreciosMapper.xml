@@ -11,8 +11,10 @@
  
 		<result property = "auxPrecFechIni" column = "aux_prec_fech_ini"/>
 		<result property = "auxPrecFechFin"	column = "aux_prec_fech_fin"/>
+		<result property = "auxPrecDescripcion" column ="aux_prec_descripcion"/>
 		
 		<association  property ="listaPrecios" 	resultMap ="uy.com.cvaucher.services.mappers.ListaPreciosMapper.ListaPreciosResult"/>
+  		
   	</resultMap>
   	
   

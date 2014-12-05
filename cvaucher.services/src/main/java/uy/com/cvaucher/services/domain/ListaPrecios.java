@@ -7,21 +7,20 @@ public class ListaPrecios implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	private int listPrecId;
-	private Tratamiento tratamiento;
+	private int listPrecTratId;
 	private int	listPrecMonto;
-	private int listPrecDescripcion;
 	
-	public int getListPrecId() {
+	public int getListPrecId() {   
 		return listPrecId;
 	}
 	public void setListPrecId(int listPrecId) {
 		this.listPrecId = listPrecId;
 	}
-	public Tratamiento getTratamiento() {
-		return tratamiento;
+	public int getListPrecTratId() {
+		return listPrecTratId;
 	}
-	public void setTratamiento(Tratamiento tratamiento) {
-		this.tratamiento = tratamiento;
+	public void setListPrecTratId(int listPrecTratId) {
+		this.listPrecTratId = listPrecTratId;
 	}
 	public int getListPrecMonto() {
 		return listPrecMonto;
@@ -29,11 +28,7 @@ public class ListaPrecios implements Serializable
 	public void setListPrecMonto(int listPrecMonto) {
 		this.listPrecMonto = listPrecMonto;
 	}
-	public int getListPrecDescripcion() {
-		return listPrecDescripcion;
-	}
-	public void setListPrecDescripcion(int listPrecDescripcion) {
-		this.listPrecDescripcion = listPrecDescripcion;
-	}
 
 }
+
+

@@ -4,34 +4,48 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-
-
-<table class="table table-hover table-bordered well well-sm">
-	<caption><h1>Ingrese Monto a cada tratamiento</h1></caption>
-	
-	<thead>
-		<td>#</td>
-		<td>Descripcion</td>
-		<td>Importe</td>
-	</thead>
-		<tbody>
-			<% int count = 2;%>
-			<c:forEach var="trat" items="${trat}">
-			<%
-				if(count % 2 == 0) 
-				{ %>
-					<tr class ="filaImpar">
-			  <%}
-				else 
-				{%>
-					<tr class ="filaPar">
-			  <%} %>
-			  	<td >${trat.tratId}</td>
-				<td >${trat.tratDescripcion}</td>
-				
-				
-				</tr>
-				<%count ++; %>
-			</c:forEach>	
-		</tbody>
-</table>
+<div class =" well well-lg">
+	<sf:form cssClass = "form" method ="POST" commandName ="listaPreciosArray" >
+		<table class="table table-hover table-bordered well well-sm">
+			<div class="form-group">
+				<sf:label path="listPrecTratId" for ="listPrecTratId">Id de Lista</sf:label>
+				<sf:input cssClass ="form-control" path="listPrecTratId"  size ="50" />
+				<sf:errors path ="listPrecTratId" cssClass ="error"/>
+			</div>
+			<caption><h3>Ingrese Monto a cada tratamiento</h3></caption>	
+			<thead>
+				<td>#</td>
+				<td>Descripcion</td>
+				<td>Importe</td>
+			</thead>
+			
+			<tbody>
+				<c:forEach var="trat" items="${trat}">
+					
+					<tr>
+						<td >
+						<div class="form-group">
+						 		<sf:input cssClass ="form-control" path="listPrecTratId" value ="#{trat.tratId}" size ="50" />
+						 		<sf:errors path ="listPrecTratId" cssClass ="error"/>
+						 </div>
+						</td>
+						
+						<td >
+							${trat.tratDescripcion}
+						</td>
+						
+						<td>
+							<div class="form-group">
+						 		<sf:input cssClass ="form-control" path="listPrecMonto" size ="50" />
+						 		<sf:errors path ="listPrecMonto" cssClass ="error"/>
+						 	</div>
+					 	</td>
+					 </tr>
+				</c:forEach>
+			</tbody>		
+		</table>
+		<div class="botonForm">			
+			<input class="btn btn-primary" type ="submit" value ="Siguiente" name ="_eventId_nuevaListaSiguiente"/>
+		</div>
+	</sf:form>
+</div>

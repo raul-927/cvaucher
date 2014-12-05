@@ -131,6 +131,11 @@
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 		p:service-ref="historialPagosService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.HistorialPagosInt"/>
+		
+	<bean id ="httpListaPreciosService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="listaPreciosService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.ListaPreciosInt"/>
 	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -258,4 +263,15 @@
 			</value>
 		</property>	
 	</bean> 
+	
+	<bean id ="urlMappingListaPrecios"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.listaPrecios = httpListaPreciosService
+			</value>
+		</property>	
+		
+	</bean>
 </beans>

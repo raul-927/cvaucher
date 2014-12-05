@@ -10,9 +10,8 @@
   		<id 	property = "listPrecId" 			column = "list_prec_id"></id>
   		
 		<result property = "listPrecMonto" 			column = "list_prec_monto"/>
-		<result property = "listPrecDescripcion"	column = "list_prec_descripcion"/>
-		
-		<association  property ="tratamiento" 		resultMap ="uy.com.cvaucher.services.mappers.TratamientoMapper.TratResult"/>
+	
+		<result property = "listPrecTratId" 		column = "list_prec_id_trat"/>
   	</resultMap>
   	
   

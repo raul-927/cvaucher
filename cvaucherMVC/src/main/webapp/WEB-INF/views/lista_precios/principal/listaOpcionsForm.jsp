@@ -14,6 +14,7 @@
              value="${flowExecutionKey}"/>
              
 		 <div class="form-group">
+		 		<h2>Trabajar con Listas de Precios</h2>
 		 	<sf:label path="opcion" for ="opcion">Seleccione una opcion</sf:label>
 		 	<sf:select cssClass ="form-control" path="opcion" size ="1" id="descCAT">
 		 		<sf:options items="${tipOpcion}" />

@@ -24,9 +24,9 @@ public interface AuxPreciosMapper
 	AuxPrecios findAuxPreciosById(int auxPrecId);
 	
 	@Insert("INSERT INTO aux_precios "
-			+ "(aux_prec_id_list, aux_prec_fech_ini, aux_prec_fech_fin) "
+			+ "(aux_prec_id_list, aux_prec_fech_ini, aux_prec_fech_fin, aux_prec_descripcion) "
 			+ "VALUES "
-			+ "(#{listaPrecios.listPrecId}, #{auxPrecFechIni}, #{auxPrecFechFin}")
+			+ "(#{listaPrecios.listPrecId}, #{auxPrecFechIni}, #{auxPrecFechFin}, #{auxPrecDescripcion}")
 	@Options(useGeneratedKeys=true, keyProperty="auxPrecId") 
 	void insertAuxPrecios(AuxPrecios auxPrecios);
 	

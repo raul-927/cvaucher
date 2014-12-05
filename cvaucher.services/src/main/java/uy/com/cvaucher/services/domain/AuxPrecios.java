@@ -15,6 +15,16 @@ public class AuxPrecios implements Serializable
 	
 	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private String auxPrecFechFin;
+	
+	private String auxPrecDescripcion;
+
+	public String getAuxPrecDescripcion() {
+		return auxPrecDescripcion;
+	}
+
+	public void setAuxPrecDescripcion(String auxPrecDescripcion) {
+		this.auxPrecDescripcion = auxPrecDescripcion;
+	}
 
 	public int getAuxPrecId() {
 		return auxPrecId;

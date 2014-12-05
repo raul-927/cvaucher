@@ -9,6 +9,14 @@
 		<set name="flowScope.preciosOptions"
 			value="new uy.com.cvaucher.services.clases.PreciosOptions()"
 			type="uy.com.cvaucher.services.clases.PreciosOptions" />	
+			
+		<set name ="flowScope.listaPrecios"
+			value ="new uy.com.cvaucher.services.domain.ListaPrecios()"
+			type ="uy.com.cvaucher.services.domain.ListaPrecios"/>
+			
+		<set name ="flowScope.listaPreciosArray"
+			value ="new uy.com.cvaucher.services.domain.ListaPreciosArray()"
+			type ="uy.com.cvaucher.services.domain.ListaPreciosArray"/>
 	 </on-start>
 	 
 	 <!-- Inicio vista insertListas -->
@@ -26,12 +34,21 @@
 	 </decision-state>
 	 
 	 
-	 <view-state id="nuevaLista" view ="listas/nuevaLista" model ="listaPrecios">
+	 <view-state id="nuevaLista" view ="listas/nuevaLista" model ="listaPreciosArray">
 	 	<on-render>
 	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findAllTratamientos()"/>
 	 	</on-render>
+	 	<transition on ="nuevaListaSiguiente" to ="finListaPrecios">
+	 		<evaluate expression ="flowListaPreciosController.insertListaPrecios(listaPreciosArray)"/>
+	 	</transition>
+	 	
 	 	<transition on ="fin" to ="finListaPrecios"/>
 	 </view-state>
+	 
+	 <action-state id="cargarIdListaEnIngresarFecha">
+	 	
+	 	
+	 </action-state>
 	 
 	 <view-state id="copiar" view ="listas/copia" model ="listaPrecios">
 	 	<transition on ="fin" to ="finListaPrecios"/>
