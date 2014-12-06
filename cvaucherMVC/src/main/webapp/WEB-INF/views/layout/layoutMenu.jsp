@@ -106,16 +106,6 @@
 		                 	<li class="divider"></li>
 		                </ul>
                       </li>
-                      <li class="dropdown-submenu">
-                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Promociones</a>
-                      	<ul class="dropdown-menu">
-                        	<li><a href="#">Opcion1</a></li>
-		                 	<li><a href="#">Opcion2</a></li>
-		                 	<li><a href="#">Opcion3</a></li>
-		                 	<li class="divider"></li>
-		                </ul>
-                      </li>
-                       
                       <li class="divider"></li>
                       <li class="dropdown-submenu">
                       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Lista de Precios</a>
@@ -126,7 +116,15 @@
 		                 	<li class="divider"></li>
 		                </ul>
                       </li>
-                      
+                      <li class="dropdown-submenu">
+                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Promociones</a>
+                      	<ul class="dropdown-menu">
+                        	<li><a href="#">Opcion1</a></li>
+		                 	<li><a href="#">Opcion2</a></li>
+		                 	<li><a href="#">Opcion3</a></li>
+		                 	<li class="divider"></li>
+		                </ul>
+                      </li>
                       <li class="divider"></li>
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>

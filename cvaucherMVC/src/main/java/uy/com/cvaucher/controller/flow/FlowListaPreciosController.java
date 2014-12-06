@@ -20,6 +20,8 @@ public class FlowListaPreciosController
 		this.listaPreciosService = listaPreciosService;
 	}
 	
+	
+	
 	public void insertListaPrecios(ListaPreciosArray listaPreciosArray)
 	{	
 		
@@ -28,8 +30,8 @@ public class FlowListaPreciosController
 	}
 	public int findMaxIdListaPrecios()
 	{
-		maxIdListaPrecios = this.listaPreciosService.findMaxIdListaPrecios().getMaxIdListPrecios();
+		this.maxIdListaPrecios = this.listaPreciosService.findMaxIdListaPrecios().getMaxIdListPrecios();
 		
-		return maxIdListaPrecios;
+		return this.maxIdListaPrecios;
 	}
 }

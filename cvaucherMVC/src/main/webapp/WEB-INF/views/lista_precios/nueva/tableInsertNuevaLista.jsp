@@ -8,8 +8,9 @@
 	<sf:form cssClass = "form" method ="POST" commandName ="listaPreciosArray" >
 		<table class="table table-hover table-bordered well well-sm">
 			<div class="form-group">
-				<sf:label path="listPrecId" for ="listPrecId">Id de Lista</sf:label>
-				<sf:input cssClass ="form-control" path="listPrecId"  value = "#{maxId}" size ="50" />
+				
+				<sf:label path="listPrecId" for ="listPrecId"><h2>Numero de Lista: ${maxId} </h2></sf:label>
+				<input type="hidden" name="listPrecId" value="${maxId}"/>
 				<sf:errors path ="listPrecId" cssClass ="error"/>
 			</div>
 			<caption><h3>Ingrese Monto a cada tratamiento</h3></caption>	
@@ -25,7 +26,8 @@
 					<tr>
 						<td >
 						<div class="form-group">
-						 		<sf:input cssClass ="form-control" path="listPrecTratId" value ="#{trat.tratId}" size ="50" />
+								<sf:label path="listPrecTratId" for ="listPrecTratId" value ="#{trat.tratId}">${trat.tratId}</sf:label>
+						 		<input type="hidden" name="listPrecTratId" value="${trat.tratId}"/>
 						 		<sf:errors path ="listPrecTratId" cssClass ="error"/>
 						 </div>
 						</td>
