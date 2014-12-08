@@ -12,7 +12,7 @@
 		<table class="table table-hover table-bordered well well-sm">
 			<div class="form-group">
 				
-				<sf:label path="listPrecId" for ="listPrecId"><h2>Numero de Lista: ${maxId} </h2></sf:label>
+				<sf:label path="listPrecId" for ="listPrecId"><h2>ID: ${maxId} </h2></sf:label>
 				<input type="hidden" name="listPrecId" value="${maxId}"/>
 				<sf:errors path ="listPrecId" cssClass ="error"/>
 			</div>

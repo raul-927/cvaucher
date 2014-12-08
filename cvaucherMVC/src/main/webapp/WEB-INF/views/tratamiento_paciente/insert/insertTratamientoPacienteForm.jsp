@@ -5,6 +5,19 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+	$(function() {
+		$( "#datepicker").datepicker();
+	});
+
+	$(function() {
+		$( "#datepickers").datepicker();
+	});
+</script>
 
 						<h3>Ingresar Tratamiento</h3>
 
@@ -16,14 +29,10 @@
 		commandName ="tratamientoPaciente">
 		
 			<input type="hidden" name="_flowExecutionKey" 
-             value="${flowExecutionKey}"/>
-             
-           
+             value="${flowExecutionKey}"/>          
              <div class="form-group">
-			 	<sf:label path="fecha" for ="fecha">Fecha:<br/>${salida}</sf:label>
-			 	
+			 <sf:label path="fecha" for ="fecha">Fecha:<br/>${salida}</sf:label>
 			 <input type="hidden" name="fecha" value ="${salida}"/>
-			
 			 	<sf:errors path ="fecha" cssClass ="error"/>
 		 	</div>
 		 	
