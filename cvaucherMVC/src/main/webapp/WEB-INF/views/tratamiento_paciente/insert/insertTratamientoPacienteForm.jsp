@@ -20,8 +20,10 @@
              
            
              <div class="form-group">
-			 	<sf:label path="fecha" for ="fecha">Fecha</sf:label>
-			 	<sf:input cssClass ="input-small " path="fecha"  value ="#{salida}" size ="8" enabled = "false"/>
+			 	<sf:label path="fecha" for ="fecha">Fecha:<br/>${salida}</sf:label>
+			 	
+			 <input type="hidden" name="fecha" value ="${salida}"/>
+			
 			 	<sf:errors path ="fecha" cssClass ="error"/>
 		 	</div>
 		 	

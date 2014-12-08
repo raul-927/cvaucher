@@ -6,6 +6,9 @@
 <%@ page session="false" %>
 <div class =" well well-lg">
 	<sf:form cssClass = "form" method ="POST" commandName ="listaPreciosArray" >
+		<input type="hidden" name="_flowExecutionKey" 
+             value="${flowExecutionKey}"/>
+             
 		<table class="table table-hover table-bordered well well-sm">
 			<div class="form-group">
 				
@@ -15,9 +18,9 @@
 			</div>
 			<caption><h3>Ingrese Monto a cada tratamiento</h3></caption>	
 			<thead>
-				<td>#</td>
-				<td>Descripcion</td>
-				<td>Importe</td>
+				<td><h3>#</h3></td>
+				<td><h3>Descripcion</h3></td>
+				<td><h3>Importe</h3></td>
 			</thead>
 			
 			<tbody>

@@ -5,7 +5,7 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
-
+<div class =" well well-lg">
 <table class="table table-hover">
 	<caption ><h3 class ="success">Datos Basicos</h3></caption>
 	
@@ -40,7 +40,7 @@
 		</tr>
 	</tbody>
 </table>
-
+</div>
 
 
 
