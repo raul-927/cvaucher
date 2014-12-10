@@ -4,23 +4,44 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+	$(function() {
+		$( "#fechaIni").datepicker();
+	});
+
+	$(function() {
+		$( "#fechaFin").datepicker();
+	});
+</script>
 
 <div class="well well-lg">
 	<sf:form cssClass = "form" 
 		method ="POST" 
-		commandName ="preciosOptions" >
+		commandName ="auxPrecios" >
 		
 		<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
              
+         <div class="form-group">
+			 	<sf:label path="auxPrecDescripcion" for ="auxPrecDescripcion">Descripcion</sf:label>
+			 	<sf:input cssClass ="form-control" path="auxPrecDescripcion" placeholder ="Descripcion" size ="30"/>
+			 	<sf:errors path ="auxPrecDescripcion" cssClass ="error"/>
+		 	</div>
 		 <div class="form-group">
-		 	<h2>Trabajar con Listas de Precios</h2>
-		 	<sf:label path="opcion" for ="opcion">Seleccione una opcion</sf:label>
-		 	<sf:select cssClass ="form-control" path="opcion" size ="1" id="descCAT">
-		 		<sf:options items="${tipOpcion}" />
-		 	</sf:select>
-		 	<sf:errors path ="opcion" cssClass ="error"/>
+			 	<sf:label path="auxPrecFechIni" for ="auxPrecFechIni">Fecha de Inicio</sf:label>
+			 	<sf:input cssClass ="form-control" path="auxPrecFechIni" placeholder ="Fecha de Inicio" size ="30" id="fechaIni"/>
+			 	<sf:errors path ="auxPrecFechIni" cssClass ="error"/>
 		 </div>
+		 	
+		 <div class="form-group">
+			 	<sf:label path="auxPrecFechFin" for ="auxPrecFechFin">Fecha de Finalizacion</sf:label>
+			 	<sf:input cssClass ="form-control" path="auxPrecFechFin" placeholder ="Fecha de Finalizacion" size ="30" id="fechaFin"/>
+			 	<sf:errors path ="auxPrecFechFin" cssClass ="error"/>
+		</div>
 		 
 		 <div class="botonForm">		
 			<input class="btn btn-primary" type ="submit" value ="Siguiente" name ="_eventId_OpcSelect"/>

@@ -3,6 +3,7 @@ package uy.com.cvaucher.controller.flow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.ListaPreciosArray;
 import uy.com.cvaucher.services.interfaces.ListaPreciosInt;
 
@@ -33,5 +34,10 @@ public class FlowListaPreciosController
 		this.maxIdListaPrecios = this.listaPreciosService.findMaxIdListaPrecios().getMaxIdListPrecios();
 		
 		return this.maxIdListaPrecios;
+	}
+	
+	public ListaPrecios finsListaPreciosById(int listPrecId)
+	{
+		return this.listaPreciosService.findListaPreciosById(listPrecId);
 	}
 }

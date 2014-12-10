@@ -17,6 +17,10 @@
 		<set name ="flowScope.listaPreciosArray"
 			value ="new uy.com.cvaucher.services.domain.ListaPreciosArray()"
 			type ="uy.com.cvaucher.services.domain.ListaPreciosArray"/>
+			
+		<set name ="flowScope.auxPrecios"
+			value ="new uy.com.cvaucher.services.domain.AuxPrecios()"
+			type ="uy.com.cvaucher.services.domain.AuxPrecios"/>
 	 </on-start>
 	 
 	 <!-- Inicio vista insertListas -->
@@ -39,17 +43,20 @@
 	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()"/>
 	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findAllTratamientos()"/>
 	 	</on-render>
-	 	<transition on ="nuevaListaSiguiente" to ="finListaPrecios">
+	 	<transition on ="nuevaListaSiguiente" to ="cargarIdListaEnIngresarFecha">
 	 		<evaluate expression ="flowListaPreciosController.insertListaPrecios(listaPreciosArray)"/>
 	 	</transition>
-	 	
-	 	<transition on ="fin" to ="finListaPrecios"/>
 	 </view-state>
 	 
 	 <action-state id="cargarIdListaEnIngresarFecha">
-	 	
-	 	
+	 	<transition  to ="" >
+	 		<evaluate reslut ="flowScope.auxPrecios.listaPrecios = flowListaPreciosController.finsListaPreciosById(flowScope.maxId)"/>
+	 	</transition>
 	 </action-state>
+	 
+	 <view-state id="ingresarFechaNuevaLista" view ="" model ="">
+	 
+	 </view-state>
 	 
 	 <view-state id="copiar" view ="listas/copia" model ="listaPrecios">
 	 	<transition on ="fin" to ="finListaPrecios"/>

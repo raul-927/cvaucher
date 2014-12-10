@@ -21,6 +21,11 @@
 			value= "/WEB-INF/views/lista_precios/insertar_trat_lista/listaOpcionsForm.jsp"/>
 	</definition>
 	
+	<put-attribute name ="listas/ingresarFechaNuevaLista" extends ="layout"
+			value= "/WEB-INF/views/lista_precios/nueva/listaFechaIniFinForm.jsp"/>
+	
+	
+	
 	
 	<definition name ="listas/copia" extends  ="layout">
 	

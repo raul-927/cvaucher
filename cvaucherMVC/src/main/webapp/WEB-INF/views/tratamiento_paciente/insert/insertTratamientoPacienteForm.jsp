@@ -29,7 +29,8 @@
 		commandName ="tratamientoPaciente">
 		
 			<input type="hidden" name="_flowExecutionKey" 
-             value="${flowExecutionKey}"/>          
+             value="${flowExecutionKey}"/>  
+                     
              <div class="form-group">
 			 <sf:label path="fecha" for ="fecha">Fecha:<br/>${salida}</sf:label>
 			 <input type="hidden" name="fecha" value ="${salida}"/>
