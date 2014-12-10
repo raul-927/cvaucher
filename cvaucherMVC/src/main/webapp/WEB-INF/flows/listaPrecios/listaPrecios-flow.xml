@@ -49,13 +49,14 @@
 	 </view-state>
 	 
 	 <action-state id="cargarIdListaEnIngresarFecha">
-	 	<transition  to ="" >
-	 		<evaluate reslut ="flowScope.auxPrecios.listaPrecios = flowListaPreciosController.finsListaPreciosById(flowScope.maxId)"/>
-	 	</transition>
+	 	<evaluate expression ="flowScope.auxPrecios.auxListaPreciosId = flowScope.maxId"/>
+	 	<transition  to ="ingresarFechaNuevaLista"/>
 	 </action-state>
 	 
-	 <view-state id="ingresarFechaNuevaLista" view ="" model ="">
-	 
+	 <view-state id="ingresarFechaNuevaLista" view ="listas/ingresarFechaNuevaLista" model ="auxPrecios">
+	 	<transition on ="finalizar" to ="finListaPrecios">
+	 		<evaluate expression ="flowListaPreciosController.insertAuxPrecios(flowScope.auxPrecios)"/>
+	 	</transition>
 	 </view-state>
 	 
 	 <view-state id="copiar" view ="listas/copia" model ="listaPrecios">
