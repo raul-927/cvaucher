@@ -8,7 +8,7 @@ public class AuxPrecios implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	private int auxPrecId;
-	private ListaPrecios listaPrecios;
+	private int auxListaPreciosId;
 	
 	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private String auxPrecFechIni;
@@ -18,14 +18,6 @@ public class AuxPrecios implements Serializable
 	
 	private String auxPrecDescripcion;
 
-	public String getAuxPrecDescripcion() {
-		return auxPrecDescripcion;
-	}
-
-	public void setAuxPrecDescripcion(String auxPrecDescripcion) {
-		this.auxPrecDescripcion = auxPrecDescripcion;
-	}
-
 	public int getAuxPrecId() {
 		return auxPrecId;
 	}
@@ -34,12 +26,12 @@ public class AuxPrecios implements Serializable
 		this.auxPrecId = auxPrecId;
 	}
 
-	public ListaPrecios getListaPrecios() {
-		return listaPrecios;
+	public int getAuxListaPreciosId() {
+		return auxListaPreciosId;
 	}
 
-	public void setListaPrecios(ListaPrecios listaPrecios) {
-		this.listaPrecios = listaPrecios;
+	public void setAuxListaPreciosId(int auxListaPreciosId) {
+		this.auxListaPreciosId = auxListaPreciosId;
 	}
 
 	public String getAuxPrecFechIni() {
@@ -57,5 +49,14 @@ public class AuxPrecios implements Serializable
 	public void setAuxPrecFechFin(String auxPrecFechFin) {
 		this.auxPrecFechFin = auxPrecFechFin;
 	}
+
+	public String getAuxPrecDescripcion() {
+		return auxPrecDescripcion;
+	}
+
+	public void setAuxPrecDescripcion(String auxPrecDescripcion) {
+		this.auxPrecDescripcion = auxPrecDescripcion;
+	}
+
 
 }

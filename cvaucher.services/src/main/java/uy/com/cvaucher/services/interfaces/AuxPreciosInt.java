@@ -7,5 +7,6 @@ import uy.com.cvaucher.services.domain.AuxPrecios;
 public interface AuxPreciosInt {
 	
 	List<AuxPrecios> findAllAuxPrecios();
+	void insertAuxPrecios(AuxPrecios auxPrecios);
 
 }

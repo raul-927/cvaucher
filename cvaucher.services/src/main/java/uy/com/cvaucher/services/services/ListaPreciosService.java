@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import uy.com.cvaucher.services.domain.AuxPrecios;
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.ListaPreciosArray;
 import uy.com.cvaucher.services.domain.MaxIdListaPrecios;
 import uy.com.cvaucher.services.interfaces.ListaPreciosInt;
+import uy.com.cvaucher.services.mappers.AuxPreciosMapper;
 import uy.com.cvaucher.services.mappers.ListaPreciosMapper;
 
 
@@ -24,6 +26,9 @@ public class ListaPreciosService implements ListaPreciosInt
 	
 	@Autowired
 	private ListaPreciosMapper listaPreciosMapper;
+	
+	@Autowired
+	private AuxPreciosMapper auxPreciosMapper;
 
 	@Override
 	public List<ListaPrecios> findAllListaPrecios() {
@@ -85,6 +90,13 @@ public class ListaPreciosService implements ListaPreciosInt
 		maxIdListaPrecios.setMaxIdListPrecios(max);
 		
 		return maxIdListaPrecios;
+	}
+
+	@Override
+	public void insertAuxPrecios(AuxPrecios auxPrecios) 
+	{
+		this.auxPreciosMapper.insertAuxPrecios(auxPrecios);
+		
 	}
 
 }

@@ -8,13 +8,11 @@
   	<resultMap type="uy.com.cvaucher.services.domain.AuxPrecios" id="AuxPreciosResult">
   	
   		<id	property = "auxPrecId" 	column = "aux_prec_id"/>
- 
+  		
+ 		<result property ="auxListaPreciosId" column ="aux_prec_id_list"/>
 		<result property = "auxPrecFechIni" column = "aux_prec_fech_ini"/>
 		<result property = "auxPrecFechFin"	column = "aux_prec_fech_fin"/>
 		<result property = "auxPrecDescripcion" column ="aux_prec_descripcion"/>
-		
-		<association  property ="listaPrecios" 	resultMap ="uy.com.cvaucher.services.mappers.ListaPreciosMapper.ListaPreciosResult"/>
-  		
   	</resultMap>
   	
   
