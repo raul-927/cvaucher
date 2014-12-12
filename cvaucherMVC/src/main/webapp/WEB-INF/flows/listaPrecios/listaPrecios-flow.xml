@@ -44,7 +44,7 @@
 	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findAllTratamientos()"/>
 	 	</on-render>
 	 	<transition on ="nuevaListaSiguiente" to ="cargarIdListaEnIngresarFecha">
-	 		<evaluate expression ="flowListaPreciosController.insertListaPrecios(listaPreciosArray)"/>
+	 		<evaluate expression ="flowListaPreciosController.insertListaPreciosArray(listaPreciosArray)"/>
 	 	</transition>
 	 </view-state>
 	 
@@ -56,6 +56,7 @@
 	 <view-state id="ingresarFechaNuevaLista" view ="listas/ingresarFechaNuevaLista" model ="auxPrecios">
 	 	<transition on ="finalizar" to ="finListaPrecios">
 	 		<evaluate expression ="flowListaPreciosController.insertAuxPrecios(flowScope.auxPrecios)"/>
+	 		<evaluate expression="flowListaPreciosController.insertListaPreciosAuxPrecios()"/>
 	 	</transition>
 	 </view-state>
 	 
