@@ -15,6 +15,7 @@ import uy.com.cvaucher.services.domain.Agenda;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
 import uy.com.cvaucher.services.domain.Pacientes;
+import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.TratPacByCedula;
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
@@ -137,10 +138,17 @@ public class FlowPacientesController
 		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
 		tratamientoPaciente.setPacientes(pacientes);
 		model.addAttribute(tratamientoPaciente);
-		model.addAttribute("tratP", tratamientoServices.findAllTratamientos());
+		model.addAttribute("tratP", tratamientoServices.findAllTratamientoByActualList());
 		
 		return "redirect:/tratamientos";
 	}
+	
+	
+	public List<TratByList>findAllTratamientoByActualList()
+	{
+		return this.tratamientoServices.findAllTratamientoByActualList();
+	}
+	
 	public  static Pacientes returnPacientes()
 	{
 		return pacientes;
@@ -152,6 +160,11 @@ public class FlowPacientesController
 		SimpleDateFormat formato = new SimpleDateFormat(patron);
 		String salida = formato.format(hoy);
 		return salida;
+	}
+	
+	public TratByList findTratamientoByActualListById(int tratId)
+	{
+		return this.tratamientoServices.findTratamientoByActualListById( tratId);
 	}
 	
 }

@@ -9,15 +9,7 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" href="/resources/demos/style.css" />
-<script>
-	$(function() {
-		$( "#datepicker").datepicker();
-	});
 
-	$(function() {
-		$( "#datepickers").datepicker();
-	});
-</script>
 
 						<h3>Ingresar Tratamiento</h3>
 
@@ -40,7 +32,7 @@
 		 	<div class="form-group">
 			 	<sf:label path="tratamId" for ="tratamId">Tratamiento</sf:label>
 			 	<sf:select cssClass ="form-control" path="tratamId" size ="1" >
-			 		<sf:options  id ="prueba" path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId"/>
+			 		<sf:options path="tratamId" items="${tratP}" itemLabel="descripcion" itemValue="id"/>
 			 	</sf:select>
 			 	<sf:errors path ="tratamId" cssClass ="error"/>
 		 	</div>
@@ -50,12 +42,6 @@
 		 <div class="botonForm">
 		 	<input class="btn btn-primary"  type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
 		 </div>
-
-		 	<div class="form-group">
-			 	<sf:label path="costoTratSesion" for ="costoTratSesion">Importe</sf:label>
-			 	<sf:input cssClass ="form-control" path="costoTratSesion" placeholder ="costoTratSesion" size ="30" id="descCAT"/>
-			 	<sf:errors path ="costoTratSesion" cssClass ="error"/>
-		 	</div>
 		 	
 		 	<div class="form-group">
 			 	<sf:label path="importePagado" for ="importePagado">Importe Pagado</sf:label>

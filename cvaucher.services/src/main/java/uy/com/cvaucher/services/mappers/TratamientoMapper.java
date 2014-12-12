@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 
+
+import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.Tratamiento;
 
 public interface TratamientoMapper 
@@ -31,6 +33,22 @@ public interface TratamientoMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.SesionResult")
 	int findSesionesByTratamientoId(int tratId);
 	
+	@Select("SELECT		trat.trat_id ID, trat.trat_descripcion DESCRIPCION, trat.trat_cant_sesiones CANT_SESIONES, lis.list_prec_monto MONTO "
+			+ "FROM		tratamiento trat, lista_precios lis, aux_precios aux "
+			+ "WHERE	trat.trat_id = lis.list_prec_id_trat "
+			+ "AND		lis.list_prec_id = aux.aux_prec_id_list "
+			+ "AND		current_date() BETWEEN aux.aux_prec_fech_ini AND aux.aux_prec_fech_fin")
+	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratByListResult")
+	List<TratByList> findAllTratamientoByActualList();
+	
+	@Select("SELECT		trat.trat_id ID, trat.trat_descripcion DESCRIPCION, trat.trat_cant_sesiones CANT_SESIONES, lis.list_prec_monto MONTO "
+			+ "FROM		tratamiento trat, lista_precios lis, aux_precios aux "
+			+ "WHERE	trat.trat_id = lis.list_prec_id_trat "
+			+ "AND		trat.trat_id = #{tratId} "
+			+ "AND		lis.list_prec_id = aux.aux_prec_id_list "
+			+ "AND		current_date() BETWEEN aux.aux_prec_fech_ini AND aux.aux_prec_fech_fin")
+	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratByListResult")
+	TratByList findTratamientoByActualListById(int tratId);
 	
 	@Insert("INSERT INTO tratamiento (trat_tpo_id, trat_descripcion,trat_cant_sesiones)VALUES(#{tipoTratamiento.tipTratId}, #{tratDescripcion}, #{tratCantSesiones})")
 	@Options(useGeneratedKeys=true, keyProperty="tratId")

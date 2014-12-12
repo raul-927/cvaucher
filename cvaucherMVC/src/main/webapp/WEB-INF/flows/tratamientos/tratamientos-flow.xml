@@ -32,12 +32,12 @@
 	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
 		<on-render>
 			<evaluate result ="viewScope.salida" expression ="flowPacientesController.getFecha()"/>
-			<evaluate result ="viewScope.tratP" expression="flowPacientesController.findAllTratamientos()"/>
+			<evaluate result ="viewScope.tratP" expression="flowPacientesController.findAllTratamientoByActualList()"/>
 		</on-render>
 		
 		<transition on ="cantSesionesTratamiento" to ="tratamientoPacienteInsert">
 			
-			<evaluate result ="flowScope.tratPacById" expression ="flowPacientesController.findTratamientoById(requestParameters.tratamId)"/>
+			<evaluate result ="flowScope.tratPacById" expression ="flowPacientesController.findTratamientoByActualListById(requestParameters.tratamId)"/>
 			<render fragments="showCantSes"/>
 		</transition>
 		

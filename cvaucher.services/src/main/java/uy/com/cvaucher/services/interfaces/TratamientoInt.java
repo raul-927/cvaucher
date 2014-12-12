@@ -2,6 +2,7 @@ package uy.com.cvaucher.services.interfaces;
 
 import java.util.List;
 
+import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.Tratamiento;
 
 public interface TratamientoInt {
@@ -10,6 +11,10 @@ public interface TratamientoInt {
 	 List<Tratamiento> findTratamientoByCedula(int cedula);
 	 
 	 Tratamiento findTratamientoById(int tratId);
+	 
+	 List<TratByList> findAllTratamientoByActualList();
+	 
+	 TratByList findTratamientoByActualListById(int tratId);
 	 
 	 int findSesionesByTratamientoId(int tratId);
 	 

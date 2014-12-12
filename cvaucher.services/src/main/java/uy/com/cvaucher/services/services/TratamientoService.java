@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
 import uy.com.cvaucher.services.mappers.TratamientoMapper;
@@ -67,6 +68,18 @@ public class TratamientoService implements TratamientoInt
 	public int findSesionesByTratamientoId(int tratId) {
 		
 		return tratamientoMapper.findSesionesByTratamientoId(tratId);
+	}
+
+	@Override
+	public List<TratByList> findAllTratamientoByActualList() {
+		
+		return this.tratamientoMapper.findAllTratamientoByActualList();
+	}
+
+	@Override
+	public TratByList findTratamientoByActualListById(int tratId) {
+		// TODO Auto-generated method stub
+		return  this.tratamientoMapper.findTratamientoByActualListById(tratId);
 	}
 	
 }

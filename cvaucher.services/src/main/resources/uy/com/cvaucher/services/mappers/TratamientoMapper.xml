@@ -18,5 +18,12 @@
   		<result property ="tratCantSesiones"	column ="trat_cant_sesiones"/>
   	
   	</resultMap>
+  	
+  	<resultMap type="uy.com.cvaucher.services.domain.TratByList" id="TratByListResult">
+  		<result property = "id"			column ="ID"/>
+  		<result property ="descripcion"	column ="DESCRIPCION"/>	
+  		<result property ="sesiones"	column ="CANT_SESIONES"/>
+  		<result property ="monto"		column ="MONTO"/>
+  	</resultMap>
  
 </mapper>
