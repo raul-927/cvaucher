@@ -10,12 +10,15 @@
 <link rel="stylesheet" href="/resources/demos/style.css" />
 <script>
 	$(function() {
-		$( "#fechaIni").datepicker();
+		$( "#fechaIni").datepicker({ dateFormat: 'yy-mm-dd' }).val();
+		
 	});
 
 	$(function() {
-		$( "#fechaFin").datepicker();
+		$( "#fechaFin").datepicker({ dateFormat: 'yy-mm-dd' }).val();
 	});
+
+	
 </script>
 
 <div class="well well-lg">
@@ -26,7 +29,12 @@
 		<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
              
-         
+         <div class="form-group">
+			 	<sf:label path="auxPrecDescripcion" for ="auxPrecDescripcion">Descripcion</sf:label>
+			 	<sf:input cssClass ="form-control" path="auxPrecDescripcion" placeholder ="Descripcion" size ="30"/>
+			 	<sf:errors path ="auxPrecDescripcion" cssClass ="error"/>
+		 </div>
+		 
 		 <div class="form-group">
 			 	<sf:label path="auxPrecFechIni" for ="auxPrecFechIni">Fecha de Inicio</sf:label>
 			 	<sf:input cssClass ="form-control" path="auxPrecFechIni" placeholder ="Fecha de Inicio" size ="30" id="fechaIni"/>
@@ -39,11 +47,7 @@
 			 	<sf:errors path ="auxPrecFechFin" cssClass ="error"/>
 		</div>
 		
-		<div class="form-group">
-			 	<sf:label path="auxPrecDescripcion" for ="auxPrecDescripcion">Descripcion</sf:label>
-			 	<sf:input cssClass ="form-control" path="auxPrecDescripcion" placeholder ="Descripcion" size ="30"/>
-			 	<sf:errors path ="auxPrecDescripcion" cssClass ="error"/>
-		 </div>
+		
 		 
 		 <div class="botonForm">		
 			<input class="btn btn-primary" type ="submit" value ="Grabar Datos y Finalizar" name ="_eventId_finalizar"/>

@@ -10,10 +10,10 @@ public class AuxPrecios implements Serializable
 	private int auxPrecId;
 	private int auxListaPreciosId;
 	
-	@DateTimeFormat(pattern = "YYYY-MM-dd")
+	@DateTimeFormat(pattern = "dd/MM/YYYY")
 	private String auxPrecFechIni;
 	
-	@DateTimeFormat(pattern = "YYYY-MM-dd")
+	@DateTimeFormat(pattern = "dd/MM/YYYY")
 	private String auxPrecFechFin;
 	
 	private String auxPrecDescripcion;

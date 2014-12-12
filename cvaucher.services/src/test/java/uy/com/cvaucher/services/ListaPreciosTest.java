@@ -51,8 +51,8 @@ public class ListaPreciosTest
 	{
 		int listPrecId = 1;
 		String auxPrecDescripcion = "Lista 1";
-		String auxPrecFechIni ="2014-12-10";
-		String auxPrecFechFin = "2014-12-11";
+		String auxPrecFechIni ="10/12/2014";
+		String auxPrecFechFin = "11/10/2014";
 		
 		
 		AuxPrecios auxPrecios = new AuxPrecios();

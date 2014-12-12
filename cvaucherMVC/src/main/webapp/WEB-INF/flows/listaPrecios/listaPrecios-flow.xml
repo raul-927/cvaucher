@@ -49,7 +49,7 @@
 	 </view-state>
 	 
 	 <action-state id="cargarIdListaEnIngresarFecha">
-	 	<evaluate expression ="flowScope.auxPrecios.auxListaPreciosId = flowScope.maxId"/>
+	 	<evaluate expression ="flowScope.auxPrecios.auxListaPreciosId = requestParameters.listPrecId"/>
 	 	<transition  to ="ingresarFechaNuevaLista"/>
 	 </action-state>
 	 
