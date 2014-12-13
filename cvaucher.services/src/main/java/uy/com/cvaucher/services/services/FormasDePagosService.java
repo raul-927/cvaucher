@@ -15,7 +15,7 @@ import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 
 @Service
 @Transactional
-public class FormasDePagoService implements FormasDePagosInt 
+public class FormasDePagosService implements FormasDePagosInt 
 {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
