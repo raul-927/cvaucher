@@ -97,4 +97,9 @@
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.auxPrecios"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.AuxPreciosInt"/>
+		
+	<bean id ="formasDePagosService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.formasDeaPagos"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.FormasDePagosInt"/>
 </beans>

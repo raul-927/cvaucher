@@ -79,18 +79,7 @@ public class FlowPacientesController
 	public void insertTratamientoPaciente(TratamientoPaciente tratamientoPaciente)
 	{
 		this.tratamientoPacienteServices.insertTratamientoPaciente(tratamientoPaciente);
-		SearchMaxTratPacId searchMaxTratPacId = new SearchMaxTratPacId();
-		
-		searchMaxTratPacId.setCedula(tratamientoPaciente.getPacientes().getCedula());
-		searchMaxTratPacId.setTratId(tratamientoPaciente.getTratPacId());
-		searchMaxTratPacId.setFecha(this.getFecha());
-		MaxTratPacId aux = this.tratamientoPacienteServices.findMaxTratPacId(searchMaxTratPacId);
-		System.out.println("Fecha ="+aux);
-		
-		//this.tratamientoPacienteServices.updateTratamientoPacienteImporte(tratamientoPaciente);
-		
 	}
-	
 	
 	public List<Direccion>findDireccionByCedula(int pacCedula)
 	{

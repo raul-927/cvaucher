@@ -141,6 +141,11 @@
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 		p:service-ref="auxPreciosService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.AuxPreciosInt"/>
+		
+	<bean id ="httpFormasDePagosService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="formasDePagosService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.FormasDePagosInt"/>
 	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -286,6 +291,17 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.auxPrecios = httpAuxPreciosService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingFormasDePagos"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.formasDePagos = httpFormasDePagosService
 			</value>
 		</property>	
 		

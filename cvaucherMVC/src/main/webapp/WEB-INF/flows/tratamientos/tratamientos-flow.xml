@@ -43,8 +43,6 @@
 		
 		<transition on ="tratamientoPacienteIngresado" to ="finIngresoPacientes" bind="true">
 			 <evaluate expression="flowPacientesController.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>
-			 <evaluate expression ="flowScope.tratamientoPaciente.fecha = flowScope.salida"/>
-			 <evaluate expression = "flowScope.maxid = flowPacientesController.findMaxTratPacId(flowScope.tratamientoPaciente)"/>
 		</transition>
 	</view-state>
 	<end-state id="finIngresoPacientes"/>

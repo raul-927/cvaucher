@@ -41,19 +41,8 @@
 			
 		 <div class="botonForm">
 		 	<input class="btn btn-primary"  type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
+		 	<br/><br/>
 		 </div>
-		 	
-		 	<div class="form-group">
-			 	<sf:label path="importePagado" for ="importePagado">Importe Pagado</sf:label>
-			 	<sf:input cssClass ="form-control" path="importePagado" value ="0" placeholder ="importePagado" size ="30" id="descCAT"/>
-			 	<sf:errors path ="importePagado" cssClass ="error"/>
-		 	</div>
-		 	
-		 	<div class="form-group">
-			 	<sf:label path="saldoPendiente" for ="saldoPendiente">Saldo Pendiente</sf:label>
-			 	<sf:input cssClass ="form-control" path="saldoPendiente" value ="0" placeholder ="saldoPendiente" size ="30" id="descCAT"/>
-			 	<sf:errors path ="saldoPendiente" cssClass ="error"/>
-		 	</div>
 		 	
 			 <div class="botonForm">
 				 <input class ="btn btn-default" type ="reset" value ="Cancelar" name ="_eventId_cancelar"/>
