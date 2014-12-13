@@ -27,8 +27,10 @@
   		<result property ="importePagado"		column ="Pagado"/>
   		<result property ="saldoPendiente"		column ="Saldo"/>
   		<result property ="cantSesiones"		column ="Sesiones"/>
-  		
-  	
   	</resultMap>
-
+	
+	<resultMap type="uy.com.cvaucher.services.domain.MaxTratPacId" id="MaxTratPacIdResutl">
+		<result property = "maxId" 	column ="MAX_ID"/>
+	</resultMap>
+	
 </mapper>

@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
+import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.TratPacByCedula;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 
@@ -27,6 +29,14 @@ public interface TratamientoPacienteMapper
 			+ "AND	tp.trat_id = t.trat_id")
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoPacienteMapper.TratamientoPacienteByCedulaResult")
 	List<TratPacByCedula> findTratamientoPacienteByCedula(int cedula);
+	
+	@Update("CREATE TEMPORARY TABLE trat AS SELECT MAX(trat_pac_id)IdMax FROM tratamiento_paciente; "
+			+ "UPDATE tratamiento_paciente "+
+			"SET importe_pagado = importe_pagado + #{importePagado}, "+
+			"saldo_pendiente = costo_tratamiento - importe_pagado "+
+			"WHERE	trat_pac_id = (SELECT IdMax FROM trat); "
+			+ "DROP TABLE trat;")
+	void updateTratamientoPacienteImporteByMaxId(TratamientoPaciente tratamientoPaciente);
 	
 	@Select("SELECT * FROM tratamiento_paciente ")
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoPacienteMapper.TratamientoPacienteResult")
@@ -47,10 +57,10 @@ public interface TratamientoPacienteMapper
 			"saldo_pendiente = costo_tratamiento - importe_pagado "+
 			"WHERE	trat_pac_id = #{tratPacId};")
 	void updateTratamientoPacienteImporte(TratamientoPaciente tratamientoPaciente);
+	
+	@Select("SELECT MAX(trat_pac_id) FROM tratamiento_paciente WHERE pac_cedula = #{cedula} "
+			+ "AND trat_id = #{tratId} "
+			+ "AND fecha = #{fecha}")
+	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoPacienteMapper.MaxTratPacIdResutl")
+	MaxTratPacId findMaxTratPacId(SearchMaxTratPacId searchMaxTratPacId);
 }
-
-/*"CREATE TEMPORARY TABLE temp_importe_pagado "+
-			"SELECT trat_pac_id Id, importe_pagado Pago "+
-			"FROM	tratamiento_paciente WHERE trat_pac_id = #{tratPacId}; "+
-			*/
-//(SELECT Pago FROM temp_importe_pagado)

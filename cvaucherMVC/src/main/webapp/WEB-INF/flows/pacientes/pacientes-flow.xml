@@ -109,7 +109,7 @@
 	<!-- Tratamientos -->
 	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
 		<on-render>
-			<evaluate result ="viewScope.salida" expression ="flowPacientesController.getFecha()"/>
+			<evaluate result ="flowScope.salida" expression ="flowPacientesController.getFecha()"/>
 			<evaluate result ="viewScope.tratP" expression="flowPacientesController.findAllTratamientoByActualList()"/>
 		</on-render>
 		
@@ -121,6 +121,10 @@
 		
 		<transition on ="tratamientoPacienteIngresado" to ="finIngresoPacientes" bind="true">
 			 <evaluate expression="flowPacientesController.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>
+			 <evaluate expression ="flowScope.tratamientoPaciente.fecha = flowScope.salida"/>
+			 <evaluate expression = "flowScope.maxid = flowPacientesController.findMaxTratPacId(flowScope.tratamientoPaciente)"/>
+			 
+			 
 		</transition>
 	</view-state>
 	<end-state id="finIngresoPacientes"/>

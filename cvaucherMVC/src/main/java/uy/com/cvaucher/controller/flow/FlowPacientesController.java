@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.Agenda;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
+import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.TratPacByCedula;
@@ -35,7 +37,8 @@ public class FlowPacientesController
 	private final AgendaInt 				agendaServices;
 	private final HistoriaClinicaInt		historiaClinicaServices;
 	private final TratamientoPacienteInt	tratamientoPacienteServices;
-	private  static Pacientes 						pacientes ;
+	private  static Pacientes 				pacientes ;
+	private String 							fechaAux;
 	
 	@Autowired
 	public FlowPacientesController(PacientesInt 			pacientesServices, 
@@ -76,7 +79,18 @@ public class FlowPacientesController
 	public void insertTratamientoPaciente(TratamientoPaciente tratamientoPaciente)
 	{
 		this.tratamientoPacienteServices.insertTratamientoPaciente(tratamientoPaciente);
+		SearchMaxTratPacId searchMaxTratPacId = new SearchMaxTratPacId();
+		
+		searchMaxTratPacId.setCedula(tratamientoPaciente.getPacientes().getCedula());
+		searchMaxTratPacId.setTratId(tratamientoPaciente.getTratPacId());
+		searchMaxTratPacId.setFecha(this.getFecha());
+		MaxTratPacId aux = this.tratamientoPacienteServices.findMaxTratPacId(searchMaxTratPacId);
+		System.out.println("Fecha ="+aux);
+		
+		//this.tratamientoPacienteServices.updateTratamientoPacienteImporte(tratamientoPaciente);
+		
 	}
+	
 	
 	public List<Direccion>findDireccionByCedula(int pacCedula)
 	{
@@ -162,9 +176,24 @@ public class FlowPacientesController
 		return salida;
 	}
 	
+	public MaxTratPacId findMaxTratPacId(SearchMaxTratPacId searchMaxTratPacId)
+	{
+		MaxTratPacId aux = this.tratamientoPacienteServices.findMaxTratPacId(searchMaxTratPacId);
+		return aux;
+	}
+	
 	public TratByList findTratamientoByActualListById(int tratId)
 	{
 		return this.tratamientoServices.findTratamientoByActualListById( tratId);
+	}
+	
+	public void setFechaAux(String fecha)
+	{
+		this.fechaAux = fecha;
+	}
+	public String getFechaAux()
+	{
+		return this.fechaAux;
 	}
 	
 }

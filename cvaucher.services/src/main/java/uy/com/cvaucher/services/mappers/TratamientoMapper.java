@@ -37,7 +37,9 @@ public interface TratamientoMapper
 			+ "FROM		tratamiento trat, lista_precios lis, aux_precios aux "
 			+ "WHERE	trat.trat_id = lis.list_prec_id_trat "
 			+ "AND		lis.list_prec_id = aux.aux_prec_id_list "
-			+ "AND		current_date() BETWEEN aux.aux_prec_fech_ini AND aux.aux_prec_fech_fin")
+			+ "AND		current_date() BETWEEN aux.aux_prec_fech_ini AND aux.aux_prec_fech_fin "
+			+ "OR 		current_date() > aux.aux_prec_fech_ini "
+			+ "AND 		aux.aux_prec_fech_fin = '0000-00-00'")
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratByListResult")
 	List<TratByList> findAllTratamientoByActualList();
 	
@@ -46,7 +48,9 @@ public interface TratamientoMapper
 			+ "WHERE	trat.trat_id = lis.list_prec_id_trat "
 			+ "AND		trat.trat_id = #{tratId} "
 			+ "AND		lis.list_prec_id = aux.aux_prec_id_list "
-			+ "AND		current_date() BETWEEN aux.aux_prec_fech_ini AND aux.aux_prec_fech_fin")
+			+ "AND		current_date() BETWEEN aux.aux_prec_fech_ini AND aux.aux_prec_fech_fin "
+			+ "OR 		current_date() > aux.aux_prec_fech_ini "
+			+ "AND 		aux.aux_prec_fech_fin = '0000-00-00'")
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratByListResult")
 	TratByList findTratamientoByActualListById(int tratId);
 	

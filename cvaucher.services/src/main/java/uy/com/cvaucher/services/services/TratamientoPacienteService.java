@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
+import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.TratPacByCedula;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.TratamientoPacienteInt;
@@ -52,6 +54,18 @@ public class TratamientoPacienteService implements TratamientoPacienteInt {
 	public void deleteTratamientoPaciente(int tratPacId) {
 		this.tratamientoPacienteMapper.deleteTratamientoPacienteMapper(tratPacId);
 
+	}
+
+	@Override
+	public void updateTratamientoPacienteImporteByMaxId(TratamientoPaciente tratamientoPaciente) {
+		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteByMaxId(tratamientoPaciente);
+		
+	}
+
+	@Override
+	public MaxTratPacId findMaxTratPacId(SearchMaxTratPacId searchMaxTratPacId) {
+		
+		return this.tratamientoPacienteMapper.findMaxTratPacId(searchMaxTratPacId);
 	}
 
 }

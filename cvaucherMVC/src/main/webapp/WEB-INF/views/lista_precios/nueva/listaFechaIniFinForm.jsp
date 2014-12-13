@@ -37,13 +37,13 @@
 		 
 		 <div class="form-group">
 			 	<sf:label path="auxPrecFechIni" for ="auxPrecFechIni">Fecha de Inicio</sf:label>
-			 	<sf:input cssClass ="form-control" path="auxPrecFechIni" placeholder ="Fecha de Inicio" size ="30" id="fechaIni"/>
+			 	<sf:input cssClass ="form-control" path="auxPrecFechIni" value ="0000-00-00" placeholder ="Fecha de Inicio" size ="30" id="fechaIni"/>
 			 	<sf:errors path ="auxPrecFechIni" cssClass ="error"/>
 		 </div>
 		 	
 		 <div class="form-group">
 			 	<sf:label path="auxPrecFechFin" for ="auxPrecFechFin">Fecha de Finalizacion</sf:label>
-			 	<sf:input cssClass ="form-control" path="auxPrecFechFin" placeholder ="Fecha de Finalizacion" size ="30" id="fechaFin"/>
+			 	<sf:input cssClass ="form-control" path="auxPrecFechFin" value ="0000-00-00" placeholder ="Fecha de Finalizacion" size ="30" id="fechaFin"/>
 			 	<sf:errors path ="auxPrecFechFin" cssClass ="error"/>
 		</div>
 		
