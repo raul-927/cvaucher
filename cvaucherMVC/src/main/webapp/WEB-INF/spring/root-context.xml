@@ -100,6 +100,6 @@
 		
 	<bean id ="formasDePagosService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-		p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.formasDeaPagos"
+		p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.formasDePagos"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.FormasDePagosInt"/>
 </beans>

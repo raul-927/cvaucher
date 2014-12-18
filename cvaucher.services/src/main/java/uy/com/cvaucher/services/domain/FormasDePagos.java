@@ -9,7 +9,8 @@ public class FormasDePagos implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	private int formPagId;
-	private int formPagDesc;
+	private String formPagAbreviacion;
+	private String formPagDesc;
 	
 	public int getFormPagId() {
 		return formPagId;
@@ -17,10 +18,16 @@ public class FormasDePagos implements Serializable
 	public void setFormPagId(int formPagId) {
 		this.formPagId = formPagId;
 	}
-	public int getFormPagDesc() {
+	public String getFormPagDesc() {
 		return formPagDesc;
 	}
-	public void setFormPagDesc(int formPagDesc) {
+	public void setFormPagDesc(String formPagDesc) {
 		this.formPagDesc = formPagDesc;
+	}
+	public String getFormPagAbreviacion() {
+		return formPagAbreviacion;
+	}
+	public void setFormPagAbreviacion(String formPagAbreviacion) {
+		this.formPagAbreviacion = formPagAbreviacion;
 	}
 }

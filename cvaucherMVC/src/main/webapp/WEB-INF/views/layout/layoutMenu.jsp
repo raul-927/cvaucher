@@ -125,7 +125,7 @@
 		                 	<li class="divider"></li>
 		                </ul>
                       </li>
-                      <li><a href="#">Formas de Pagos</a></li>
+                      <li><a href='<s:url value="/formasDePagos?insert"/>'>Formas de Pagos</a></li>
                       <li class="divider"></li>
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>

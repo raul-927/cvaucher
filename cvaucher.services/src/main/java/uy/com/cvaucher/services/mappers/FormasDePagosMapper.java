@@ -22,7 +22,7 @@ public interface FormasDePagosMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
 	FormasDePagos findFormasDePagosById(Integer formPagId);
 	
-	@Insert("INSERT INTO formas_de_pagos (form_pag_desc)VALUES(#{formPagDesc})")
+	@Insert("INSERT INTO formas_de_pagos (form_pag_abreviacion, form_pag_desc)VALUES(#{formPagAbreviacion}, #{formPagDesc})")
 	@Options(useGeneratedKeys=true, keyProperty="formPagId")
 	void insertFormasDePagos(FormasDePagos formasDePagos);
 	
