@@ -146,6 +146,11 @@
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 		p:service-ref="formasDePagosService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.FormasDePagosInt"/>
+		
+	<bean id ="httpCuentasService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="cuentasService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.CuentasInt"/>
 	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -302,6 +307,17 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.formasDePagos = httpFormasDePagosService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingCuentas"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.cuentas = httpCuentasService
 			</value>
 		</property>	
 		

@@ -124,6 +124,10 @@
 		<servlet-name>cvaucher</servlet-name>
 		<url-pattern>*.formasDePagos</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>cvaucher</servlet-name>
+		<url-pattern>*.cuentas</url-pattern>
+	</servlet-mapping>
 	<!-- 
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>

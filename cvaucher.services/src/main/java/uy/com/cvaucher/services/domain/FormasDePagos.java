@@ -11,6 +11,7 @@ public class FormasDePagos implements Serializable
 	private int formPagId;
 	private String formPagAbreviacion;
 	private String formPagDesc;
+	private String formPagTipo;
 	
 	public int getFormPagId() {
 		return formPagId;
@@ -30,4 +31,11 @@ public class FormasDePagos implements Serializable
 	public void setFormPagAbreviacion(String formPagAbreviacion) {
 		this.formPagAbreviacion = formPagAbreviacion;
 	}
+	public String getFormPagTipo() {
+		return formPagTipo;
+	}
+	public void setFormPagTipo(String formPagTipo) {
+		this.formPagTipo = formPagTipo;
+	}
+	
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.CuentasMapper">
+		  	
+  	<resultMap type="uy.com.cvaucher.services.domain.Cuentas" id="CuentasResult">
+  		<id property="cuentaId" column="cuenta_id"/>
+		<result property="cuentaFormPagoDesc" column="cuenta_form_pago_desc"/>
+		<result property ="cuentaMonto" column ="cuenta_monto"/>
+		<result property ="cuentaTipoMovimiento" column ="cuenta_tipo_movimiento"/>
+  	</resultMap>
+
+</mapper>

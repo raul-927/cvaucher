@@ -9,6 +9,7 @@
   		<id property="formPagId" column="form_pag_id"/>
 		<result property="formPagDesc" column="form_pag_desc"/>
 		<result property ="formPagAbreviacion" column ="form_pag_abreviacion"/>
+		<result property ="formPagTipo" column ="form_pag_tipo"/>
   	</resultMap>
 
 </mapper>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 
 import uy.com.cvaucher.services.domain.FormasDePagos;
+import uy.com.cvaucher.services.enumerador.TiposFormasDePagos;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 
 
@@ -18,6 +19,7 @@ import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 public class FormasDePagosController 
 {
 	private final FormasDePagosInt formasDePagosServices;
+	private TiposFormasDePagos tiposFormasDePagos;
 
 	@Autowired
 	public FormasDePagosController(FormasDePagosInt formasDePagosServices)
@@ -31,6 +33,7 @@ public class FormasDePagosController
 		
 		model.addAttribute(new FormasDePagos());
 		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
+		model.addAttribute("tiposPagos",tiposFormasDePagos.values());
 		return "formasDePagos/insertFormasDePagos";
 	}
 	
@@ -42,10 +45,12 @@ public class FormasDePagosController
 			System.out.println("Error en insertar Tipos de Pagos"+bindingResult.getAllErrors());
 			model.addAttribute(new FormasDePagos());
 			model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
+			model.addAttribute("tiposPagos",tiposFormasDePagos.values());
 		}
 		this.formasDePagosServices.insertFormasDePagos(formasDePagos);
 		model.addAttribute(new FormasDePagos());
 		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
+		model.addAttribute("tiposPagos",tiposFormasDePagos.values());
 		
 		return "formasDePagos/insertFormasDePagos";
 	}

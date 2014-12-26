@@ -1,6 +1,8 @@
 package uy.com.cvaucher.services.domain;
 
-public class AsientosContables 
+import java.io.Serializable;
+
+public class AsientosContables implements Serializable
 {
 	
 }

@@ -12,6 +12,7 @@
 		<td>#</td>
 		<td>Abreviacion</td>
 		<td>Descripcion</td>
+		<td>Tipo de Formas de Pago</td>
 	</thead>
 	<tbody>
 		<c:forEach var="forPag" items="${forPag}">
@@ -19,6 +20,7 @@
 		<td>${forPag.formPagId}</td>
 			<td>${forPag.formPagAbreviacion}</td>
 			<td >${forPag.formPagDesc}</td>
+			<td >${forPag.formPagTipo}</td>
 		</tr>		
 		</c:forEach>	
 	</tbody>

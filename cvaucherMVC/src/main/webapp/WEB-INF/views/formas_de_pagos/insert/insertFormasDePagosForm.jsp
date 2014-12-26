@@ -24,6 +24,16 @@
 			 	<sf:errors path ="formPagDesc" cssClass ="error"/>
 		 	</div>
 
+		 	<div class="form-group">
+		 	<sf:label path="formPagTipo" for ="formPagTipo">Tipos de Pago</sf:label>
+		 	<sf:select cssClass ="form-control" path="formPagTipo" size ="1" id="descCAT">
+		 		
+		 		<sf:options items="${tiposPagos}" />
+	
+		 	</sf:select>
+		 	<sf:errors path ="formPagTipo" cssClass ="error"/>
+		 </div>
+
 		 </fieldset>
 		 <div class="botonForm">
 		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar"/>
