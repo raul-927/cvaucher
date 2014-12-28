@@ -81,6 +81,9 @@ public class FlowPacientesController
 		this.tratamientoPacienteServices.insertTratamientoPaciente(tratamientoPaciente);
 	}
 	
+	
+	
+	
 	public List<Direccion>findDireccionByCedula(int pacCedula)
 	{
 		List<Direccion> direc = this.direccionServices.findDireccionByCedula(pacCedula);
