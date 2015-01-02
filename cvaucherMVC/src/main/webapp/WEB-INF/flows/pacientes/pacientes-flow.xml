@@ -124,6 +124,12 @@
 			 
 		</transition>
 	</view-state>
+	
+	<action-state id ="cargoPacienteEnFormaDePago">
+		
+		
+	
+	</action-state>
 	<end-state id="finIngresoPacientes"/>
 	
 </flow>

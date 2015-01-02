@@ -1,0 +1,21 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+<!--<start id="tile_template"/>-->
+
+   <definition name="tratamientoPaciente/insertTratamientoPaciente" extends ="layout2">
+             
+	<put-attribute name="left"
+   		value = "content"/>
+  
+   </definition>
+   
+   <definition name ="content" template ="/WEB-INF/views/tratamiento_paciente/insert/insertTratamientoPacienteForm.jsp">
+   	<put-attribute name="showCantSes"
+   		value = "/WEB-INF/views/tratamiento_paciente/insert/cantSes.jsp"/>
+   
+   </definition>
+
+</tiles-definitions>

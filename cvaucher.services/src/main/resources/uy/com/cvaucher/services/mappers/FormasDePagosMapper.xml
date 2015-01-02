@@ -11,5 +11,10 @@
 		<result property ="formPagAbreviacion" column ="form_pag_abreviacion"/>
 		<result property ="formPagTipo" column ="form_pag_tipo"/>
   	</resultMap>
+  	
+  	<resultMap type="uy.com.cvaucher.services.clases.FormasDePagosDesc" id="FormasDePagoDescResult">
+  		<result property ="formasDePagoDesc" column ="Tipo"/>
+  	
+  	</resultMap>
 
 </mapper>

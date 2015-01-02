@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import uy.com.cvaucher.services.domain.FormasDePagos;
+import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 
 public interface FormasDePagosMapper 
 {
@@ -17,6 +18,9 @@ public interface FormasDePagosMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
 	List<FormasDePagos> findAllFormasDePagos();
 	
+	@Select("SELECT form_pag_tipo Tipo FROM formas_de_pagos")
+	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagoDescResult")
+	List<FormasDePagosDesc>findAllFormasDePagosByDesc();
 	
 	@Select("SELECT * FROM formas_de_pagos WHERE formPagId=#{formPagId}")
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")

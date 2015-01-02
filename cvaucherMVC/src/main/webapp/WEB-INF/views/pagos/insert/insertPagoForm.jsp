@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/resources/demos/style.css" />
 
 
-						<h3>Ingresar Tratamiento</h3>
+						<h3>Ingresar Pago</h3>
 
 <div class="well well-lg">
 	<sf:form 
@@ -38,14 +38,11 @@
 		 	</div>
 
 		<t:insertAttribute name ="showCantSes"/>
-		
 			
 		 <div class="botonForm">
 		 	<input class="btn btn-primary"  type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
 		 	<br/><br/>
 		 </div>
-		 
-		
 		 	
 			 <div class="botonForm">
 				 <input class ="btn btn-default" type ="reset" value ="Cancelar" name ="_eventId_cancelar"/>

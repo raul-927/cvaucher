@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.Agenda;
 import uy.com.cvaucher.services.domain.Direccion;
+import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
 import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.Pacientes;
@@ -23,6 +25,7 @@ import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
+import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.interfaces.HistoriaClinicaInt;
 import uy.com.cvaucher.services.interfaces.PacientesInt;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
@@ -37,6 +40,7 @@ public class FlowPacientesController
 	private final AgendaInt 				agendaServices;
 	private final HistoriaClinicaInt		historiaClinicaServices;
 	private final TratamientoPacienteInt	tratamientoPacienteServices;
+	private final FormasDePagosInt			formasDePagosServices;
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
 	
@@ -46,7 +50,8 @@ public class FlowPacientesController
 								AgendaInt 				agendaServices,
 								TratamientoInt			tratamientoServices,
 								HistoriaClinicaInt		historiaClinicaServices,
-								TratamientoPacienteInt 	tratamientoPacienteServices)
+								TratamientoPacienteInt 	tratamientoPacienteServices,
+								FormasDePagosInt		formasDePagosServices)
 	{
 		this.pacientesServices			 = pacientesServices;
 		this.tratamientoServices		 = tratamientoServices;
@@ -54,6 +59,7 @@ public class FlowPacientesController
 		this.agendaServices 			 = agendaServices;
 		this.historiaClinicaServices 	 = historiaClinicaServices;
 		this.tratamientoPacienteServices = tratamientoPacienteServices;
+		this.formasDePagosServices 		 = formasDePagosServices;
 	}
 	
 	public void insertPacientes(Pacientes pacientes)
@@ -186,6 +192,13 @@ public class FlowPacientesController
 	public String getFechaAux()
 	{
 		return this.fechaAux;
+	}
+	
+	public List<FormasDePagosDesc> findAllFormasDePagos()
+	{
+		List<FormasDePagosDesc> formaDePago = this.formasDePagosServices.findAllFormasDePagosByDesc();
+		
+		return formaDePago;
 	}
 	
 }
