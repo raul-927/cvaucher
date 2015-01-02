@@ -8,7 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
+import uy.com.cvaucher.services.domain.FormasDePagos;
+import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
+import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
+
+
+
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
@@ -28,14 +35,14 @@ public class FormasDePagosService implements FormasDePagosInt
 	public List<FormasDePagos> findAllFormasDePagos() 
 	{
 		// TODO Auto-generated method stub
-		return this.formasDePagosMapper.findAllFormasDePagos();
+		return this.findAllFormasDePagos();
 	}
 
 	@Override
 	public FormasDePagos findFormasDePagosById(Integer formPagId) 
 	{
 		// TODO Auto-generated method stub
-		return this.formasDePagosMapper.findFormasDePagosById(formPagId);
+		return this.findFormasDePagosById(formPagId);
 	}
 
 	@Override
@@ -50,12 +57,13 @@ public class FormasDePagosService implements FormasDePagosInt
 	{
 		this.formasDePagosMapper.updateFormasDePagos(formasDePagos);
 
+
 	}
 
 	@Override
 	public List<FormasDePagosDesc> findAllFormasDePagosByDesc() {
 		// TODO Auto-generated method stub
-		return this.formasDePagosMapper.findAllFormasDePagosByDesc();
+		return null;
 	}
 
 }
