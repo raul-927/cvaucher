@@ -63,7 +63,7 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Override
 	public List<FormasDePagosDesc> findAllFormasDePagosByDesc() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.formasDePagosMapper.findAllFormasDePagosByDesc();
 	}
 
 }

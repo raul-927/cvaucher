@@ -13,7 +13,8 @@
   	</resultMap>
   	
   	<resultMap type="uy.com.cvaucher.services.clases.FormasDePagosDesc" id="FormasDePagoDescResult">
-  		<result property ="formasDePagoDesc" column ="Tipo"/>
+  		<result property ="formasDePagoDesc" column ="Abreviacion"/>
+  		<result property ="formasDePagoTipo" column ="Tipo"/>
   	
   	</resultMap>
 
