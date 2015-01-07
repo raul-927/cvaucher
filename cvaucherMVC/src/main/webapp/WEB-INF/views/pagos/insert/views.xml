@@ -5,17 +5,11 @@
 <tiles-definitions>
 <!--<start id="tile_template"/>-->
 
-   <definition name="tratamientoPaciente/insertTratamientoPaciente" extends ="layout2">
+   <definition name="tratamientoPaciente/seleccionoFormaPago" extends ="layout">
              
 	<put-attribute name="left"
-   		value = "content"/>
+   		value = "/WEB-INF/views/pagos/pagosOpcionsForm.jsp"/>
   
-   </definition>
-   
-   <definition name ="content" template ="/WEB-INF/views/tratamiento_paciente/insert/insertTratamientoPacienteForm.jsp">
-   	<put-attribute name="showCantSes"
-   		value = "/WEB-INF/views/tratamiento_paciente/insert/cantSes.jsp"/>
-   
    </definition>
 
 </tiles-definitions>

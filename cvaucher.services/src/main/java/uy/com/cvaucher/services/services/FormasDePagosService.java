@@ -35,14 +35,14 @@ public class FormasDePagosService implements FormasDePagosInt
 	public List<FormasDePagos> findAllFormasDePagos() 
 	{
 		// TODO Auto-generated method stub
-		return this.findAllFormasDePagos();
+		return this.formasDePagosMapper.findAllFormasDePagos();
 	}
 
 	@Override
 	public FormasDePagos findFormasDePagosById(Integer formPagId) 
 	{
 		// TODO Auto-generated method stub
-		return this.findFormasDePagosById(formPagId);
+		return this.formasDePagosMapper.findFormasDePagosById(formPagId);
 	}
 
 	@Override

@@ -17,11 +17,12 @@
 		 	<h2>Trabajar con Formas de Pagos</h2>
 		 	<sf:label path="formaDePago" for ="formaDePago">Seleccione una opcion</sf:label>
 		 	<sf:select cssClass ="form-control" path="formaDePago" size ="1">
-		 		<sf:options items="${fpagoOption}" />
+		 		<sf:options path ="formaDePago" items="${fpagoOption}" itemLabel ="formPagAbreviacion" itemValue ="formPagTipo" />
 		 	</sf:select>
 		 	<sf:errors path ="formaDePago" cssClass ="error"/>
 		 </div>
 		 
+		 	
 		 <div class="botonForm">		
 			<input class="btn btn-primary" type ="submit" value ="Siguiente" name ="_eventId_FormaPagoSelect"/>
 		 </div>

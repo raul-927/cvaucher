@@ -137,7 +137,7 @@ public class FlowPacientesController
 		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
 		tratamientoPaciente.setPacientes(pacientes);
 		model.addAttribute(tratamientoPaciente);
-		model.addAttribute("tratP", tratamientoServices.findAllTratamientos());
+		//model.addAttribute("tratP", tratamientoServices.findAllTratamientos());
 		
 		return "redirect:/tratamientos";
 	}
@@ -150,7 +150,7 @@ public class FlowPacientesController
 		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
 		tratamientoPaciente.setPacientes(pacientes);
 		model.addAttribute(tratamientoPaciente);
-		model.addAttribute("tratP", tratamientoServices.findAllTratamientoByActualList());
+		//model.addAttribute("tratP", tratamientoServices.findAllTratamientoByActualList());
 		
 		return "redirect:/tratamientos";
 	}
@@ -182,7 +182,7 @@ public class FlowPacientesController
 	
 	public TratByList findTratamientoByActualListById(int tratId)
 	{
-		return this.tratamientoServices.findTratamientoByActualListById( tratId);
+		return this.tratamientoServices.findTratamientoByActualListById(tratId);
 	}
 	
 	public void setFechaAux(String fecha)
@@ -194,11 +194,9 @@ public class FlowPacientesController
 		return this.fechaAux;
 	}
 	
-	public List<FormasDePagosDesc> findAllFormasDePagos()
-	{
-		List<FormasDePagosDesc> formaDePago = this.formasDePagosServices.findAllFormasDePagosByDesc();
-		
-		return formaDePago;
+	public List<FormasDePagos> findAllFormasDePagos()
+	{	
+		return this.formasDePagosServices.findAllFormasDePagos();
 	}
 	
 }

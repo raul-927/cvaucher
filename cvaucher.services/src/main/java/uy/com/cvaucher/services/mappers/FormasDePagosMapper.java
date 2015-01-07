@@ -14,7 +14,7 @@ import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 
 public interface FormasDePagosMapper 
 {
-	@Select("SELECT * FROM formas_de_pagos")
+	@Select("SELECT form_pag_id, form_pag_abreviacion, form_pag_desc, form_pag_tipo FROM formas_de_pagos")
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
 	List<FormasDePagos> findAllFormasDePagos();
 	
