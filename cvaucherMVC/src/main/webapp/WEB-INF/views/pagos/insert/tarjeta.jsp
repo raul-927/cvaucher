@@ -7,7 +7,7 @@
 <h3>Crear Nuevo Tratamiento</h3>
 <div class =" well well-lg">
 	
-	<sf:form cssClass = "form"
+	<sf:form cssClass ="form"
 		method ="POST" 
 		commandName ="pagoTarjeta" >
 		 <fieldset style="width: 350px;">
@@ -17,27 +17,22 @@
 		 
 	        <div class="form-group">
 			 	<sf:label path="tarjNro" for ="tarjNro">Nro Tarjeta</sf:label>
-			 	<sf:textarea cssClass ="inputText" path="tarjNro" size ="30"/>
+			 	<sf:input cssClass ="form-control" path="tarjNro" size ="30"/>
 			 	<sf:errors path ="tarjNro" cssClass ="error"/>
 		 	</div>
 		 	
 		 	<div class="form-group">
 			 	<sf:label path="tarjVence" for ="tarjVence">Vencimiento</sf:label>
-			 	<sf:textarea cssClass ="inputText" path="tarjVence" size ="30"/>
+			 	<sf:input cssClass ="form-control" path="tarjVence" size ="30"/>
 			 	<sf:errors path ="tarjVence" cssClass ="error"/>
 		 	</div>
 		 	
 		 	<div class="form-group">
 			 	<sf:label path="tarjImporte" for ="tarjImporte">Importe</sf:label>
-			 	<sf:textarea cssClass ="inputText" path="tarjImporte" size ="30"/>
+			 	<sf:input cssClass ="form-control" path="tarjImporte" size ="30"/>
 			 	<sf:errors path ="tarjImporte" cssClass ="error"/>
 		 	</div>
 		 	
-		 	<div class="form-group">
-		 	<sf:label path="tratCantSesiones" for ="tratId">Sesiones</sf:label>
-		 	<sf:input cssClass ="inputText" path="tratCantSesiones" size ="10" id="descCAT"/>
-		 	<sf:errors path ="tratCantSesiones" cssClass ="error"/>
-		</div>
 
 		 </fieldset>
 		 <div class="botonForm">
