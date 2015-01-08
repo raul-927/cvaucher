@@ -43,6 +43,7 @@ public class FlowPacientesController
 	private final FormasDePagosInt			formasDePagosServices;
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
+	private TratamientoPaciente				tratamientoPaciente;
 	
 	@Autowired
 	public FlowPacientesController(PacientesInt 			pacientesServices, 
@@ -84,7 +85,17 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPaciente(TratamientoPaciente tratamientoPaciente)
 	{
-		this.tratamientoPacienteServices.insertTratamientoPaciente(tratamientoPaciente);
+		this.tratamientoPaciente = tratamientoPaciente;
+		this.tratamientoPacienteServices.insertTratamientoPaciente(this.tratamientoPaciente);
+	}
+	
+	public void setTratamientoPaciente(TratamientoPaciente tratamientoPaciente)
+	{
+		this.tratamientoPaciente = tratamientoPaciente;
+	}
+	public TratamientoPaciente getTratamientoPaciente()
+	{
+		return this.tratamientoPaciente;
 	}
 	
 	

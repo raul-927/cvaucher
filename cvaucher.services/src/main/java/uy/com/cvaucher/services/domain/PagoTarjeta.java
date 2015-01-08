@@ -16,6 +16,7 @@ public class PagoTarjeta implements Serializable
 	private int tarjNro;
 	private String tarjVence;
 	private int tarjImporte;
+	private int cantCuotas;
 	
 	public int getTarjId() {
 		return tarjId;
@@ -52,6 +53,12 @@ public class PagoTarjeta implements Serializable
 	}
 	public void setTarjImporte(int tarjImporte) {
 		this.tarjImporte = tarjImporte;
+	}
+	public int getCantCuotas() {
+		return cantCuotas;
+	}
+	public void setCantCuotas(int cantCuotas) {
+		this.cantCuotas = cantCuotas;
 	}
 	
 

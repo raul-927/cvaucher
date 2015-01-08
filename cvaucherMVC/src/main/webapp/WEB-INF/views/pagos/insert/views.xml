@@ -14,7 +14,25 @@
    
    <definition name ="tratamientoPaciente/pagoTarjetaCredito" extends ="layout">
    	<put-attribute name="left"
-   		value ="/WEB-INF/views/pagos/insert/tarjeta.jsp"/>
+   		value ="/WEB-INF/views/pagos/insert/pagoTarjeta.jsp"/>
+   
+   </definition>
+   
+   <definition name ="tratamientoPaciente/pagoCreditoEfectivo" extends ="layout">
+   	<put-attribute name="left"
+   		value ="/WEB-INF/views/pagos/insert/pagoCredito.jsp"/>
+   
+   </definition>
+   
+   <definition name ="tratamientoPaciente/pagoEfectivo" extends ="layout">
+   	<put-attribute name="left"
+   		value ="/WEB-INF/views/pagos/insert/pagoEfectivo.jsp"/>
+   
+   </definition>
+   
+   <definition name ="tratamientoPaciente/pagoDepositoBancario" extends ="layout">
+   	<put-attribute name="left"
+   		value ="/WEB-INF/views/pagos/insert/pagoDeposito.jsp"/>
    
    </definition>
 

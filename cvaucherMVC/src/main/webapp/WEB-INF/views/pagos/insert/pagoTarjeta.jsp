@@ -4,7 +4,20 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-<h3>Pago con tarjeta</h3>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+	$(function() {
+		$( "#fechaVenc").datepicker({ dateFormat: 'yy-mm-dd' }).val();
+		
+	});
+
+	
+</script>
+
+<h3>Pago con tarjeta: </h3>${aux2}
 <div class =" well well-lg">
 	
 	<sf:form cssClass ="form"
@@ -14,6 +27,12 @@
 		 
 		 <input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
+		 	
+		 	<div class="form-group">
+			 <sf:label path="tarjPacCedula" for ="tarjPacCedula">C.I:<br/>${paciente.cedula}</sf:label>
+			 <input type="hidden" name="tarjPacCedula" value ="${paciente.cedula}"/>
+			 	<sf:errors path ="tarjPacCedula" cssClass ="error"/>
+		 	</div>
 		 
 	        <div class="form-group">
 			 	<sf:label path="tarjNro" for ="tarjNro">Nro Tarjeta</sf:label>
@@ -23,7 +42,7 @@
 		 	
 		 	<div class="form-group">
 			 	<sf:label path="tarjVence" for ="tarjVence">Vencimiento</sf:label>
-			 	<sf:input cssClass ="form-control" path="tarjVence" size ="30"/>
+			 	<sf:input id ="fechaVenc" cssClass ="form-control" path="tarjVence" value ="0000-00-00" placeholder ="Fecha de Vencimiento" size ="30"/>
 			 	<sf:errors path ="tarjVence" cssClass ="error"/>
 		 	</div>
 		 	
@@ -31,6 +50,12 @@
 			 	<sf:label path="tarjImporte" for ="tarjImporte">Importe</sf:label>
 			 	<sf:input cssClass ="form-control" path="tarjImporte" size ="30"/>
 			 	<sf:errors path ="tarjImporte" cssClass ="error"/>
+		 	</div>
+		 	
+		 	<div class="form-group">
+			 	<sf:label path="cantCuotas" for ="cantCuotas">Cuotas</sf:label>
+			 	<sf:input cssClass ="form-control" path="cantCuotas" size ="30"/>
+			 	<sf:errors path ="cantCuotas" cssClass ="error"/>
 		 	</div>
 		 	
 

@@ -49,13 +49,14 @@
 		</transition>
 		
 		<transition on ="tratamientoPacienteIngresado" to ="seleccionoFormaDePago" bind="true">
-			 <evaluate expression="flowPacientesController.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>
+			 <evaluate expression="flowPacientesController.setTratamientoPaciente(flowScope.tratamientoPaciente)"/>
 		</transition>
 	</view-state>
 	
 	<view-state id ="seleccionoFormaDePago" view ="tratamientoPaciente/seleccionoFormaPago" model ="formPagosOptions">
 		<on-render>
 			<evaluate result ="viewScope.fpagoOption" expression="flowPacientesController.findAllFormasDePagos()"/>
+			<evaluate expression ="flowScope.aux = requestParameters.formaDePago"/>
 		</on-render>
 		
 		<transition on ="FormaPagoSelect" to ="decisionFormaPago"/>
@@ -69,8 +70,11 @@
 	</decision-state>
 	
 	<view-state id="pagoTarjetaCredito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
+		<on-render>
+			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+			<evaluate  expression ="viewScope.aux2 = flowScope.aux"/>
+		</on-render>
 		
-	
 	</view-state>
 	
 	<view-state id ="pagoEfectivo" view ="tratamientoPaciente/pagoEfectivo" model ="pagoEfectivo">
