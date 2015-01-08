@@ -4,35 +4,46 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-
-
-<div class="form-group">
-	<sf:label path="cantSesiones" for ="cantSesiones">Sesiones</sf:label>
-	<c:forEach var = "aux" items ="${tratP}">
-			
-			<c:if test ="${aux.id == tratPacById.id}">
-				<c:set var ="aux2" value ="#{tratPacById.sesiones}"/>
-				
-			</c:if>
-	</c:forEach>
+<h3>Crear Nuevo Tratamiento</h3>
+<div class =" well well-lg">
 	
-	<sf:input cssClass ="form-control" path="cantSesiones" value ="${aux2}" size ="30" />
-	<sf:errors path ="cantSesiones" cssClass ="error"/>
+	<sf:form cssClass = "form"
+		method ="POST" 
+		commandName ="pagoTarjeta" >
+		 <fieldset style="width: 350px;">
+		 
+		 <input type="hidden" name="_flowExecutionKey" 
+             value="${flowExecutionKey}"/>
+		 
+	        <div class="form-group">
+			 	<sf:label path="tarjNro" for ="tarjNro">Nro Tarjeta</sf:label>
+			 	<sf:textarea cssClass ="inputText" path="tarjNro" size ="30"/>
+			 	<sf:errors path ="tarjNro" cssClass ="error"/>
+		 	</div>
+		 	
+		 	<div class="form-group">
+			 	<sf:label path="tarjVence" for ="tarjVence">Vencimiento</sf:label>
+			 	<sf:textarea cssClass ="inputText" path="tarjVence" size ="30"/>
+			 	<sf:errors path ="tarjVence" cssClass ="error"/>
+		 	</div>
+		 	
+		 	<div class="form-group">
+			 	<sf:label path="tarjImporte" for ="tarjImporte">Importe</sf:label>
+			 	<sf:textarea cssClass ="inputText" path="tarjImporte" size ="30"/>
+			 	<sf:errors path ="tarjImporte" cssClass ="error"/>
+		 	</div>
+		 	
+		 	<div class="form-group">
+		 	<sf:label path="tratCantSesiones" for ="tratId">Sesiones</sf:label>
+		 	<sf:input cssClass ="inputText" path="tratCantSesiones" size ="10" id="descCAT"/>
+		 	<sf:errors path ="tratCantSesiones" cssClass ="error"/>
+		</div>
+
+		 </fieldset>
+		 <div class="botonForm">
+		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar"/>
+		 	<input class ="btn btn-default" type ="reset" value ="Cancelar"/>
+		 </div>
+	 </sf:form>
 </div>
-
-<div class="form-group">
-	<sf:label path="costoTratSesion" for ="costoTratSesion">Importe</sf:label>
-	<c:forEach var = "aux" items ="${tratP}">
-			
-			<c:if test ="${aux.id == tratPacById.id}">
-				<c:set var = "aux3" value ="#{tratPacById.monto}"/>
-			</c:if>
-	</c:forEach>
-	<sf:input cssClass ="form-control" path="costoTratSesion" value ="${aux3}" size ="30" />
-	<sf:errors path ="costoTratSesion" cssClass ="error"/>
-</div>
 	
-	
-			 	
-			 	
-

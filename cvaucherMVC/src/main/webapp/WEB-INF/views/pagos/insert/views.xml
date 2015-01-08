@@ -11,5 +11,11 @@
    		value = "/WEB-INF/views/pagos/pagosOpcionsForm.jsp"/>
   
    </definition>
+   
+   <definition name ="tratamientoPaciente/pagoTarjetaCredito" extends ="layout">
+   	<put-attribute name="left"
+   		value ="/WEB-INF/views/pagos/insert/tarjeta.jsp"/>
+   
+   </definition>
 
 </tiles-definitions>

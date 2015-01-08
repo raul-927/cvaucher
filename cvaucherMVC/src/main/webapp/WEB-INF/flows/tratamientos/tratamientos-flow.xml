@@ -64,7 +64,7 @@
 		<if test="flowScope.formaPagosOptions.formaDePago == 'DP'" then="pagoDepositoBancario"/>
 	</decision-state>
 	
-	<view-state id="pagoTarjetaCredito" view ="" model ="">
+	<view-state id="pagoTarjetaCredito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="">
 		
 	
 	</view-state>
