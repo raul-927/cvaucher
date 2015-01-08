@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-<h3>Crear Nuevo Tratamiento</h3>
+<h3>Pago con tarjeta</h3>
 <div class =" well well-lg">
 	
 	<sf:form cssClass ="form"
