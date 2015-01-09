@@ -207,7 +207,14 @@ public class FlowPacientesController
 	
 	public List<FormasDePagos> findAllFormasDePagos()
 	{	
+		
 		return this.formasDePagosServices.findAllFormasDePagos();
+		
+	}
+	
+	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc)
+	{
+		return this.formasDePagosServices.findFormPagoTipoByDesc(formPagoDesc);
 	}
 	
 }

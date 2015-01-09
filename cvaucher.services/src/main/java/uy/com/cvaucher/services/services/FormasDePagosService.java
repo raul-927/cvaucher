@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+
+
+
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
@@ -61,9 +64,12 @@ public class FormasDePagosService implements FormasDePagosInt
 	}
 
 	@Override
-	public List<FormasDePagosDesc> findAllFormasDePagosByDesc() {
-		// TODO Auto-generated method stub
-		return this.formasDePagosMapper.findAllFormasDePagosByDesc();
+	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc) 
+	{
+		return this.formasDePagosMapper.findFormPagoTipoByDesc(formPagoDesc);
 	}
+
+	
+	
 
 }

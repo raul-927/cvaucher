@@ -14,6 +14,7 @@ public class PagoTarjeta implements Serializable
 	private int tarjPacCedula;
 	private int tarjPagoId;
 	private int tarjNro;
+	private String tarjDesc;
 	private String tarjVence;
 	private int tarjImporte;
 	private int cantCuotas;
@@ -59,6 +60,12 @@ public class PagoTarjeta implements Serializable
 	}
 	public void setCantCuotas(int cantCuotas) {
 		this.cantCuotas = cantCuotas;
+	}
+	public String getTarjDesc() {
+		return tarjDesc;
+	}
+	public void setTarjDesc(String tarjDesc) {
+		this.tarjDesc = tarjDesc;
 	}
 	
 

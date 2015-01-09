@@ -17,7 +17,7 @@
 	
 </script>
 
-<h3>Pago con tarjeta: </h3>${aux2}
+<h3>Pago con tarjeta: ${tipoFormPag.formasDePagoDesc}</h3>
 <div class =" well well-lg">
 	
 	<sf:form cssClass ="form"
@@ -27,6 +27,8 @@
 		 
 		 <input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
+             
+         <input type="hidden" name="tarjDesc" value ="${tipoFormPag.formasDePagoDesc}"/>
 		 	
 		 	<div class="form-group">
 			 <sf:label path="tarjPacCedula" for ="tarjPacCedula">C.I:<br/>${paciente.cedula}</sf:label>
@@ -47,8 +49,8 @@
 		 	</div>
 		 	
 		 	<div class="form-group">
-			 	<sf:label path="tarjImporte" for ="tarjImporte">Importe</sf:label>
-			 	<sf:input cssClass ="form-control" path="tarjImporte" size ="30"/>
+			 	<sf:label path="tarjImporte" for ="tarjImporte">Importe<h4>${aux2}</h4></sf:label>
+			 	<input type ="hidden" name ="tarjImporte" value ="${aux2}"/>
 			 	<sf:errors path ="tarjImporte" cssClass ="error"/>
 		 	</div>
 		 	
@@ -57,7 +59,6 @@
 			 	<sf:input cssClass ="form-control" path="cantCuotas" size ="30"/>
 			 	<sf:errors path ="cantCuotas" cssClass ="error"/>
 		 	</div>
-		 	
 
 		 </fieldset>
 		 <div class="botonForm">

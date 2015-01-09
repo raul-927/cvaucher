@@ -24,8 +24,8 @@
              value="${flowExecutionKey}"/>  
                      
              <div class="form-group">
-			 <sf:label path="fecha" for ="fecha">Fecha:<br/>${salida}</sf:label>
-			 <input type="hidden" name="fecha" value ="${salida}"/>
+			 <sf:label path="fecha" for ="fecha">Fecha:<br/>${fechaHoy}</sf:label>
+			 <input type="hidden" name="fecha" value ="${fechaHoy}"/>
 			 	<sf:errors path ="fecha" cssClass ="error"/>
 		 	</div>
 		 	

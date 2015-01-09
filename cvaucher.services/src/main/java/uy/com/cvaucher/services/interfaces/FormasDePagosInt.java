@@ -9,7 +9,7 @@ public interface FormasDePagosInt
 {
 	List<FormasDePagos> findAllFormasDePagos();
 	
-	List<FormasDePagosDesc>findAllFormasDePagosByDesc();
+	FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc);
 	
 	FormasDePagos findFormasDePagosById(Integer formPagId);
 	
