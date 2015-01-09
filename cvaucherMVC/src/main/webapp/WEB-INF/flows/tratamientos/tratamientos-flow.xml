@@ -85,9 +85,12 @@
 	<view-state id="pagoTarjetaCredito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
 		<on-render>
 			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
-			<evaluate  expression ="viewScope.aux3 = flowScope.aux2"/>
-			<evaluate expression ="viewScope.aux4 = flowScope.tipoFormPag.formasDePagoDesc"/>
 		</on-render>
+		
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
+		</transition>
 		
 	</view-state>
 	
@@ -102,6 +105,6 @@
 	<view-state id ="pagoDepositoBancario" view ="tratamientoPaciente/pagoDepositoBancario" model ="pagoDepositoBancario">
 	
 	</view-state>
-	<end-state id="finIngresoPacientes"/>
+	<end-state id="finIngresoTratamiento"/>
 	
 </flow>

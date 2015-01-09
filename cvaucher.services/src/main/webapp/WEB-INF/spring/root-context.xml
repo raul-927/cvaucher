@@ -152,6 +152,12 @@
 		p:service-ref="cuentasService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.CuentasInt"/>
 	
+	<bean id ="httpPagoTarjetaService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="pagoTarjetaService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.PagoTarjetaInt"/>
+	
+	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -318,6 +324,17 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.cuentas = httpCuentasService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingPagoTarjeta"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.pagoTarjeta = httpPagoTarjetaService
 			</value>
 		</property>	
 		

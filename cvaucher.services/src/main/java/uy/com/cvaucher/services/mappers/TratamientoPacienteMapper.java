@@ -58,7 +58,7 @@ public interface TratamientoPacienteMapper
 			"WHERE	trat_pac_id = #{tratPacId};")
 	void updateTratamientoPacienteImporte(TratamientoPaciente tratamientoPaciente);
 	
-	@Select("SELECT MAX(trat_pac_id) FROM tratamiento_paciente WHERE pac_cedula = #{cedula} "
+	@Select("SELECT MAX(trat_pac_id) MAX_ID FROM tratamiento_paciente WHERE pac_cedula = #{cedula} "
 			+ "AND trat_id = #{tratId} "
 			+ "AND fecha = #{fecha}")
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoPacienteMapper.MaxTratPacIdResutl")

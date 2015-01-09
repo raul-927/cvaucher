@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
@@ -24,7 +25,7 @@ public class TratamientoPacienteTest {
 	TratamientoPacienteInt tratamientoPacienteService;
 	
 
-	@Test
+	//@Test
 	public void updateTratamientoPacienteImporteTest()
 	{	
 		
@@ -49,11 +50,20 @@ public class TratamientoPacienteTest {
 		//tratamientoPaciente =  (TratamientoPaciente) this.tratamientoPacienteService.findTratamientoPacienteByCedula(tratamientoPaciente.getPacientes().getCedula());
 		//assertNotNull(tratamientoPaciente);
 	}
-	
+	@Test
 	public void selectMaxId()
 	{
-		int cedula = 41578943;
-		int tratPacId = 41;
-		int importePagado = 200;
+		int cedula = 14578958;
+		int tratId = 17;
+		String  fecha ="2015-01-09";
+		MaxTratPacId maxTratPacId = new MaxTratPacId();
+		SearchMaxTratPacId searchMaxTratPacId = new SearchMaxTratPacId();
+		
+		searchMaxTratPacId.setTratId(tratId);
+		searchMaxTratPacId.setCedula(cedula);
+		searchMaxTratPacId.setFecha(fecha);
+		int maxId = this.tratamientoPacienteService.findMaxTratPacId(searchMaxTratPacId).getMaxId();
+		maxTratPacId.setMaxId(maxId); 
+		System.out.println("MaximoId = "+maxTratPacId.getMaxId());
 	}
 }

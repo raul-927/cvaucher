@@ -12,6 +12,7 @@ public class SearchMaxTratPacId implements Serializable
 	private String fecha;
 	private int cedula;
 	private int tratId;
+	
 	public String getFecha() {
 		return fecha;
 	}

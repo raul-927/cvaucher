@@ -62,7 +62,7 @@
 
 		 </fieldset>
 		 <div class="botonForm">
-		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar"/>
+		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar" name ="_eventId_finalizarIngresoTratamientoPago"/>
 		 	<input class ="btn btn-default" type ="reset" value ="Cancelar"/>
 		 </div>
 	 </sf:form>

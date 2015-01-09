@@ -4,6 +4,8 @@ import java.util.List;
 
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.domain.FormasDePagos;
+import uy.com.cvaucher.services.domain.PagoTarjeta;
+import uy.com.cvaucher.services.domain.TratamientoPaciente;
 
 public interface FormasDePagosInt 
 {
@@ -16,5 +18,7 @@ public interface FormasDePagosInt
 	void insertFormasDePagos(FormasDePagos formasDePagos);
 	
 	void updateFormasDePagos(FormasDePagos formasDePagos);
+	
+	void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta);
 	
 }
