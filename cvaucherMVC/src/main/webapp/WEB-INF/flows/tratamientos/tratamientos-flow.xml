@@ -93,7 +93,6 @@
 			
 			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
 		</transition>
-		
 	</view-state>
 	
 	<!-- Tarjeta de Debito -->
@@ -103,10 +102,8 @@
 		</on-render>
 		
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
-			
 			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
 		</transition>
-		
 	</view-state>
 	
 	<!-- Pago Efectivo -->
