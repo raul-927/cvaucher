@@ -77,11 +77,13 @@
 	
 	<decision-state id="decisionFormaPago">
 		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'TC'" then="pagoTarjetaCredito"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'TD'" then="pagoTarjetaDebito"/>
 		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'EF'" then="pagoEfectivo"/>
 		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'CE'" then="pagoCreditoEfectivo"/>
 		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'DP'" then="pagoDepositoBancario"/>
 	</decision-state>
 	
+	<!-- Tarjeta de Credito -->
 	<view-state id="pagoTarjetaCredito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
 		<on-render>
 			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
@@ -94,14 +96,30 @@
 		
 	</view-state>
 	
+	<!-- Tarjeta de Debito -->
+	<view-state id="pagoTarjetaDebito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
+		<on-render>
+			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+		</on-render>
+		
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
+		</transition>
+		
+	</view-state>
+	
+	<!-- Pago Efectivo -->
 	<view-state id ="pagoEfectivo" view ="tratamientoPaciente/pagoEfectivo" model ="pagoEfectivo">
 	
 	</view-state>
 	
+	<!-- Pago Credito de la casa en Efectivo -->
 	<view-state id ="pagoCreditoEfectivo" view ="tratamientoPaciente/pagoCreditoEfectivo" model ="pagoCreditoEfectivo">
 	
 	</view-state>
 	
+	<!-- Pago Deposito Bancario -->
 	<view-state id ="pagoDepositoBancario" view ="tratamientoPaciente/pagoDepositoBancario" model ="pagoDepositoBancario">
 	
 	</view-state>
