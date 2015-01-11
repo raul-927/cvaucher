@@ -11,6 +11,7 @@
 		<tr>
 			<th>Fecha</th>
 			<th>Importe</th>
+			<th>Tipo</th>
 		</tr>
 	</thead>
 	<tbody class ="table-striped">
@@ -18,6 +19,7 @@
 			<tr>
 			  	<td >${histP.histPagosFechaPago}</td>
 				<td >${histP.histPagosMonto}</td>
+				<td> ${histP.histPagosTipo}</td>
 			</tr>
 		</c:forEach>	
 	</tbody>
