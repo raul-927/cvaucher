@@ -16,8 +16,8 @@ public interface HistorialPagosMapper
 	List<HistorialPagos> findHistorialPagoByHistTratPacId(int histTratPacId);
 	
 	
-	@Insert("INSERT INTO historial_pagos(hist_pagos_trat_pac_id, hist_pagos_fecha_pago, hist_pagos_monto) "+
-			" VALUES (#{histTratPacId}, #{histPagosFechaPago}, #{histPagosMonto})")
+	@Insert("INSERT INTO historial_pagos(hist_pagos_trat_pac_id, hist_pagos_fecha_pago, hist_pagos_monto, hist_tipo_pago) "+
+			" VALUES (#{histTratPacId}, #{histPagosFechaPago}, #{histPagosMonto}, #{histPagosTipo})")
 	@Options(useGeneratedKeys=true, keyProperty="histPagosId")
 	void insertHistorialPago(HistorialPagos historialPagos);
 

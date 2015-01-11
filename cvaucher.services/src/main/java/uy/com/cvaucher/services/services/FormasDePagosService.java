@@ -96,6 +96,7 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Transactional
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta) 
 	{
+		
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
 		MaxTratPacId maxTratPacId = new MaxTratPacId();
 		SearchMaxTratPacId search = new SearchMaxTratPacId();
@@ -109,8 +110,10 @@ public class FormasDePagosService implements FormasDePagosInt
 		historialPagos.setHistTratPacId(maxTratPacId.getMaxId());
 		historialPagos.setHistPagosFechaPago(tratamientoPaciente.getFecha());
 		historialPagos.setHistPagosMonto(tratamientoPaciente.getCostoTratSesion());
-		this.pagoTarjetaMapper.insertPagoTarjeta(pagoTarjeta);
 		
+		pagoTarjeta.setTarjPagoId(maxTratPacId.getMaxId());
+		this.pagoTarjetaMapper.insertPagoTarjeta(pagoTarjeta);
+		historialPagos.setHistPagosTipo(pagoTarjeta.getTarjDesc());
 		this.historialPagosMapper.insertHistorialPago(historialPagos);
 		
 		tratamientoPaciente.setTratPacId(maxTratPacId.getMaxId());
