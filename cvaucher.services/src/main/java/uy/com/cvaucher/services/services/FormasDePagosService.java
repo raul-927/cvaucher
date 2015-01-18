@@ -19,11 +19,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
+
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistorialPagos;
 import uy.com.cvaucher.services.domain.MaxTratPacId;
+import uy.com.cvaucher.services.domain.PagoEfectivo;
 import uy.com.cvaucher.services.domain.PagoTarjeta;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
@@ -32,6 +35,7 @@ import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 
 
 import uy.com.cvaucher.services.mappers.HistorialPagosMapper;
+import uy.com.cvaucher.services.mappers.PagoEfectivoMapper;
 import uy.com.cvaucher.services.mappers.PagoTarjetaMapper;
 import uy.com.cvaucher.services.mappers.TratamientoPacienteMapper;
 import uy.com.cvaucher.services.domain.FormasDePagos;
@@ -53,6 +57,9 @@ public class FormasDePagosService implements FormasDePagosInt
 	
 	@Autowired
 	private PagoTarjetaMapper pagoTarjetaMapper;
+	
+	@Autowired 
+	private PagoEfectivoMapper pagoEfectivoMapper;
 	
 	@Autowired
 	private HistorialPagosMapper historialPagosMapper;
@@ -120,8 +127,75 @@ public class FormasDePagosService implements FormasDePagosInt
 		tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
+	}
+	
+	@Override
+	@Transactional
+	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
+	{
 		
+		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
+		MaxTratPacId maxTratPacId = new MaxTratPacId();
+		SearchMaxTratPacId search = new SearchMaxTratPacId();
+		search.setCedula(tratamientoPaciente.getPacientes().getCedula());
+		search.setFecha(tratamientoPaciente.getFecha());
+		search.setTratId(tratamientoPaciente.getTratamId());
+		HistorialPagos historialPagos = new HistorialPagos();
 		
+		int maxId = this.tratamientoPacienteMapper.findMaxTratPacId(search).getMaxId();
+		maxTratPacId.setMaxId(maxId);
+		historialPagos.setHistTratPacId(maxTratPacId.getMaxId());
+		historialPagos.setHistPagosFechaPago(tratamientoPaciente.getFecha());
+		historialPagos.setHistPagosMonto(tratamientoPaciente.getCostoTratSesion());
+		
+		pagoEfectivo.setPagoEfId(maxTratPacId.getMaxId());
+		this.pagoEfectivoMapper.insertPagoEfectivo(pagoEfectivo);
+		historialPagos.setHistPagosTipo(pagoEfectivo.getPagoEfDesc());
+		this.historialPagosMapper.insertHistorialPago(historialPagos);
+		
+		tratamientoPaciente.setTratPacId(maxTratPacId.getMaxId());
+		tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
+		
+		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
+	}
+	
+	@Override
+	@Transactional
+	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
+	{
+		System.out.println("tratamientoPaciente 1: CostoTratSesion: "+tratamientoPaciente.getCostoTratSesion() + " ImportePagado: "+tratamientoPaciente.getImportePagado() + " SaldoPendiente: "+tratamientoPaciente.getSaldoPendiente());
+
+		tratamientoPaciente.setImportePagado(pagoEfectivo.getPagoEfImporte());
+		System.out.println("tratamientoPaciente 2: CostoTratSesion: "+tratamientoPaciente.getCostoTratSesion() + " ImportePagado: "+tratamientoPaciente.getImportePagado() + " SaldoPendiente: "+tratamientoPaciente.getSaldoPendiente());
+		
+		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
+		MaxTratPacId maxTratPacId = new MaxTratPacId();
+		SearchMaxTratPacId search = new SearchMaxTratPacId();
+		search.setCedula(tratamientoPaciente.getPacientes().getCedula());
+		search.setFecha(tratamientoPaciente.getFecha());
+		search.setTratId(tratamientoPaciente.getTratamId());
+		HistorialPagos historialPagos = new HistorialPagos();
+		
+		int maxId = this.tratamientoPacienteMapper.findMaxTratPacId(search).getMaxId();
+		maxTratPacId.setMaxId(maxId);
+		historialPagos.setHistTratPacId(maxTratPacId.getMaxId());
+		historialPagos.setHistPagosFechaPago(tratamientoPaciente.getFecha());
+		historialPagos.setHistPagosMonto(tratamientoPaciente.getImportePagado());
+		
+		pagoEfectivo.setPagoEfId(maxTratPacId.getMaxId());
+		this.pagoEfectivoMapper.insertPagoEfectivo(pagoEfectivo);
+		historialPagos.setHistPagosTipo(pagoEfectivo.getPagoEfDesc());
+		this.historialPagosMapper.insertHistorialPago(historialPagos);
+		
+		tratamientoPaciente.setTratPacId(maxTratPacId.getMaxId());
+		//tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
+		int costoTratSesion = tratamientoPaciente.getCostoTratSesion();
+		int importePagado = tratamientoPaciente.getImportePagado();
+		int saldoPendiente = costoTratSesion - importePagado;
+		tratamientoPaciente.setSaldoPendiente(saldoPendiente);
+		tratamientoPaciente.setImportePagado(0);
+		System.out.println("tratamientoPaciente 3: CostoTratSesion: "+tratamientoPaciente.getCostoTratSesion() + " ImportePagado: "+tratamientoPaciente.getImportePagado() + " SaldoPendiente: "+tratamientoPaciente.getSaldoPendiente());
+		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);
 	}
 
 	

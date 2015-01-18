@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.PagoEfectivoMapper">
+		  	
+  	<resultMap type="uy.com.cvaucher.services.domain.PagoEfectivo" id="PagoEfectivoResult">
+  	    
+  		<id property="efId" column="ef_id"/>
+  		
+		<result property="pagoEfId" column="pago_ef_id"/>
+		<result property = "pagoEfCedula" column ="pago_ef_cedula"/>
+		<result property = "pagoEfImporte" column ="pago_ef_importe"/>
+		<result property = "pagoEfDesc" column ="pago_ef_desc"/>
+
+  	</resultMap>
+  	
+  
+</mapper>

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
 import uy.com.cvaucher.services.interfaces.HistoriaClinicaInt;
 import uy.com.cvaucher.services.interfaces.PacientesInt;
+import uy.com.cvaucher.services.interfaces.PagoEfectivoInt;
 import uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt;
 import uy.com.cvaucher.services.interfaces.SesionesInt;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
@@ -23,9 +24,9 @@ import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.TratamientoPacienteInt;
 import uy.com.cvaucher.services.interfaces.HistorialPagosInt;
 import uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt;
-
 import uy.com.cvaucher.services.domain.HistorialPagos;
 import uy.com.cvaucher.services.domain.Pacientes;
+import uy.com.cvaucher.services.domain.PagoEfectivo;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.domain.SeguimientoPacientes;
 
@@ -43,6 +44,8 @@ public class DetallePacientesController
 	private final TratamientoPacienteInt	tratamientoPacienteServices;
 	private final HistorialPagosInt			historialPagosServices;
 	private final SeguimientoPacientesInt	seguimientoPacientesServices;
+	private final PagoEfectivoInt			pagoEfectivoServices;
+	
 	@Autowired
 	public DetallePacientesController(PacientesInt				pacientesServices, 
 									  DireccionInt 				direccionServices, 
@@ -52,7 +55,8 @@ public class DetallePacientesController
 									  AgendaInt 				agendaServices,
 									  TratamientoPacienteInt	tratamientoPacienteServices,
 									  HistorialPagosInt			historialPagosServices,
-									  SeguimientoPacientesInt	seguimientoPacientesServices){
+									  SeguimientoPacientesInt	seguimientoPacientesServices,
+									  PagoEfectivoInt			pagoEfectivoServices){
 		
 		this.pacientesServices 				= pacientesServices;
 		this.direccionServices 				= direccionServices;
@@ -61,6 +65,7 @@ public class DetallePacientesController
 		this.tratamientoPacienteServices	= tratamientoPacienteServices;
 		this.historialPagosServices			= historialPagosServices;
 		this.seguimientoPacientesServices	= seguimientoPacientesServices;
+		this.pagoEfectivoServices			= pagoEfectivoServices;
 	}
 	
 	@RequestMapping(value ="/detPac/{pacCedula}", method = RequestMethod.GET)
@@ -117,7 +122,16 @@ public class DetallePacientesController
 		historialPagos.setHistTratPacId(histTratPacId);
 		if(historialPagos.getHistPagosMonto()!= 0)
 		{
+			String tipoPago = "CRED";
+			historialPagos.setHistPagosTipo(tipoPago);
+			PagoEfectivo pagoEfectivo = new PagoEfectivo();
+			pagoEfectivo.setPagoEfCedula(pacCedula);
+			pagoEfectivo.setPagoEfDesc(tipoPago);
+			pagoEfectivo.setPagoEfId(histTratPacId);
+			pagoEfectivo.setPagoEfImporte(historialPagos.getHistPagosMonto());
 			this.historialPagosServices.insertHistorialPago(historialPagos);
+			this.pagoEfectivoServices.insertPagoEfectivo(pagoEfectivo);
+			
 		}
 		
 		int tratPacId = histTratPacId;

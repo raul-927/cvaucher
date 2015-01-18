@@ -112,6 +112,11 @@
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.pagoTarjeta"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoTarjetaInt"/>
+		
+	<bean id ="pagoEfectivoService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.pagoEfectivo"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoEfectivoInt"/>
 	
 	
 </beans>

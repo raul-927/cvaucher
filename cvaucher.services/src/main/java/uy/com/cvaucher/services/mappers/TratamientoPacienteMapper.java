@@ -58,6 +58,12 @@ public interface TratamientoPacienteMapper
 			"WHERE	trat_pac_id = #{tratPacId};")
 	void updateTratamientoPacienteImporte(TratamientoPaciente tratamientoPaciente);
 	
+	@Update("UPDATE tratamiento_paciente "+
+			"SET importe_pagado = importe_pagado + #{importePagado}, "+
+			"saldo_pendiente = #{saldoPendiente} "+
+			"WHERE	trat_pac_id = #{tratPacId};")
+	void updateTratamientoPacienteImporteCredito(TratamientoPaciente tratamientoPaciente);
+	
 	@Select("SELECT MAX(trat_pac_id) MAX_ID FROM tratamiento_paciente WHERE pac_cedula = #{cedula} "
 			+ "AND trat_id = #{tratId} "
 			+ "AND fecha = #{fecha}")

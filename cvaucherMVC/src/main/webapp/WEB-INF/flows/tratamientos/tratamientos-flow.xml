@@ -26,6 +26,12 @@
 			value ="new uy.com.cvaucher.services.domain.PagoTarjeta()"
 			type ="uy.com.cvaucher.services.domain.PagoTarjeta"/>
 			
+		<set name ="flowScope.pagoEfectivo"
+			value ="new uy.com.cvaucher.services.domain.PagoEfectivo()"
+			type ="uy.com.cvaucher.services.domain.PagoEfectivo"/>
+			
+			
+			
 		<set name ="flowScope.tipoFormPag"
 			value ="new uy.com.cvaucher.services.clases.FormasDePagosDesc()"
 			type ="uy.com.cvaucher.services.clases.FormasDePagosDesc"/>
@@ -108,12 +114,22 @@
 	
 	<!-- Pago Efectivo -->
 	<view-state id ="pagoEfectivo" view ="tratamientoPaciente/pagoEfectivo" model ="pagoEfectivo">
-	
+		<on-render>
+			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+		</on-render>
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoEfectivo(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+		</transition>
 	</view-state>
 	
 	<!-- Pago Credito de la casa en Efectivo -->
-	<view-state id ="pagoCreditoEfectivo" view ="tratamientoPaciente/pagoCreditoEfectivo" model ="pagoCreditoEfectivo">
-	
+	<view-state id ="pagoCreditoEfectivo" view ="tratamientoPaciente/pagoCreditoEfectivo" model ="pagoEfectivo">
+		<on-render>
+			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+		</on-render>
+		<transition on ="finalizarIngresoTratamientoPagoCredito" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+		</transition>
 	</view-state>
 	
 	<!-- Pago Deposito Bancario -->

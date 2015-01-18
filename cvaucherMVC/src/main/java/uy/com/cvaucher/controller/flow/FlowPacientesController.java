@@ -19,6 +19,7 @@ import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
 import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.Pacientes;
+import uy.com.cvaucher.services.domain.PagoEfectivo;
 import uy.com.cvaucher.services.domain.PagoTarjeta;
 import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.TratPacByCedula;
@@ -222,5 +223,17 @@ public class FlowPacientesController
 	{
 		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta);
 	}
+	
+	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
+	{
+		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo);
+	}
+	
+	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
+	{
+		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo);
+	}
+	
+
 	
 }
