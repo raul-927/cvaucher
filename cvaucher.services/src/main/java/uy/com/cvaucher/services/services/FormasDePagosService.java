@@ -163,10 +163,10 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Transactional
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
 	{
-		System.out.println("tratamientoPaciente 1: CostoTratSesion: "+tratamientoPaciente.getCostoTratSesion() + " ImportePagado: "+tratamientoPaciente.getImportePagado() + " SaldoPendiente: "+tratamientoPaciente.getSaldoPendiente());
+		
 
 		tratamientoPaciente.setImportePagado(pagoEfectivo.getPagoEfImporte());
-		System.out.println("tratamientoPaciente 2: CostoTratSesion: "+tratamientoPaciente.getCostoTratSesion() + " ImportePagado: "+tratamientoPaciente.getImportePagado() + " SaldoPendiente: "+tratamientoPaciente.getSaldoPendiente());
+		
 		
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
 		MaxTratPacId maxTratPacId = new MaxTratPacId();
@@ -188,13 +188,11 @@ public class FormasDePagosService implements FormasDePagosInt
 		this.historialPagosMapper.insertHistorialPago(historialPagos);
 		
 		tratamientoPaciente.setTratPacId(maxTratPacId.getMaxId());
-		//tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
 		int costoTratSesion = tratamientoPaciente.getCostoTratSesion();
 		int importePagado = tratamientoPaciente.getImportePagado();
 		int saldoPendiente = costoTratSesion - importePagado;
 		tratamientoPaciente.setSaldoPendiente(saldoPendiente);
 		tratamientoPaciente.setImportePagado(0);
-		System.out.println("tratamientoPaciente 3: CostoTratSesion: "+tratamientoPaciente.getCostoTratSesion() + " ImportePagado: "+tratamientoPaciente.getImportePagado() + " SaldoPendiente: "+tratamientoPaciente.getSaldoPendiente());
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);
 	}
 
