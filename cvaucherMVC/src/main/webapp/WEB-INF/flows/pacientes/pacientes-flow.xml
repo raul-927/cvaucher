@@ -30,7 +30,23 @@
 			value =" new uy.com.cvaucher.services.domain.Tratamiento()"
 			type ="uy.com.cvaucher.services.domain.Tratamiento"/>
 		
-		
+		<set name ="flowScope.formPagosOptions"
+			value ="new uy.com.cvaucher.services.clases.FormPagosOptions()"
+			type ="uy.com.cvaucher.services.clases.FormPagosOptions"/>
+			
+		<set name ="flowScope.pagoTarjeta"
+			value ="new uy.com.cvaucher.services.domain.PagoTarjeta()"
+			type ="uy.com.cvaucher.services.domain.PagoTarjeta"/>
+			
+		<set name ="flowScope.pagoEfectivo"
+			value ="new uy.com.cvaucher.services.domain.PagoEfectivo()"
+			type ="uy.com.cvaucher.services.domain.PagoEfectivo"/>
+			
+			
+			
+		<set name ="flowScope.tipoFormPag"
+			value ="new uy.com.cvaucher.services.clases.FormasDePagosDesc()"
+			type ="uy.com.cvaucher.services.clases.FormasDePagosDesc"/>
 			
 				
 	 </on-start>
@@ -109,27 +125,94 @@
 	<!-- Tratamientos -->
 	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
 		<on-render>
-			<evaluate result ="flowScope.salida" expression ="flowPacientesController.getFecha()"/>
+			<evaluate result ="viewScope.fechaHoy" expression ="flowPacientesController.getFecha()"/>
 			<evaluate result ="viewScope.tratP" expression="flowPacientesController.findAllTratamientoByActualList()"/>
 		</on-render>
 		
 		<transition on ="cantSesionesTratamiento" to ="tratamientoPacienteInsert">
-			
 			<evaluate result ="flowScope.tratPacById" expression ="flowPacientesController.findTratamientoByActualListById(requestParameters.tratamId)"/>
 			<render fragments="showCantSes"/>
 		</transition>
 		
-		<transition on ="tratamientoPacienteIngresado" to ="finIngresoPacientes" bind="true">
-			 <evaluate expression="flowPacientesController.insertTratamientoPaciente(flowScope.tratamientoPaciente)"/>
-			 
+		<transition on ="tratamientoPacienteIngresado" to ="seleccionoFormaDePago" bind="true">
+			 <evaluate expression="flowPacientesController.setTratamientoPaciente(flowScope.tratamientoPaciente)"/>
+			 <evaluate expression ="flowScope.importeTrat = flowPacientesController.getTratamientoPaciente().getCostoTratSesion()"/>
 		</transition>
 	</view-state>
 	
-	<action-state id ="cargoPacienteEnFormaDePago">
+	<view-state id ="seleccionoFormaDePago" view ="tratamientoPaciente/seleccionoFormaPago" model ="formPagosOptions">
+		<on-render>
+			<evaluate result ="viewScope.fpagoOption" expression="flowPacientesController.findAllFormasDePagos()"/>
+			<evaluate expression ="flowScope.aux = requestParameters.formaDePagoDesc"/>
+			<evaluate expression = "flowScope.aux2 = flowScope.tratamientoPaciente.costoTratSesion"/>
+		</on-render>
 		
-		
+		<transition on ="FormaPagoSelect" to ="formaPagTipo"/>
+	</view-state>
 	
+	<action-state id="formaPagTipo">
+		<evaluate expression="flowScope.tipoFormPag = flowPacientesController.findFormPagoTipoByDesc(requestParameters.formaDePagoDesc)"/>
+		<transition to ="decisionFormaPago"/>
+			
+	
+		
 	</action-state>
+	
+	<decision-state id="decisionFormaPago">
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'TC'" then="pagoTarjetaCredito"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'TD'" then="pagoTarjetaDebito"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'EF'" then="pagoEfectivo"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'CE'" then="pagoCreditoEfectivo"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'DP'" then="pagoDepositoBancario"/>
+	</decision-state>
+	
+	<!-- Tarjeta de Credito -->
+	<view-state id="pagoTarjetaCredito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
+		<on-render>
+			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+		</on-render>
+		
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
+		</transition>
+	</view-state>
+	
+	<!-- Tarjeta de Debito -->
+	<view-state id="pagoTarjetaDebito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
+		<on-render>
+			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+		</on-render>
+		
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
+		</transition>
+	</view-state>
+	
+	<!-- Pago Efectivo -->
+	<view-state id ="pagoEfectivo" view ="tratamientoPaciente/pagoEfectivo" model ="pagoEfectivo">
+		<on-render>
+			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+		</on-render>
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoEfectivo(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+		</transition>
+	</view-state>
+	
+	<!-- Pago Credito de la casa en Efectivo -->
+	<view-state id ="pagoCreditoEfectivo" view ="tratamientoPaciente/pagoCreditoEfectivo" model ="pagoEfectivo">
+		<on-render>
+			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+		</on-render>
+		<transition on ="finalizarIngresoTratamientoPagoCredito" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+		</transition>
+	</view-state>
+	
+	<!-- Pago Deposito Bancario -->
+	<view-state id ="pagoDepositoBancario" view ="tratamientoPaciente/pagoDepositoBancario" model ="pagoDepositoBancario">
+	
+	</view-state>
 	<end-state id="finIngresoPacientes"/>
 	
 </flow>
