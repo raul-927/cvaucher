@@ -174,6 +174,11 @@ public class FlowPacientesController
 		return this.tratamientoServices.findAllTratamientoByActualList();
 	}
 	
+	public static void setPacientes(Pacientes pacientes)
+	{
+		FlowPacientesController.pacientes = pacientes;
+	}
+	
 	public  static Pacientes returnPacientes()
 	{
 		return pacientes;

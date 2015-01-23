@@ -169,7 +169,7 @@
 	<!-- Tarjeta de Credito -->
 	<view-state id="pagoTarjetaCredito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
 		<on-render>
-			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
 		</on-render>
 		
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
@@ -181,7 +181,7 @@
 	<!-- Tarjeta de Debito -->
 	<view-state id="pagoTarjetaDebito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
 		<on-render>
-			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
 		</on-render>
 		
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
@@ -192,7 +192,7 @@
 	<!-- Pago Efectivo -->
 	<view-state id ="pagoEfectivo" view ="tratamientoPaciente/pagoEfectivo" model ="pagoEfectivo">
 		<on-render>
-			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
 		</on-render>
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
 			<evaluate expression="flowPacientesController.insertTratamientoPagoEfectivo(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
@@ -202,7 +202,7 @@
 	<!-- Pago Credito de la casa en Efectivo -->
 	<view-state id ="pagoCreditoEfectivo" view ="tratamientoPaciente/pagoCreditoEfectivo" model ="pagoEfectivo">
 		<on-render>
-			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
 		</on-render>
 		<transition on ="finalizarIngresoTratamientoPagoCredito" to ="finIngresoTratamiento">
 			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
@@ -211,8 +211,16 @@
 	
 	<!-- Pago Deposito Bancario -->
 	<view-state id ="pagoDepositoBancario" view ="tratamientoPaciente/pagoDepositoBancario" model ="pagoDepositoBancario">
-	
+		<on-render>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
+		</on-render>
+		<transition on ="finalizarIngresoTratamientoPagoCredito" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+		</transition>
 	</view-state>
+	
 	<end-state id="finIngresoPacientes"/>
+	
+	<end-state id="finIngresoTratamiento"/>
 	
 </flow>
