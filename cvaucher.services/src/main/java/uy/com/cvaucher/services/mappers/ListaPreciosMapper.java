@@ -40,5 +40,13 @@ public interface ListaPreciosMapper
 	@Delete("DELETE FROM lista_precios WHERE list_prec_id = #{listPrecId}")
 	void deleteListaPrecios(Integer listPrecId);
 	
+	@Select("SELECT l.list_prec_id ID_LISTA, l.list_prec_id_trat ID_LISTA_TRAT, l.list_prec_monto PRECIO_MONTO, "
+			+ "a.aux_prec_id ID_AUX, a.aux_prec_id_list ID_AUX_LIST, a.aux_prec_fech_ini FECH_INI, a.aux_prec_fech_fin FECHA_FIN, a.aux_prec_descripcion DESC "
+			+ "FROM lista_precios l, aux_precios a "
+			+ "WHERE l.list_prec_id = a.aux_prec_id_list "
+			+ "AND  CURDATE() BETWEEN a.aux_prec_fech_ini AND a.aux_prec_fech_fin ")
+	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ActualListaPreciosResult")
+	ListaPrecios findActualListaPrecios();
+	
 
 }

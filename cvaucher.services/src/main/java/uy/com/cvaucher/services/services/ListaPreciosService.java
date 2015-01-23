@@ -99,4 +99,11 @@ public class ListaPreciosService implements ListaPreciosInt
 		
 	}
 
+	@Override
+	public ListaPrecios findActualListaPrecios() 
+	{
+		
+		return this.listaPreciosMapper.findActualListaPrecios();
+	}
+
 }

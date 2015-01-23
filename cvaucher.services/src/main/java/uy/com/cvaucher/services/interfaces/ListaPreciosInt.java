@@ -13,6 +13,7 @@ public interface ListaPreciosInt {
 	
 	List<ListaPrecios> findAllListaPrecios();
 	ListaPrecios findListaPreciosById(Integer listPrecId);
+	ListaPrecios findActualListaPrecios();
 	void insertListaPrecios(ListaPreciosArray listaPreciosArray);
 	void updateListaPrecios(ListaPrecios listaPrecios);
 	void deleteListaPrecios(Integer listPrecId);
