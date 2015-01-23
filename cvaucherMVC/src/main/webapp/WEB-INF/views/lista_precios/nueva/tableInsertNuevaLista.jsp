@@ -12,8 +12,8 @@
 		<table class="table table-hover table-bordered well well-sm">
 			<div class="form-group">
 				
-				<sf:label path="listPrecId" for ="listPrecId"><h2>ID: ${maxId} </h2></sf:label>
-				<input type="hidden" name="listPrecId" value="${maxId}"/>
+				<sf:label path="listPrecId" for ="listPrecId"><h2>ID: ${maxId - 1} </h2></sf:label>
+				<input type="hidden" name="listPrecId" value="${maxId -1}"/>
 				<sf:errors path ="listPrecId" cssClass ="error"/>
 			</div>
 			<caption><h3>Ingrese Monto a cada tratamiento</h3></caption>	

@@ -50,7 +50,7 @@
 			</tbody>		
 		</table>
 		<div class="botonForm">			
-			<input class="btn btn-primary" type ="submit" value ="Siguiente" name ="_eventId_nuevaListaSiguiente"/>
+			<input class="btn btn-primary" type ="submit" value ="fin" name ="_eventId_fin"/>
 		</div>
 	</sf:form>
 </div>

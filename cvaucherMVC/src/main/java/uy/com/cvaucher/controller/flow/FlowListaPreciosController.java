@@ -65,6 +65,10 @@ public class FlowListaPreciosController
 		this.listaPreciosService.insertListaPrecios(this.listaPreciosArray);
 		this.auxPreciosService.insertAuxPrecios(this.auxPrecios);
 	}
+	public void insertarNuevoTratamientoEnListaDePrecios(ListaPreciosArray listaPreciosArray)
+	{
+		this.listaPreciosService.insertListaPrecios(listaPreciosArray);
+	}
 	
 	
 	
