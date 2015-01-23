@@ -76,7 +76,7 @@ public class TratamientoTest
 			System.out.println("id = "+t.getTratId());
 			System.out.println("Descripcion = "+t.getTratDescripcion());
 			System.out.println("Cantidad Sesiones = "+t.getTratCantSesiones());
-			//System.out.println("Tipo Tratamiento = "  +t.getTipoTratamiento().getTipTratDesc());
+			
 		}
 	}
 	
