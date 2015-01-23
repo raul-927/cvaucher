@@ -18,7 +18,7 @@
 	<definition name ="listas/insertar" extends  ="layout">
 	
 	<put-attribute name="left" 
-			value= "/WEB-INF/views/lista_precios/insertar_trat_lista/listaOpcionsForm.jsp"/>
+			value= "/WEB-INF/views/lista_precios/insertar_trat_lista/tableInsertNuevaTratEnLista.jsp"/>
 	</definition>
 	
 	<definition name ="listas/ingresarFechaNuevaLista" extends ="layout">

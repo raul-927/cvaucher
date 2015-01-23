@@ -14,6 +14,8 @@ public interface TratamientoInt {
 	 
 	 List<TratByList> findAllTratamientoByActualList();
 	 
+	 List<Tratamiento> findNewTratamiento();
+	 
 	 TratByList findTratamientoByActualListById(int tratId);
 	 
 	 int findSesionesByTratamientoId(int tratId);

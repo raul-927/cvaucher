@@ -44,7 +44,7 @@ public interface ListaPreciosMapper
 			+ "a.aux_prec_id ID_AUX, a.aux_prec_id_list ID_AUX_LIST, a.aux_prec_fech_ini FECH_INI, a.aux_prec_fech_fin FECHA_FIN, a.aux_prec_descripcion DESC "
 			+ "FROM lista_precios l, aux_precios a "
 			+ "WHERE l.list_prec_id = a.aux_prec_id_list "
-			+ "AND  CURDATE() BETWEEN a.aux_prec_fech_ini AND a.aux_prec_fech_fin ")
+			+ "AND  current_date() BETWEEN a.aux_prec_fech_ini AND a.aux_prec_fech_fin ")
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ActualListaPreciosResult")
 	ListaPrecios findActualListaPrecios();
 	

@@ -81,5 +81,11 @@ public class TratamientoService implements TratamientoInt
 		// TODO Auto-generated method stub
 		return  this.tratamientoMapper.findTratamientoByActualListById(tratId);
 	}
+
+	@Override
+	public List<Tratamiento> findNewTratamiento() {
+		// TODO Auto-generated method stub
+		return this.tratamientoMapper.findNewTratamiento();
+	}
 	
 }

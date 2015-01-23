@@ -71,7 +71,14 @@
 	 	<transition on ="fin" to ="finListaPrecios"/>
 	 </view-state>
 	 
-	 <view-state id="insertar" view ="listas/insertar" model ="listaPrecios">
+	 <view-state id="insertar" view ="listas/insertar" model ="listaPreciosArray">
+	 	<on-render>
+	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()"/>
+	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findAllTratamientos()"/>
+	 	</on-render>
+	 	<transition on ="nuevaListaSiguiente" to ="cargarIdListaEnIngresarFecha">
+	 		<evaluate expression ="flowListaPreciosController.insertListaPreciosArray(listaPreciosArray)"/>
+	 	</transition>
 	 	<transition on ="fin" to ="finListaPrecios"/>
 	 </view-state>
 	 

@@ -126,6 +126,12 @@ public class FlowPacientesController
 		List<Tratamiento> tratamiento =  this.tratamientoServices.findAllTratamientos();
 		return tratamiento;
 	}
+	
+	public List<Tratamiento> findNewTratamientos()
+	{
+		return this.tratamientoServices.findNewTratamiento();
+	}
+	
 	public Tratamiento findTratamientoById(int tratId)
 	{
 		return this.tratamientoServices.findTratamientoById(tratId);

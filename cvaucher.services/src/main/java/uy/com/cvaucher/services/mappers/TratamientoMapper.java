@@ -43,6 +43,16 @@ public interface TratamientoMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratByListResult")
 	List<TratByList> findAllTratamientoByActualList();
 	
+	@Select("SELECT		trat.trat_id, trat_tpo_id, trat.trat_descripcion, trat.trat_cant_sesiones "
+			+ "FROM		tratamiento trat, lista_precios lis, aux_precios aux "
+			+ "WHERE	trat.trat_id != lis.list_prec_id_trat "
+			+ "AND		lis.list_prec_id = aux.aux_prec_id_list "
+			+ "AND		current_date() BETWEEN aux.aux_prec_fech_ini AND aux.aux_prec_fech_fin "
+			+ "OR 		current_date() > aux.aux_prec_fech_ini "
+			+ "AND 		aux.aux_prec_fech_fin = '0000-00-00'")
+	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratByListResult")
+	List<Tratamiento> findNewTratamiento();
+	
 	@Select("SELECT		trat.trat_id ID, trat.trat_descripcion DESCRIPCION, trat.trat_cant_sesiones CANT_SESIONES, lis.list_prec_monto MONTO "
 			+ "FROM		tratamiento trat, lista_precios lis, aux_precios aux "
 			+ "WHERE	trat.trat_id = lis.list_prec_id_trat "
