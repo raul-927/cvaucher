@@ -13,7 +13,7 @@ public class PagoTarjeta implements Serializable
 	private int tarjId;
 	private int tarjPacCedula;
 	private int tarjPagoId;
-	private int tarjNro;
+	private long tarjNro;
 	private String tarjDesc;
 	private String tarjVence;
 	private int tarjImporte;
@@ -37,10 +37,10 @@ public class PagoTarjeta implements Serializable
 	public void setTarjPagoId(int tarjPagoId) {
 		this.tarjPagoId = tarjPagoId;
 	}
-	public int getTarjNro() {
+	public long getTarjNro() {
 		return tarjNro;
 	}
-	public void setTarjNro(int tarjNro) {
+	public void setTarjNro(long tarjNro) {
 		this.tarjNro = tarjNro;
 	}
 	public String getTarjVence() {
