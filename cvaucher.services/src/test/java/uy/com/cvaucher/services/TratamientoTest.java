@@ -1,11 +1,11 @@
 package uy.com.cvaucher.services;
 
-import static org.junit.Assert.assertNotNull;
-
 import static org.junit.Assert.*;
+
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -47,7 +47,7 @@ public class TratamientoTest
 		assertEquals("Masaje modelador", tratamiento.getTratDescripcion());
 	}*/
 	
-	@Test
+	//@Test
 	public void selectTratamientoById()
 	{
 		Tratamiento tratamiento = new Tratamiento();
@@ -59,12 +59,25 @@ public class TratamientoTest
 		System.out.println("Cantidad de Sesiones = "+tratamiento.getTratCantSesiones());
 	}
 	
-	@Test
+	//@Test
 	public void findSesionesByTratamiento()
 	{
 		int tratId = 11;
 		int cantSes = tratamientoService.findSesionesByTratamientoId(tratId);
 		System.out.println("Tratamiento 11, cantidad de SESIONES: "+cantSes);
+	}
+	
+	@Test
+	public void findNewTratamiento()
+	{
+		List<Tratamiento> tratamiento = this.tratamientoService.findNewTratamiento();
+		System.out.println(" findNewTratamiento()");
+		for(Tratamiento t:tratamiento){
+			System.out.println("id = "+t.getTratId());
+			System.out.println("Descripcion = "+t.getTratDescripcion());
+			System.out.println("Cantidad Sesiones = "+t.getTratCantSesiones());
+			//System.out.println("Tipo Tratamiento = "  +t.getTipoTratamiento().getTipTratDesc());
+		}
 	}
 	
 	

@@ -74,7 +74,7 @@
 	 <view-state id="insertar" view ="listas/insertar" model ="listaPreciosArray">
 	 	<on-render>
 	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()"/>
-	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findAllTratamientos()"/>
+	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findNewTratamientos()"/>
 	 	</on-render>
 	 	<transition on ="nuevaListaSiguiente" to ="cargarIdListaEnIngresarFecha">
 	 		<evaluate expression ="flowListaPreciosController.insertListaPreciosArray(listaPreciosArray)"/>

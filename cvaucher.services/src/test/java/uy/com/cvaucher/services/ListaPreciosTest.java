@@ -46,7 +46,7 @@ public class ListaPreciosTest
 		listam.insertListaPrecios(listaPrecios);
 		//this.listaPreciosService.insertListaPrecios(listaPreciosArray);
 	}
-	@Test
+	//@Test
 	public void insertAuxPreciosTest()
 	{
 		int listPrecId = 1;
@@ -63,5 +63,7 @@ public class ListaPreciosTest
 		
 		this.auxPreciosMapper.insertAuxPrecios(auxPrecios);
 	}
+	
+
 
 }
