@@ -31,7 +31,7 @@
 	<definition name ="listas/copia" extends  ="layout">
 	
 	<put-attribute name="left" 
-			value= "/WEB-INF/views/lista_precios/copia/listaOpcionsForm.jsp"/>
+			value= "/WEB-INF/views/lista_precios/copia/tableCopiarModificarLista.jsp"/>
 	</definition>
 	
 </tiles-definitions>
