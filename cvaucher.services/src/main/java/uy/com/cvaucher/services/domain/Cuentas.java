@@ -13,7 +13,7 @@ public class Cuentas  implements Serializable
 	private String cuentaFormPagoDesc;
 	private int cuentaMonto;
 	private String cuentaTipoMovimiento;
-	
+	private String cuentaFecha;
 	
 	public int getCuentaId() {
 		return cuentaId;
@@ -38,5 +38,11 @@ public class Cuentas  implements Serializable
 	}
 	public void setCuentaTipoMovimiento(String cuentaTipoMovimiento) {
 		this.cuentaTipoMovimiento = cuentaTipoMovimiento;
+	}
+	public String getCuentaFecha() {
+		return cuentaFecha;
+	}
+	public void setCuentaFecha(String cuentaFecha) {
+		this.cuentaFecha = cuentaFecha;
 	}
 }

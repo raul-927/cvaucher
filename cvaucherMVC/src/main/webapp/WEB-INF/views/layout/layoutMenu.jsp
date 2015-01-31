@@ -29,10 +29,10 @@
                 <li>
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cajas<b class="caret"></b></a>
 	                 <ul class="dropdown-menu">
-		                 <li><a href="#">Apertura de Caja</a></li>
-		                 <li><a href="#">Cierre de Caja</a></li>
+		                 <li><a href="<s:url value="/cajas_apertura"/>">Apertura de Caja</a></li>
+		                 <li><a href="<s:url value="/cajas_cierre"/>">Cierre de Caja</a></li>
 		                 <li class="divider"></li>
-		                 <li><a href="#">Arqueo de Caja</a></li>
+		                 <li><a href="<s:url value="/cajas_arqueo"/>">Arqueo de Caja</a></li>
 		                 
 	                 </ul>
                 </li>
