@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
         
-     <!-- Inicio Variables paciente, direccion, agenda, historiaClinica, tratamientoPaciente -->
+     <!-- Inicio Variables pacientes, direccion, agenda, historiaClinica, tratamientoPaciente,tratamiento, formPagosOptions, pagoTarjeta, pagoEfectivo-->
 	 <on-start>
 		<set name="flowScope.pacientes"
 			value="new uy.com.cvaucher.services.domain.Pacientes()"
