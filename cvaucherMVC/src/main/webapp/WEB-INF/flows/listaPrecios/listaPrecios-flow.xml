@@ -60,10 +60,10 @@
 	 	</transition>
 	 </view-state>
 	 
-	 <view-state id="copiar" view ="listas/copia" model ="listaPrecios">
+	 <view-state id="copiar" view ="listas/copia" model ="auxPrecios">
 	 	<on-render>
 	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()"/>
-	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findAllTratamientos()"/>
+	 		<evaluate result ="viewScope.auxP" expression="flowListaPreciosController.findAllAuxPrecios()"/>
 	 	</on-render>
 	 	<transition on ="nuevaListaSiguiente" to ="cargarIdListaEnIngresarFecha">
 	 		<evaluate expression ="flowListaPreciosController.insertListaPreciosArray(listaPreciosArray)"/>

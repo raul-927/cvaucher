@@ -1,5 +1,7 @@
 package uy.com.cvaucher.controller.flow;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -70,7 +72,12 @@ public class FlowListaPreciosController
 		this.listaPreciosService.insertListaPrecios(listaPreciosArray);
 	}
 	
-	
+	public List<AuxPrecios> findAllAuxPrecios()
+	{
+		List<AuxPrecios> auxPrecios = this.auxPreciosService.findAllAuxPrecios();
+		
+		return auxPrecios;
+	}
 	
 	
 	

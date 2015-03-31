@@ -5,52 +5,57 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 <div class =" well well-lg">
-	<sf:form cssClass = "form" method ="POST" commandName ="listaPreciosArray" >
+	<sf:form cssClass = "form" method ="POST" commandName ="auxPrecios" >
 		<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
-             
+             <h2>Copiar y modificar Lista de Precios</h2>
 		<table class="table table-hover table-bordered well well-sm">
 			<div class="form-group">
 				
-				<sf:label path="listPrecId" for ="listPrecId"><h2>ID: ${maxId} </h2></sf:label>
-				<input type="hidden" name="listPrecId" value="${maxId}"/>
-				<sf:errors path ="listPrecId" cssClass ="error"/>
+				<sf:label path="auxPrecId" for ="auxPrecId"><h2>ID: ${maxId} </h2></sf:label>
+				<input type="hidden" name="auxPrecId" value="${maxId}"/>
+				<sf:errors path ="auxPrecId" cssClass ="error"/>
 			</div>
-			<caption><h3>Ingrese Monto a cada tratamiento</h3></caption>	
+			<caption><h3>Seleccione una lista de precios</h3></caption>	
 			<thead>
-				<td><h3>#</h3></td>
-				<td><h3>Descripcion</h3></td>
-				<td><h3>Importe</h3></td>
+				<td><h5>#</h5></td>
+				<td><h5>Descripcion</h5></td>
+				<td><h5>Id Lista</h5></td>
+				<td><h5>Fecha Inicio</h5></td>
+				<td><h5>Fecha Fin</h5></td>
 			</thead>
 			
 			<tbody>
-				<c:forEach var="trat" items="${trat}">
+				<c:forEach var="auxP" items="${auxP}">
 					
 					<tr>
 						<td >
 						<div class="form-group">
-								<sf:label path="listPrecTratId" for ="listPrecTratId" value ="#{trat.tratId}">${trat.tratId}</sf:label>
-						 		<input type="hidden" name="listPrecTratId" value="${trat.tratId}"/>
-						 		<sf:errors path ="listPrecTratId" cssClass ="error"/>
+								<sf:label path="auxPrecId" for ="auxPrecId" value ="#{auxP.auxPrecId}">${auxP.auxPrecId}</sf:label>
+						 		<input type="hidden" name="auxPrecId" value="${auxP.auxPrecId}"/>
+						 		<sf:errors path ="auxPrecId" cssClass ="error"/>
 						 </div>
 						</td>
-						
 						<td >
-							${trat.tratDescripcion}
+							${auxP.auxPrecDescripcion}
+						</td>
+						<td >
+							${auxP.auxListaPreciosId}
 						</td>
 						
 						<td>
-							<div class="form-group">
-						 		<sf:input cssClass ="form-control" path="listPrecMonto"  value = "0" size ="50" />
-						 		<sf:errors path ="listPrecMonto" cssClass ="error"/>
-						 	</div>
+							${auxP.auxPrecFechIni}
+					 	</td>
+					 	
+					 	<td>
+							${auxP.auxPrecFechFin}
 					 	</td>
 					 </tr>
 				</c:forEach>
 			</tbody>		
 		</table>
 		<div class="botonForm">			
-			<input class="btn btn-primary" type ="submit" value ="fin" name ="_eventId_fin"/>
+			<input class="btn btn-primary" type ="submit" value ="Siguiente" name ="_eventId_fin"/>
 		</div>
 	</sf:form>
 </div>

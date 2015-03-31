@@ -21,7 +21,7 @@ public class AuxPreciosService implements AuxPreciosInt
 	public List<AuxPrecios> findAllAuxPrecios() 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return this.auxPreciosMapper.findAllAuxPrecios();
 	}
 
 	@Override

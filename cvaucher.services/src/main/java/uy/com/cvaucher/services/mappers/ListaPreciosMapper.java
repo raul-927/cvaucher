@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import uy.com.cvaucher.services.domain.AuxPrecios;
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.MaxIdListaPrecios;
 
@@ -47,6 +48,8 @@ public interface ListaPreciosMapper
 			+ "AND  current_date() BETWEEN a.aux_prec_fech_ini AND a.aux_prec_fech_fin ")
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ActualListaPreciosResult")
 	ListaPrecios findActualListaPrecios();
+	
+	
 	
 
 }
