@@ -33,25 +33,25 @@
 	<context:property-placeholder
 		location="file:/media/raul927/01CC35ED04318FE0/SERVERS_LINUX/apache-tomcat-7.0.26_2/conf/cvaucher.properties" />	
 -->	
-<!--  
- 	<context:property-placeholder location="cvaucher.properties" />
--->
+ 
+ 	<context:property-placeholder location="/WEB-INF/cvaucher.properties" />
+
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
 	<bean id ="dataSource"
 		class ="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		
 		<property name ="driverClassName"
-			value ="com.mysql.jdbc.Driver"/>
+			value ="${jdbc.driverClassName}"/>
 			
 		<property name ="url"
-			value ="jdbc:mysql://b52a3b6be126bd:6111cc902751a56@us-cdbr-iron-east-02.cleardb.net:3306/ad_f0eb63e51c99fcb"/>
+			value ="${jdbc.url}"/>
 			
 		<property name ="username"
-			value ="bb76fcb43f807b"/>
+			value ="${jdbc.username}"/>
 			
 		<property name ="password"
-			value = "6776566b"/>	
+			value = "${jdbc.password}"/>	
 	</bean>
 	
 	

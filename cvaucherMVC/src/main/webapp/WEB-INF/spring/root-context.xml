@@ -20,13 +20,23 @@
 	
 	<!-- <context:property-placeholder
 		location = "file:///G:/SERVERS/apache-tomcat-7.0.26_1/conf/security.properties"/> -->
+	
+	<context:property-placeholder location="/WEB-INF/cvaucher.properties" />
+	
+	<bean id ="dataSource"
+		class ="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-			<property name="url" value="jdbc:mysql://bb76fcb43f807b:6776566b@us-cdbr-aws-east-105.cleardb.net:3306/ad_033c9629217c759" />
-			<property name="username" value="bb76fcb43f807b" />
-			<property name="password" value="6776566b" />
+		<property name ="driverClassName"
+			value ="${jdbc.driverClassName}"/>
+			
+		<property name ="url"
+			value ="${jdbc.url}"/>
+			
+		<property name ="username"
+			value ="${jdbc.username}"/>
+			
+		<property name ="password"
+			value = "${jdbc.password}"/>	
 	</bean>
 	<!--	
 	<context:property-placeholder
