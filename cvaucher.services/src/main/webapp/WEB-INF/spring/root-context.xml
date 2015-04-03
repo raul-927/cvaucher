@@ -23,14 +23,16 @@
       
     <context:component-scan base-package="uy.com.cvaucher.services" />
 	
-	 
 	<context:property-placeholder
+	 location ="file:/uy/com/cvaucher/services/properties/cvaucher.properties"/>
+	<!--  <context:property-placeholder
 		location="file:///G:/SERVERS/apache-tomcat-7.0.26_2/conf/cvaucher.properties" />
+	-->
 <!--		
 	<context:property-placeholder
 		location="file:/media/raul927/01CC35ED04318FE0/SERVERS_LINUX/apache-tomcat-7.0.26_2/conf/cvaucher.properties" />	
 -->	
-<!-- 	<context:property-placeholder location="cvaucher.properties" /> -->
+ 	<context:property-placeholder location="cvaucher.properties" />
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
