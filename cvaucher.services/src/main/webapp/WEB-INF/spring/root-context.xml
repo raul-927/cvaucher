@@ -22,9 +22,10 @@
     <context:annotation-config />
       
     <context:component-scan base-package="uy.com.cvaucher.services" />
-	
+	<!-- 
 	<context:property-placeholder
 	 location ="file:/uy/com/cvaucher/services/properties/cvaucher.properties"/>
+	 -->
 	<!--  <context:property-placeholder
 		location="file:///G:/SERVERS/apache-tomcat-7.0.26_2/conf/cvaucher.properties" />
 	-->
