@@ -48,18 +48,18 @@
 	
 	<bean id = "agendaService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://localhost:8092/cvaucher.agenda"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.agenda"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.AgendaInt"/>
 			 	
 	<bean id = "tipoTratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://localhost:8092/cvaucher.tipotratamiento"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.tipotratamiento"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TipoTratamientoInt"/>
 	
 	
 	<bean id = "tratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://localhost:8092/cvaucher.tratamiento"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.services/cvaucher.tratamiento"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TratamientoInt"/>
 	
 	<bean id = "pacientesService"
