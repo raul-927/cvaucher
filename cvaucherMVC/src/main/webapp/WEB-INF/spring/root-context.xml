@@ -48,84 +48,84 @@
 	
 	<bean id = "agendaService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.agenda"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.agenda"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.AgendaInt"/>
 			 	
 	<bean id = "tipoTratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.tipotratamiento"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.tipotratamiento"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TipoTratamientoInt"/>
 	
 	
 	<bean id = "tratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.tratamiento"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.tratamiento"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TratamientoInt"/>
 	
 	<bean id = "pacientesService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.pacientes"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.pacientes"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.PacientesInt"/>
 	
 	<bean id = "direccionService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.direccion"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.direccion"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.DireccionInt"/>
 	
 	<bean id = "sesionesService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.sesiones"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.sesiones"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.SesionesInt"/>
 	
 	<bean id = "seguimientoPacientesService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.seguimientopacientes"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.seguimientopacientes"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt"/>
 	
 	
 	<bean id = "historiaClinicaService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.historiaclinica"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.historiaclinica"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.HistoriaClinicaInt"/>
 	
 	<bean id ="tratamientoPacienteService"
 			class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-	    	p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.tratamientoPaciente"
+	    	p:serviceUrl ="http://localhost:8092/cvaucher.tratamientoPaciente"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TratamientoPacienteInt"/>
 	
 	<bean id ="historialPagosServices"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-		p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.historialPagos"
+		p:serviceUrl ="http://localhost:8092/cvaucher.historialPagos"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.HistorialPagosInt"/>
 		
 	<bean id ="listaPreciosService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-		p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.listaPrecios"
+		p:serviceUrl ="http://localhost:8092/cvaucher.listaPrecios"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.ListaPreciosInt"/>
 		
 	<bean id ="auxPreciosService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-		p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.auxPrecios"
+		p:serviceUrl ="http://localhost:8092/cvaucher.auxPrecios"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.AuxPreciosInt"/>
 		
 	<bean id ="formasDePagosService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-		p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.formasDePagos"
+		p:serviceUrl ="http://localhost:8092/cvaucher.formasDePagos"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.FormasDePagosInt"/>
 		
 	<bean id ="cuentasService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-		p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.cuentas"
+		p:serviceUrl ="http://localhost:8092/cvaucher.cuentas"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.CuentasInt"/>
 	
 	<bean id ="pagoTarjetaService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-		p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.pagoTarjeta"
+		p:serviceUrl ="http://localhost:8092/cvaucher.pagoTarjeta"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoTarjetaInt"/>
 		
 	<bean id ="pagoEfectivoService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
-		p:serviceUrl ="http://cvaucherservices.cfapps.io/cvaucher.pagoEfectivo"
+		p:serviceUrl ="http://localhost:8092/cvaucher.pagoEfectivo"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoEfectivoInt"/>
 	
 	
