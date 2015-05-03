@@ -23,6 +23,7 @@
 				<td><h5>Id Lista</h5></td>
 				<td><h5>Fecha Inicio</h5></td>
 				<td><h5>Fecha Fin</h5></td>
+				
 			</thead>
 			
 			<tbody>
@@ -50,6 +51,13 @@
 					 	<td>
 							${auxP.auxPrecFechFin}
 					 	</td>
+					 	
+					 	<td>
+		 					<sf:label path="auxListaPreciosId" for ="auxListaPreciosId"/>
+					 		<sf:radiobutton  id="rdAuxListaPreciosId" cssClass ="form-control" path="auxListaPreciosId" value ="${auxP.auxListaPreciosId}"/>
+					 		<sf:errors path ="auxListaPreciosId" cssClass ="error"/>
+					 	</td>
+					 	
 					 </tr>
 				</c:forEach>
 			</tbody>		
