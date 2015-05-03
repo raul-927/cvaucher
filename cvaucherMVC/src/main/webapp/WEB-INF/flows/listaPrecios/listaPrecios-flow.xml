@@ -66,7 +66,7 @@
 	 		<evaluate result ="viewScope.auxP" expression="flowListaPreciosController.findAllAuxPrecios()"/>
 	 	</on-render>
 	 	<transition on ="nuevaListaSiguiente" to ="cargarIdListaEnIngresarFecha">
-	 		<evaluate expression ="flowListaPreciosController.insertListaPreciosArray(listaPreciosArray)"/>
+	 		<evaluate expression ="flowListaPreciosController.findListaPreciosById(requestParameters.auxListaPreciosId)"/>
 	 	</transition>
 	 	<transition on ="fin" to ="finListaPrecios"/>
 	 </view-state>
