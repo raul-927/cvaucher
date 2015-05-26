@@ -30,8 +30,6 @@
 			value ="new uy.com.cvaucher.services.domain.PagoEfectivo()"
 			type ="uy.com.cvaucher.services.domain.PagoEfectivo"/>
 			
-			
-			
 		<set name ="flowScope.tipoFormPag"
 			value ="new uy.com.cvaucher.services.clases.FormasDePagosDesc()"
 			type ="uy.com.cvaucher.services.clases.FormasDePagosDesc"/>

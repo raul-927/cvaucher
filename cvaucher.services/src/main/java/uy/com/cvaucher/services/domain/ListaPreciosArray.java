@@ -7,9 +7,10 @@ public class ListaPreciosArray implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	private int listPrecId ;
+	private int 			   listPrecId ;
 	private ArrayList<Integer> listPrecTratId = new ArrayList();
 	private ArrayList<Integer>	listPrecMonto = new ArrayList();
+	private ArrayList<String>	listPrecDesc  = new ArrayList();
 	
 	
 	public int getListPrecId() {   
@@ -29,6 +30,12 @@ public class ListaPreciosArray implements Serializable
 	}
 	public void setListPrecMonto(ArrayList<Integer> listPrecMonto) {
 		this.listPrecMonto = listPrecMonto;
+	}
+	public ArrayList<String> getListPrecDesc() {
+		return listPrecDesc;
+	}
+	public void setListPrecDesc(ArrayList<String> listPrecDesc) {
+		this.listPrecDesc = listPrecDesc;
 	}
 
 }

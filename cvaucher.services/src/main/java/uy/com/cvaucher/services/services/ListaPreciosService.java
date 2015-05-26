@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import uy.com.cvaucher.services.domain.AuxPrecios;
+import uy.com.cvaucher.services.domain.ListPrecTratDesc;
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.ListaPreciosArray;
 import uy.com.cvaucher.services.domain.MaxIdListaPrecios;
@@ -37,9 +38,9 @@ public class ListaPreciosService implements ListaPreciosInt
 	}
 
 	@Override
-	public ListaPrecios findListaPreciosById(Integer listPrecId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ListaPrecios> findListaPreciosById(Integer listPrecId) {
+		
+		return this.listaPreciosMapper.findListaPreciosById(listPrecId);
 	}
 
 	@Override
@@ -104,6 +105,12 @@ public class ListaPreciosService implements ListaPreciosInt
 	{
 		
 		return this.listaPreciosMapper.findActualListaPrecios();
+	}
+
+	@Override
+	public List<ListPrecTratDesc> findListaPreciosTratDescById(int listPrecId) {
+		
+		return this.listaPreciosMapper.findListaPreciosTratDescById(listPrecId);
 	}
 
 }

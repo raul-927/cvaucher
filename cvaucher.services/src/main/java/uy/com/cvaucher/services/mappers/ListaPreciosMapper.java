@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import uy.com.cvaucher.services.domain.AuxPrecios;
+import uy.com.cvaucher.services.domain.ListPrecTratDesc;
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.MaxIdListaPrecios;
 
@@ -25,7 +26,14 @@ public interface ListaPreciosMapper
 	
 	@Select("SELECT * FROM lista_precios WHERE list_prec_id = #{listPrecId}")
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ListaPreciosResult")
-	ListaPrecios findListaPreciosById(Integer listPrecId);
+	List<ListaPrecios> findListaPreciosById(Integer listPrecId);
+	
+	@Select("SELECT l.list_prec_id , l.list_prec_id_trat, t.trat_descripcion list_prec_desc, l.list_prec_monto "
+			+ "FROM lista_precios l, tratamiento t "
+			+ "WHERE l.list_prec_id_trat = t.trat_id "
+			+ "AND l.list_prec_id = #{listPrecId}")
+	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ListaPreciosTratDescResult")
+	List<ListPrecTratDesc> findListaPreciosTratDescById(int listPrecId);
 	
 	@Insert("INSERT INTO lista_precios "
 			+ "(list_prec_id, list_prec_id_trat, list_prec_monto) "
@@ -48,6 +56,8 @@ public interface ListaPreciosMapper
 			+ "AND  current_date() BETWEEN a.aux_prec_fech_ini AND a.aux_prec_fech_fin ")
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ActualListaPreciosResult")
 	ListaPrecios findActualListaPrecios();
+	
+	
 	
 	
 	

@@ -9,6 +9,10 @@
 	<div class="col-md-6 col2">			  
 		<t:insertAttribute name ="left"/>
 	</div>	
+	
+	<div class ="col-md-6 col2">
+		<t:insertAttribute name ="content"/>
+	</div>
 	<div class="col-md-6 col2">
 		<t:insertAttribute name ="right"/>
 	</div>	

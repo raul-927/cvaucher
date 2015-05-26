@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
 import uy.com.cvaucher.services.domain.AuxPrecios;
+import uy.com.cvaucher.services.domain.ListPrecTratDesc;
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.ListaPreciosArray;
 import uy.com.cvaucher.services.interfaces.AuxPreciosInt;
@@ -46,9 +47,20 @@ public class FlowListaPreciosController
 		return this.maxIdListaPrecios;
 	}
 	
-	public ListaPrecios findListaPreciosById(int listPrecId)
+	public List<ListPrecTratDesc> findListaPreciosById(int listPrecId)
 	{
-		return this.listaPreciosService.findListaPreciosById(listPrecId);
+		List<ListPrecTratDesc> l = this.listaPreciosService.findListaPreciosTratDescById(listPrecId);
+		
+		for(ListPrecTratDesc listap:l)
+		{
+			System.out.println("Id Lista: " +listap.getListPrecId());
+			System.out.println("Id Tratamiento: "+listap.getListPrecTratId());
+			System.out.println("Descripcion: " + listap.getListPrecDesc());
+			System.out.println("Monto: "+listap.getListPrecMonto());
+			
+			
+		}
+		return this.listaPreciosService.findListaPreciosTratDescById(listPrecId);
 	}
 	
 	public void insertAuxPrecios(AuxPrecios auxPrecios)

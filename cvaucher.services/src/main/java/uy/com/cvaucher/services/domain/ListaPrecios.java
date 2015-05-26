@@ -9,6 +9,7 @@ public class ListaPrecios implements Serializable
 	private int listPrecId;
 	private int listPrecTratId;
 	private int	listPrecMonto;
+	
 	public int getListPrecId() {
 		return listPrecId;
 	}

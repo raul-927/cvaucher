@@ -10,12 +10,7 @@
              value="${flowExecutionKey}"/>
              <h2>Copiar y modificar Lista de Precios</h2>
 		<table class="table table-hover table-bordered well well-sm">
-			<div class="form-group">
-				
-				<sf:label path="auxPrecId" for ="auxPrecId"><h2>ID: ${maxId} </h2></sf:label>
-				<input type="hidden" name="auxPrecId" value="${maxId}"/>
-				<sf:errors path ="auxPrecId" cssClass ="error"/>
-			</div>
+			
 			<caption><h3>Seleccione una lista de precios</h3></caption>	
 			<thead>
 				<td><h5>#</h5></td>
@@ -54,7 +49,7 @@
 					 	
 					 	<td>
 		 					<sf:label path="auxListaPreciosId" for ="auxListaPreciosId"/>
-					 		<sf:radiobutton  id="rdAuxListaPreciosId" cssClass ="form-control" path="auxListaPreciosId" value ="${auxP.auxListaPreciosId}"/>
+					 		<sf:radiobutton  cssClass ="form-control" path="auxListaPreciosId" value ="${auxP.auxListaPreciosId}"/>
 					 		<sf:errors path ="auxListaPreciosId" cssClass ="error"/>
 					 	</td>
 					 	
@@ -63,7 +58,7 @@
 			</tbody>		
 		</table>
 		<div class="botonForm">			
-			<input class="btn btn-primary" type ="submit" value ="Siguiente" name ="_eventId_nuevaListaSiguiente"/>
+			<input class="btn btn-primary" type ="submit" value ="Siguiente" name ="_eventId_copiarListaSiguiente"/>
 		</div>
 	</sf:form>
 </div>
