@@ -261,7 +261,7 @@
 		
 		<property name="mappings">
 			<value>
-				/cvaucher.tipotratamiento= httpTipoTratamientoService
+				/cvaucher.tipotratamiento = httpTipoTratamientoService
 			</value>
 		</property>	
 	</bean>
@@ -271,7 +271,7 @@
 		
 		<property name="mappings">
 			<value>
-				/cvaucher.tratamiento= httpTratamientoService
+				/cvaucher.tratamiento = httpTratamientoService
 			</value>
 		</property>	
 	</bean>

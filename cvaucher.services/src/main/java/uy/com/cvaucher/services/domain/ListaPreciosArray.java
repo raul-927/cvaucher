@@ -8,9 +8,9 @@ public class ListaPreciosArray implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	private int 			   listPrecId ;
-	private ArrayList<Integer> listPrecTratId = new ArrayList();
-	private ArrayList<Integer>	listPrecMonto = new ArrayList();
-	private ArrayList<String>	listPrecDesc  = new ArrayList();
+	private ArrayList<Integer> listPrecTratId = new ArrayList<Integer>();
+	private ArrayList<Integer> listPrecMonto  = new ArrayList<Integer>();
+	private ArrayList<String>  listPrecDesc   = new ArrayList<String>();
 	
 	
 	public int getListPrecId() {   

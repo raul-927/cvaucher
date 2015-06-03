@@ -49,17 +49,7 @@ public class FlowListaPreciosController
 	
 	public List<ListPrecTratDesc> findListaPreciosById(int listPrecId)
 	{
-		List<ListPrecTratDesc> l = this.listaPreciosService.findListaPreciosTratDescById(listPrecId);
 		
-		for(ListPrecTratDesc listap:l)
-		{
-			System.out.println("Id Lista: " +listap.getListPrecId());
-			System.out.println("Id Tratamiento: "+listap.getListPrecTratId());
-			System.out.println("Descripcion: " + listap.getListPrecDesc());
-			System.out.println("Monto: "+listap.getListPrecMonto());
-			
-			
-		}
 		return this.listaPreciosService.findListaPreciosTratDescById(listPrecId);
 	}
 	

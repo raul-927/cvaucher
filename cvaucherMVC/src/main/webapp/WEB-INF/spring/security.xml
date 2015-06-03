@@ -11,6 +11,10 @@
     	
      <!--  <beans:import resource="root-context.xml"/>-->
     	
+    <beans:bean id="logoutRedirectToAny" class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler">
+		<beans:property name="targetUrlParameter" value="redirectTo"/>
+	</beans:bean>
+		
      <global-method-security secured-annotations='enabled' /> 	
      
    

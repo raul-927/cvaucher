@@ -72,6 +72,7 @@ public class ValidoCedula implements ConstraintValidator<Cedula, Integer>
 		control = false;
 	}
 	catch(NumberFormatException e){
+		System.out.println("Ingrese un valor numerico valido");
 		control = false;
 	}
 		

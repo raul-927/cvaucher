@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import uy.com.cvaucher.services.domain.AuxPrecios;
 import uy.com.cvaucher.services.domain.ListPrecTratDesc;
 import uy.com.cvaucher.services.domain.ListaPrecios;
@@ -38,6 +39,7 @@ public class ListaPreciosService implements ListaPreciosInt
 	}
 
 	@Override
+	
 	public List<ListaPrecios> findListaPreciosById(Integer listPrecId) {
 		
 		return this.listaPreciosMapper.findListaPreciosById(listPrecId);
@@ -45,6 +47,7 @@ public class ListaPreciosService implements ListaPreciosInt
 
 	@Override
 	@Transactional
+	
 	public void insertListaPrecios(ListaPreciosArray listaPreciosArray) 
 	{
 		logger.debug("insertListaPrecios: "+listaPreciosArray);

@@ -42,9 +42,7 @@
 	<context:property-placeholder
 		location = "file:/media/raul927/01CC35ED04318FE0/SERVERS_LINUX/apache-tomcat-7.0.26_1/conf/security.properties"/>	
 	-->
-	<bean id="logoutRedirectToAny" class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler">
-		<property name="targetUrlParameter" value="redirectTo"/>
-	</bean>
+	
 	
 	<bean id = "agendaService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
@@ -81,7 +79,6 @@
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.seguimientopacientes"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt"/>
-	
 	
 	<bean id = "historiaClinicaService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"

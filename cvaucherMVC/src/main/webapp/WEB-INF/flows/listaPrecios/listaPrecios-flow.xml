@@ -40,7 +40,7 @@
 	 	<if test="flowScope.preciosOptions.opcion == 'INSERTAR_TRATAMIENTO_EN_LISTA_ACTUAL'" then="insertar"/>
 	 </decision-state>
 	 
-	 <!-- Nueva Lista -->
+	 <!-- nuevaLista -->
 	 <view-state id="nuevaLista" view ="listas/nuevaLista" model ="listaPreciosArray">
 	 	<on-render>
 	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()+1"/>
@@ -51,11 +51,13 @@
 	 	</transition>
 	 </view-state>
 	 
+	 <!-- cargarIdListaEnIngresarFecha -->
 	 <action-state id="cargarIdListaEnIngresarFecha">
 	 	<evaluate expression ="flowScope.auxPrecios.auxListaPreciosId = requestParameters.listPrecId"/>
 	 	<transition  to ="ingresarFechaNuevaLista"/>
 	 </action-state>
 	 
+	 <!-- ingresarFechaNuevaLista -->
 	 <view-state id="ingresarFechaNuevaLista" view ="listas/ingresarFechaNuevaLista" model ="auxPrecios">
 	 	<transition on ="finalizar" to ="finListaPrecios">
 	 		<evaluate expression ="flowListaPreciosController.insertAuxPrecios(flowScope.auxPrecios)"/>
@@ -63,22 +65,16 @@
 	 	</transition>
 	 </view-state>
 	 
+	 <!-- copiar -->
 	 <view-state id="copiar" view ="listas/copia" model ="auxPrecios">
 	 	<on-render>
 	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()"/>
 	 		<evaluate result ="viewScope.auxP" expression="flowListaPreciosController.findAllAuxPrecios()"/>
 	 	</on-render>
 	 	<transition on ="copiarListaSiguiente" to ="cargarCopiaListaPrecios"/>
-	 		
-	 	<transition on ="fin" to ="finListaPrecios"/>
 	 </view-state>
 	 
-	 <action-state id="cargoCopiaListaPrecios">
-	 	<evaluate result ="flowScope.listPrecTratDesc2" expression ="flowListaPreciosController.findListaPreciosById(auxPrecios.auxListaPreciosId)"/>
-	 	<transition to= "cargarCopiaListaPrecios"/>
-	 </action-state>
-	 
-	 
+	 <!-- cargarCopiaListaPrecios -->
 	 <view-state id="cargarCopiaListaPrecios" view ="listas/copiarModificar" model ="listaPreciosArray">
 	 	<on-render>
 	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()"/>
@@ -90,6 +86,7 @@
 	 	</transition>
 	 </view-state>
 	 
+	 <!-- insertar -->
 	 <view-state id="insertar" view ="listas/insertar" model ="listaPreciosArray">
 	 	<on-render>
 	 		<evaluate result ="flowScope.maxId " expression="flowListaPreciosController.findMaxIdListaPrecios()-1"/>
