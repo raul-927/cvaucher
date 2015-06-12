@@ -3,7 +3,6 @@ package uy.com.cvaucher.services.clases;
 import java.io.Serializable;
 
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 public class SearchPacientes implements Serializable

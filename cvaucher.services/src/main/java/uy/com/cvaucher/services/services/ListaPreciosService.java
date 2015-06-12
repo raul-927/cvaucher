@@ -39,7 +39,6 @@ public class ListaPreciosService implements ListaPreciosInt
 	}
 
 	@Override
-	
 	public List<ListaPrecios> findListaPreciosById(Integer listPrecId) {
 		
 		return this.listaPreciosMapper.findListaPreciosById(listPrecId);
@@ -47,7 +46,6 @@ public class ListaPreciosService implements ListaPreciosInt
 
 	@Override
 	@Transactional
-	
 	public void insertListaPrecios(ListaPreciosArray listaPreciosArray) 
 	{
 		logger.debug("insertListaPrecios: "+listaPreciosArray);

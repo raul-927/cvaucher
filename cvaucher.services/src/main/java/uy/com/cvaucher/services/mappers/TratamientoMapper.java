@@ -7,21 +7,27 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
+
+
 
 
 
 import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.Tratamiento;
+import uy.com.cvaucher.services.select.SqlTratamientoProvider;
 
 public interface TratamientoMapper 
 {
-	@Select("SELECT t.trat_id, tt.tip_trat_descripcion, trat_descripcion, trat_cant_sesiones FROM tratamiento t, tipo_tratamiento tt "
-			+ " WHERE t.trat_tpo_id = tt.tip_trat_id ORDER BY trat_id")
+	@SelectProvider(type=SqlTratamientoProvider.class,method="findAllTratamientos")
+	/*@Select("SELECT t.trat_id, tt.tip_trat_descripcion, trat_descripcion, trat_cant_sesiones FROM tratamiento t, tipo_tratamiento tt "
+			+ " WHERE t.trat_tpo_id = tt.tip_trat_id ORDER BY trat_id")*/
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratResult")
 	List<Tratamiento> findAllTratamientos();
 	
-	@Select("SELECT trat_id, trat_tpo_id, trat_descripcion, trat_cant_sesiones FROM tratamiento WHERE trat_id=#{tratId}")
+	@SelectProvider(type=SqlTratamientoProvider.class,method="finTratamientoById")
+	//@Select("SELECT trat_id, trat_tpo_id, trat_descripcion, trat_cant_sesiones FROM tratamiento WHERE trat_id=#{tratId}")
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratResult")
 	Tratamiento findTratamientoById(int tratId);
 	
@@ -33,6 +39,7 @@ public interface TratamientoMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.SesionResult")
 	int findSesionesByTratamientoId(int tratId);
 	
+	@SelectProvider(type =SqlTratamientoProvider.class, method ="findAllTratamientoByActualList")
 	@Select("SELECT		trat.trat_id ID, trat.trat_descripcion DESCRIPCION, trat.trat_cant_sesiones CANT_SESIONES, lis.list_prec_monto MONTO "
 			+ "FROM		tratamiento trat, lista_precios lis, aux_precios aux "
 			+ "WHERE	trat.trat_id = lis.list_prec_id_trat "

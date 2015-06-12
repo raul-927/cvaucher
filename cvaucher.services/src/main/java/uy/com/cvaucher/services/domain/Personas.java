@@ -13,14 +13,13 @@ public abstract class  Personas
 {
 	@NotNull(message ="\n ERROR; Debe ingresar un Nombre")
 	@Size(min = 3, max = 50, message = "ERROR; Debe ingresar un nombre entre 3 y 50 caracteres")
-	private String 			pacNombre;
+	private String 			nombre;
 	
 	@NotNull(message ="ERROR; Debe ingresar un Apellido")
 	@Size(min = 3, max = 50, message = "ERROR; Debe ingresar un apellido entre 3 y 50 caracteres")
-	private String 			pacApellido;
+	private String 			apellido;
 	
 	
-
 	@Max(value=99999999, message ="ERROR; Ingrse un maximo de 8 digitos")
 	@NotNull(message ="ERROR; Debe ingresar un nro de cedula valido")
 	@Min(value=1111111, message ="ERROR; Ingrse un valor mayor a 6 digitos")
@@ -29,24 +28,24 @@ public abstract class  Personas
 	
 	
 	//-----------------------------------------------------
-		public String getPacNombre() 
+		public String getNombre() 
 		{
-			return pacNombre;
+			return nombre;
 		}
 
-		public void setPacNombre(String pacNombre) 
+		public void nombre(String nombre) 
 		{
-			this.pacNombre = pacNombre;
+			this.nombre = nombre;
 		}
 	//-----------------------------------------------------
-		public String getPacApellido() 
+		public String getApellido() 
 		{
-			return pacApellido;
+			return apellido;
 		}
 
-		public void setPacApellido(String pacApellido) 
+		public void setApellido(String apellido) 
 		{
-			this.pacApellido = pacApellido;
+			this.apellido = apellido;
 		}
 	//-----------------------------------------------------
 		public int getCedula() 

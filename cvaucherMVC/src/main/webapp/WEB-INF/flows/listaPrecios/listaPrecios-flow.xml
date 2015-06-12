@@ -21,9 +21,7 @@
 		<set name ="flowScope.auxPrecios"
 			value ="new uy.com.cvaucher.services.domain.AuxPrecios()"
 			type ="uy.com.cvaucher.services.domain.AuxPrecios"/>
-			
-		
-			
+				
 	 </on-start>
 	 
 	 <!-- Inicio vista insertListas -->

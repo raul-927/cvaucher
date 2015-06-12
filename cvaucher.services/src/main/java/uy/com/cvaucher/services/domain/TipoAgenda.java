@@ -27,7 +27,6 @@ public class TipoAgenda implements Serializable
 	{
 		return tpoAgText;
 	}
-	@SuppressWarnings("unchecked")
 	public void setTpoAgText(String tpoAgText) 
 	{
 		
