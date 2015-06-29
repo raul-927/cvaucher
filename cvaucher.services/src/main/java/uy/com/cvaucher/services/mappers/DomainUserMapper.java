@@ -13,7 +13,7 @@ import uy.com.cvaucher.services.domain.DomainUser;
 public interface DomainUserMapper 
 {
 	
-	@Select("SELECT * FROM domain_user")
+	@Select("SELECT dom_usr_id, dom_usr_nom, dom_usr_ap, dom_usr_nic, dom_usr_pass, dom_usr_enabled FROM domain_user")
 	@ResultMap("uy.com.cvaucher.services.mappers.DomainUserMapper.DomainUserResult")
 	List<DomainUser> findAllDomainUsers();
 	
@@ -24,9 +24,9 @@ public interface DomainUserMapper
 	
 	
 	@Insert("INSERT INTO domain_user " +
-			"(dom_usr_id, dom_usr_nom, dom_usr_ap, dom_usr_nic, dom_usr_pass) " +
+			"(dom_usr_nom, dom_usr_ap, dom_usr_nic, dom_usr_pass, dom_usr_enabled) " +
 			"VALUES " +
-			"(#{domUsrId}, #{domUsrNom}, #{domUsrApe}, #{domUsrNic}, #{domUsrPass}")
+			"(#{domUsrNom}, #{domUsrAp}, #{domUsrNic}, #{domUsrPass}, #{domUsrEnabled})")
 	void insertDomainUser(DomainUser domainUser);
 	
 	

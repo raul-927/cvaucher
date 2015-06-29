@@ -4,7 +4,7 @@ import java.util.List;
 
 import uy.com.cvaucher.services.domain.DomainUser;
 
-public interface DomainUserInterface 
+public interface DomainUserInt
 {
 	
 	List<DomainUser> findAllDomainUsers();

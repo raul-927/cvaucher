@@ -1,4 +1,4 @@
-package uy.com.cvaucher.services.select;
+package uy.com.cvaucher.services.sql;
 
 import org.apache.ibatis.jdbc.SQL;
 public class SqlTratamientoProvider 
@@ -34,11 +34,12 @@ public class SqlTratamientoProvider
 	
 	public String findAllTratamientoByActualList()
 	{
+		
 		return new SQL(){{
 		SELECT("trat.trat_id ID, trat.trat_descripcion DESCRIPCION, trat.trat_cant_sesiones CANT_SESIONES, lis.list_prec_monto MONTO");
 		FROM("tratamiento trat, lista_precios lis, aux_precios aux");
-		WHERE("trat.trat_id = lis.list_prec_id_trat "
-				+ "AND lis.list_prec_id = aux.aux_prec_id_list");
+		WHERE("trat.trat_id = lis.list_prec_id_trat ");
+		WHERE("lis.list_prec_id = aux.aux_prec_id_list");
 		}}.toString();
 	}
 }

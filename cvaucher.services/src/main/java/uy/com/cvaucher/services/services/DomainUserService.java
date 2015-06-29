@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import uy.com.cvaucher.services.domain.DomainUser;
-import uy.com.cvaucher.services.interfaces.DomainUserInterface;
+import uy.com.cvaucher.services.interfaces.DomainUserInt;
 import uy.com.cvaucher.services.mappers.DomainUserMapper;
 
 
 @Service
 @Transactional
-public class DomainUserService implements DomainUserInterface 
+public class DomainUserService implements DomainUserInt
 {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());

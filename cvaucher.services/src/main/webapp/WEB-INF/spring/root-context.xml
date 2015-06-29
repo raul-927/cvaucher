@@ -22,20 +22,8 @@
     <context:annotation-config />
       
     <context:component-scan base-package="uy.com.cvaucher.services" />
-	<!-- 
-	<context:property-placeholder
-	 location ="file:/uy/com/cvaucher/services/properties/cvaucher.properties"/>
-	 -->
-	 <!-- 
-	<context:property-placeholder
-		location="file:///G:/SERVERS/apache-tomcat-7.0.26_2/conf/cvaucher.properties" />
-	 -->
-<!--		
-	<context:property-placeholder
-		location="file:/media/raul927/01CC35ED04318FE0/SERVERS_LINUX/apache-tomcat-7.0.26_2/conf/cvaucher.properties" />	
--->	
- 
- 	<context:property-placeholder location="/WEB-INF/cvaucher.properties" />
+	
+ 	<context:property-placeholder location="/WEB-INF/properties/cvaucher.properties" />
  
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
@@ -55,7 +43,6 @@
 			value = "${jdbc.password}"/>	
 	</bean>
 	
-	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
   		<property name="dataSource" ref="dataSource" />
 	</bean>
@@ -68,7 +55,7 @@
   		<property name="dataSource" ref="dataSource" />
   		<property name="typeAliasesPackage" value="uy.com.cvaucher.services.domain"/>
   		<property name="typeHandlersPackage" value="uy.com.cvaucher.services.typehandlers"/>
-  		<property name="mapperLocations" value="classpath*:uy.com.cvaucher.services/**/*.xml" />
+  		<property name="mapperLocations" value="classpath*:uy.com.cvaucher.services/mappers/*.xml" />
 	</bean>
 	 
  
@@ -167,6 +154,15 @@
 		p:service-ref="pagoEfectivoService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.PagoEfectivoInt"/>
 	
+	<bean id ="httpDomainUserService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="domainUserService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.DomainUserInt"/>
+		
+	<bean id ="httpLoginService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="loginService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.LoginInt"/>
 	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -356,6 +352,28 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.pagoEfectivo = httpPagoEfectivoService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingDomainUser"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.domainUser = httpDomainUserService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingLogin"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.login = httpLoginService
 			</value>
 		</property>	
 		

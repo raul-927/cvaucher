@@ -14,9 +14,10 @@ import org.apache.ibatis.annotations.Update;
 
 
 
+
 import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.Tratamiento;
-import uy.com.cvaucher.services.select.SqlTratamientoProvider;
+import uy.com.cvaucher.services.sql.SqlTratamientoProvider;
 
 public interface TratamientoMapper 
 {
@@ -39,7 +40,7 @@ public interface TratamientoMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.SesionResult")
 	int findSesionesByTratamientoId(int tratId);
 	
-	@SelectProvider(type =SqlTratamientoProvider.class, method ="findAllTratamientoByActualList")
+	//@SelectProvider(type =SqlTratamientoProvider.class, method ="findAllTratamientoByActualList")
 	@Select("SELECT		trat.trat_id ID, trat.trat_descripcion DESCRIPCION, trat.trat_cant_sesiones CANT_SESIONES, lis.list_prec_monto MONTO "
 			+ "FROM		tratamiento trat, lista_precios lis, aux_precios aux "
 			+ "WHERE	trat.trat_id = lis.list_prec_id_trat "

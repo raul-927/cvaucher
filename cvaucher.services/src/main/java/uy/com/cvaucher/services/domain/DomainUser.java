@@ -2,6 +2,7 @@ package uy.com.cvaucher.services.domain;
 
 import java.io.Serializable;
 
+
 public class DomainUser implements Serializable
 {
 	/**
@@ -13,7 +14,8 @@ public class DomainUser implements Serializable
 	private String 	domUsrAp;
 	private String	domUsrNic;
 	private String	domUsrPass;
-	
+	private boolean	domUsrEnabled;
+
 	
 	
 	public int getDomUsrId() {
@@ -45,6 +47,12 @@ public class DomainUser implements Serializable
 	}
 	public void setDomUsrPass(String domUsrPass) {
 		this.domUsrPass = domUsrPass;
+	}
+	public boolean getDomUsrEnabled() {
+		return domUsrEnabled;
+	}
+	public void setDomUsrEnabled(boolean domUsrEnabled) {
+		this.domUsrEnabled = domUsrEnabled;
 	}
 
 }
