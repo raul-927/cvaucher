@@ -6,7 +6,7 @@ import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.enumerador.PacientesSearch;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
-import uy.com.cvaucher.services.interfaces.DomainUserInterface;
+import uy.com.cvaucher.services.interfaces.DomainUserInt;
 import uy.com.cvaucher.services.interfaces.HistoriaClinicaInt;
 import uy.com.cvaucher.services.interfaces.PacientesInt;
 import uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt;

@@ -124,6 +124,16 @@
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.pagoEfectivo"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoEfectivoInt"/>
+		
+	<bean id ="domainUserService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="${services.url}/cvaucher.domainUser"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.DomainUserInt"/>
+		
+	<bean id ="loginService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="${services.url}/cvaucher.login"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.LoginInt"/>
 	
 	
 </beans>

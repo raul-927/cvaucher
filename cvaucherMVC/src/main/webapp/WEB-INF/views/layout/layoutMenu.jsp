@@ -43,9 +43,9 @@
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Crear Usuario</a></li>
-		                 		<li><a href="#">Modificar Usuario</a></li>
-		                 		<li><a href="#">Eliminar Usuario</a></li>
+                                <li><a href='<s:url value="/domain_user?insert"/>'>Crear Usuario</a></li>
+		                 		<li><a href='<s:url value="/domain_user?update"/>'>Modificar Usuario</a></li>
+		                 		<li><a href='<s:url value="/domain_user?delete"/>'>Eliminar Usuario</a></li>
 		                 		<li class="divider"></li>
                                 
                                 <li class="dropdown-submenu">
