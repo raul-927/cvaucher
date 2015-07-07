@@ -32,16 +32,16 @@
 			
 		<set name ="flowScope.tipoFormPag"
 			value ="new uy.com.cvaucher.services.clases.FormasDePagosDesc()"
-			type ="uy.com.cvaucher.services.clases.FormasDePagosDesc"/>
-				
+			type ="uy.com.cvaucher.services.clases.FormasDePagosDesc"/>			
 	 </on-start>
 	 	
 	<!-- Cargo Pacientes en Tratamientos -->
-	<action-state id="cargoPacientesEnTratamientos">
 	
+	<action-state id="cargoPacientesEnTratamientos">
 		 <evaluate expression="flowScope.tratamientoPaciente.pacientes = flowPacientesController.returnPacientes()"/>
 		<transition to ="tratamientoPacienteInsert"/>
 	</action-state>
+	
 	
 	<!-- Tratamientos -->
 	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
@@ -67,16 +67,12 @@
 			<evaluate expression ="flowScope.aux = requestParameters.formaDePagoDesc"/>
 			<evaluate expression = "flowScope.aux2 = flowScope.tratamientoPaciente.costoTratSesion"/>
 		</on-render>
-		
 		<transition on ="FormaPagoSelect" to ="formaPagTipo"/>
 	</view-state>
 	
 	<action-state id="formaPagTipo">
 		<evaluate expression="flowScope.tipoFormPag = flowPacientesController.findFormPagoTipoByDesc(requestParameters.formaDePagoDesc)"/>
 		<transition to ="decisionFormaPago"/>
-			
-	
-		
 	</action-state>
 	
 	<decision-state id="decisionFormaPago">
@@ -94,7 +90,6 @@
 		</on-render>
 		
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
-			
 			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
 		</transition>
 	</view-state>
@@ -132,8 +127,6 @@
 	
 	<!-- Pago Deposito Bancario -->
 	<view-state id ="pagoDepositoBancario" view ="tratamientoPaciente/pagoDepositoBancario" model ="pagoDepositoBancario">
-	
 	</view-state>
 	<end-state id="finIngresoTratamiento"/>
-	
 </flow>

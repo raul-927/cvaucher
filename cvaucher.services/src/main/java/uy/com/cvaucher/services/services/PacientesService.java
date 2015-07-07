@@ -103,29 +103,34 @@ public class PacientesService implements PacientesInt
 	}
 
 	@Override
-	public List<Pacientes> findPacientes(SearchPacientes searchPacientes)
-	{
+	public List<Pacientes> findPacientes(SearchPacientes searchPacientes){
 		logger.debug("findPacientes :"+ searchPacientes);
 		List<Pacientes> pacientes = null;
 		
-		if(searchPacientes.getCedula()!=0)
-		{
+		if(searchPacientes.getCedula()!=0){
 			 pacientes =  pacientesMapper.findPacientesByCedulaList(searchPacientes.getCedula());
 		}
-		else if(searchPacientes.getCedula() == 0 && !searchPacientes.getPacNombre().equals("") && searchPacientes.getPacApellido().equals(""))
-		{
+		else if(searchPacientes.getCedula() == 0 
+				&& !searchPacientes.getPacNombre().equals("") 
+				&& searchPacientes.getPacApellido().equals("")){
 			pacientes = pacientesMapper.findPacientesByNom(searchPacientes.getPacNombre());
 		}
-		else if(searchPacientes.getCedula() == 0  && searchPacientes.getPacNombre().equals("") && !searchPacientes.getPacApellido().equals(""))
-		{
+		else if(searchPacientes.getCedula() == 0  
+				&& searchPacientes.getPacNombre().equals("") 
+				&& !searchPacientes.getPacApellido().equals("")){
+			
 			pacientes = pacientesMapper.findPacientesByApellido(searchPacientes.getPacApellido());
 		}
-		else if(searchPacientes.getCedula() == 0 && !searchPacientes.getPacNombre().equals("")&& !searchPacientes.getPacApellido().equals("")){
+		else if(searchPacientes.getCedula() == 0 
+				&& !searchPacientes.getPacNombre().equals("")
+				&& !searchPacientes.getPacApellido().equals("")){
 			
 			pacientes = pacientesMapper.findPacientesByNombreAndApellido(searchPacientes.getPacNombre(), searchPacientes.getPacApellido());
 		}
-		else if(searchPacientes.getCedula()== 0 && searchPacientes.getPacNombre().equals("") && searchPacientes.getPacApellido().equals(""))
-		{
+		else if(searchPacientes.getCedula()== 0 
+				&& searchPacientes.getPacNombre().equals("") 
+				&& searchPacientes.getPacApellido().equals("")){
+			
 			pacientes = pacientesMapper.findAllPacientes();
 		}
 		
