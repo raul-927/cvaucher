@@ -100,9 +100,6 @@ public class FlowPacientesController
 		return this.tratamientoPaciente;
 	}
 	
-	
-	
-	
 	public List<Direccion>findDireccionByCedula(int pacCedula)
 	{
 		List<Direccion> direc = this.direccionServices.findDireccionByCedula(pacCedula);
@@ -150,9 +147,7 @@ public class FlowPacientesController
 	@RequestMapping(value ="/detallep/detPac/{pacCedula}", params ="actualizar", method = RequestMethod.GET)
 	public String showIngresarTratamientoMain(Model model, @PathVariable("pacCedula") int pacCedula)
 	{
-		
 		pacientes = pacientesServices.findPacientesByCedula(pacCedula);
-		
 		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
 		tratamientoPaciente.setPacientes(pacientes);
 		model.addAttribute(tratamientoPaciente);
@@ -160,6 +155,7 @@ public class FlowPacientesController
 		
 		return "redirect:/tratamientos";
 	}
+	
 	@RequestMapping(value ="/detallep/detPac/{pacCedula}/{histTratPacId}", params ="actualizar", method = RequestMethod.GET)
 	public String showIngresarTratamientoEnTratamiento(Model model, @PathVariable("pacCedula") int pacCedula)
 	{
@@ -167,13 +163,12 @@ public class FlowPacientesController
 		pacientes = pacientesServices.findPacientesByCedula(pacCedula);
 		
 		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
-		tratamientoPaciente.setPacientes(pacientes);
+		this.tratamientoPaciente.setPacientes(pacientes);
 		model.addAttribute(tratamientoPaciente);
 		//model.addAttribute("tratP", tratamientoServices.findAllTratamientoByActualList());
 		
 		return "redirect:/tratamientos";
 	}
-	
 	
 	public List<TratByList>findAllTratamientoByActualList()
 	{
@@ -213,6 +208,7 @@ public class FlowPacientesController
 	{
 		this.fechaAux = fecha;
 	}
+	
 	public String getFechaAux()
 	{
 		return this.fechaAux;
@@ -220,9 +216,7 @@ public class FlowPacientesController
 	
 	public List<FormasDePagos> findAllFormasDePagos()
 	{	
-		
 		return this.formasDePagosServices.findAllFormasDePagos();
-		
 	}
 	
 	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc)

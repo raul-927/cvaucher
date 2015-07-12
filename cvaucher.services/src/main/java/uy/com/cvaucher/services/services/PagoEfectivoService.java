@@ -21,6 +21,7 @@ public class PagoEfectivoService implements PagoEfectivoInt
 	public void insertPagoEfectivo(PagoEfectivo pagoEfectivo) 
 	{
 		this.pagoEfectivoMapper.insertPagoEfectivo(pagoEfectivo);
+		
 
 	}
 

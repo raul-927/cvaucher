@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
+
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.FormasDePagos;
@@ -40,6 +41,7 @@ import uy.com.cvaucher.services.mappers.PagoTarjetaMapper;
 import uy.com.cvaucher.services.mappers.TratamientoPacienteMapper;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
+import uy.com.cvaucher.services.jni.CvaucherJni;
 import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 
 
@@ -133,7 +135,12 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Transactional
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
 	{
-		
+		System.out.println("Inicio de CvaucherJni");
+		CvaucherJni cvaucher = new CvaucherJni();
+		int a = 10;
+		int b = 30;
+		int c = cvaucher.holaMundo(a, b);
+		System.out.print("Desde Java, La suma de a + b = "+c);
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
 		MaxTratPacId maxTratPacId = new MaxTratPacId();
 		SearchMaxTratPacId search = new SearchMaxTratPacId();

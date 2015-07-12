@@ -56,10 +56,5 @@ public interface ListaPreciosMapper
 			+ "AND  current_date() BETWEEN a.aux_prec_fech_ini AND a.aux_prec_fech_fin ")
 	@ResultMap("uy.com.cvaucher.services.mappers.ListaPreciosMapper.ActualListaPreciosResult")
 	ListaPrecios findActualListaPrecios();
-	
-	
-	
-	
-	
 
 }
