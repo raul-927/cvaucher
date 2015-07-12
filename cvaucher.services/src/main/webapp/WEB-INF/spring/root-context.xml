@@ -20,10 +20,11 @@
     
     
     <context:annotation-config />
-      
     <context:component-scan base-package="uy.com.cvaucher.services" />
-	
- 	<context:property-placeholder location="/WEB-INF/properties/cvaucher.properties" />
+
+    <aop:aspectj-autoproxy/>
+
+    <context:property-placeholder location="/WEB-INF/properties/cvaucher.properties" />
  
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
