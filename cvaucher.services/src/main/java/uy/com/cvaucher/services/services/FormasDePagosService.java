@@ -140,7 +140,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		int a = 10;
 		int b = 30;
 		int c = cvaucher.holaMundo(a, b);
-		System.out.print("Desde Java, La suma de a + b = "+c);
+		System.out.println("Desde Java, La suma de a + b = "+c);
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
 		MaxTratPacId maxTratPacId = new MaxTratPacId();
 		SearchMaxTratPacId search = new SearchMaxTratPacId();
