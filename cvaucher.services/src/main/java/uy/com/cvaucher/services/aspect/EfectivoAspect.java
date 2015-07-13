@@ -10,7 +10,7 @@ import uy.com.cvaucher.services.jni.CvaucherJni;
 public class EfectivoAspect {
 
 	@Pointcut(
-			"execution(* uy.com.cvaucher.services.services.FormasDePagosServices.insertTratamientoPagoEfectivo(..))")
+			"execution(* uy.com.cvaucher.services.interfaces.FormasDePagosInt.insertTratamientoPagoEfectivo(..))")
 	public void ejecutarEfectivo(){
 		
 	}

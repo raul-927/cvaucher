@@ -23,6 +23,7 @@
     <context:component-scan base-package="uy.com.cvaucher.services" />
 
     <aop:aspectj-autoproxy/>
+    	
 
     <context:property-placeholder location="/WEB-INF/properties/cvaucher.properties" />
  
@@ -379,4 +380,5 @@
 		</property>	
 		
 	</bean>
+	
 </beans>
