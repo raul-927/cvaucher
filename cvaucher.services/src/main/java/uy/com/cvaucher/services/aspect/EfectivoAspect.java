@@ -2,6 +2,7 @@ package uy.com.cvaucher.services.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Pointcut;
 
 import uy.com.cvaucher.services.jni.CvaucherJni;
@@ -18,9 +19,16 @@ public class EfectivoAspect {
 	public void ejecutoEfectivo(){
 		System.out.println("Inicio de CvaucherJni en EfectivoAspect");
 		CvaucherJni cvaucher = new CvaucherJni();
-		int a = 10;
-		int b = 30;
+		int a = 48;
+		int b = 62;
 		int c = cvaucher.holaMundo(a, b);
-		System.out.println("Desde Aspect Java, La suma de a + b = "+c);
+		System.out.println("Desde Aspect Java, La suma de "+a+" +" +b+" = "+c);
 	}
+	
+	@After("ejecutarEfectivo()")
+	public void despuesEjecutarEfectivo(){
+		System.out.println("Despues de FormasDePagosInt.insertTratamientoPagoEfectivo()");
+	}
+	
+	
 }
