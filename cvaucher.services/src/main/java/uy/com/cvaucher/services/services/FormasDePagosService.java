@@ -53,14 +53,12 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Override
 	public List<FormasDePagos> findAllFormasDePagos() 
 	{
-		// TODO Auto-generated method stub
 		return this.formasDePagosMapper.findAllFormasDePagos();
 	}
 
 	@Override
 	public FormasDePagos findFormasDePagosById(Integer formPagId) 
 	{
-		// TODO Auto-generated method stub
 		return this.formasDePagosMapper.findFormasDePagosById(formPagId);
 	}
 
@@ -68,15 +66,12 @@ public class FormasDePagosService implements FormasDePagosInt
 	public void insertFormasDePagos(FormasDePagos formasDePagos) 
 	{
 		this.formasDePagosMapper.insertFormasDePagos(formasDePagos);
-
 	}
 
 	@Override
 	public void updateFormasDePagos(FormasDePagos formasDePagos) 
 	{
 		this.formasDePagosMapper.updateFormasDePagos(formasDePagos);
-
-
 	}
 
 	@Override
@@ -155,10 +150,8 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Transactional
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
 	{
-		
 
 		tratamientoPaciente.setImportePagado(pagoEfectivo.getPagoEfImporte());
-		
 		
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
 		MaxTratPacId maxTratPacId = new MaxTratPacId();
@@ -187,8 +180,4 @@ public class FormasDePagosService implements FormasDePagosInt
 		tratamientoPaciente.setImportePagado(0);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);
 	}
-
-	
-	
-
 }
