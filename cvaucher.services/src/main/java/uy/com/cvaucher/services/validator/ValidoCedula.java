@@ -38,15 +38,15 @@ public class ValidoCedula implements ConstraintValidator<Cedula, Integer>
 		int control2 = 3;
 		int control1 = 4;
 		
-		int valor1 = numero%10;
-		int valor2 = numero%100;
-		int valor3 = numero%1000;
-		int valor4 = numero%10000;
-		int valor5 = numero%100000;
-		int valor6 = numero%1000000;
-		int valor7 = numero%10000000;
-		int valor8 = numero%100000000;
-		int valor9 = numero%1000000000;
+		int valor1 = numero % 10;
+		int valor2 = numero % 100;
+		int valor3 = numero % 1000;
+		int valor4 = numero % 10000;
+		int valor5 = numero % 100000;
+		int valor6 = numero % 1000000;
+		int valor7 = numero % 10000000;
+		int valor8 = numero % 100000000;
+		int valor9 = numero % 1000000000;
 		
 		//suma += (valor1 * control1);
 		suma += ((valor2 - valor1)/10) 		  *	control1;

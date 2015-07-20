@@ -18,15 +18,15 @@ public class Pacientes implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	
-	private int				pacId;
+	private int		pacId;
 	
 	@NotNull(message ="\n ERROR; Debe ingresar un Nombre")
 	@Size(min = 3, max = 50, message = "ERROR; Debe ingresar un nombre entre 3 y 50 caracteres")
-	private String 			pacNombre;
+	private String 	pacNombre;
 	
 	@NotNull(message ="ERROR; Debe ingresar un Apellido")
 	@Size(min = 3, max = 50, message = "ERROR; Debe ingresar un apellido entre 3 y 50 caracteres")
-	private String 			pacApellido;
+	private String 	pacApellido;
 	
 	
 
@@ -34,13 +34,11 @@ public class Pacientes implements Serializable
 	@NotNull(message ="ERROR; Debe ingresar un nro de cedula valido")
 	@Min(value=1111111, message ="ERROR; Ingrse un valor mayor a 6 digitos")
 	@Cedula(message ="Cedula Invalida")
-	private int				cedula;
-	
-	
-	
-	private String 			ocupacion;
-	private String			sociedadMedica;
-	private String			emergenciaMovil;
+	private int		cedula;
+
+	private String 	ocupacion;
+	private String	sociedadMedica;
+	private String	emergenciaMovil;
 	
 	
 
