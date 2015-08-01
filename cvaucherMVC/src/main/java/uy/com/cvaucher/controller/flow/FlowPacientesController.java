@@ -163,7 +163,7 @@ public class FlowPacientesController
 		pacientes = pacientesServices.findPacientesByCedula(pacCedula);
 		
 		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
-		this.tratamientoPaciente.setPacientes(pacientes);
+		tratamientoPaciente.setPacientes(pacientes);
 		model.addAttribute(tratamientoPaciente);
 		//model.addAttribute("tratP", tratamientoServices.findAllTratamientoByActualList());
 		
