@@ -61,7 +61,7 @@ public class ListaPreciosTest
 		auxPrecios.setAuxPrecFechIni(auxPrecFechIni);
 		auxPrecios.setAuxPrecFechFin(auxPrecFechFin);
 		
-		this.auxPreciosMapper.insertAuxPrecios(auxPrecios);
+		this.listaPreciosService.insertAuxPrecios(auxPrecios);
 	}
 	
 

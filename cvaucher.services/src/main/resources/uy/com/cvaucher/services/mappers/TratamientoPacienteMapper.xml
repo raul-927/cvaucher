@@ -6,11 +6,11 @@
 <mapper namespace="uy.com.cvaucher.services.mappers.TratamientoPacienteMapper">
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.TratamientoPaciente" id="TratamientoPacienteResult">
-  		<id property="tratPacId" column="trat_pac_id"/>
-		<result property = "fecha" column ="fecha"/>  
-  		<result property = "costoTratSesion" column ="costo_tratamiento"/>
-  		<result property = "importePagado" column ="importe_pagado"/>
-  		<result property = "saldoPendiente" column ="saldo_pendiente"/>  
+  		<id property="tratPacId" 				column="trat_pac_id"/>
+		<result property = "fecha" 				column ="fecha"/>  
+  		<result property = "costoTratSesion" 	column ="costo_tratamiento"/>
+  		<result property = "importePagado" 		column ="importe_pagado"/>
+  		<result property = "saldoPendiente" 	column ="saldo_pendiente"/>  
   		<result property = "tratamId"			column ="trat_id"/>
   
   		<association  property = "pacientes" resultMap ="uy.com.cvaucher.services.mappers.PacientesMapper.PacientesResult"/>
