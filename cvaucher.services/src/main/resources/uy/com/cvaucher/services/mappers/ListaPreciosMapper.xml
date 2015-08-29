@@ -27,13 +27,13 @@
   	</resultMap>
   	
   	<resultMap type="uy.com.cvaucher.services.domain.ActualListaPreciosResult" id="ActualListaPreciosResult">
-  		<result property = "listPrecId" column ="ID_LISTA"/>
-  		<result property = "listPrecTratId" column ="ID_LISTA_TRAT"/>
-  		<result property = "listPrecMonto" column ="PRECIO_MONTO"/>
-  		<result property = "auxPrecId" column ="ID_AUX"/>
-  		<result property = "auxListaPreciosId" column ="ID_AUX_LIST"/>
-  		<result property = "auxPrecFechIni" column ="FECH_INI"/>
-  		<result property = "auxPrecFechFin" column ="FECHA_FIN"/>
+  		<result property = "listPrecId" 		column ="ID_LISTA"/>
+  		<result property = "listPrecTratId" 	column ="ID_LISTA_TRAT"/>
+  		<result property = "listPrecMonto" 		column ="PRECIO_MONTO"/>
+  		<result property = "auxPrecId" 			column ="ID_AUX"/>
+  		<result property = "auxListaPreciosId" 	column ="ID_AUX_LIST"/>
+  		<result property = "auxPrecFechIni" 	column ="FECH_INI"/>
+  		<result property = "auxPrecFechFin" 	column ="FECHA_FIN"/>
   		<result property = "auxPrecDescripcion" column ="DESC"/>
   	</resultMap>
   
