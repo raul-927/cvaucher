@@ -14,7 +14,7 @@ import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:root-Context.xml")
+@ContextConfiguration(locations="test-Context.xml")
 public class FormasDePagosTest 
 {
 	@Autowired

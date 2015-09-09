@@ -59,4 +59,10 @@
 		<nature>org.jboss.tools.jsf.jsfnature</nature>
 		<nature>org.hibernate.eclipse.console.hibernateNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>classpath</name>
+			<value>file:/C:/Users/Administrador/git/cvaucher/cvaucher.services/src/main/webapp/WEB-INF/spring</value>
+		</variable>
+	</variableList>
 </projectDescription>
