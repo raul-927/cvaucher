@@ -7,6 +7,7 @@ public enum TiposFormasDePagos
 	TD(3,"Targeta de Debito"), 
 	DP(4,"Deposito Cuenta Bancaria"), 
 	CE(5,"Credito Efectivo");
+	
 	private final int tipoFormaPago;
 	private final String descFormaPago;
 	
