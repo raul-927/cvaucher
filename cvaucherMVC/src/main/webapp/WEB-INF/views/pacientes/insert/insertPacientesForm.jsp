@@ -47,7 +47,6 @@
 			 <div class="botonForm">
 				 <input class ="btn btn-default" type ="reset" value ="Cancelar" name ="_eventId_cancelar"/>
 				 <input class="btn btn-primary" type ="submit" value ="Siguiente" name ="_eventId_pacienteIngresado"/>
-			
 			</div>
 			
 	 </sf:form>

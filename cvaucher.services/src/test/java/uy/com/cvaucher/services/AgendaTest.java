@@ -18,7 +18,7 @@ import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:root-Context.xml")
+@ContextConfiguration(locations={"file:src/test/resources/test-Context.xml"})
 public class AgendaTest {
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class AgendaTest {
 	
 		Pacientes pac = new Pacientes();
 		pac.setPacId(1);
-		List<Agenda> agenda = (List<Agenda>)   agendaService.findAgendaById(pac.getPacId());
+		List<Agenda> agenda = (List<Agenda>)   agendaService.findAgendaByCedula(19455549);
 		
 		for(Agenda ag: agenda)
 		{

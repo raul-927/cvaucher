@@ -19,8 +19,9 @@ import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.interfaces.PacientesInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:root-Context.xml")
+@ContextConfiguration(locations={"classpath:test-Context.xml"})
 public class PacientesTest {
+	
 	@Autowired
 	PacientesInt pacientesService;
 	
@@ -42,9 +43,6 @@ public class PacientesTest {
 	@Test
 	public void selectPacientesByCedula()
 	{
-	
-		//Pacientes pac = new Pacientes();
-		//pac.setPacId(1);
 		int cedula = 19455549;
 		Pacientes pacientes =  pacientesService.findPacientesByCedula(cedula);
 		

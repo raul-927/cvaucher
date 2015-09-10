@@ -49,12 +49,12 @@ public class FlowPacientesController
 	
 	@Autowired
 	public FlowPacientesController(PacientesInt 			pacientesServices, 
-								DireccionInt 			direccionServices,
-								AgendaInt 				agendaServices,
-								TratamientoInt			tratamientoServices,
-								HistoriaClinicaInt		historiaClinicaServices,
-								TratamientoPacienteInt 	tratamientoPacienteServices,
-								FormasDePagosInt		formasDePagosServices)
+									DireccionInt 			direccionServices,
+									AgendaInt 				agendaServices,
+									TratamientoInt			tratamientoServices,
+									HistoriaClinicaInt		historiaClinicaServices,
+									TratamientoPacienteInt 	tratamientoPacienteServices,
+									FormasDePagosInt		formasDePagosServices)
 	{
 		this.pacientesServices			 = pacientesServices;
 		this.tratamientoServices		 = tratamientoServices;

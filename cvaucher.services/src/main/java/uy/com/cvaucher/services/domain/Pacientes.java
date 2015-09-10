@@ -4,6 +4,7 @@ package uy.com.cvaucher.services.domain;
 import java.io.Serializable;
 import java.util.InputMismatchException;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -29,7 +30,7 @@ public class Pacientes implements Serializable
 	private String 	pacApellido;
 	
 	
-
+	@Digits(message ="Debe ingresar unicamente numeros", fraction = 0, integer = 8)
 	@Max(value=99999999, message ="ERROR; Ingrse un maximo de 8 digitos")
 	@NotNull(message ="ERROR; Debe ingresar un nro de cedula valido")
 	@Min(value=1111111, message ="ERROR; Ingrse un valor mayor a 6 digitos")

@@ -1,0 +1,384 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context = "http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p = "http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/jee 
+	http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+    
+    
+    <context:annotation-config />
+    <context:component-scan base-package="uy.com.cvaucher.services" />
+
+    <aop:aspectj-autoproxy/>
+    	
+
+    <context:property-placeholder location="cvaucher.properties" />
+ 
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<bean id ="dataSource"
+		class ="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		
+		<property name ="driverClassName"
+			value ="${jdbc.driverClassName}"/>
+			
+		<property name ="url"
+			value ="${jdbc.url}"/>
+			
+		<property name ="username"
+			value ="${jdbc.username}"/>
+			
+		<property name ="password"
+			value = "${jdbc.password}"/>	
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+   	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<property name="dataSource" ref="dataSource" />
+  		<property name="typeAliasesPackage" value="uy.com.cvaucher.services.domain"/>
+  		<property name="typeHandlersPackage" value="uy.com.cvaucher.services.typehandlers"/>
+  		<property name="mapperLocations" value="classpath*:uy.com.cvaucher.services/mappers/*.xml" />
+	</bean>
+	 
+ 
+	<bean id ="httpAgendaService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="agendaService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.AgendaInt"/>	
+		
+	<bean id ="httpDireccionService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="direccionService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.DireccionInt"/>	
+		
+	<bean id = "httpHistoriaClinicaService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="historiaClinicaService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.HistoriaClinicaInt"/>
+		
+	<bean  id = "httpPacientesService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref = "pacientesService"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PacientesInt"/>
+		
+	<bean  id = "httpSeguimientoPacientesService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref = "seguimientoPacientesService"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt"/>
+	
+	<bean id ="httpSesionesService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref = "sesionesService"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.SesionesInt"/>
+		
+	<bean id ="httpSesionPagadaService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref = "sesionPagadaService"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.SesionPagadaInt"/>
+	
+	<bean id ="httpSesionRealizadaService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref ="sesionRealizadaService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.SesionRealizadaInt"/>
+		
+	<bean id ="httpTipoAgendaService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref ="tipoAgendaService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.TipoAgendaInt"/>
+		
+	<bean id ="httpTipoTratamientoService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref ="tipoTratamientoService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.TipoTratamientoInt"/>
+	
+	<bean id ="httpTratamientoService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref ="tratamientoService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.TratamientoInt"/>
+	
+	<bean id ="httpTratamientoPacienteService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="tratamientoPacienteService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.TratamientoPacienteInt"/>
+	
+	<bean id ="httpHistorialPagosService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="historialPagosService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.HistorialPagosInt"/>
+		
+	<bean id ="httpListaPreciosService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="listaPreciosService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.ListaPreciosInt"/>
+		
+	<bean id ="httpAuxPreciosService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="auxPreciosService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.AuxPreciosInt"/>
+		
+	<bean id ="httpFormasDePagosService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="formasDePagosService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.FormasDePagosInt"/>
+		
+	<bean id ="httpCuentasService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="cuentasService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.CuentasInt"/>
+	
+	<bean id ="httpPagoTarjetaService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="pagoTarjetaService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.PagoTarjetaInt"/>
+		
+	<bean id ="httpPagoEfectivoService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="pagoEfectivoService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.PagoEfectivoInt"/>
+	
+	<bean id ="httpDomainUserService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="domainUserService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.DomainUserInt"/>
+		
+	<bean id ="httpLoginService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="loginService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.LoginInt"/>
+	
+	<bean id ="urlMappingAgenda"
+		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/cvaucher.agenda = httpAgendaService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingDireccion"
+		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/cvaucher.direccion = httpDireccionService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingHistoriaClinica"
+		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.historiaclinica = httpHistoriaClinicaService
+			</value>
+		</property>
+	</bean>
+	
+	<bean id ="urlMappingPacientes" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.pacientes= httpPacientesService
+			</value>
+		</property>	
+	</bean>
+		
+	<bean id ="urlMappingSeguimientoPacientes" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.seguimientopacientes= httpSeguimientoPacientesService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlSesiones" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.sesiones= httpSesionesService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingSesionPagada" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.sesionPagada= httpSesionPagadaService 
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingSesionRealizada" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.sesionRealizada= httpSesionRealizadaService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlTipoAgenda" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.tipoAgenda= httpTipoAgendaService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingTipoTratamiento" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.tipotratamiento = httpTipoTratamientoService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingTratamiento" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.tratamiento = httpTratamientoService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingTratamientoPaciente"
+		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/cvaucher.tratamientoPaciente = httpTratamientoPacienteService
+			</value>
+		</property>	
+	</bean>
+	 
+	<bean id ="urlMappingHistorialPagos" 
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.historialPagos = httpHistorialPagosService
+			</value>
+		</property>	
+	</bean> 
+	
+	<bean id ="urlMappingListaPrecios"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.listaPrecios = httpListaPreciosService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingAuxPrecios"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.auxPrecios = httpAuxPreciosService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingFormasDePagos"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.formasDePagos = httpFormasDePagosService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingCuentas"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.cuentas = httpCuentasService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingPagoTarjeta"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.pagoTarjeta = httpPagoTarjetaService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingPagoEfectivo"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.pagoEfectivo = httpPagoEfectivoService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingDomainUser"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.domainUser = httpDomainUserService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingLogin"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.login = httpLoginService
+			</value>
+		</property>	
+		
+	</bean>
+	
+</beans>
