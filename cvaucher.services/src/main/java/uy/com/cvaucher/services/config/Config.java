@@ -13,7 +13,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.annotation.Bean;
 */
 /**
- * @author Siva
+ * @author Raul Hernandez
  *
  */
 @Configuration
