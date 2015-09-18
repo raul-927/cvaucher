@@ -42,11 +42,7 @@
 			</div>
 			
 			<div class="row">
-			
-					
-					
 				  <div class="col-sm-4 col-xs-8 col-lg-8 col-md-10 col-xs-offset-2 col-lg-offset-2 col1">
-				  
 					<t:insertAttribute name ="left"/>
 				</div>	
 			</div>

@@ -4,7 +4,60 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+	/*$(function (){
+    $('#cedula').keyup(function (){
+      this.value = (this.value + '').replace(/[^0-9]/g, '');
+    });
+  });*/
+	$(function(){
+	$('#cedula').keydown(function(event) {
 
+		   if(event.shiftKey)
+
+		   {
+
+		        event.preventDefault();
+
+		   }
+
+		   if (event.keyCode == 46 || event.keyCode == 8)    {
+
+		   }
+
+		   else {
+
+		        if (event.keyCode < 95) {
+
+		          if (event.keyCode < 48 || event.keyCode > 57) {
+
+		                event.preventDefault();
+
+		          }
+
+		        }
+
+		        else {
+
+		              if (event.keyCode < 96 || event.keyCode > 105) {
+
+		                  event.preventDefault();
+
+		              }
+
+		        }
+
+		      }
+
+		   })
+	});// de la funcion
+	
+	
+	
+	
+</script>
 <div class="well well-lg">
 	
 	<sf:form cssClass = "form"
@@ -15,7 +68,7 @@
              
 	        <div class="form-group">
 			 	<sf:label path="cedula" for ="cedula">Cedula</sf:label>
-			 	<sf:input cssClass ="input-small " path="cedula" size ="8" id="descCAT"/>
+			 	<sf:input cssClass ="input-small " path="cedula" size ="8" id="cedula"/>
 			 	<sf:errors path ="cedula" cssClass ="error"/>
 		 	</div>
 		 	<div class="form-group">
