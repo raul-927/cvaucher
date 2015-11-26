@@ -19,6 +19,7 @@ public class Pacientes implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	
+	
 	private int		pacId;
 	
 	@NotNull(message ="\n ERROR; Debe ingresar un Nombre")
@@ -29,6 +30,7 @@ public class Pacientes implements Serializable
 	@Size(min = 3, max = 50, message = "ERROR; Debe ingresar un apellido entre 3 y 50 caracteres")
 	private String 	pacApellido;
 	
+	private String tipoDoc;
 	
 	@Digits(message ="Debe ingresar unicamente numeros", fraction = 0, integer = 8)
 	@Max(value=99999999, message ="ERROR; Ingrse un maximo de 8 digitos")
@@ -124,6 +126,14 @@ public class Pacientes implements Serializable
 	public void setEmergenciaMovil(String emergenciaMovil) 
 	{
 		this.emergenciaMovil = emergenciaMovil;
+	}
+
+	public String getTipoDoc() {
+		return tipoDoc;
+	}
+
+	public void setTipoDoc(String tipoDoc) {
+		this.tipoDoc = tipoDoc;
 	}
 
 //-----------------------------------------------------	

@@ -22,4 +22,7 @@ public enum TiposFormasDePagos
 	{
 		return this.tipoFormaPago;
 	}
+	public String getDecFormaPago(){
+		return this.descFormaPago;
+	}
 }
