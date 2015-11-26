@@ -26,7 +26,7 @@
 
 		 	<div class="form-group">
 		 	<sf:label path="formPagTipo" for ="formPagTipo">Tipos de Pago</sf:label>
-		 	<sf:select cssClass ="form-control" path="formPagTipo" size ="1" id="descCAT">
+		 	<sf:select cssClass ="form-control" path="formPagTipo" size ="1">
 		 		
 		 		<sf:options items="${tiposPagos}" />
 	

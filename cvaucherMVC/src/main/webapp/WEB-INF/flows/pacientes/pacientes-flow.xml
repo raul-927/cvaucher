@@ -49,6 +49,10 @@
 	 
 	 <!-- Paciente -->
 	<view-state id="inicioAltaPaciente" view ="pacientes/insertPacientes" model ="pacientes">
+		<on-render>
+			<evaluate result ="viewScope.tipDoc" expression="T(uy.com.cvaucher.services.enumerador.TipoDocumento).values()"/>
+		
+		</on-render>
 		<transition on="pacienteIngresado" to="cargoPacientesEnDireccion" bind="true">
 			 <evaluate expression="flowPacientesController.insertPacientes(flowScope.pacientes)"/>
 		</transition>

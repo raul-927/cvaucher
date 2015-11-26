@@ -66,6 +66,14 @@
 			<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
              
+             <div class="form-group">
+		 	<sf:label path="tipoDoc" for ="tipoDoc">Tipo de Documento</sf:label>
+		 	<sf:select cssClass ="form-control" path="tipoDoc" size ="1">
+		 		<sf:options items="${tipDoc}" />
+		 	</sf:select>
+		 	<sf:errors path ="tipoDoc" cssClass ="error"/>
+		 </div>
+             
 	        <div class="form-group">
 			 	<sf:label path="cedula" for ="cedula">Cedula</sf:label>
 			 	<sf:input cssClass ="input-small " path="cedula" size ="8" id="cedula"/>
