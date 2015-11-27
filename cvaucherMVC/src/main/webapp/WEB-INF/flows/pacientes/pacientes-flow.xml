@@ -10,6 +10,10 @@
 			value="new uy.com.cvaucher.services.domain.Pacientes()"
 			type="uy.com.cvaucher.services.domain.Pacientes" />
 			
+		<set name="flowScope.pacientes2"
+			value="new uy.com.cvaucher.services.domain.Pacientes2()"
+			type="uy.com.cvaucher.services.domain.Pacientes2" />
+			
 		<set name="flowScope.direccion"
 			value="new uy.com.cvaucher.services.domain.Direccion()"
 			type="uy.com.cvaucher.services.domain.Direccion" />
@@ -48,7 +52,7 @@
 	 </on-start>
 	 
 	 <!-- Paciente -->
-	<view-state id="inicioAltaPaciente" view ="pacientes/insertPacientes" model ="pacientes">
+	<view-state id="inicioAltaPaciente" view ="pacientes/insertPacientes" model ="pacientes2">
 		<on-render>
 			<evaluate result ="viewScope.tipDoc" expression="T(uy.com.cvaucher.services.enumerador.TipoDocumento).values()"/>
 		
