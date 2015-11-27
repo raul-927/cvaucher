@@ -29,7 +29,7 @@ import uy.com.cvaucher.services.validator.ValidoDocumento;
 @Documented
 public @interface Documento {
 	String message();
-	String tipoDoc();
+	
 	
 	Class<?>[] groups() default {};
     

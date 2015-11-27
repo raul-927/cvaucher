@@ -11,9 +11,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import uy.com.cvaucher.services.annotations.Cedula;
+import uy.com.cvaucher.services.annotations.Documento;
+import uy.com.cvaucher.services.clases.TipoDocPaciente;
 
 
-public class Pacientes implements Serializable
+public class Pacientes2 implements Serializable
 {
 
 	private static final long serialVersionUID = 1L;
@@ -30,14 +32,8 @@ public class Pacientes implements Serializable
 	@Size(min = 3, max = 50, message = "ERROR; Debe ingresar un apellido entre 3 y 50 caracteres")
 	private String 	pacApellido;
 	
-	private String tipoDoc;
-	
-	@Digits(message ="Debe ingresar unicamente numeros", fraction = 0, integer = 8)
-	@Max(value=99999999, message ="ERROR; Ingrse un maximo de 8 digitos")
-	@NotNull(message ="ERROR; Debe ingresar un nro de cedula valido")
-	@Min(value=1111111, message ="ERROR; Ingrse un valor mayor a 6 digitos")
-	@Cedula(message ="Cedula Invalida")
-	private int	cedula;
+	@Documento(message = "Documento Inválido")
+	private TipoDocPaciente tipoDocPaciente;
 
 	private String 	ocupacion;
 	private String	sociedadMedica;
@@ -75,25 +71,7 @@ public class Pacientes implements Serializable
 		this.pacApellido = pacApellido;
 	}
 //-----------------------------------------------------
-	public int getCedula() 
-	{
-		
-		return cedula;
-	}
-
-	public void setCedula(int cedula) 
-	{
-		try{
-			this.cedula = cedula;
-		}
-		catch (InputMismatchException e){
-			
-		}
-		catch(NumberFormatException e){
-			
-		}
-		
-	}
+	
 //-----------------------------------------------------
 	
 
@@ -128,12 +106,12 @@ public class Pacientes implements Serializable
 		this.emergenciaMovil = emergenciaMovil;
 	}
 
-	public String getTipoDoc() {
-		return tipoDoc;
+	public TipoDocPaciente getTipoDocPaciente() {
+		return tipoDocPaciente;
 	}
 
-	public void setTipoDoc(String tipoDoc) {
-		this.tipoDoc = tipoDoc;
+	public void setTipoDocPaciente(TipoDocPaciente tipoDocPaciente) {
+		this.tipoDocPaciente = tipoDocPaciente;
 	}
 
 //-----------------------------------------------------	
