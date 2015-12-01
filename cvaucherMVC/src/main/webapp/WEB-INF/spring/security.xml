@@ -10,11 +10,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
     	
      <!--  <beans:import resource="root-context.xml"/>-->
-    	
+   
     <beans:bean id="logoutRedirectToAny" class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler">
 		<beans:property name="targetUrlParameter" value="redirectTo"/>
 	</beans:bean>
-		
+	<beans:bean id="webSecurityExpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
      <global-method-security secured-annotations='enabled' /> 	
      
    
@@ -23,16 +23,16 @@
     <http auto-config="true">
     
     	<intercept-url pattern="/login"
-			access="ROLE_ANONYMOUS"/>
+			access="ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMIN" />
 			
 		<intercept-url pattern="/"
-			access="ROLE_USER,ROLE_ADMIN"/>
+			access="ROLE_USER,ROLE_ADMIN" />
 			
 		<intercept-url pattern="/**" 
-			access="ROLE_USER,ROLE_ADMIN"/>
+			access="ROLE_USER,ROLE_ADMIN" />
 			
 		<intercept-url pattern="/logout"
-			access="ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMIN"/>
+			access="ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMIN" />
 			
 		<form-login login-page="/login"
                 login-processing-url="/j_spring_security_check" 

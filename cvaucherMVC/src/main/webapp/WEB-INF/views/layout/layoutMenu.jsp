@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <div id="navbarExample" class="navbar navbar-default " role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -21,7 +22,7 @@
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pacientes<b class="caret"></b></a>
 	                 <ul class="dropdown-menu">
 		                 <li><a href='<s:url value="/pacientes"/>'>Crear un nuevo Paciente</a></li>
-		                 <li><a href="#">Eliminar un paciente</a></li>
+		                <security:authorize access ="hasRole('ROLE_ADMIN')"> <li><a href="#">Eliminar un paciente</a></li></security:authorize>
 	                 </ul>
                 </li>
                
@@ -36,9 +37,10 @@
 		                 
 	                 </ul>
                 </li>
-                
+                <security:authorize access ="hasRole('ROLE_ADMIN')">
                 <li><!-- Inicio Menu Configuracion -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
+                 
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
                     <ul class="dropdown-menu multi-level">
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios</a>
@@ -136,7 +138,7 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
-                 
+                 </security:authorize>
              
             </ul>
         </div><!--/.nav-collapse -->

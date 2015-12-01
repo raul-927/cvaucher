@@ -14,49 +14,25 @@
   });*/
 	$(function(){
 	$('#cedula').keydown(function(event) {
-
-		   if(event.shiftKey)
-
-		   {
-
+		   if(event.shiftKey){
 		        event.preventDefault();
-
 		   }
-
-		   if (event.keyCode == 46 || event.keyCode == 8)    {
-
+		   if (event.keyCode == 46 || event.keyCode == 8){
 		   }
-
-		   else {
-
-		        if (event.keyCode < 95) {
-
-		          if (event.keyCode < 48 || event.keyCode > 57) {
-
+		   else{
+		        if (event.keyCode < 95){
+		          if (event.keyCode < 48 || event.keyCode > 57){
 		                event.preventDefault();
-
 		          }
-
 		        }
-
 		        else {
-
 		              if (event.keyCode < 96 || event.keyCode > 105) {
-
 		                  event.preventDefault();
-
 		              }
-
 		        }
-
 		      }
-
 		   })
 	});// de la funcion
-	
-	
-	
-	
 </script>
 <div class="well well-lg">
 	
@@ -67,16 +43,16 @@
              value="${flowExecutionKey}"/>
              
              <div class="form-group">
-		 	<sf:label path="tipoDocPaciente.tipoDoc" for ="tipoDocPaciente.tipoDoc">Tipo de Documento</sf:label>
-		 	<sf:select cssClass ="form-control" path="tipoDocPaciente.tipoDoc" size ="1">
-		 		<sf:options items="${tipDoc}" />
-		 	</sf:select>
-		 	<sf:errors path ="tipoDocPaciente.tipoDoc" cssClass ="error"/>
-		 </div>
+		 		<sf:label path="tipoDocPaciente.tipoDoc" for ="tipoDocPaciente.tipoDoc">Tipo de Documento</sf:label>
+		 		<sf:select cssClass ="form-control" path="tipoDocPaciente.tipoDoc" size ="1">
+		 			<sf:options items="${tipDoc}" />
+		 		</sf:select>
+		 		<sf:errors path ="tipoDocPaciente.tipoDoc" cssClass ="error"/>
+		 	</div>
              
 	        <div class="form-group">
 			 	<sf:label path="tipoDocPaciente.cedula" for ="tipoDocPaciente.cedula">Cedula</sf:label>
-			 	<sf:input cssClass ="input-small "  path="tipoDocPaciente.cedula" size ="8"/>
+			 	<sf:input cssClass ="input-small "  path="tipoDocPaciente.cedula" size ="8" id="cedula"/>
 			 	<sf:errors path ="tipoDocPaciente.cedula" cssClass ="error"/>
 		 	</div>
 		 	<div class="form-group">

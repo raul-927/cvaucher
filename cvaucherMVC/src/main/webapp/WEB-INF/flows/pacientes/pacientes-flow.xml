@@ -58,7 +58,7 @@
 		
 		</on-render>
 		<transition on="pacienteIngresado" to="cargoPacientesEnDireccion" bind="true">
-			 <evaluate expression="flowPacientesController.insertPacientes(flowScope.pacientes)"/>
+			 <evaluate expression="flowPacientesController.insertPacientes(flowScope.pacientes2)"/>
 		</transition>
 	</view-state>
 	 
