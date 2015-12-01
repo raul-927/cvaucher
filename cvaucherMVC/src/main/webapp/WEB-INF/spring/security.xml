@@ -14,7 +14,9 @@
     <beans:bean id="logoutRedirectToAny" class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler">
 		<beans:property name="targetUrlParameter" value="redirectTo"/>
 	</beans:bean>
+	
 	<beans:bean id="webSecurityExpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+	
      <global-method-security secured-annotations='enabled' /> 	
      
    
