@@ -25,16 +25,16 @@
     <http auto-config="true">
     
     	<intercept-url pattern="/login"
-			access="ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMIN" />
+			access="ROLE_ANONYMOUS" />
 			
 		<intercept-url pattern="/"
-			access="ROLE_USER,ROLE_ADMIN" />
+			access="ROLE_USER" />
 			
 		<intercept-url pattern="/**" 
-			access="ROLE_USER,ROLE_ADMIN" />
+			access="ROLE_USER" />
 			
 		<intercept-url pattern="/logout"
-			access="ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMIN" />
+			access="ROLE_ANONYMOUS" />
 			
 		<form-login login-page="/login"
                 login-processing-url="/j_spring_security_check" 
@@ -73,5 +73,26 @@
 		 		 
 		</authentication-provider>
 	</authentication-manager>
-
+		<beans:bean id="accessDecisionManager"
+			class="org.springframework.security.access.vote.AffirmativeBased">
+			<beans:constructor-arg>
+				<beans:list>
+					<beans:ref bean="roleVoter" />
+				</beans:list>
+			</beans:constructor-arg>
+		</beans:bean>
+		<beans:bean id="roleVoter"
+			class="org.springframework.security.access.vote.RoleHierarchyVoter">
+			<beans:constructor-arg>
+				<beans:bean
+					class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
+					<beans:property name="hierarchy">
+						<beans:value>
+							ROLE_ADMIN > ROLE_USER
+							ROLE_USER > ROLE_ANONYMOUS
+						</beans:value>
+					</beans:property>
+				</beans:bean>
+			</beans:constructor-arg>
+		</beans:bean>
 </beans:beans>
