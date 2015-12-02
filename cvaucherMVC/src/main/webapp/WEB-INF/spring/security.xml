@@ -22,19 +22,20 @@
    
     <http pattern="/resources/**" security="none"/>
     
-    <http auto-config="true">
-    
+    <http auto-config="true"
+    	access-decision-manager-ref="accessDecisionManager">
+    	
     	<intercept-url pattern="/login"
-			access="ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMIN" />
+			access="ROLE_ANONYMOUS" />
 			
 		<intercept-url pattern="/"
-			access="ROLE_USER,ROLE_ADMIN" />
+			access="ROLE_USER" />
 			
 		<intercept-url pattern="/**" 
-			access="ROLE_USER,ROLE_ADMIN" />
+			access="ROLE_USER" />
 			
 		<intercept-url pattern="/logout"
-			access="ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMIN" />
+			access="ROLE_ANONYMOUS" />
 			
 		<form-login login-page="/login"
                 login-processing-url="/j_spring_security_check" 
