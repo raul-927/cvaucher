@@ -52,7 +52,7 @@
 	 </on-start>
 	 
 	 <!-- Paciente -->
-	<view-state id="inicioAltaPaciente" view ="pacientes/insertPacientes" model ="pacientes2">
+	<view-state id="inicioAltaPaciente" view ="pacientes/insertPacientes" model ="pacientes">
 		<on-render>
 			<evaluate result ="viewScope.tipDoc" expression="T(uy.com.cvaucher.services.enumerador.TipoDocumento).values()"/>
 		

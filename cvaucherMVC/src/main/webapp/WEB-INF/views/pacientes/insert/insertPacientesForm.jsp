@@ -37,23 +37,14 @@
 <div class="well well-lg">
 	
 	<sf:form cssClass = "form"
-		commandName ="pacientes2">
+		commandName ="pacientes">
 		
 			<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
-             
-             <div class="form-group">
-		 		<sf:label path="tipoDocPaciente.tipoDoc" for ="tipoDocPaciente.tipoDoc">Tipo de Documento</sf:label>
-		 		<sf:select cssClass ="form-control" path="tipoDocPaciente.tipoDoc" size ="1">
-		 			<sf:options items="${tipDoc}" />
-		 		</sf:select>
-		 		<sf:errors path ="tipoDocPaciente.tipoDoc" cssClass ="error"/>
-		 	</div>
-             
 	        <div class="form-group">
-			 	<sf:label path="tipoDocPaciente.cedula" for ="tipoDocPaciente.cedula">Cedula</sf:label>
-			 	<sf:input cssClass ="input-small "  path="tipoDocPaciente.cedula" size ="8" id="cedula"/>
-			 	<sf:errors path ="tipoDocPaciente.cedula" cssClass ="error"/>
+			 	<sf:label path="cedula" for ="cedula">Cedula</sf:label>
+			 	<sf:input cssClass ="input-small "  path="cedula" size ="8" id="cedula"/>
+			 	<sf:errors path ="cedula" cssClass ="error"/>
 		 	</div>
 		 	<div class="form-group">
 			 	<sf:label path="pacNombre" for ="pacNombre">Nombre</sf:label>
