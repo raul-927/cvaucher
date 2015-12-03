@@ -71,9 +71,9 @@
 												 WHERE d.dom_usr_nic = ?
 												 AND d.dom_usr_id = n.nic_rol_user_nic_id 
 												 AND n.nic_rol_name_id = r.rol_id" />
-		 		 
 		</authentication-provider>
 	</authentication-manager>
+	
 		<beans:bean id="accessDecisionManager"
 			class="org.springframework.security.access.vote.AffirmativeBased">
 			<beans:constructor-arg>
