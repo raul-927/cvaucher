@@ -26,7 +26,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		class="uy.com.cvaucher.services.security.CustomInMemoryUserDetailsManager">
 		<constructor-arg>
 			<list>
-				<bean class="uy.com.cvaucher.services.domain.User">
+				<bean class="uy.com.cvaucher.services.security.User">
 					<constructor-arg value="admin" />
 					<constructor-arg value="admin" />
 					<constructor-arg>
@@ -40,7 +40,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 					<constructor-arg value="Scarioni" />
 					<constructor-arg value="19" />
 				</bean>
-				<bean class="uy.com.cvaucher.services.domain.User">
+				<bean class="uy.com.cvaucher.services.security.User">
 					<constructor-arg value="paco" />
 					<constructor-arg value="tous" />
 					<constructor-arg>
@@ -54,7 +54,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 					<constructor-arg value="Miranda" />
 					<constructor-arg value="20" />
 				</bean>
-				<bean class="uy.com.cvaucher.services.domain.User">
+				<bean class="uy.com.cvaucher.services.security.User">
 					<constructor-arg value="lucas" />
 					<constructor-arg value="fernandez" />
 					<constructor-arg>

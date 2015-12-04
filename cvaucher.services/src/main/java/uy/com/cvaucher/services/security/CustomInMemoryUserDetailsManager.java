@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import uy.com.cvaucher.services.domain.User;
-
 
 
 public class CustomInMemoryUserDetailsManager implements UserDetailsService {

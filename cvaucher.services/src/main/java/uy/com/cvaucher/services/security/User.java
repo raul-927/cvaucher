@@ -1,4 +1,4 @@
-package uy.com.cvaucher.services.domain;
+package uy.com.cvaucher.services.security;
 
 import java.util.Collection;
 
@@ -6,6 +6,10 @@ import org.springframework.security.core.GrantedAuthority;
 
 public class User extends org.springframework.security.core.userdetails.User{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String lastname;
 	private int age;
 
