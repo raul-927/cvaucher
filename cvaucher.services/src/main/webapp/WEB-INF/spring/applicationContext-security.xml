@@ -23,7 +23,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		class="uy.com.cvaucher.services.security.CustomWebSecurityExpressionHandler" />
 
 	<bean id="inMemoryUserServiceWithCustomUser"
-		class="uy.com.cvaucher.services.config.CustomInMemoryUserDetailsManager">
+		class="uy.com.cvaucher.services.security.CustomInMemoryUserDetailsManager">
 		<constructor-arg>
 			<list>
 				<bean class="uy.com.cvaucher.services.domain.User">
