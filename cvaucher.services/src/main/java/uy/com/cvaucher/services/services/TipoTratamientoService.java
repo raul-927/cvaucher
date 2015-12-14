@@ -42,7 +42,7 @@ public class TipoTratamientoService implements TipoTratamientoInt
 	}
 	
 	@Override
-	@Secured("ROLE_ADMIN")
+	@Secured({"ROLE_USER", "ROLE_ADMIN"})
 	public void createTipoTratamiento(TipoTratamiento tipoTratamiento)
 	{
 		tipoTratamientoMapper.insertTipoTratamiento(tipoTratamiento);
