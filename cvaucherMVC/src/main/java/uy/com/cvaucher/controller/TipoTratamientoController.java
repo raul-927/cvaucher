@@ -5,6 +5,7 @@ import javax.inject.Named;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import uy.com.cvaucher.services.domain.TipoTratamiento;
 import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 
+
 @SuppressWarnings("unused")
 @Controller
 @RequestMapping("/tipo_tratamiento")
-public class TipoTratamientoController 
+public class TipoTratamientoController implements uy.com.cvaucher.interfaces.TipoTratamientoInt
 {
 	
 	private final TipoTratamientoInt tipoTratamientoService;
@@ -30,6 +32,7 @@ public class TipoTratamientoController
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, params ="insert")
+	@Secured("ROLE_ADMIN")
 	public String showInsertTipoTratamiento(Model model)
 	{
 		model.addAttribute("tpoTrat",tipoTratamientoService.findAllTipoTratamiento());
@@ -38,6 +41,7 @@ public class TipoTratamientoController
 	}
 
 	 @RequestMapping(method = RequestMethod.POST, params ="insert")
+	 @Secured("ROLE_ADMIN")
 	 public String insertTipoTratamiento(Model model, @Valid TipoTratamiento tipoTratamiento, BindingResult bindingResult)
 	 {
 		 if(bindingResult.hasErrors())

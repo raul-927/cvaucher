@@ -22,7 +22,7 @@
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pacientes<b class="caret"></b></a>
 	                 <ul class="dropdown-menu">
 		                 <li><a href='<s:url value="/pacientes"/>'>Crear un nuevo Paciente</a></li>
-		                <security:authorize access ="hasRole('ROLE_ADMIN')"> <li><a href="#">Eliminar un paciente</a></li></security:authorize>
+		               	<security:authorize access="hasRole('ROLE_ADMIN')"><li><a href="#">Eliminar un paciente</a></li> </security:authorize>
 	                 </ul>
                 </li>
                
@@ -37,7 +37,7 @@
 		                 
 	                 </ul>
                 </li>
-                <security:authorize access ="hasRole('ROLE_ADMIN')">
+               <security:authorize access="hasRole('ROLE_ADMIN')">
                 <li><!-- Inicio Menu Configuracion -->
                  
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
@@ -138,7 +138,7 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
-                 </security:authorize>
+                </security:authorize>
              
             </ul>
         </div><!--/.nav-collapse -->

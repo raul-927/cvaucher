@@ -14,5 +14,8 @@
 	<span class =""><c:url value="/logout" var="logoutUrl" />
 			<a class ="logoutOpcion" href="${logoutUrl}">Cerrar Sesion</a></span>
 
-	
+	<span class =""><c:url value="${userName}" var="username" />
+	Usuario: "${username}"</span> 
+	<span class =""><c:url value="${userRole}" var="userrole" />
+	Rol: "${userrole}"</span> <br/>
 	
