@@ -31,7 +31,7 @@ public class ListaPreciosTest
 	@Autowired
 	AuxPreciosInt auxPreciosMapper;
 	
-	//@Test
+	@Test
 	public void insertListaPreciosTest()
 	{
 		int listPrecId = 1;
@@ -46,7 +46,7 @@ public class ListaPreciosTest
 		listam.insertListaPrecios(listaPrecios);
 		//this.listaPreciosService.insertListaPrecios(listaPreciosArray);
 	}
-	//@Test
+	@Test
 	public void insertAuxPreciosTest()
 	{
 		int listPrecId = 1;

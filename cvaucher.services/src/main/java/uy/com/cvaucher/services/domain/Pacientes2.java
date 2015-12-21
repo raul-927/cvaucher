@@ -32,9 +32,10 @@ public class Pacientes2 implements Serializable
 	@Size(min = 3, max = 50, message = "ERROR; Debe ingresar un apellido entre 3 y 50 caracteres")
 	private String 	pacApellido;
 	
-	@Documento(message = "Documento Inválido")
-	private TipoDocPaciente tipoDocPaciente;
-
+	
+	private String tipoDocPaciente;
+	@Documento(message = "Documento Invalido")
+	private String documento;
 	private String 	ocupacion;
 	private String	sociedadMedica;
 	private String	emergenciaMovil;
@@ -106,12 +107,22 @@ public class Pacientes2 implements Serializable
 		this.emergenciaMovil = emergenciaMovil;
 	}
 
-	public TipoDocPaciente getTipoDocPaciente() {
+	public String getTipoDocPaciente() {
 		return tipoDocPaciente;
 	}
 
-	public void setTipoDocPaciente(TipoDocPaciente tipoDocPaciente) {
+	public void setTipoDocPaciente(String tipoDocPaciente) {
+		
 		this.tipoDocPaciente = tipoDocPaciente;
+	}
+
+	public String getDocumento() {
+		return this.documento;
+	}
+
+	public void setDocumento(String documento) {
+		
+		this.documento = this.tipoDocPaciente.concat(documento);
 	}
 
 //-----------------------------------------------------	

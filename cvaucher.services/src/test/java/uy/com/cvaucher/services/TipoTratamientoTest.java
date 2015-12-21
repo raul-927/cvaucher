@@ -26,7 +26,7 @@ public class TipoTratamientoTest
 	
 	
 	
-	//@Test
+	@Test
 	public void createNewTipoTratamiento()
 	{
 		TipoTratamiento tipoTratamiento = new TipoTratamiento();
