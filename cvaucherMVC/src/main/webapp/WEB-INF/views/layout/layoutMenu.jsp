@@ -37,7 +37,7 @@
 		                 
 	                 </ul>
                 </li>
-               <security:authorize access="hasRole('ROLE_ADMIN')">
+             
                 <li><!-- Inicio Menu Configuracion -->
                  
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
@@ -138,7 +138,7 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
-                </security:authorize>
+                 
              
             </ul>
         </div><!--/.nav-collapse -->

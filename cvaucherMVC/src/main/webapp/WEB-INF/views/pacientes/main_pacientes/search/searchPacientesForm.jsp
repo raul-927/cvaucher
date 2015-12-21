@@ -12,7 +12,7 @@
 		modelAttribute ="searchPacientes" 
 		action ="${urlvaucher}">
 		 	<legend>&nbsp;BUSCAR&nbsp;</legend>
-
+		 
 		 <div class="form-group">
 		 	<sf:label path="cedula" for ="cedula">Cedula</sf:label>
 		 	<sf:input path="cedula" cssClass ="inputText" size ="10" id="cedula" class="form-control" 

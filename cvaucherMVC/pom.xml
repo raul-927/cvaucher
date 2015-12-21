@@ -71,6 +71,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-remoting</artifactId>
+			<version>${org.springsecurity.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>${org.springsecurity.version}</version>
 		</dependency>

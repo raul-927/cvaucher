@@ -13,7 +13,7 @@
     });
   });*/
 	$(function(){
-	$('#cedula').keydown(function(event) {
+	$('#documento').keydown(function(event) {
 		   if(event.shiftKey){
 		        event.preventDefault();
 		   }
@@ -31,21 +31,33 @@
 		              }
 		        }
 		      }
+		   
 		   })
+		   $('#documento').val.substr(3);
 	});// de la funcion
 </script>
 <div class="well well-lg">
 	
 	<sf:form cssClass = "form"
-		commandName ="pacientes">
+		commandName ="pacientes2">
 		
 			<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
-	        <div class="form-group">
-			 	<sf:label path="cedula" for ="cedula">Cedula</sf:label>
-			 	<sf:input cssClass ="input-small "  path="cedula" size ="8" id="cedula"/>
-			 	<sf:errors path ="cedula" cssClass ="error"/>
+             
+            <div class="form-group">
+		 		<sf:label path="tipoDocPaciente" for ="tipoDocPaciente">Tipo de Documento</sf:label>
+		 		<sf:select cssClass ="form-control" path="tipoDocPaciente" size ="1">
+		 		<sf:options items="${tipDoc}" />
+		 		</sf:select>
+		 		<sf:errors path ="tipoDocPaciente" cssClass ="error"/>
 		 	</div>
+		 
+	        <div class="form-group">
+			 	<sf:label path="documento" for ="documento">Documento</sf:label>
+			 	<sf:input cssClass ="input-small " value ="${flowScope.docum}"  path="documento" size ="8" id="documento"/>
+			 	<sf:errors path ="documento" cssClass ="error"/>
+		 	</div>
+		 	<span>Documento ${flowScope.docum}</span>
 		 	<div class="form-group">
 			 	<sf:label path="pacNombre" for ="pacNombre">Nombre</sf:label>
 			 	<sf:input cssClass ="form-control" path="pacNombre" size ="30" placeholder ="Nombre" id="descCAT" class="form-control" />
