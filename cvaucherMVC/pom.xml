@@ -111,6 +111,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<version>3.0.8.RELEASE</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.acegisecurity</groupId>
+			<artifactId>acegi-security</artifactId>
+			<version>1.0.3</version>
+		</dependency>
 			
 		<dependency>
 			<groupId>commons-logging</groupId>
