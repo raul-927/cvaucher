@@ -11,6 +11,7 @@ public interface TipoTratamientoInt {
 	List<TipoTratamiento> findAllTipoTratamiento();
 	TipoTratamiento findTipoTratamientoById(Integer tipTratId);
 	
+	
 	void createTipoTratamiento(TipoTratamiento tipoTratamiento);
 	void updateTipoTratamiento(TipoTratamiento tipoTratamiento);
 	void deleteTipoTratamiento(int tipTratId);

@@ -20,9 +20,8 @@
 	<security:http auto-config="true" />
 
 	<security:authentication-manager>
-		<security:authentication-provider
-				user-service-ref="inMemoryUserServiceWithCustomUser" />
-		   <!-- <security:jdbc-user-service data-source-ref="dataSource"
+		<security:authentication-provider>
+		   <security:jdbc-user-service data-source-ref="dataSource"
 		  		
 		  		users-by-username-query = "SELECT dom_usr_nic, dom_usr_pass, dom_usr_enabled 
 		  								   FROM domain_user 
@@ -34,12 +33,35 @@
 												 WHERE d.dom_usr_nic = ?
 												 AND d.dom_usr_id = n.nic_rol_user_nic_id 
 												 AND n.nic_rol_name_id = r.rol_id" />
-		</security:authentication-provider>-->
+		</security:authentication-provider>
 	</security:authentication-manager>
 
 	<bean id="expressionHandler"
 		class="uy.com.cvaucher.services.security.CustomWebSecurityExpressionHandler" />
+		
+	<bean id="basicProcessingFilter"
+		class="org.acegisecurity.ui.basicauth.BasicProcessingFilter">
+		<property name="authenticationManager">
+			<ref bean="authenticationManager" />
+		</property>
+		<property name="authenticationEntryPoint">
+			<ref bean="basicAuthenticationEntryPoint" />
+		</property>
+	</bean>
+	<bean id="basicAuthenticationEntryPoint"
+		class="org.acegisecurity.ui.basicauth.BasicProcessingFilterEntryPoint">
+		<property name="realmName">
+			<value>Name Of Your Realm</value>
+		</property>
+	</bean>
+	<bean id="remoteAuthenticationManager"
+		class="org.acegisecurity.providers.rcp.RemoteAuthenticationManagerImpl">
+		<property name="authenticationManager">
+			<ref bean="authenticationManager" />
+		</property>
+	</bean>
 	
+	<!-- 
 	<bean id="inMemoryUserServiceWithCustomUser"
 		class="uy.com.cvaucher.services.security.CustomInMemoryUserDetailsManager">
 		<constructor-arg>
@@ -93,7 +115,7 @@
 			</list>
 		</constructor-arg>
 	</bean>
-	
+	-->
 	<!--<bean id="moviesService" class="com.apress.pss.terrormovies.service.MoviesServiceImpl">
 		<security:intercept-methods>
 			<security:protect
