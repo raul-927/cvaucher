@@ -38,28 +38,6 @@
 
 	<bean id="expressionHandler"
 		class="uy.com.cvaucher.services.security.CustomWebSecurityExpressionHandler" />
-		
-	<bean id="basicProcessingFilter"
-		class="org.acegisecurity.ui.basicauth.BasicProcessingFilter">
-		<property name="authenticationManager">
-			<ref bean="authenticationManager" />
-		</property>
-		<property name="authenticationEntryPoint">
-			<ref bean="basicAuthenticationEntryPoint" />
-		</property>
-	</bean>
-	<bean id="basicAuthenticationEntryPoint"
-		class="org.acegisecurity.ui.basicauth.BasicProcessingFilterEntryPoint">
-		<property name="realmName">
-			<value>Name Of Your Realm</value>
-		</property>
-	</bean>
-	<bean id="remoteAuthenticationManager"
-		class="org.acegisecurity.providers.rcp.RemoteAuthenticationManagerImpl">
-		<property name="authenticationManager">
-			<ref bean="authenticationManager" />
-		</property>
-	</bean>
 	
 	<!-- 
 	<bean id="inMemoryUserServiceWithCustomUser"
