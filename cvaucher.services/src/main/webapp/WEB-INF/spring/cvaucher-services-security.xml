@@ -12,7 +12,7 @@
     <context:component-scan base-package="uy.com.cvaucher.services" />
     
 	<security:global-method-security
-		secured-annotations="enabled">
+		secured-annotations="enabled" jsr250-annotations="enabled" pre-post-annotations="enabled">
 		<!-- <security:protect-pointcut access="ROLE_ADMIN"
 			expression="execution(* com.apress.pss.terrormovies.service.MoviesService.*(..))" /> -->
 	</security:global-method-security>

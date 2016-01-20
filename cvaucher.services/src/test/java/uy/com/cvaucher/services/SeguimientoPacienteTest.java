@@ -20,7 +20,7 @@ public class SeguimientoPacienteTest
 	@Autowired
 	SeguimientoPacientesInt seguimientoPacientesServices;
 	
-	@Test
+	//@Test
 	public void insertSeguimientoPacienteTest()
 	{
 		SeguimientoPacientes segPac = new SeguimientoPacientes();
@@ -39,6 +39,17 @@ public class SeguimientoPacienteTest
 		segPac.setObservaciones("Prueba2");
 		seguimientoPacientesServices.insertSeguimientoPacientes(segPac);
 		assertNotNull(segPac);
+	}
+	
+	@Test
+	public void showSeguimientoPacientes(){
+		List<SeguimientoPacientes> segPac = seguimientoPacientesServices.findAllSeguimientoPacientes();
+		
+		for(SeguimientoPacientes sp:segPac){
+			System.out.println(sp.getAbdomen());
+			System.out.println(sp.getTratPacId());
+			System.out.println(sp.getSegPacId());
+		}
 	}
 	
 }

@@ -3,8 +3,6 @@ package uy.com.cvaucher.services.enumerador;
 public class Prueba {
 
 	public static void main(String[] args){
-		PruebaEnumerator[] enumerator = PruebaEnumerator.values();
-		
 		for(PruebaEnumerator p: PruebaEnumerator.values()){
 			System.out.println("Para el "+ p);
 			System.out.println("Texto 1 de " +p.toString()+" es: "+p.getTexto1());

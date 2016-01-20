@@ -1,7 +1,5 @@
 package uy.com.cvaucher.services;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;

@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import uy.com.cvaucher.services.domain.AuxPrecios;
 import uy.com.cvaucher.services.domain.ListPrecTratDesc;
 import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.MaxIdListaPrecios;

@@ -86,5 +86,7 @@ public interface PacientesMapper
 	@Delete("DELETE FROM pacientes WHERE  pac_id =#{pacId}")
 	void deletePacientes(int pacId);
 	
+	@Delete("DELETE FROM pacientes WHERE cedula = #{cedula}")
+	void deletePacientesByCedula(int cedula);
 	
 }

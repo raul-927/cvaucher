@@ -6,6 +6,8 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +93,28 @@ public class PacientesTest {
 			System.out.println("Id de Paciente: " + pac.getPacId()+ ", Nombre " + pac.getPacNombre() + " Apellido " +pac.getPacApellido());
 			assertNotNull(pac);
 		}
+	}
+	
+	@Test
+	public void insertPacientes(){
+		int cedula = 24578954;
+		String pacNombre = "NombrTest";
+		String pacApellido = "ApellidoTest";
+		
+		Pacientes pacientes = new Pacientes();
+		pacientes.setCedula(cedula);
+		pacientes.setPacNombre(pacNombre);
+		pacientes.setPacApellido(pacApellido);
+		pacientesService.insertPacientes(pacientes);
+		Pacientes pac = pacientesService.findPacientesByCedula(cedula);
+		System.out.println("Nombre = "+pac.getPacNombre());
+		System.out.println("Apellido = "+pac.getPacApellido());
+	}
+	
+	@Test
+	public void deletePacientesByCedula(){
+		int cedula = 24578954;
+		pacientesService.deletePacientesByCedula(cedula);
 	}
 
 }

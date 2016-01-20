@@ -34,4 +34,7 @@ public interface TipoTratamientoMapper
 	@Delete("DELETE FROM tipo_tratamiento WHERE tip_trat_id=#{tipTratId}")
 	int deleteTipoTratamiento(int tipTratId);
 	
+	@Delete("DELETE FROM tipo_tratamiento WHERE tip_trat_descripcion = #{tipTratDesc}")
+	void deleteTipoTratamientoByDesc(String tipTratDesc);
+	
 }

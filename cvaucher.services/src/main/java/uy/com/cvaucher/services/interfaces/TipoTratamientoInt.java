@@ -2,8 +2,6 @@ package uy.com.cvaucher.services.interfaces;
 
 import java.util.List;
 
-import org.springframework.security.access.annotation.Secured;
-
 import uy.com.cvaucher.services.domain.TipoTratamiento;
 
 public interface TipoTratamientoInt {
@@ -15,5 +13,6 @@ public interface TipoTratamientoInt {
 	void createTipoTratamiento(TipoTratamiento tipoTratamiento);
 	void updateTipoTratamiento(TipoTratamiento tipoTratamiento);
 	void deleteTipoTratamiento(int tipTratId);
+	void deleteTipoTratamientoByDesc(String tipTratDesc);
 
 }

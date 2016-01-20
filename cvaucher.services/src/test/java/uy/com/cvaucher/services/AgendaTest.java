@@ -14,7 +14,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 import uy.com.cvaucher.services.domain.Agenda;
-import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,11 +24,9 @@ public class AgendaTest {
 	AgendaInt agendaService;
 	
 	@Test
-	public void selectAllTipoTratamiento()
+	public void selectAgendaByCedula()
 	{
 	
-		Pacientes pac = new Pacientes();
-		pac.setPacId(1);
 		List<Agenda> agenda = (List<Agenda>)   agendaService.findAgendaByCedula(19455549);
 		
 		for(Agenda ag: agenda)

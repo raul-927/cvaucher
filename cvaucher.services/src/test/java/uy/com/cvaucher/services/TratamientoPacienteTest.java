@@ -1,9 +1,5 @@
 package uy.com.cvaucher.services;
 
-import java.util.List;
-
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +32,6 @@ public class TratamientoPacienteTest {
 		pacientes.setPacApellido("Hernandez");
 		pacientes.setPacId(132);
 		int tratPacId = 11;
-		int importePagado = 200;
 		String fecha = "2014-12-12";
 		TratamientoPaciente tratamientoPaciente = new TratamientoPaciente();
 		tratamientoPaciente.setTratPacId(tratPacId);

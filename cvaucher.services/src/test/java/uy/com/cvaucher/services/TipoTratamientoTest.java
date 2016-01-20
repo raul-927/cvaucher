@@ -25,23 +25,29 @@ public class TipoTratamientoTest
 	TipoTratamientoInt tipoTratamientoService;
 	
 	
+	@Test
+	public void insertTipoTratamiento(){
+		TipoTratamiento tipoTratamiento = new TipoTratamiento();
+		tipoTratamiento.setTipTratDesc("TipoTratamientoPrueba");
+		tipoTratamientoService.createTipoTratamiento(tipoTratamiento);
+	}
+	
 	
 	@Test
-	public void createNewTipoTratamiento()
-	{
+	public void findTipoTratamientoById(){
 		TipoTratamiento tipoTratamiento = new TipoTratamiento();
 		
-		
-		TipoTratamiento tp = tipoTratamientoService.findTipoTratamientoById(tipoTratamiento.getTipTratId());
+		int tipTratId = 9;
+		TipoTratamiento tp = tipoTratamientoService.findTipoTratamientoById(tipTratId);
 		System.out.println("Id =  "+ tp.getTipTratId());
 		System.out.println("Descripcion = " +tp.getTipTratDesc());
 		
 		assertNotNull(tipoTratamiento);
-		assertEquals("Estetico", tipoTratamiento.getTipTratDesc());
+		assertEquals("Cuponera", tp.getTipTratDesc());
 	}
 	
 	@Test
-	public void selectAllTipoTratamiento()
+	public void findAllTipoTratamiento()
 	{
 	
 		List<TipoTratamiento> tipoTratamiento = tipoTratamientoService.findAllTipoTratamiento();
@@ -52,6 +58,11 @@ public class TipoTratamientoTest
 			assertNotNull(t);
 		}
 		
+	}
+	@Test
+	public void deleteTipoTratamiento(){
+		 String tipTratDesc ="TipoTratamientoPrueba";
+		tipoTratamientoService.deleteTipoTratamientoByDesc(tipTratDesc);
 	}
 	
 	

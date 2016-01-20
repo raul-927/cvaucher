@@ -46,15 +46,13 @@ public class ListaPreciosService implements ListaPreciosInt
 
 	@Override
 	@Transactional
-	public void insertListaPrecios(ListaPreciosArray listaPreciosArray) 
-	{
+	public void insertListaPrecios(ListaPreciosArray listaPreciosArray){
 		logger.debug("insertListaPrecios: "+listaPreciosArray);
 		int size = listaPreciosArray.getListPrecTratId().size();
 		
 		ListaPrecios listaPrecios = new ListaPrecios();
 		int i = 0;
-		while( i < size)
-		{
+		while( i < size){
 			int listPrecId = listaPreciosArray.getListPrecId();
 			int listPrecTratId = listaPreciosArray.getListPrecTratId().get(i);
 			int listPrecMonto = listaPreciosArray.getListPrecMonto().get(i);

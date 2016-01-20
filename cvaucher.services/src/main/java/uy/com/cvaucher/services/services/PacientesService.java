@@ -146,6 +146,12 @@ public class PacientesService implements PacientesInt
 		
 		return pacientes;
 	}
+
+	@Override
+	public void deletePacientesByCedula(int cedula) {
+		pacientesMapper.deletePacientesByCedula(cedula);
+		
+	}
 	
 	
 }

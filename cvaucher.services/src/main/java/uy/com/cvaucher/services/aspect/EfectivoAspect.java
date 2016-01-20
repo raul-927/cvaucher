@@ -18,11 +18,13 @@ public class EfectivoAspect {
 	@Before("ejecutarEfectivo()")
 	public void ejecutoEfectivo(){
 		System.out.println("Inicio de CvaucherJni en EfectivoAspect");
+		/*
 		CvaucherJni cvaucher = new CvaucherJni();
 		int a = 48;
 		int b = 62;
 		int c = cvaucher.holaMundo(a, b);
 		System.out.println("Desde Aspect Java, La suma de "+a+" +" +b+" = "+c);
+		*/
 	}
 	
 	@After("ejecutarEfectivo()")

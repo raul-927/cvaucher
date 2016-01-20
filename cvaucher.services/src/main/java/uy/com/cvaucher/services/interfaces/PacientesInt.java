@@ -20,6 +20,7 @@ public interface PacientesInt
 	void insertPacientes(Pacientes pacientes);
 	void updatePacientes(Pacientes pacientes);
 	void deletePacientes(int pacId);
+	void deletePacientesByCedula(int cedula);
 	
 
 }

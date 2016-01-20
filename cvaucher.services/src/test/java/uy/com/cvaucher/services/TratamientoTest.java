@@ -1,7 +1,5 @@
 package uy.com.cvaucher.services;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -10,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import uy.com.cvaucher.services.domain.TipoTratamiento;
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
 

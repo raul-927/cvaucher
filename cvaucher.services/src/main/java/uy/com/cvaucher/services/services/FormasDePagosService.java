@@ -2,10 +2,7 @@ package uy.com.cvaucher.services.services;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
@@ -23,18 +20,13 @@ import uy.com.cvaucher.services.mappers.HistorialPagosMapper;
 import uy.com.cvaucher.services.mappers.PagoEfectivoMapper;
 import uy.com.cvaucher.services.mappers.PagoTarjetaMapper;
 import uy.com.cvaucher.services.mappers.TratamientoPacienteMapper;
-import uy.com.cvaucher.services.domain.FormasDePagos;
-import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.jni.CvaucherJni;
-import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 
 
 @Service
 @Transactional
 public class FormasDePagosService implements FormasDePagosInt 
 {
-	private Logger logger = LoggerFactory.getLogger(getClass());
-	
 	@Autowired
 	private FormasDePagosMapper formasDePagosMapper;
 	
@@ -114,13 +106,13 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Transactional
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
 	{
-		System.out.println("Inicio de CvaucherJni");
+		/*System.out.println("Inicio de CvaucherJni");
 		CvaucherJni cvaucher = new CvaucherJni();
 		int a = 10;
 		int b = 30;
 		int c = cvaucher.holaMundo(a, b);
 		System.out.println("Desde Java, La suma de " +a+ " + " +b+ " = "+c);
-		
+		*/
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
 		MaxTratPacId maxTratPacId = new MaxTratPacId();
 		SearchMaxTratPacId search = new SearchMaxTratPacId();

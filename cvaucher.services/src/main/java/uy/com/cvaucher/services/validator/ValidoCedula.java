@@ -28,7 +28,6 @@ public class ValidoCedula implements ConstraintValidator<Cedula, Integer>
 		int suma=0;
 		int total =0;
 		
-		int control9 = 4;
 		int control8 = 3;
 		int control7 = 2;
 		int control6 = 9;

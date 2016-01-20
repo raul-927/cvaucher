@@ -42,11 +42,11 @@ public class HistorialPagosTest
 		}
 
 	}
-	@Test
+	//@Test
 	public void insertHistorialPagos()
 	{
 		HistorialPagos histP = new HistorialPagos();
-		histP.setHistPagosFechaPago("2014-11-19");
+		histP.setHistPagosFechaPago("2017-11-19");
 		histP.setHistPagosMonto(300);
 		histP.setHistTratPacId(41);
 		this.historialPagosService.insertHistorialPago(histP);
