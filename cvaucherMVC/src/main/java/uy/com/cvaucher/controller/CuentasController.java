@@ -10,11 +10,8 @@ import uy.com.cvaucher.services.interfaces.CuentasInt;
 @RequestMapping("/cuentas")
 public class CuentasController 
 {
-	private final CuentasInt CuentasService;
-	
 	@Autowired
 	public CuentasController(CuentasInt CuentasService){
-		this.CuentasService = CuentasService;
 	}
 	
 	

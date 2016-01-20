@@ -3,13 +3,8 @@ package uy.com.cvaucher.controller;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import uy.com.cvaucher.services.interfaces.DireccionInt;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.enumerador.TipoVivienda;
@@ -21,9 +16,6 @@ public class DireccionController
 {
 	
 	private final DireccionInt direccionService;
-	
-	private  TipoVivienda tipoVivienda;
-	
 	
 	//@Autowired
 	public DireccionController(DireccionInt direccionService)
@@ -38,7 +30,7 @@ public class DireccionController
 	{
 		model.addAttribute(new Direccion());
 		model.addAttribute("direcc", direccionService.findAllDireccion());
-		model.addAttribute("tipviv", tipoVivienda.values());
+		model.addAttribute("tipviv", TipoVivienda.values());
 		
 		return "direccion/insertDireccion";
 	}
@@ -66,7 +58,7 @@ public class DireccionController
 	{
 		model.addAttribute(new Direccion());
 		model.addAttribute("direcc", direccionService.findAllDireccion());
-		model.addAttribute("tipviv", tipoVivienda.values());
+		model.addAttribute("tipviv", TipoVivienda.values());
 		
 		return "direccion/updateDireccion";
 	}
@@ -80,13 +72,13 @@ public class DireccionController
 			System.out.println("Error en updateDireccion "+direccion);
 			model.addAttribute(new Direccion());
 			model.addAttribute("direcc", direccionService.findAllDireccion());
-			model.addAttribute("tipviv", tipoVivienda.values());
+			model.addAttribute("tipviv", TipoVivienda.values());
 			return "direccion/updateDireccion";
 		}
 		
 		model.addAttribute(new Direccion());
 		model.addAttribute("direcc", direccionService.findAllDireccion());
-		model.addAttribute("tipviv", tipoVivienda.values());
+		model.addAttribute("tipviv", TipoVivienda.values());
 		return "direccion/updateDireccion";
 	
 	}
@@ -97,7 +89,7 @@ public class DireccionController
 	{
 		model.addAttribute(new Direccion());
 		model.addAttribute("direcc", direccionService.findAllDireccion());
-		model.addAttribute("tipviv", tipoVivienda.values());
+		model.addAttribute("tipviv", TipoVivienda.values());
 		
 		return "direccion/deleteDireccion";
 	}

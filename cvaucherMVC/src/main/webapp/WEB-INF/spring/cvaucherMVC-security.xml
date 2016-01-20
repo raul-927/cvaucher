@@ -22,8 +22,6 @@
     <beans:bean id="httpInvokerRequestExecutor"
 		class="org.acegisecurity.context.httpinvoker.AuthenticationSimpleHttpInvokerRequestExecutor" />
 		
-    
-    
     <security:http pattern="/resources/**" security="none"/>
     
     <security:http auto-config="true"

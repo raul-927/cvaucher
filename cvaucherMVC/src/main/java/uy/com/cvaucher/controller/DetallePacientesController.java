@@ -23,7 +23,6 @@ import uy.com.cvaucher.services.interfaces.TratamientoInt;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.TratamientoPacienteInt;
 import uy.com.cvaucher.services.interfaces.HistorialPagosInt;
-import uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt;
 import uy.com.cvaucher.services.domain.HistorialPagos;
 import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.domain.PagoEfectivo;

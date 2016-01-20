@@ -1,15 +1,8 @@
 package uy.com.cvaucher.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import uy.com.cvaucher.services.domain.Pacientes;
-import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.PacientesInt;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
@@ -22,14 +15,11 @@ public class PruebaController
 {
 	private final PacientesInt pacientesServices;
 	private final TratamientoInt tratamientoServices;
-	private final TratamientoPacienteInt tratamientoPacienteServices;
-	
 	//@Autowired
 	public PruebaController(PacientesInt pacientesServices, TratamientoInt tratamientoServices
 							,TratamientoPacienteInt tratamientoPacienteServices){
 		this.pacientesServices = pacientesServices;
 		this.tratamientoServices = tratamientoServices;
-		this.tratamientoPacienteServices = tratamientoPacienteServices;
 	}
 	//@RequestMapping(value ="/detPac/{pacCedula}", params ="actualizar", method = RequestMethod.GET)
 	public String showPrueba(Model model, @PathVariable("pacCedula") int pacCedula)

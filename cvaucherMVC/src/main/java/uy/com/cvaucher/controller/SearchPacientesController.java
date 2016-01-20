@@ -11,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import uy.com.cvaucher.interfaces.SearchPacientesControllerInt;
 import uy.com.cvaucher.services.clases.SearchPacientes;
 import uy.com.cvaucher.services.domain.Pacientes;

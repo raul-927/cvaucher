@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import uy.com.cvaucher.services.domain.AuxPrecios;
 import uy.com.cvaucher.services.domain.ListPrecTratDesc;
-import uy.com.cvaucher.services.domain.ListaPrecios;
 import uy.com.cvaucher.services.domain.ListaPreciosArray;
 import uy.com.cvaucher.services.interfaces.AuxPreciosInt;
 import uy.com.cvaucher.services.interfaces.ListaPreciosInt;
