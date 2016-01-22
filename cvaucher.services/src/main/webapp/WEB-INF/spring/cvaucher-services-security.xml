@@ -12,12 +12,14 @@
     <context:component-scan base-package="uy.com.cvaucher.services" />
     
 	<security:global-method-security
-		secured-annotations="enabled" jsr250-annotations="enabled" pre-post-annotations="enabled">
-		<!-- <security:protect-pointcut access="ROLE_ADMIN"
-			expression="execution(* com.apress.pss.terrormovies.service.MoviesService.*(..))" /> -->
-	</security:global-method-security>
+		secured-annotations="enabled" jsr250-annotations="enabled" pre-post-annotations="enabled"/>
 
-	<security:http auto-config="true" />
+
+	<security:http auto-config="true"
+		use-expressions="true"
+    	access-decision-manager-ref="accessDecisionManager"/>
+	
+	
 
 	<security:authentication-manager>
 		<security:authentication-provider>
@@ -35,70 +37,27 @@
 												 AND n.nic_rol_name_id = r.rol_id" />
 		</security:authentication-provider>
 	</security:authentication-manager>
-
-	<bean id="expressionHandler"
-		class="uy.com.cvaucher.services.security.CustomWebSecurityExpressionHandler" />
 	
-	<!-- 
-	<bean id="inMemoryUserServiceWithCustomUser"
-		class="uy.com.cvaucher.services.security.CustomInMemoryUserDetailsManager">
-		<constructor-arg>
-			<list>
-				<bean class="uy.com.cvaucher.services.security.User">
-					<constructor-arg value="admin" />
-					<constructor-arg value="admin" />
-					<constructor-arg>
-						<list>
-							<bean
-								class="org.springframework.security.core.authority.SimpleGrantedAuthority">
-								<constructor-arg value="ROLE_ADMIN" />
-							</bean>
-						</list>
-					</constructor-arg>
-					<constructor-arg value="raul2" />
-					<constructor-arg value="19" />
+	<bean id="accessDecisionManager"
+			class="org.springframework.security.access.vote.AffirmativeBased">
+			<constructor-arg>
+				<list>
+					<ref bean="roleVoter" />
+				</list>
+			</constructor-arg>
+		</bean>
+		<bean id="roleVoter"
+			class="org.springframework.security.access.vote.RoleHierarchyVoter">
+			<constructor-arg>
+				<bean
+					class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
+					<property name="hierarchy">
+						<value>
+							ROLE_ADMIN > ROLE_USER
+							ROLE_USER > ROLE_ANONYMOUS
+						</value>
+					</property>
 				</bean>
-				<bean class="uy.com.cvaucher.services.security.User">
-					<constructor-arg value="raul" />
-					<constructor-arg value="rulo" />
-					<constructor-arg>
-						<list>
-							<bean
-								class="org.springframework.security.core.authority.SimpleGrantedAuthority">
-								<constructor-arg value="ROLE_USER" />
-							</bean>
-						</list>
-					</constructor-arg>
-					<constructor-arg value="Miranda" />
-					<constructor-arg value="20" />
-				</bean>
-				<bean class="uy.com.cvaucher.services.security.User">
-					<constructor-arg value="lucas" />
-					<constructor-arg value="fernandez" />
-					<constructor-arg>
-						<list>
-							<bean
-								class="org.springframework.security.core.authority.SimpleGrantedAuthority">
-								<constructor-arg value="ROLE_VIP" />
-							</bean>
-							<bean
-								class="org.springframework.security.core.authority.SimpleGrantedAuthority">
-								<constructor-arg value="ROLE_USER" />
-							</bean>
-						</list>
-					</constructor-arg>
-					<constructor-arg value="Silva" />
-					<constructor-arg value="20" />
-				</bean>
-			</list>
-		</constructor-arg>
-	</bean>
-	-->
-	<!--<bean id="moviesService" class="com.apress.pss.terrormovies.service.MoviesServiceImpl">
-		<security:intercept-methods>
-			<security:protect
-				method="com.apress.pss.terrormovies.service.MoviesService.*"
-				access="ROLE_ADMIN" />
-		</security:intercept-methods>
-	</bean>-->
+			</constructor-arg>
+		</bean>
 </beans>
