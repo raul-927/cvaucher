@@ -19,8 +19,7 @@
 	
 	<beans:bean id="webSecurityExpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
     
-    <beans:bean id="httpInvokerRequestExecutor"
-		class="org.acegisecurity.context.httpinvoker.AuthenticationSimpleHttpInvokerRequestExecutor" />
+    
 		
     <security:http pattern="/resources/**" security="none"/>
     

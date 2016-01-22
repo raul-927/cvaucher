@@ -37,6 +37,7 @@
 		<property name ="password"
 			value = "${jdbc.password}"/>	
 	</bean>
+	  
 	<!--	
 	<context:property-placeholder
 		location = "file:/media/raul927/01CC35ED04318FE0/SERVERS_LINUX/apache-tomcat-7.0.26_1/conf/security.properties"/>	
@@ -52,8 +53,7 @@
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.tipotratamiento"
 	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TipoTratamientoInt"/>
-	
-	
+	 
 	<bean id = "tratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.tratamiento"

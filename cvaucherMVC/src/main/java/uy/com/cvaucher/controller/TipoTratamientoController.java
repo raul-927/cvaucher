@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,10 +34,15 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, params ="insert")
-	@Secured("ROLE_ADMIN")
+	//@Secured("ROLE_ADMIN")
 	public String showInsertTipoTratamiento(Model model)
 	{
-		model.addAttribute("tpoTrat",tipoTratamientoService.findAllTipoTratamiento());
+		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
+				getPrincipal();
+		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities());
+		model.addAttribute("userName",user.getUsername());
+		model.addAttribute("userRole",user.getAuthorities());
+		model.addAttribute("tpoTrat", tipoTratamientoService.findAllTipoTratamiento());
   	  	model.addAttribute(new TipoTratamiento());
 		return "tipo_tratamiento/formTipoTratamiento";
 	}
@@ -44,6 +51,11 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 	 @Secured("ROLE_ADMIN")
 	 public String insertTipoTratamiento(Model model, @Valid TipoTratamiento tipoTratamiento, BindingResult bindingResult)
 	 {
+		 UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
+					getPrincipal();
+		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities());
+		model.addAttribute("userName",user.getUsername());
+		model.addAttribute("userRole",user.getAuthorities());
 		 if(bindingResult.hasErrors())
 	     {
 	    	  System.out.println("Error en insertTipoTratamiento");
@@ -63,10 +75,14 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 	 @RequestMapping(method = RequestMethod.GET, params = "update")
 	 public String showUpdateTipoTratamiento(Model model)
 	 {
-		
-			 model.addAttribute("tpoTrat", tipoTratamientoService.findAllTipoTratamiento());
-			 model.addAttribute(new TipoTratamiento());
-			 return "tipo_tratamiento/updateTipoTratamiento";
+		 UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
+					getPrincipal();
+		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities());
+		model.addAttribute("userName",user.getUsername());
+		model.addAttribute("userRole",user.getAuthorities());
+		model.addAttribute("tpoTrat", tipoTratamientoService.findAllTipoTratamiento());
+		model.addAttribute(new TipoTratamiento());
+		return "tipo_tratamiento/updateTipoTratamiento";
 		
 	 }
 	 
