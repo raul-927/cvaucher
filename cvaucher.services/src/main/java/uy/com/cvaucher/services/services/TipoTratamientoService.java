@@ -43,9 +43,6 @@ public class TipoTratamientoService implements TipoTratamientoInt{
 	}
 	
 	@Override
-	@PreAuthorize("isFullyAuthenticated()")
-	//@PostFilter("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER')and )")
-	@RolesAllowed("hasRole('ROLE_ADMIN')or (hasRole('ROLE_USER') and T(uy.com.cvaucher.services.security.User).getUsername() =='raul')")
 	public void createTipoTratamiento(TipoTratamiento tipoTratamiento){
 		tipoTratamientoMapper.insertTipoTratamiento(tipoTratamiento);
 	}
