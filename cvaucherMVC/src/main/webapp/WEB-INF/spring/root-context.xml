@@ -52,8 +52,12 @@
 	<bean id = "tipoTratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.tipotratamiento"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TipoTratamientoInt"/>
-	 
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TipoTratamientoInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
+	    	
+	   <bean id ="httpInvokerRequestExecutor"
+	   	class ="org.springframework.security.remoting.httpinvoker.AuthenticationSimpleHttpInvokerRequestExecutor"/>
+	 			
 	<bean id = "tratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.tratamiento"

@@ -48,7 +48,7 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 	}
 
 	 @RequestMapping(method = RequestMethod.POST, params ="insert")
-	 @Secured("ROLE_ADMIN")
+	 //@Secured("ROLE_ADMIN")
 	 public String insertTipoTratamiento(Model model, @Valid TipoTratamiento tipoTratamiento, BindingResult bindingResult)
 	 {
 		 UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().

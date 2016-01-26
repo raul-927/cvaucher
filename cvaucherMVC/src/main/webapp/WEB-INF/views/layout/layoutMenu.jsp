@@ -37,7 +37,8 @@
 		                 
 	                 </ul>
                 </li>
-             
+             	
+             	
                 <li><!-- Inicio Menu Configuracion -->
                  
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
@@ -138,7 +139,7 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
-                 
+             
              
             </ul>
         </div><!--/.nav-collapse -->
