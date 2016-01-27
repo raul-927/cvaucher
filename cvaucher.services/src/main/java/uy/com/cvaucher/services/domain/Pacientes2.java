@@ -27,6 +27,7 @@ public class Pacientes2 implements Serializable
 	
 	
 	private String tipoDocPaciente;
+	
 	@Documento(message = "Documento Invalido")
 	private String documento;
 	private String 	ocupacion;
