@@ -10,17 +10,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
-@Aspect
+//@Aspect
 public aspect SecurityContextAspectService {
 	
-	@Pointcut(
-			"execution(* uy.com.cvaucher.services.interfaces.TipoTratamientoInt.createTipoTratamiento(..))")
+	//@Pointcut(
+	//		"execution(* uy.com.cvaucher.services.interfaces.TipoTratamientoInt.createTipoTratamiento(..))")
 	public void ejecutarSecurityContextAspect(){
 		
 	}
 	
 	
-	@Before("ejecutarSecurityContextAspect()")
+	//@Before("ejecutarSecurityContextAspect()")
 	public void ejecutoSecurityContext(){
 		
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().

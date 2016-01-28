@@ -43,7 +43,7 @@
 		  								   WHERE dom_usr_nic = ? 
 		  								   AND dom_usr_enabled = 1"
 		  		
-		  		authorities-by-username-query =	"SELECT d.dom_usr_nic, r.rol_name 
+		  		authorities-by-username-query =	"SELECT d.dom_usr_nic, r.rol_name
 												 FROM domain_user d, roles r, nic_roles n 
 												 WHERE d.dom_usr_nic = ?
 												 AND d.dom_usr_id = n.nic_rol_user_nic_id 

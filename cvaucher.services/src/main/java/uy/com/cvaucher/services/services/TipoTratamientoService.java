@@ -43,7 +43,7 @@ public class TipoTratamientoService implements TipoTratamientoInt{
 	}
 	
 	@Override
-	@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'raul')")
+	@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
 	//@RolesAllowed("hasRole('ROLE_ADMIN')")
 	//@Secured("ROLE_ADMIN")
 	public void createTipoTratamiento(TipoTratamiento tipoTratamiento){
