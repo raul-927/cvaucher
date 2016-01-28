@@ -16,7 +16,7 @@ public interface TipoTratamientoInt {
 	
 	//@PreAuthorize("isFullyAuthenticated()")
 	//@RolesAllowed("hasRole('ROLE_ADMIN')or (hasRole('ROLE_USER') and T(uy.com.cvaucher.services.security.User).getUsername() =='raul')")
-	@Secured("ROLE_ADMIN")
+	//@Secured("ROLE_ADMIN")
 	void createTipoTratamiento(TipoTratamiento tipoTratamiento);
 	void updateTipoTratamiento(TipoTratamiento tipoTratamiento);
 	void deleteTipoTratamiento(int tipTratId);
