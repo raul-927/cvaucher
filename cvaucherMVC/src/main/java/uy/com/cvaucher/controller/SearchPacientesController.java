@@ -49,7 +49,7 @@ public class SearchPacientesController implements SearchPacientesControllerInt
 	{
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
 		getPrincipal();
-		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities());
+		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities() +", Su Password es = "+user.getPassword());
 		model.addAttribute("userName",user.getUsername());
 		model.addAttribute("userRole",user.getAuthorities());
 		model.addAttribute(new Pacientes());
