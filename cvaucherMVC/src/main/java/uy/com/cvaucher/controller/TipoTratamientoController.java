@@ -5,7 +5,10 @@ import javax.inject.Named;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -24,7 +27,8 @@ import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 public class TipoTratamientoController implements uy.com.cvaucher.interfaces.TipoTratamientoInt
 {
 	
-	private final TipoTratamientoInt tipoTratamientoService;
+	private TipoTratamientoInt tipoTratamientoService;
+	private TipoTratamientoInt tipTratamientoService;
 	
 	
 	@Autowired
@@ -34,12 +38,11 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, params ="insert")
-	//@Secured("ROLE_ADMIN")
 	public String showInsertTipoTratamiento(Model model)
 	{
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
 				getPrincipal();
-		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities());
+		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities() +", Su Password es = "+user.getPassword());
 		model.addAttribute("userName",user.getUsername());
 		model.addAttribute("userRole",user.getAuthorities());
 		model.addAttribute("tpoTrat", tipoTratamientoService.findAllTipoTratamiento());
@@ -48,12 +51,11 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 	}
 
 	 @RequestMapping(method = RequestMethod.POST, params ="insert")
-	 //@Secured("ROLE_ADMIN")
 	 public String insertTipoTratamiento(Model model, @Valid TipoTratamiento tipoTratamiento, BindingResult bindingResult)
 	 {
-		 UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
+		 
+			UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
 					getPrincipal();
-		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities());
 		model.addAttribute("userName",user.getUsername());
 		model.addAttribute("userRole",user.getAuthorities());
 		 if(bindingResult.hasErrors())
@@ -64,7 +66,7 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 	    	  
 	    	  return "tipo_tratamiento/formTipoTratamiento"; 
 	     }
-		 tipoTratamientoService.createTipoTratamiento(tipoTratamiento);
+		 this.tipoTratamientoService.createTipoTratamiento(tipoTratamiento);
 	      
 	      model.addAttribute("tpoTrat",tipoTratamientoService.findAllTipoTratamiento());
 	      
