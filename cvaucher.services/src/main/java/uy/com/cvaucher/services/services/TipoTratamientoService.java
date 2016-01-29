@@ -13,8 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-
+import uy.com.cvaucher.services.annotations.Acceso;
 import uy.com.cvaucher.services.domain.TipoTratamiento;
 import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 import uy.com.cvaucher.services.mappers.TipoTratamientoMapper;
@@ -23,6 +22,8 @@ import uy.com.cvaucher.services.mappers.TipoTratamientoMapper;
 
 @Service
 @Transactional
+//@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
+@Acceso
 public class TipoTratamientoService implements TipoTratamientoInt{
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
@@ -30,7 +31,7 @@ public class TipoTratamientoService implements TipoTratamientoInt{
 	@Autowired
 	private TipoTratamientoMapper tipoTratamientoMapper;
 	
-	
+	//@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
 	public List<TipoTratamiento> findAllTipoTratamiento(){	
 		List<TipoTratamiento> tipoTratamiento = tipoTratamientoMapper.findAllTipoTratamiento();
 		return tipoTratamiento;
@@ -43,7 +44,7 @@ public class TipoTratamientoService implements TipoTratamientoInt{
 	}
 	
 	@Override
-	@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
+	//@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
 	public void createTipoTratamiento(TipoTratamiento tipoTratamiento){
 		tipoTratamientoMapper.insertTipoTratamiento(tipoTratamiento);
 	}
