@@ -22,8 +22,8 @@ import uy.com.cvaucher.services.mappers.TipoTratamientoMapper;
 
 @Service
 @Transactional
-//@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
-@Acceso
+@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
+//@Acceso
 public class TipoTratamientoService implements TipoTratamientoInt{
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());

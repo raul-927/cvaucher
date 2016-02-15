@@ -37,17 +37,21 @@
 		-->
 			 
 		   <security:jdbc-user-service data-source-ref="dataSource"
+		  		users-by-username-query = "SELECT username, password, enabled 
+		  								   FROM users
+		  								   WHERE username = ? 
+		  								   AND enabled = 1"
 		  		
-		  		users-by-username-query = "SELECT dom_usr_nic, dom_usr_pass, dom_usr_enabled 
-		  								   FROM domain_user 
-		  								   WHERE dom_usr_nic = ? 
-		  								   AND dom_usr_enabled = 1"
 		  		
-		  		authorities-by-username-query =	"SELECT d.dom_usr_nic, r.rol_name
-												 FROM domain_user d, roles r, nic_roles n 
-												 WHERE d.dom_usr_nic = ?
-												 AND d.dom_usr_id = n.nic_rol_user_nic_id 
-												 AND n.nic_rol_name_id = r.rol_id" />
+		  		
+		  		group-authorities-by-username-query = "SELECT g.id, g.group_name,a.authority
+														FROM groups g, group_members gm, group_authorities ga, authorities a
+														WHERE gm.username = ?
+														AND gm.username = a.username
+														AND g.id = ga.group_id
+														AND ga.group_id = gm.group_id
+														GROUP BY g.group_name"
+		  		/>
 			
 		</security:authentication-provider>
 	</security:authentication-manager>

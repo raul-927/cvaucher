@@ -3,6 +3,7 @@ package uy.com.cvaucher.services.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import uy.com.cvaucher.services.mappers.CuentasMapper;
 
 @Service
 @Transactional
+//@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
 public class CuentasService implements CuentasInt 
 {
 	

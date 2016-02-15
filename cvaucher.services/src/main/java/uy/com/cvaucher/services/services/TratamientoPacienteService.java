@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,7 @@ import uy.com.cvaucher.services.mappers.TratamientoPacienteMapper;
 
 @Service
 @Transactional
+//@PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')")
 public class TratamientoPacienteService implements TratamientoPacienteInt {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());

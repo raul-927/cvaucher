@@ -22,7 +22,7 @@ public aspect TipoTratamientoAspect implements InitializingBean{
 	}
 	
 	@Before("tipoTratamientoAspectInicio()")
-	public void fbeforeTipoTratamientoService(){
+	public void beforeTipoTratamientoService(){
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
 				getPrincipal();
 		
