@@ -47,7 +47,8 @@
 	<bean id = "agendaService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.agenda"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.AgendaInt"/>
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.AgendaInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 			 	
 	<bean id = "tipoTratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
@@ -61,82 +62,98 @@
 	<bean id = "tratamientoService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.tratamiento"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TratamientoInt"/>
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TratamientoInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	<bean id = "pacientesService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.pacientes"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.PacientesInt"/>
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.PacientesInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	<bean id = "direccionService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.direccion"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.DireccionInt"/>
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.DireccionInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	<bean id = "sesionesService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.sesiones"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.SesionesInt"/>
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.SesionesInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	<bean id = "seguimientoPacientesService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.seguimientopacientes"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt"/>
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	<bean id = "historiaClinicaService"
 	    	class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.historiaclinica"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.HistoriaClinicaInt"/>
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.HistoriaClinicaInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	<bean id ="tratamientoPacienteService"
 			class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 	    	p:serviceUrl ="${services.url}/cvaucher.tratamientoPaciente"
-	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TratamientoPacienteInt"/>
+	    	p:serviceInterface ="uy.com.cvaucher.services.interfaces.TratamientoPacienteInt"
+	    	p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	<bean id ="historialPagosServices"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.historialPagos"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.HistorialPagosInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.HistorialPagosInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 		
 	<bean id ="listaPreciosService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.listaPrecios"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.ListaPreciosInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.ListaPreciosInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 		
 	<bean id ="auxPreciosService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.auxPrecios"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.AuxPreciosInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.AuxPreciosInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 		
 	<bean id ="formasDePagosService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.formasDePagos"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.FormasDePagosInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.FormasDePagosInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 		
 	<bean id ="cuentasService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.cuentas"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.CuentasInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.CuentasInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	<bean id ="pagoTarjetaService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.pagoTarjeta"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoTarjetaInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoTarjetaInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 		
 	<bean id ="pagoEfectivoService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.pagoEfectivo"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoEfectivoInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.PagoEfectivoInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 		
 	<bean id ="domainUserService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.domainUser"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.DomainUserInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.DomainUserInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 		
 	<bean id ="loginService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.login"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.LoginInt"/>
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.LoginInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
 	
 	

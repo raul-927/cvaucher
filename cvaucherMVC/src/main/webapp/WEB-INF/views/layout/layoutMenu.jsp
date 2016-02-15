@@ -52,7 +52,7 @@
 		                 		<li class="divider"></li>
                                 
                                 <li class="dropdown-submenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trabajar con Roles</a>
                                     <ul class="dropdown-menu">
                                         <li class="dropdown-submenu">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
