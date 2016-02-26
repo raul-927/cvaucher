@@ -131,5 +131,9 @@
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.login</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>cvaucher</servlet-name>
+    <url-pattern>*.roles</url-pattern>
+  </servlet-mapping>
 
 </web-app>

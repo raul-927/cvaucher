@@ -23,6 +23,7 @@ public class Roles implements Serializable{
 		return rolName;
 	}
 	public void setRolName(String rolName) {
+		"ROLE_".concat(rolName.toUpperCase());
 		this.rolName = rolName;
 	}
 

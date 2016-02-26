@@ -164,6 +164,11 @@
 		p:service-ref="loginService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.LoginInt"/>
 	
+	<bean id ="httpRolesService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref ="rolesService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.RolesInt"/>
+	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -374,6 +379,17 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.login = httpLoginService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingRoles"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.roles = httpRolesService
 			</value>
 		</property>	
 		

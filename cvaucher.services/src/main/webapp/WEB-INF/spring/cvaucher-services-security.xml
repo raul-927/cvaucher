@@ -44,13 +44,12 @@
 		  		
 		  		
 		  		
-		  		group-authorities-by-username-query = "SELECT g.id, g.group_name,a.authority
-														FROM groups g, group_members gm, group_authorities ga, authorities a
-														WHERE gm.username = ?
-														AND gm.username = a.username
-														AND g.id = ga.group_id
-														AND ga.group_id = gm.group_id
-														GROUP BY g.group_name"
+		  		group-authorities-by-username-query = "	SELECT	u.username, g.id, g.group_name, ga.authority 
+													   	FROM	users u, groups g, groups_members gm, groups_authorities ga 
+														WHERE	u.username  = ? 
+														AND		u.username = gm.username 
+														AND 	g.id = ga.group_id
+														AND		ga.group_id = gm.group_id"
 		  		/>
 			
 		</security:authentication-provider>
