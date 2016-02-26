@@ -155,6 +155,12 @@
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.LoginInt"
 		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
+	<bean id ="rolesService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="${services.url}/cvaucher.roles"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.RolesInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
+	
 	
 	
 </beans>
