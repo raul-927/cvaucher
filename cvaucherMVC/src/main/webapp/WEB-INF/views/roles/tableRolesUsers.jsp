@@ -7,26 +7,18 @@
 
 
 <table class="table table-hover table-bordered well well-sm">
-	<caption><h1>Usuarios</h1></caption>
+	<caption><h1>Roles</h1></caption>
 	
 	<thead>
 		<td>#</td>
-		<td>Nombre</td>
-		<td>Apellido</td>
-		<td>Nic</td>
-		<td>Activado</td>
-		
+		<td>Rol</td>
 	</thead>
 		<tbody>
 			
-			<c:forEach var="users" items="${allDomainUser}">
+			<c:forEach var="roles" items="${allroles}">
 				<tr>
-				  	<td >${users.domUsrId}</td>
-					<td >${users.domUsrNom}</td>
-					<td >${users.domUsrAp}</td>
-					<td>${users.domUsrNic}</td>
-					<td>${users.domUsrEnabled}</td>
-				
+				  	<td >${roles.rolId}</td>
+					<td >${roles.rolName}</td>
 				</tr>
 			</c:forEach>	
 		</tbody>

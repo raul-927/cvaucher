@@ -74,7 +74,7 @@
                       <li class="dropdown-submenu">
                       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Roles</a>
                       	<ul class="dropdown-menu">
-                                <li><a href="#">Crear Rol</a></li>
+                                <li><a href='<s:url value="/roles?insert"/>'>Crear Rol</a></li>
 		                 		<li><a href="#">Modificar Rol</a></li>
 		                 		<li><a href="#">Eliminar Rol</a></li>
 		                 		<li class="divider"></li>
