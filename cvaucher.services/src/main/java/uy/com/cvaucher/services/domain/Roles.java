@@ -13,18 +13,18 @@ public class Roles implements Serializable{
 	
 	
 	public int getRolId() {
-		return rolId;
+		return this.rolId;
 	}
 	public void setRolId(int rolId) {
 		this.rolId = rolId;
 	}
 	
 	public String getRolName() {
-		return rolName;
+		return this.rolName;
 	}
 	public void setRolName(String rolName) {
-		"ROLE_".concat(rolName.toUpperCase());
-		this.rolName = rolName;
+		String aux = "ROLE_".concat(rolName.toUpperCase());
+		this.rolName = aux;
 	}
 
 	
