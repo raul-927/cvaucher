@@ -29,7 +29,7 @@ public class SqlRolesProvider
 		return new SQL() {{
 			INSERT_INTO("roles");
 			if(roles.getRolName()!= null){
-				VALUES("rol_name", roles.getRolName());
+				VALUES("rol_name", "#{rolName}");
 			}
 		}}.toString();
 	}
