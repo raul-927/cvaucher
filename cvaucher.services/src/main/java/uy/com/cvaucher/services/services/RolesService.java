@@ -18,8 +18,9 @@ public class RolesService implements RolesInt{
 	@Override
 	
 	public void insertRole(Roles roles) {
+		String aux = "ROLE_".concat(roles.getRolName().toUpperCase());
+		roles.setRolName(aux);
 		rolesMapper.insertRole(roles);
-		
 	}
 
 	@Override
