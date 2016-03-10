@@ -11,6 +11,7 @@ public class SqlRolesProvider
 		return new SQL(){{
 			SELECT("rol_id, rol_name");
 			FROM("roles");
+			ORDER_BY("rol_id");
 			
 		}}.toString();
 	}
