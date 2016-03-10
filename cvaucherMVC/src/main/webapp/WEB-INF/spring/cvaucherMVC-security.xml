@@ -64,11 +64,6 @@
 														AND 	g.id = ga.group_id
 														AND		ga.group_id = gm.group_id"
 																					/>
-			 								 
-				
-				
-				 
-				
 		</security:authentication-provider>
 	</security:authentication-manager>
 	
