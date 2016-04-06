@@ -56,7 +56,7 @@
                                         	<li><a href="#">Asignar Roles</a></li>
                                          </ul>
                                </li>
-                                    
+                                
                         </li>
                      </ul>
                </li>
@@ -127,10 +127,16 @@
                     <li><a href="#">Separated link</a></li>
                     <li class="divider"></li>
                     <li><a href="#">One more separated link</a></li>
+               </security:authorize> 
+               
            </ul>
-           </li>
-         </security:authorize>     
-        </ul>
+             <li>
+	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
+	                 <ul class="dropdown-menu">
+		                 <li><a href='<s:url value="/pacientes"/>'>Crear un nuevo Paciente</a></li>
+		               	<security:authorize access="hasRole('ROLE_ADMIN')"><li><a href="#">Eliminar un paciente</a></li> </security:authorize>
+	                 </ul>
+                </li>
         </div><!--/.nav-collapse -->
     </div>
 </div>
