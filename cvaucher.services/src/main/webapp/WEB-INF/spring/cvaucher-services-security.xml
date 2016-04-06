@@ -44,12 +44,12 @@
 		  		
 		  		
 		  		
-		  		group-authorities-by-username-query = "	SELECT	u.username, g.id, g.group_name, ga.authority 
-													   	FROM	users u, groups g, groups_members gm, groups_authorities ga 
-														WHERE	u.username  = ? 
-														AND		u.username = gm.username 
-														AND 	g.id = ga.group_id
-														AND		ga.group_id = gm.group_id"
+		  		authorities-by-username-query = "	SELECT 	d.username NIC, r.rol_name ROL
+														FROM	users d, roles r, nic_roles n
+														WHERE	d.username = ?
+														AND		d.enabled = 1
+														AND		d.user_id = n.nic_rol_user_nic_id
+														AND		n.nic_rol_name_id = r.rol_id"
 		  		/>
 			
 		</security:authentication-provider>

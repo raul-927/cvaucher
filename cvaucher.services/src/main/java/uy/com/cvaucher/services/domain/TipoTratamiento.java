@@ -12,10 +12,10 @@ public class TipoTratamiento implements Serializable
 	private String 	tipTratDesc;
 	
 	
-	public int getTipTratId() {
+	public Integer getTipTratId() {
 		return tipTratId;
 	}
-	public void setTipTratId(int tipTratId) {
+	public void setTipTratId(Integer tipTratId) {
 		this.tipTratId = tipTratId;
 	}
 	public String getTipTratDesc() {

@@ -116,7 +116,7 @@ public class Pacientes2 implements Serializable
 
 	public void setDocumento(String documento) {
 		
-		this.documento = this.tipoDocPaciente.concat(documento);
+		this.documento = documento;
 	}
 
 //-----------------------------------------------------	

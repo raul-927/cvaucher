@@ -4,8 +4,9 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import uy.com.cvaucher.services.annotations.Documento;
+import uy.com.cvaucher.services.domain.Pacientes2;
 
-public class ValidoDocumento implements ConstraintValidator<Documento, String> {
+public class ValidoDocumento implements ConstraintValidator<Documento, Pacientes2> {
 	
 	@Override
 	public void initialize(Documento constraintAnnotation){
@@ -14,11 +15,11 @@ public class ValidoDocumento implements ConstraintValidator<Documento, String> {
 	}
 	
 	@Override
-	public boolean isValid(String valor, ConstraintValidatorContext context){
+	public boolean isValid(Pacientes2 valor, ConstraintValidatorContext context){
 		boolean control = false;
 		
-		String tipoDoc = valor.substring(0,3);
-		String documento = valor.substring(3);
+		String tipoDoc = valor.getTipoDocPaciente();
+		String documento = valor.getDocumento();
 		
 		System.out.println("tipoDoc ==>> "+tipoDoc);
 		System.out.println("documento ==>> "+documento);
