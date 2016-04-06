@@ -50,98 +50,87 @@
 		                 		<li><a href='<s:url value="/domain_user?update"/>'>Modificar Usuario</a></li>
 		                 		<li><a href='<s:url value="/domain_user?delete"/>'>Eliminar Usuario</a></li>
 		                 		<li class="divider"></li>
-                                
                                 <li class="dropdown-submenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trabajar con Roles</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="dropdown-submenu">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">Opcion1</a></li>
-                                                <li><a href="#">Opcion1</a></li>
-                                                <li><a href="#">Opcion1</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">One more separated link</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Trabajar con Roles</a>
+                                    	<ul class="dropdown-menu">
+                                        	<li><a href="#">Asignar Roles</a></li>
+                                         </ul>
+                               </li>
+                                    
                         </li>
+                     </ul>
+               </li>
                         
-                      <li class="dropdown-submenu">
-                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Roles</a>
-                      	<ul class="dropdown-menu">
-                                <li><a href='<s:url value="/roles?insert"/>'>Crear Rol</a></li>
-		                 		<li><a href="#">Modificar Rol</a></li>
-		                 		<li><a href="#">Eliminar Rol</a></li>
-		                 		<li class="divider"></li>
-		                </ul>
-                      </li>
+               <li class="dropdown-submenu">
+               	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Roles</a>
+                	<ul class="dropdown-menu">
+                    	<li><a href='<s:url value="/roles?insert"/>'>Crear Rol</a></li>
+		                <li><a href="#">Modificar Rol</a></li>
+		                <li><a href="#">Eliminar Rol</a></li>
+		                <li class="divider"></li>
+		            </ul>
+               </li>
                       
-                      <li class="dropdown-submenu">
-                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Objetos</a>
-                      	<ul class="dropdown-menu">
-                                <li><a href="#">Crear Objeto</a></li>
-		                 		<li><a href="#">Modificar Objeto</a></li>
-		                 		<li><a href="#">Eliminar Objeto</a></li>
-		                 		<li class="divider"></li>
-		                </ul>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="dropdown-submenu">
-                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tipo de Tratamientos</a>
-                      	<ul class="dropdown-menu">
+               <li class="dropdown-submenu">
+               	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Objetos</a>
+                	<ul class="dropdown-menu">
+                    	<li><a href="#">Crear Objeto</a></li>
+		                <li><a href="#">Modificar Objeto</a></li>
+		                <li><a href="#">Eliminar Objeto</a></li>
+		                <li class="divider"></li>
+		            </ul>
+              </li>
+              <li class="divider"></li>
+              	<li class="dropdown-submenu">
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tipo de Tratamientos</a>
+                    	<ul class="dropdown-menu">
                         	<li><a href='<s:url value="/tipo_tratamiento?insert"/>'>Crear un nuevo Tipo de Tratamiento</a></li>
 		                 	<li><a href='<s:url value="/tipo_tratamiento?update"/>'>Modificar un Tipo de Tratamiento</a></li>
 		                 	<li><a href='<s:url value="/tipo_tratamiento?delete"/>'>Eliminar un Tipo de Tratamiento</a></li>
 		                 	<li class="divider"></li>
 		                </ul>
-                      </li>
-                      <li class="dropdown-submenu">
-                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tratamientos</a>
-                      	<ul class="dropdown-menu">
-                        	<li><a href='<s:url value="/tratamientos?insert"/>'>Crear un nuevo Tratamiento</a></li>
-		                 	<li><a href='<s:url value="/tratamientos?update"/>'>Modificar un Tratamiento</a></li>
-		                 	<li><a href='<s:url value="/tratamientos?delete"/>'>Eliminar un Tratamiento</a></li>
-		                 	<li class="divider"></li>
-		                </ul>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="dropdown-submenu">
-                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Lista de Precios</a>
-                      	<ul class="dropdown-menu">
+               </li>
+               <li class="dropdown-submenu">
+               	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tratamientos</a>
+                	<ul class="dropdown-menu">
+                    	<li><a href='<s:url value="/tratamientos?insert"/>'>Crear un nuevo Tratamiento</a></li>
+		                <li><a href='<s:url value="/tratamientos?update"/>'>Modificar un Tratamiento</a></li>
+		                <li><a href='<s:url value="/tratamientos?delete"/>'>Eliminar un Tratamiento</a></li>
+		                <li class="divider"></li>
+		           	</ul>
+              </li>
+              <li class="divider"></li>
+              	<li class="dropdown-submenu">
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Lista de Precios</a>
+                    	<ul class="dropdown-menu">
                         	<li><a href='<s:url value="/listaPrecios"/>'>Crear Lista de Precios</a></li>
 		                 	<li><a href="#">Modificar Lista de Precios</a></li>
 		                 	<li><a href="#">Eliminar Lista de Precios</a></li>
 		                 	<li class="divider"></li>
 		                </ul>
-                      </li>
-                      <li class="dropdown-submenu">
-                      	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Promociones</a>
-                      	<ul class="dropdown-menu">
-                        	<li><a href="#">Opcion1</a></li>
-		                 	<li><a href="#">Opcion2</a></li>
-		                 	<li><a href="#">Opcion3</a></li>
-		                 	<li class="divider"></li>
-		                </ul>
-                      </li>
-                      <li><a href='<s:url value="/formasDePagos?insert"/>'>Formas de Pagos</a></li>
-                      <li class="divider"></li>
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-             </security:authorize>
-             
-            </ul>
+               </li>
+               <li class="dropdown-submenu">
+               	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Promociones</a>
+                	<ul class="dropdown-menu">
+                    	<li><a href="#">Opcion1</a></li>
+		                <li><a href="#">Opcion2</a></li>
+		                <li><a href="#">Opcion3</a></li>
+		                <li class="divider"></li>
+		            </ul>
+              </li>
+              <li><a href='<s:url value="/formasDePagos?insert"/>'>Formas de Pagos</a></li>
+              	<li class="divider"></li>
+                	<li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+           </ul>
+           </li>
+         </security:authorize>     
+        </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>

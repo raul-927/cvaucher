@@ -60,7 +60,7 @@
 	<view-state id="inicioAltaPaciente" view ="pacientes/insertPacientes" model ="pacientes2">
 		<on-render>
 			<evaluate result ="viewScope.tipDoc" expression="T(uy.com.cvaucher.services.enumerador.TipoDocumento).values()"/>
-		
+			
 		</on-render>
 		<transition on="pacienteIngresado" to="cargoPacientesEnDireccion" bind="true">
 		    <evaluate expression="flowScope.docum = flowScope.pacientes2.documento.subString(3)"/>

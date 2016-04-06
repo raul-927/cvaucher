@@ -44,7 +44,7 @@
 			<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
              
-            <div class="form-group">
+            <div class="form-group ">
 		 		<sf:label path="tipoDocPaciente" for ="tipoDocPaciente">Tipo de Documento</sf:label>
 		 		<sf:select cssClass ="form-control" path="tipoDocPaciente" size ="1">
 		 		<sf:options items="${tipDoc}" />
@@ -57,7 +57,7 @@
 			 	<sf:input cssClass ="input-small " value ="${flowScope.docum}"  path="documento" size ="8" id="documento"/>
 			 	<sf:errors path ="documento" cssClass ="error"/>
 		 	</div>
-		 	<span>Documento ${flowScope.docum}</span>
+		 	<!-- <span>Documento ${flowScope.docum}</span> -->
 		 	<div class="form-group">
 			 	<sf:label path="pacNombre" for ="pacNombre">Nombre</sf:label>
 			 	<sf:input cssClass ="form-control" path="pacNombre" size ="30" placeholder ="Nombre" id="descCAT" class="form-control" />
