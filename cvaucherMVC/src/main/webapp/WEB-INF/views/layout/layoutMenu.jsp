@@ -33,8 +33,12 @@
 		                 <li><a href="<s:url value="/cajas_apertura"/>">Apertura de Caja</a></li>
 		                 <li><a href="<s:url value="/cajas_cierre"/>">Cierre de Caja</a></li>
 		                 <li class="divider"></li>
-		                 <li><a href="<s:url value="/cajas_arqueo"/>">Arqueo de Caja</a></li>
-		                 
+		                 <li><a href="<s:url value="/cajas_arqueo"/>">Ingresar Gastos</a></li>
+		                 <li><a href="<s:url value="/cajas_arqueo"/>">Ingresar Cobranza</a></li>
+		                 <li class="divider"></li>
+		                 <li><a href="<s:url value="/cajas_principal"/>">Arqueo de Caja</a></li>
+		                 <li><a href="<s:url value="/cajas_principal"/>">Consultas</a></li>
+		                <li><a href="<s:url value="/cajas_principal"/>">Reportes</a></li>
 	                 </ul>
                 </li>
              	
@@ -50,12 +54,7 @@
 		                 		<li><a href='<s:url value="/domain_user?update"/>'>Modificar Usuario</a></li>
 		                 		<li><a href='<s:url value="/domain_user?delete"/>'>Eliminar Usuario</a></li>
 		                 		<li class="divider"></li>
-                                <li class="dropdown-submenu">
-                                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Trabajar con Roles</a>
-                                    	<ul class="dropdown-menu">
-                                        	<li><a href="#">Asignar Roles</a></li>
-                                         </ul>
-                               </li>
+                               
                                 
                         </li>
                      </ul>
@@ -68,6 +67,7 @@
 		                <li><a href="#">Modificar Rol</a></li>
 		                <li><a href="#">Eliminar Rol</a></li>
 		                <li class="divider"></li>
+		                <li><a href="#">Asignar Roles a Usuarios</a></li>
 		            </ul>
                </li>
                       
@@ -120,13 +120,7 @@
               </li>
               <li><a href='<s:url value="/formasDePagos?insert"/>'>Formas de Pagos</a></li>
               	<li class="divider"></li>
-                	<li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
+              	 <li><a href='<s:url value="/formasDePagos?insert"/>'>Recursos Humanos</a></li>
                </security:authorize> 
                
            </ul>
