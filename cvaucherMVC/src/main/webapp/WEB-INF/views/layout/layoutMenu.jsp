@@ -33,12 +33,12 @@
 		                 <li><a href="<s:url value="/cajas_apertura"/>">Apertura de Caja</a></li>
 		                 <li><a href="<s:url value="/cajas_cierre"/>">Cierre de Caja</a></li>
 		                 <li class="divider"></li>
-		                 <li><a href="<s:url value="/cajas_arqueo"/>">Ingresar Gastos</a></li>
-		                 <li><a href="<s:url value="/cajas_arqueo"/>">Ingresar Cobranza</a></li>
+		                 <li><a href="<s:url value="/cajas_gastos"/>">Ingresar Gastos</a></li>
+		                 <li><a href="<s:url value="/cajas_cobranza"/>">Ingresar Cobranza</a></li>
 		                 <li class="divider"></li>
-		                 <li><a href="<s:url value="/cajas_principal"/>">Arqueo de Caja</a></li>
-		                 <li><a href="<s:url value="/cajas_principal"/>">Consultas</a></li>
-		                <li><a href="<s:url value="/cajas_principal"/>">Reportes</a></li>
+		                 <li><a href="<s:url value="/cajas_arqueo"/>">Arqueo de Caja</a></li>
+		                 <li><a href="<s:url value="/cajas_consultas"/>">Consultas</a></li>
+		                <li><a href="<s:url value="/cajas_reportes"/>">Reportes</a></li>
 	                 </ul>
                 </li>
              	
@@ -112,9 +112,9 @@
                <li class="dropdown-submenu">
                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Promociones</a>
                 	<ul class="dropdown-menu">
-                    	<li><a href="#">Opcion1</a></li>
-		                <li><a href="#">Opcion2</a></li>
-		                <li><a href="#">Opcion3</a></li>
+                    	<li><a href="/tipos_promociones">Tipos de Promociones</a></li>
+		                <li><a href="/grupos_promociones">Trabajar con grupos de promociones</a></li>
+		                <li><a href="/formulas_promociones">Formulas de promociones</a></li>
 		                <li class="divider"></li>
 		            </ul>
               </li>
@@ -127,8 +127,7 @@
              <li>
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
 	                 <ul class="dropdown-menu">
-		                 <li><a href='<s:url value="/pacientes"/>'>Crear un nuevo Paciente</a></li>
-		               	<security:authorize access="hasRole('ROLE_ADMIN')"><li><a href="#">Eliminar un paciente</a></li> </security:authorize>
+		                 <li><a href='<s:url value="/estadisticas"/>'>Estadisticas</a></li>
 	                 </ul>
                 </li>
         </div><!--/.nav-collapse -->

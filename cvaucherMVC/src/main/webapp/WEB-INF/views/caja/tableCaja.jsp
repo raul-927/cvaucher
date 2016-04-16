@@ -6,16 +6,14 @@
 <%@ page session="false" %>
 
 <table class="table table-hover table-bordered well well-sm">
-	<caption><h1>Pacientes</h1></caption>
+	<caption><h1>Caja</h1></caption>
 	
 	<thead>
 		<td>Id</td>
-		<td>Cedula</td>
-		<td>Nombre</td>
-		<td>Apellido</td>
-		<td>Ocupacion</td>
-		<td>Soc Medica</td>
-		<td>Emerg Movil</td>
+		<td>Estado</td>
+		<td>Forma de pago</td>
+		<td>Monto</td>
+		<td>Tipo de Movimiento</td>
 	</thead>
 		<tbody>
 			<c:forEach var="pac" items="${pac}">

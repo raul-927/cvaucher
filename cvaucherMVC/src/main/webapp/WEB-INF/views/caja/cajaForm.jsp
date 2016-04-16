@@ -9,31 +9,46 @@
 	<s:url value="/pacsearch/search" var ="urlvaucher"/>
 	<sf:form cssClass = "form-inline"  
 		method ="POST" 
-		modelAttribute ="searchPacientes" 
+		modelAttribute ="auxCajas" 
 		action ="${urlvaucher}">
 		 	<legend>&nbsp;BUSCAR&nbsp;</legend>
 
 		 <div class="form-group">
-		 	<sf:label path="cedula" for ="cedula">Cedula</sf:label>
-		 	<sf:input path="cedula" cssClass ="inputText" size ="10" id="cedula" class="form-control" 
-		 				placeholder ="Nro de cedula"/>
-		 	<sf:errors path ="cedula" cssClass ="error"/>
+		 	<sf:label path="cajaId" for ="cajaId">cajaId</sf:label>
+		 	<sf:input path="cajaId" cssClass ="inputText" size ="10" id="cajaId" class="form-control" 
+		 				placeholder ="Nro de id de Caja"/>
+		 	<sf:errors path ="cajaId" cssClass ="error"/>
 		 </div>
 		 
 		 <div class="form-group">	
 		 	
-		 	<sf:label path="pacNombre" for ="pacNombre">Nombre</sf:label>
-		 	<sf:input path="pacNombre" cssClass ="inputText" size ="10" id="pacNombre" class="form-control"
-		 					placeholder ="Nombre"/>
+		 	<sf:label path="cajaEstado" for ="cajaEstado">Estado de caja</sf:label>
+		 	<sf:input path="cajaEstado" cssClass ="inputText" size ="10" id="cajaEstado" class="form-control"
+		 					placeholder ="Estado"/>
 		 </div>
 		 <div class="form-group">
 		 	
-		 	<sf:label path="pacApellido" for ="pacApellido">Apellido</sf:label>
-		 	<sf:input path ="pacApellido" cssClass ="inputText" size ="10" id ="pacApellido" class="form-control"
-		 				placeholder ="Apellido"/>
+		 	<sf:label path="cuentaFormPagoDesc" for ="cuentaFormPagoDesc">Forma de pago</sf:label>
+		 	<sf:input path ="cuentaFormPagoDesc" cssClass ="inputText" size ="10" id ="cuentaFormPagoDesc" class="form-control"
+		 				placeholder ="Forma de pago"/>
+		 	
+		 </div>
+		 
+		 <div class="form-group">
+		 	
+		 	<sf:label path="monto" for ="monto">Monto</sf:label>
+		 	<sf:input path ="monto" cssClass ="inputText" size ="10" id ="monto" class="form-control"
+		 				placeholder ="monto"/>
 		 	
 		 </div>	
-
+		 <div class="form-group">
+		 	
+		 	<sf:label path="cuentaTipoMovimiento" for ="cuentaTipoMovimiento">Tipo de movimiento</sf:label>
+		 	<sf:input path ="cuentaTipoMovimiento" cssClass ="inputText" size ="10" id ="cuentaTipoMovimiento" class="form-control"
+		 				placeholder ="cuentaTipoMovimiento"/>
+		 	
+		 </div>	
+	cuentaTipoMovimiento
 		 <div class="botonForm">
 		 
 		 	<sf:button class="btn btn-primary" value ="Buscar">Buscar</sf:button>
