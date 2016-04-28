@@ -30,15 +30,15 @@
                 <li>
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cajas<b class="caret"></b></a>
 	                 <ul class="dropdown-menu">
-		                 <li><a href="<s:url value="/cajas_apertura"/>">Apertura de Caja</a></li>
-		                 <li><a href="<s:url value="/cajas_cierre"/>">Cierre de Caja</a></li>
+		                 <li><a href="<s:url value="/caja/apertura"/>">Apertura de Caja</a></li>
+		                 <li><a href="<s:url value="/caja/cierre"/>">Cierre de Caja</a></li>
 		                 <li class="divider"></li>
-		                 <li><a href="<s:url value="/cajas_gastos"/>">Ingresar Gastos</a></li>
-		                 <li><a href="<s:url value="/cajas_cobranza"/>">Ingresar Cobranza</a></li>
+		                 <li><a href="<s:url value="/caja/gastos"/>">Ingresar Gastos</a></li>
+		                 <li><a href="<s:url value="/caja/cobranza"/>">Ingresar Cobranza</a></li>
 		                 <li class="divider"></li>
-		                 <li><a href="<s:url value="/cajas_arqueo"/>">Arqueo de Caja</a></li>
-		                 <li><a href="<s:url value="/cajas_consultas"/>">Consultas</a></li>
-		                <li><a href="<s:url value="/cajas_reportes"/>">Reportes</a></li>
+		                 <li><a href="<s:url value="/caja/arqueo"/>">Arqueo de Caja</a></li>
+		                 <li><a href="<s:url value="/caja/consultas"/>">Consultas</a></li>
+		                <li><a href="<s:url value="/caja/reportes"/>">Reportes</a></li>
 	                 </ul>
                 </li>
              	
