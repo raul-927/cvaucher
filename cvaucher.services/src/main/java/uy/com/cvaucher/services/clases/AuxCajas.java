@@ -59,6 +59,7 @@ public class AuxCajas implements Serializable{
 		return monto;
 	}
 	public void setMonto(BigDecimal monto) {
+		
 		this.monto = monto;
 	}
 	public String getCuentaTipoMovimiento() {
