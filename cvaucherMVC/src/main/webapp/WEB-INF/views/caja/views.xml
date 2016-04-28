@@ -5,13 +5,13 @@
 <tiles-definitions>
 <!--<start id="tile_template"/>-->
 
-	 <definition name ="caja/cajaPrincipal" extends ="layout">
+	 <definition name ="caja/aperturaCaja" extends ="layout">
 	    
 	    <put-attribute name="left"
-   			value ="/WEB-INF/views/caja/cajaForm.jsp"/>
+   			value ="/WEB-INF/views/caja/apertura/cajaForm.jsp"/>
 	    	
 		<put-attribute name="content"
-   			value ="/WEB-INF/views/caja/tableCaja.jsp"/>
+   			value =""/>
    			
    		<put-attribute name="right"
    			value =""/>
