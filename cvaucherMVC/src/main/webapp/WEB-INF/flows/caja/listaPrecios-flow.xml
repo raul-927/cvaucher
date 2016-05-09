@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+        
+     <!-- Inicio Variables  -->
+	 <on-start>
+		<set name="flowScope.preciosOptions"
+			value="new uy.com.cvaucher.services.clases.PreciosOptions()"
+			type="uy.com.cvaucher.services.clases.PreciosOptions" />	
+			
+		<set name ="flowScope.listaPrecios"
+			value ="new uy.com.cvaucher.services.domain.ListaPrecios()"
+			type ="uy.com.cvaucher.services.domain.ListaPrecios"/>
+			
+		<set name ="flowScope.listaPreciosArray"
+			value ="new uy.com.cvaucher.services.domain.ListaPreciosArray()"
+			type ="uy.com.cvaucher.services.domain.ListaPreciosArray"/>
+			
+		<set name ="flowScope.auxPrecios"
+			value ="new uy.com.cvaucher.services.domain.AuxPrecios()"
+			type ="uy.com.cvaucher.services.domain.AuxPrecios"/>
+				
+	 </on-start>
+	 
+	 <!-- Inicio vista insertListas -->
+	<view-state id="inicioAltaListaPrecios" view ="listas/InicioInsertlistas" model ="preciosOptions">
+		<on-render>
+			<evaluate result ="viewScope.tipOpcion" expression="T(uy.com.cvaucher.services.enumerador.ListaPreciosOptions).values()"/>
+		</on-render>
+		<transition on = "OpcSelect" to ="decisionSelect"/>		
+	</view-state>
+	
+	<decision-state id="decisionSelect">
+	 	<if test="flowScope.preciosOptions.opcion == 'NUEVA_LISTA_PRECIOS'" 				 then="nuevaLista"/>
+	 	<if test="flowScope.preciosOptions.opcion == 'COPIAR_Y_MODIFICAR_LISTA_PRECIOS'" 	 then="copiar"/>
+	 	<if test="flowScope.preciosOptions.opcion == 'INSERTAR_TRATAMIENTO_EN_LISTA_ACTUAL'" then="insertar"/>
+	 </decision-state>
+	 
+	 <!-- nuevaLista -->
+	 <view-state id="nuevaLista" view ="listas/nuevaLista" model ="listaPreciosArray">
+	 	<on-render>
+	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()+1"/>
+	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findAllTratamientos()"/>
+	 	</on-render>
+	 	<transition on ="nuevaListaSiguiente" to ="cargarIdListaEnIngresarFecha">
+	 		<evaluate expression ="flowListaPreciosController.insertListaPreciosArray(listaPreciosArray)"/>
+	 	</transition>
+	 </view-state>
+	 
+	 <!-- cargarIdListaEnIngresarFecha -->
+	 <action-state id="cargarIdListaEnIngresarFecha">
+	 	<evaluate expression ="flowScope.auxPrecios.auxListaPreciosId = requestParameters.listPrecId"/>
+	 	<transition  to ="ingresarFechaNuevaLista"/>
+	 </action-state>
+	 
+	 <!-- ingresarFechaNuevaLista -->
+	 <view-state id="ingresarFechaNuevaLista" view ="listas/ingresarFechaNuevaLista" model ="auxPrecios">
+	 	<transition on ="finalizar" to ="finListaPrecios">
+	 		<evaluate expression ="flowListaPreciosController.insertAuxPrecios(flowScope.auxPrecios)"/>
+	 		<evaluate expression="flowListaPreciosController.insertListaPreciosAuxPrecios()"/>
+	 	</transition>
+	 </view-state>
+	 
+	 <!-- copiar -->
+	 <view-state id="copiar" view ="listas/copia" model ="auxPrecios">
+	 	<on-render>
+	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()"/>
+	 		<evaluate result ="viewScope.auxP" expression="flowListaPreciosController.findAllAuxPrecios()"/>
+	 	</on-render>
+	 	<transition on ="copiarListaSiguiente" to ="cargarCopiaListaPrecios"/>
+	 </view-state>
+	 
+	 <!-- cargarCopiaListaPrecios -->
+	 <view-state id="cargarCopiaListaPrecios" view ="listas/copiarModificar" model ="listaPreciosArray">
+	 	<on-render>
+	 		<evaluate result ="flowScope.maxId" expression="flowListaPreciosController.findMaxIdListaPrecios()"/>
+	 		<evaluate result ="viewScope.listap" expression ="flowListaPreciosController.findListaPreciosById(auxPrecios.auxListaPreciosId)"/>
+	 		<evaluate result = "viewScope.auxPrecios2" expression ="auxPrecios.auxListaPreciosId"/>
+	 	</on-render>
+	 	<transition on ="nuevaListaSiguiente" to ="cargarIdListaEnIngresarFecha">
+	 		<evaluate expression ="flowListaPreciosController.insertListaPreciosArray(listaPreciosArray)"/>
+	 	</transition>
+	 </view-state>
+	 
+	 <!-- insertar -->
+	 <view-state id="insertar" view ="listas/insertar" model ="listaPreciosArray">
+	 	<on-render>
+	 		<evaluate result ="flowScope.maxId " expression="flowListaPreciosController.findMaxIdListaPrecios()-1"/>
+	 		<evaluate result ="viewScope.trat" expression="flowPacientesController.findNewTratamientos()"/>
+	 	</on-render>
+	 	<transition on ="fin" to ="finListaPrecios">
+	 		<evaluate expression ="flowListaPreciosController.insertarNuevoTratamientoEnListaDePrecios(listaPreciosArray)"/>
+	 	</transition>
+	 	
+	 </view-state>
+	 
+	<end-state id="finListaPrecios"/>
+	
+</flow>
