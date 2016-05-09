@@ -15,8 +15,17 @@
    			
    		<put-attribute name="right"
    			value =""/>
-		
 	</definition>
 	
-  
+	 <definition name ="caja/cerrarCaja" extends ="layout">
+	    
+	    <put-attribute name="left"
+   			value ="/WEB-INF/views/caja/cierre/cajaForm.jsp"/>
+	    	
+		<put-attribute name="content"
+   			value =""/>
+   			
+   		<put-attribute name="right"
+   			value =""/>
+	</definition>
 </tiles-definitions>
