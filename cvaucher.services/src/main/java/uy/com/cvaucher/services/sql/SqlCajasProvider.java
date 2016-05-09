@@ -7,26 +7,24 @@ import uy.com.cvaucher.services.domain.Caja;
 public class SqlCajasProvider {
 	
 	public String aperturaCaja(){
-		
 		return new SQL(){{
 			SELECT("caja_id, caja_estado, caja_fecha, caja_hora, caja_usr");
-			FROM("cajas");
-			WHERE("caja_fecha = "+maxIdCaja());
-			
+			FROM("caja");
+			ORDER_BY("caja_id DESC LIMIT 1");
 		}}.toString();
 	}
-	private String maxIdCaja(){
-		return new SQL(){{
-			SELECT("MAX(caja_id)");
-			FROM("cajas");
-		}}.toString();
-	}
+	
 	public String insertCaja(final Caja caja){
 		return new SQL(){{
-			INSERT_INTO("cajas");
+			INSERT_INTO("caja");
 			
 			if(caja.getCajaEstado()!= null){
-				VALUES("caja_estado","#{cajaEstado}");
+				if(caja.getCajaEstado().equals("CERRADO")){
+					VALUES("caja_estado","'ABIERTO'");
+				}
+				else{
+					VALUES("caja_estado","'CERRADO'");
+				}
 			}
 			if(caja.getCajaFecha()!= null){
 				VALUES("caja_fecha","#{cajaFecha}");

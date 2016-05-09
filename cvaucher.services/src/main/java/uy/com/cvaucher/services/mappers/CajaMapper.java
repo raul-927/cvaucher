@@ -3,6 +3,7 @@ package uy.com.cvaucher.services.mappers;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
 
@@ -11,9 +12,9 @@ import uy.com.cvaucher.services.sql.SqlCajasProvider;
 
 public interface CajaMapper {
 	
-	@SelectProvider(type =SqlCajasProvider.class, method = "aperturaCaja")
+	@SelectProvider(type = SqlCajasProvider.class, method = "aperturaCaja")
 	@ResultMap("uy.com.cvaucher.services.mappers.CajaMapper.CajaResult")
-	void aperturaCaja();
+	Caja aperturaCaja();
 	
 	@InsertProvider(type =SqlCajasProvider.class, method ="insertCaja")
 	@Options(useGeneratedKeys=true, keyProperty="cajaId")

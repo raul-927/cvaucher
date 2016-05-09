@@ -3,6 +3,8 @@ package uy.com.cvaucher.services.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Caja implements Serializable {
 
 	/**
@@ -11,8 +13,10 @@ public class Caja implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int 	cajaId;
 	private String 	cajaEstado;
-	private Date 	cajaFecha;
-	private Date 	cajaHora;
+	
+	private String 	cajaFecha;
+	
+	private String 	cajaHora;
 	private String 	cajaUsr;
 	
 	public int getCajaId() {
@@ -27,16 +31,16 @@ public class Caja implements Serializable {
 	public void setCajaEstado(String cajaEstado) {
 		this.cajaEstado = cajaEstado;
 	}
-	public Date getCajaFecha() {
+	public String getCajaFecha() {
 		return cajaFecha;
 	}
-	public void setCajaFecha(Date cajaFecha) {
+	public void setCajaFecha(String cajaFecha) {
 		this.cajaFecha = cajaFecha;
 	}
-	public Date getCajaHora() {
+	public String getCajaHora() {
 		return cajaHora;
 	}
-	public void setCajaHora(Date cajaHora) {
+	public void setCajaHora(String cajaHora) {
 		this.cajaHora = cajaHora;
 	}
 	public String getCajaUsr() {
