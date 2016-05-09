@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+        
+     <!-- Inicio Variables caja, asientosContables, cuentas, domainUser-->
+	 <on-start>
+		<set name="flowScope.caja"
+			value="new uy.com.cvaucher.services.domain.Caja()"
+			type="uy.com.cvaucher.services.domain.Caja" />
+
+		<set name="flowScope.domainUser"
+			value="new uy.com.cvaucher.services.domain.DomainUser()"
+			type="uy.com.cvaucher.services.domain.DomainUser" />
+	 </on-start>
+	 
+	 <action-state id="aperturaCajaInicio">
+	     <evaluate expression="flowScope.caja = flowCajasController.aperturaCaja()"/>
+	 	<transition to ="decidoEstadoCaja"/>
+	 </action-state>
+	 <decision-state id="decidoEstadoCaja">
+	     <if test="flowScope.caja.cajaEstado == 'CERRADO'" then="aperturaCaja"/>
+	     <if test="flowScope.caja == null" then="aperturaCajaNull"/>
+	     <if test="flowScope.caja.cajaEstado == 'ABIERTO'" then="clausuraCaja"/>
+	 </decision-state>
+
+	 <!-- apertura Caja Null -->
+	 <action-state id="aperturaCajaNull">
+	     <evaluate expression="flowCajasController.insertarInicioCajaNull()"/>
+	     <transition to ="aperturaCaja"/>
+	 </action-state>
+	 <!-- aperturaCaja -->
+	<view-state id="aperturaCaja" view ="caja/aperturaCaja" model ="caja">
+		<on-render>		
+			<evaluate result ="viewScope.fecha" expression="flowCajasController.showDate()"/>
+			<evaluate result ="viewScope.hora"  expression ="flowCajasController.showHora()"/>
+			<evaluate result ="viewScope.user"	expression ="flowCajasController.showUser()"/>
+		</on-render>
+		<transition on="abrirCaja" to="finAbrirCaja" bind="true">
+		    <evaluate expression="flowCajasController.insertarInicioCaja(flowScope.caja)"/>
+		</transition>
+	</view-state>
+	 <!-- clausuraCaja -->
+	<view-state id="clausuraCaja" view ="caja/cerrarCaja" model ="caja">
+		<on-render>		
+			<evaluate result ="viewScope.fecha" expression="flowCajasController.showDate()"/>
+			<evaluate result ="viewScope.hora"  expression ="flowCajasController.showHora()"/>
+			<evaluate result ="viewScope.user"	expression ="flowCajasController.showUser()"/>
+		</on-render>
+		
+		<transition on="cerrarCaja" to="finCerrarCaja" bind="true">
+			<evaluate expression="flowCajasController.insertarInicioCaja(flowScope.caja)"/>
+		</transition>
+
+		<transition on ="direccionOk" to ="cargoPacientesEnAgenda"/>
+	</view-state>
+	
+	<!-- Cargo Pacientes en Agenda -->
+	<action-state id="cargoPacientesEnAgenda">
+	 	<evaluate  expression="flowScope.agenda.pacientes = flowScope.pacientes"/>
+	 	<transition to= "agendaInsert"/>
+	 </action-state>
+	
+	<!-- Agenda -->
+	<view-state id="agendaInsert" view ="agenda/insertAgenda" model ="agenda">
+		<on-render>
+			<evaluate result ="viewScope.tipage" expression="T(uy.com.cvaucher.services.enumerador.TipoAgenda).values()"/>
+			<evaluate result ="viewScope.ag" expression="flowPacientesController.findAgendaByCedula(flowScope.pacientes.cedula)"/>
+		</on-render>
+		
+		<transition on ="agendaIngresada" to ="agendaInsert">
+			<evaluate expression="flowPacientesController.insertAgenda(flowScope.agenda)"/>
+			<evaluate  expression="flowScope.agenda.pacientes = flowScope.pacientes"/>
+		</transition>
+
+		<transition on ="agendaIngresadaOK" to ="cargoPacientesEnHistoriaClinica"/>
+	</view-state>
+	
+	<!-- Cargo Pacientes en Historia Clinica -->
+	<action-state id="cargoPacientesEnHistoriaClinica">
+	 	<evaluate  expression="flowScope.historiaClinica.pacientes = flowScope.pacientes"/>
+	 	<transition to= "historiaClinicaInsert"/>
+	</action-state>
+	 
+	 <!-- Historia Clinica -->
+	<view-state id="historiaClinicaInsert" view ="historiaClinica/insertHistoriaClinica" model ="historiaClinica">
+		<transition on ="seguirIngresandoTratamiento" to ="cargoPacientesEnTratamientos">
+			<evaluate expression="flowPacientesController.insertHistoriaClinica(flowScope.historiaClinica)"/>
+		</transition>
+		<transition on ="historiaClinicaIngresado" to ="finIngresoPacientes">
+			<evaluate expression="flowPacientesController.insertHistoriaClinica(flowScope.historiaClinica)"/>
+		</transition>
+	</view-state>
+	 	
+	<!-- Cargo Pacientes en Tratamientos -->
+	 
+	<action-state id="cargoPacientesEnTratamientos">
+		 <evaluate expression="flowScope.tratamientoPaciente.pacientes = flowScope.pacientes"/>
+		<transition to ="tratamientoPacienteInsert"/>
+	</action-state>
+	
+	<!-- Tratamientos -->
+	<view-state id="tratamientoPacienteInsert" view ="tratamientoPaciente/insertTratamientoPaciente" model ="tratamientoPaciente">
+		<on-render>
+			<evaluate result ="viewScope.fechaHoy" expression ="flowPacientesController.getFecha()"/>
+			<evaluate result ="viewScope.tratP" expression="flowPacientesController.findAllTratamientoByActualList()"/>
+		</on-render>
+		
+		<transition on ="cantSesionesTratamiento" to ="tratamientoPacienteInsert">
+			<evaluate result ="flowScope.tratPacById" expression ="flowPacientesController.findTratamientoByActualListById(requestParameters.tratamId)"/>
+			<render fragments="showCantSes"/>
+		</transition>
+		
+		<transition on ="tratamientoPacienteIngresado" to ="seleccionoFormaDePago" bind="true">
+			 <evaluate expression="flowPacientesController.setTratamientoPaciente(flowScope.tratamientoPaciente)"/>
+			 <evaluate expression ="flowScope.importeTrat = flowPacientesController.getTratamientoPaciente().getCostoTratSesion()"/>
+		</transition>
+	</view-state>
+	
+	<view-state id ="seleccionoFormaDePago" view ="tratamientoPaciente/seleccionoFormaPago" model ="formPagosOptions">
+		<on-render>
+			<evaluate result ="viewScope.fpagoOption" expression="flowPacientesController.findAllFormasDePagos()"/>
+			<evaluate expression ="flowScope.aux = requestParameters.formaDePagoDesc"/>
+			<evaluate expression = "flowScope.aux2 = flowScope.tratamientoPaciente.costoTratSesion"/>
+		</on-render>
+		
+		<transition on ="FormaPagoSelect" to ="formaPagTipo"/>
+	</view-state>
+	
+	<action-state id="formaPagTipo">
+		<evaluate expression="flowScope.tipoFormPag = flowPacientesController.findFormPagoTipoByDesc(requestParameters.formaDePagoDesc)"/>
+		<transition to ="decisionFormaPago"/>
+	</action-state>
+	
+	<decision-state id="decisionFormaPago">
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'TC'" then="pagoTarjetaCredito"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'TD'" then="pagoTarjetaDebito"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'EF'" then="pagoEfectivo"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'CE'" then="pagoCreditoEfectivo"/>
+		<if test="flowScope.tipoFormPag.formasDePagoTipo == 'DP'" then="pagoDepositoBancario"/>
+	</decision-state>
+	
+	<!-- Tarjeta de Credito -->
+	<view-state id="pagoTarjetaCredito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
+		<on-render>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
+		</on-render>
+		
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
+		</transition>
+	</view-state>
+	
+	<!-- Tarjeta de Debito -->
+	<view-state id="pagoTarjetaDebito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
+		<on-render>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
+		</on-render>
+		
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
+		</transition>
+	</view-state>
+	
+	<!-- Pago Efectivo -->
+	<view-state id ="pagoEfectivo" view ="tratamientoPaciente/pagoEfectivo" model ="pagoEfectivo">
+		<on-render>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
+		</on-render>
+		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoEfectivo(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+		</transition>
+	</view-state>
+	
+	<!-- Pago Credito de la casa en Efectivo -->
+	<view-state id ="pagoCreditoEfectivo" view ="tratamientoPaciente/pagoCreditoEfectivo" model ="pagoEfectivo">
+		<on-render>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
+		</on-render>
+		<transition on ="finalizarIngresoTratamientoPagoCredito" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+		</transition>
+	</view-state>
+	
+	<!-- Pago Deposito Bancario -->
+	<view-state id ="pagoDepositoBancario" view ="tratamientoPaciente/pagoDepositoBancario" model ="pagoDepositoBancario">
+		<on-render>
+			<evaluate expression="flowScope.paciente = flowScope.pacientes"/>
+		</on-render>
+		<transition on ="finalizarIngresoTratamientoPagoCredito" to ="finIngresoTratamiento">
+			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+		</transition>
+	</view-state>
+	
+	<end-state id="finAbrirCaja"/>
+	<end-state id="finCerrarCaja"/>
+	<end-state id="cancelar"/>
+	
+</flow>
