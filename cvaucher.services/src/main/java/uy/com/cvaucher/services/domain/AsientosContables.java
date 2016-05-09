@@ -16,6 +16,7 @@ public class AsientosContables implements Serializable
 	private BigDecimal 	asconDebe;
 	private int 		asConHaberId;
 	private BigDecimal 	asConHaber;
+	private String		asConDescripcion;
 	private Date 		asConFecha;
 	private Date 		asConHora;
 	private String 		asConUsr;
@@ -67,6 +68,12 @@ public class AsientosContables implements Serializable
 	}
 	public void setAsConUsr(String asConUsr) {
 		this.asConUsr = asConUsr;
+	}
+	public String getAsConDescripcion() {
+		return asConDescripcion;
+	}
+	public void setAsConDescripcion(String asConDescripcion) {
+		this.asConDescripcion = asConDescripcion;
 	}
 	
 	
