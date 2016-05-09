@@ -168,6 +168,10 @@
 	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 		p:service-ref ="rolesService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.RolesInt"/>
+	<bean id ="httpCajaService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref ="cajaService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.CajaInt"/>
 	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -395,4 +399,14 @@
 		
 	</bean>
 	
+	<bean id ="urlMappingCaja"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.caja = httpCajaService
+			</value>
+		</property>	
+		
+	</bean>
 </beans>
