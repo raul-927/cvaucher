@@ -161,6 +161,9 @@
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.RolesInt"
 		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
-	
-	
+	<bean id ="cajaService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="${services.url}/cvaucher.caja"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.CajaInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 </beans>
