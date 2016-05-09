@@ -30,8 +30,7 @@
                 <li>
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cajas<b class="caret"></b></a>
 	                 <ul class="dropdown-menu">
-		                 <li><a href="<s:url value="/caja/apertura"/>">Apertura de Caja</a></li>
-		                 <li><a href="<s:url value="/caja/cierre"/>">Cierre de Caja</a></li>
+		                 <li><a href="<s:url value="/caja/apertura"/>">Abrir/Cerrar Caja</a></li>
 		                 <li class="divider"></li>
 		                 <li><a href="<s:url value="/caja/gastos"/>">Ingresar Gastos</a></li>
 		                 <li><a href="<s:url value="/caja/cobranza"/>">Ingresar Cobranza</a></li>
