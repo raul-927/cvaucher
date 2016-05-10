@@ -1,19 +1,18 @@
 package uy.com.cvaucher.services.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Cuentas  implements Serializable
 {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
-	private int cuentaId;
-	private String cuentaFormPagoDesc;
-	private int cuentaMonto;
-	private String cuentaTipoMovimiento;
-	private String cuentaFecha;
+	private int 			cuentaId;
+	private String 			cuentaDesc;
+	private Date 			cuentaFecha;
+	private Date 			cuentaHora;
+	private String			cuentaUsuario;
 	
 	public int getCuentaId() {
 		return cuentaId;
@@ -21,28 +20,28 @@ public class Cuentas  implements Serializable
 	public void setCuentaId(int cuentaId) {
 		this.cuentaId = cuentaId;
 	}
-	public String getCuentaFormPagoDesc() {
-		return cuentaFormPagoDesc;
+	public String getCuentaDesc() {
+		return cuentaDesc;
 	}
-	public void setCuentaFormPagoDesc(String cuentaFormPagoDesc) {
-		this.cuentaFormPagoDesc = cuentaFormPagoDesc;
+	public void setCuentaDesc(String cuentaDesc) {
+		this.cuentaDesc = cuentaDesc;
 	}
-	public int getCuentaMonto() {
-		return cuentaMonto;
-	}
-	public void setCuentaMonto(int cuentaMonto) {
-		this.cuentaMonto = cuentaMonto;
-	}
-	public String getCuentaTipoMovimiento() {
-		return cuentaTipoMovimiento;
-	}
-	public void setCuentaTipoMovimiento(String cuentaTipoMovimiento) {
-		this.cuentaTipoMovimiento = cuentaTipoMovimiento;
-	}
-	public String getCuentaFecha() {
+	public Date getCuentaFecha() {
 		return cuentaFecha;
 	}
-	public void setCuentaFecha(String cuentaFecha) {
+	public void setCuentaFecha(Date cuentaFecha) {
 		this.cuentaFecha = cuentaFecha;
+	}
+	public Date getCuentaHora() {
+		return cuentaHora;
+	}
+	public void setCuentaHora(Date cuentaHora) {
+		this.cuentaHora = cuentaHora;
+	}
+	public String getCuentaUsuario() {
+		return cuentaUsuario;
+	}
+	public void setCuentaUsuario(String cuentaUsuario) {
+		this.cuentaUsuario = cuentaUsuario;
 	}
 }
