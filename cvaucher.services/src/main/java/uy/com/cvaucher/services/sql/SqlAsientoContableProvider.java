@@ -12,6 +12,7 @@ public class SqlAsientoContableProvider {
 			WHERE("a.as_cuenta_debe = c.cuenta_id"); 	
 			WHERE("as_cuenta_haber	= c.cuenta_id");
 			WHERE("c.cuenta_id = #{cuentaId}");
+			WHERE("a.as_con_fecha = #{asConFecha}");
 		}}.toString();
 	}
 	
@@ -21,6 +22,7 @@ public class SqlAsientoContableProvider {
 			FROM("asiento_contable a, cuentas c"); 		 
 			WHERE("a.as_cuenta_debe = c.cuenta_id"); 	
 			WHERE("as_cuenta_haber	= c.cuenta_id");
+			WHERE("a.as_con_fecha = #{asConFecha}");
 			GROUP_BY("Cuenta");
 		}}.toString();
 	}
