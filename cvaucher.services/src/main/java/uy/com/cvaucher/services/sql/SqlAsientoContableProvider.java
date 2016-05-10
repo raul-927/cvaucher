@@ -5,17 +5,30 @@ import uy.com.cvaucher.services.domain.AsientoContable;
 
 public class SqlAsientoContableProvider {
 	
-	public String ingresarAsientoContable(){
+	public String ingresarAsientoContable(final AsientoContable asientoContable){
 		return new SQL(){{
 			INSERT_INTO("asiento_contable");
-			VALUES("as_cuenta_debe_id","#{asCuentaDebeId}");
+			if((asientoContable.getAsCuentaDebeId()>0)){
+				VALUES("as_cuenta_debe_id","#{asCuentaDebeId}");
+			}
 			VALUES("as_cuenta_debe","#{asCuentaDebe}");
-			VALUES("asCuentaHaberId","#{as_cuenta_haber_id}");
+			if((asientoContable.getAsCuentaHaberId()>0)){
+				VALUES("asCuentaHaberId","#{as_cuenta_haber_id}");
+			}
 			VALUES("as_cuenta_haber","#{asCuentaHaber}");
-			VALUES("asConDescripcion","#{as_con_descripcion}");
-			VALUES("asConFecha","#{as_con_fecha}");
-			VALUES("asConHora","#{as_con_hora}");
-			VALUES("asConUsr","#{as_con_usr}");
+			if(!asientoContable.getAsConDescripcion().equals(null)||!asientoContable.getAsConDescripcion().equals("")){
+				VALUES("asConDescripcion","#{as_con_descripcion}");
+			}
+			if(!asientoContable.getAsConFecha().equals(null)){
+				VALUES("asConFecha","#{as_con_fecha}");
+			}
+			if(!asientoContable.getAsConHora().equals(null)){
+				VALUES("asConHora","#{as_con_hora}");
+			}
+			if(!asientoContable.getAsConUsr().equals(null)){
+				VALUES("asConUsr","#{as_con_usr}");
+			}
+			
 		}}.toString();
 	}
 }
