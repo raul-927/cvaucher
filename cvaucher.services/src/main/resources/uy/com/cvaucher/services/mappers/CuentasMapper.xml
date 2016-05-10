@@ -7,9 +7,10 @@
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.Cuentas" id="CuentasResult">
   		<id property="cuentaId" column="cuenta_id"/>
-		<result property="cuentaFormPagoDesc" column="cuenta_form_pago_desc"/>
-		<result property ="cuentaMonto" column ="cuenta_monto"/>
-		<result property ="cuentaTipoMovimiento" column ="cuenta_tipo_movimiento"/>
+		<result property="cuentaDesc" column="cuenta_desc"/>
+		<result property ="cuentaFecha" column ="cuenta_fecha"/>
+		<result property ="cuentaHora" column ="cuenta_hora"/>
+		<result property ="cuentaUsuario" column ="cuenta_usuario"/>
   	</resultMap>
 
 </mapper>

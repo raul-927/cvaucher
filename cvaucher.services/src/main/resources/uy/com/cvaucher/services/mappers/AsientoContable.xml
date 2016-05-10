@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.AsientoContableMapper">
+		  	
+  	<resultMap type="uy.com.cvaucher.services.domain.AsientoContable" id="AsientoContableResult">
+  		<id	property = "asContId" 	column = "as_con_id"/>
+  		
+		<result property ="asCuentaDebeId" 		column	="as_cuenta_debe_id"/>
+		<result property ="asCuentaDebe" 		column 	="as_cuenta_debe"/>
+		<result property ="asCuentaHaberId" 	column 	="as_cuenta_haber_id"/>
+		<result property ="asCuentaHaber" 		column 	="as_cuenta_haber"/>
+		<result property ="asConDescripcion" 	column 	="as_con_descripcion"/>
+  		<result property ="asConFecha" 			column 	="as_con_fecha"/>
+  		<result property ="asConHora" 			column 	="as_con_hora"/>
+  		<result property ="asConUsr" 			column 	="as_con_usr"/>
+  	</resultMap>
+</mapper>
