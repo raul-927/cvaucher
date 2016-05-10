@@ -50,7 +50,6 @@ public class SqlAsientoContableProvider {
 			if(!asientoContable.getAsConUsr().equals(null)){
 				VALUES("asConUsr","#{as_con_usr}");
 			}
-			
 		}}.toString();
 	}
 }
