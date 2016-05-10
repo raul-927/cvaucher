@@ -5,6 +5,16 @@ import uy.com.cvaucher.services.domain.AsientoContable;
 
 public class SqlAsientoContableProvider {
 	
+	public String cuentaAsientoTotal(){
+		return new SQL(){{
+			SELECT("c.cuenta_desc Cuenta, SUM(a.as_cuenta_debe - a.as_cuenta_haber) Total"); 	 
+			FROM("asiento_contable a, cuentas c"); 		 
+			WHERE("a.as_cuenta_debe_id = c.cuenta_id"); 	
+			WHERE("as_cuenta_haber_id = c.cuenta_id");
+			WHERE("c.cuenta_id = #{cuentaId}");
+		}}.toString();
+	}
+	
 	public String ingresarAsientoContable(final AsientoContable asientoContable){
 		return new SQL(){{
 			INSERT_INTO("asiento_contable");
