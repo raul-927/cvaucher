@@ -12,10 +12,10 @@ public class AsientoContable implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	private int 		asContId;
-	private int 		asCuentaDebeId;
-	private BigDecimal 	asCuentaDebe;
-	private int 		asCuentaHaberId;
-	private BigDecimal 	asCuentaHaber;
+	private Cuentas		asCuentaDebe;
+	private BigDecimal 	asCuentaDebeMonto;
+	private Cuentas		asCuentaHaber;
+	private BigDecimal 	asCuentaHaberMonto;
 	private String		asConDescripcion;
 	private Date 		asConFecha;
 	private Date 		asConHora;
@@ -27,29 +27,29 @@ public class AsientoContable implements Serializable
 	public void setAsContId(int asContId) {
 		this.asContId = asContId;
 	}
-	public int getAsCuentaDebeId() {
-		return asCuentaDebeId;
-	}
-	public void setAsCuentaDebeId(int asCuentaDebeId) {
-		this.asCuentaDebeId = asCuentaDebeId;
-	}
-	public BigDecimal getAsCuentaDebe() {
+	public Cuentas getAsCuentaDebe() {
 		return asCuentaDebe;
 	}
-	public void setAsCuentaDebe(BigDecimal asCuentaDebe) {
+	public void setAsCuentaDebe(Cuentas asCuentaDebe) {
 		this.asCuentaDebe = asCuentaDebe;
 	}
-	public int getAsCuentaHaberId() {
-		return asCuentaHaberId;
+	public BigDecimal getAsCuentaDebeMonto() {
+		return asCuentaDebeMonto;
 	}
-	public void setAsCuentaHaberId(int asCuentaHaberId) {
-		this.asCuentaHaberId = asCuentaHaberId;
+	public void setAsCuentaDebeMonto(BigDecimal asCuentaDebeMonto) {
+		this.asCuentaDebeMonto = asCuentaDebeMonto;
 	}
-	public BigDecimal getAsCuentaHaber() {
+	public Cuentas getAsCuentaHaber() {
 		return asCuentaHaber;
 	}
-	public void setAsCuentaHaber(BigDecimal asCuentaHaber) {
+	public void setAsCuentaHaber(Cuentas asCuentaHaber) {
 		this.asCuentaHaber = asCuentaHaber;
+	}
+	public BigDecimal getAsCuentaHaberMonto() {
+		return asCuentaHaberMonto;
+	}
+	public void setAsCuentaHaberMonto(BigDecimal asCuentaHaberMonto) {
+		this.asCuentaHaberMonto = asCuentaHaberMonto;
 	}
 	public String getAsConDescripcion() {
 		return asConDescripcion;
