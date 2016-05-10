@@ -7,7 +7,7 @@
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.AsientoContable" id="AsientoContableResult">
   		<id	property = "asContId" 	column = "as_con_id"/>
-  		
+
 		<result property ="asCuentaDebe" 		column	="as_cuenta_debe"/>
 		<result property ="asCuentaDebeMonto"	column 	="as_cuenta_debe_monto"/>
 		<result property ="asCuentaHaber" 		column 	="as_cuenta_haber"/>
@@ -16,5 +16,10 @@
   		<result property ="asConFecha" 			column 	="as_con_fecha"/>
   		<result property ="asConHora" 			column 	="as_con_hora"/>
   		<result property ="asConUsr" 			column 	="as_con_usr"/>
+  	</resultMap>
+  	
+  	<resultMap type="uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal" id="CuentaAsientoResult">
+  		<result property ="descCuenta" column ="Cuenta"/>
+  		<result property ="total" column ="Total"/>
   	</resultMap>
 </mapper>

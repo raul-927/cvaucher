@@ -15,14 +15,24 @@ public class SqlAsientoContableProvider {
 		}}.toString();
 	}
 	
+	public String cuentasAsientoTotal(){
+		return new SQL(){{
+			SELECT("c.cuenta_desc Cuenta, SUM(a.as_cuenta_debeMonto - a.as_cuenta_haberMonto) Total"); 	 
+			FROM("asiento_contable a, cuentas c"); 		 
+			WHERE("a.as_cuenta_debe = c.cuenta_id"); 	
+			WHERE("as_cuenta_haber	= c.cuenta_id");
+			GROUP_BY("Cuenta");
+		}}.toString();
+	}
+	
 	public String ingresarAsientoContable(final AsientoContable asientoContable){
 		return new SQL(){{
 			INSERT_INTO("asiento_contable");
-			if((asientoContable.getAsCuentaDebeId()>0)){
+			if((asientoContable.getAsCuentaDebe().getCuentaId()>0)){
 				VALUES("as_cuenta_debe_id","#{asCuentaDebeId}");
 			}
 			VALUES("as_cuenta_debe","#{asCuentaDebe}");
-			if((asientoContable.getAsCuentaHaberId()>0)){
+			if((asientoContable.getAsCuentaHaber().getCuentaId()>0)){
 				VALUES("asCuentaHaberId","#{as_cuenta_haber_id}");
 			}
 			VALUES("as_cuenta_haber","#{asCuentaHaber}");
