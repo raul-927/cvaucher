@@ -35,20 +35,20 @@ public class SqlAsientoContableProvider {
 			}
 			VALUES("as_cuenta_debe","#{asCuentaDebe}");
 			if((asientoContable.getAsCuentaHaber().getCuentaId()>0)){
-				VALUES("asCuentaHaberId","#{as_cuenta_haber_id}");
+				VALUES("as_cuenta_haber_id","#{asCuentaHaberId}");
 			}
 			VALUES("as_cuenta_haber","#{asCuentaHaber}");
 			if(!asientoContable.getAsConDescripcion().equals(null)||!asientoContable.getAsConDescripcion().equals("")){
-				VALUES("asConDescripcion","#{as_con_descripcion}");
+				VALUES("as_con_descripcion","#{asConDescripcion}");
 			}
 			if(!asientoContable.getAsConFecha().equals(null)){
-				VALUES("asConFecha","#{as_con_fecha}");
+				VALUES("as_con_fecha","#{asConFecha}");
 			}
 			if(!asientoContable.getAsConHora().equals(null)){
-				VALUES("asConHora","#{as_con_hora}");
+				VALUES("as_con_hora","#{asConHora}");
 			}
 			if(!asientoContable.getAsConUsr().equals(null)){
-				VALUES("asConUsr","#{as_con_usr}");
+				VALUES("as_con_usr","#{asConUsr}");
 			}
 		}}.toString();
 	}
