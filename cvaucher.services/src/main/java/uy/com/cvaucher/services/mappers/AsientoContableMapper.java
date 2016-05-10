@@ -17,7 +17,7 @@ public interface AsientoContableMapper {
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.CuentaAsientoResult")
 	ResultadoCuentaAsientoTotal cuentaAsientoTotal();
 	
-	@SelectProvider(type = SqlAsientoContableProvider.class,  method="cuentaAsientoTotal")
+	@SelectProvider(type = SqlAsientoContableProvider.class,  method="cuentasAsientoTotal")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.CuentaAsientoResult")
 	List<ResultadoCuentaAsientoTotal> cuentasAsientoTotal();
 	
