@@ -1,9 +1,9 @@
 package uy.com.cvaucher.services.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,36 +19,48 @@ public class CuentasService implements CuentasInt
 	
 	@Autowired
 	private CuentasMapper cuentasMapper;
-	@Override
-	public void insertarCuentas(Cuentas cuentas) 
-	{
-		this.cuentasMapper.insertarCuentas(cuentas);
 
+	@Override
+	public void insertCuenta(Cuentas cuentas) {
+		this.cuentasMapper.insertCuenta(cuentas);
+		
 	}
 
 	@Override
-	public Cuentas showCuentaById(int cuentaId) {
-		// TODO Auto-generated method stub
-		return this.cuentasMapper.showCuentaById(cuentaId);
+	public Cuentas selectCuentaByCuentaDesc(String cuentaDesc) {
+		
+		return this.cuentasMapper.selectCuentaByCuentaDesc(cuentaDesc);
 	}
 
 	@Override
-	public List<Cuentas> showAllCuentas() {
-		// TODO Auto-generated method stub
-		return this.cuentasMapper.showAllCuentas();
+	public Cuentas selectCuentaByCuentaId(int cuentaId) {
+		
+		return this.cuentasMapper.selectCuentaByCuentaId(cuentaId);
 	}
 
 	@Override
-	public List<Cuentas> showCuentasByDescMov(String cuentaFormPagoDesc,
-			String cuentaTipoMovimiento) {
-		// TODO Auto-generated method stub
-		return this.cuentasMapper.showCuentasByDescMov(cuentaFormPagoDesc, cuentaTipoMovimiento);
+	public Cuentas selectCuentaByFecha(Date cuentaFecha) {
+		
+		return this.cuentasMapper.selectCuentaByFecha(cuentaFecha);
 	}
 
 	@Override
-	public List<Cuentas> showCuentasByDesc(String cuentaFormPagoDesc) {
-		// TODO Auto-generated method stub
-		return this.cuentasMapper.showCuentasByDesc(cuentaFormPagoDesc);
+	public Cuentas selectCuentaByHora(Date cuentaHora) {
+		
+		return this.cuentasMapper.selectCuentaByHora(cuentaHora);
 	}
 
+	@Override
+	public Cuentas selectCuentaByFechaHora(Date cuentaFecha, Date cuentaHora) {
+		
+		return this.cuentasMapper.selectCuentaByFechaHora(cuentaFecha, cuentaHora);
+	}
+
+	@Override
+	public List<Cuentas> selectAllCuentas() {
+		
+		return this.cuentasMapper.selectAllCuentas();
+	}
+	
+	
 }

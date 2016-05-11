@@ -1,49 +1,46 @@
 package uy.com.cvaucher.services.mappers;
 
+import java.util.Date;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 
 import uy.com.cvaucher.services.domain.Cuentas;
+import uy.com.cvaucher.services.sql.SqlCuentasProvider;
 
 public interface CuentasMapper {
 	
 	
-	@Insert("INSERT INTO cuentas "
-			+ "(cuenta_form_pago_desc, cuenta_monto, cuenta_tipo_movimiento) "
-			+ "VALUES "
-			+ "(#{cuentaFormPagoDesc}, #{cuentaMonto}, #{cuentaTipoMovimiento})")
+	@InsertProvider(type = SqlCuentasProvider.class, method ="insertCuenta")
 	@Options(useGeneratedKeys=true, keyProperty="cuentaId") 
-	void insertarCuentas(Cuentas cuentas);
+	void insertCuenta(Cuentas cuentas);
 	
-	@Select("SELECT cuenta_id, cuenta_form_pago_desc, cuenta_monto, cuenta_tipo_movimiento "
-			+ "FROM cuentas "
-			+ "WHERE cuenta_id = #{cuentaId}")
+	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByCuentaDesc")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
-	Cuentas showCuentaById(int cuentaId);
+	Cuentas selectCuentaByCuentaDesc(String cuentaDesc);
 	
-	@Select("SELECT cuenta_id, cuenta_form_pago_desc, cuenta_monto, cuenta_tipo_movimiento "
-			+ "FROM cuentas")
+	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByCuentaId")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
-	List<Cuentas> showAllCuentas();
+	Cuentas selectCuentaByCuentaId(final int cuentaId);
 	
-	@Select("SELECT cuenta_id, cuenta_form_pago_desc, cuenta_monto, cuenta_tipo_movimiento "
-			+ "FROM cuentas"
-			+ "WHERE cuenta_form_pago_desc = #{cuentaFormPagoDesc} "
-			+ "AND cuenta_tipo_movimiento = #{cuentaTipoMovimiento}")
+	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByFecha")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
-	List<Cuentas> showCuentasByDescMov(String cuentaFormPagoDesc, String cuentaTipoMovimiento);
+	Cuentas selectCuentaByFecha(Date cuentaFecha);
 	
-	@Select("SELECT cuenta_id, cuenta_form_pago_desc, cuenta_monto, cuenta_tipo_movimiento "
-			+ "FROM cuentas"
-			+ "WHERE cuenta_form_pago_desc = #{cuentaFormPagoDesc}")
+	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByHora")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
-	List<Cuentas> showCuentasByDesc(String cuentaFormPagoDesc);
+	Cuentas selectCuentaByHora(Date cuentaHora);
 	
+	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByFechaHora")
+	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
+	Cuentas selectCuentaByFechaHora(Date cuentaFecha, Date cuentaHora);
 	
+	@SelectProvider(type = SqlCuentasProvider.class, method ="selectAllCuentas")
+	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
+	List<Cuentas> selectAllCuentas();
 	
 
 }
