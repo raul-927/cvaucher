@@ -33,11 +33,11 @@ public interface CuentasMapper {
 	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByHora")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
 	Cuentas selectCuentaByHora(Date cuentaHora);
-	
+	/*
 	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByFechaHora")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
 	Cuentas selectCuentaByFechaHora(Date cuentaFecha, Date cuentaHora);
-	
+	*/
 	@SelectProvider(type = SqlCuentasProvider.class, method ="selectAllCuentas")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
 	List<Cuentas> selectAllCuentas();
