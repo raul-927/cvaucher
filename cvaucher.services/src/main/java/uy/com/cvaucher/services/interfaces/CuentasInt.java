@@ -11,7 +11,7 @@ public interface CuentasInt {
 	Cuentas selectCuentaByCuentaId(final int cuentaId);
 	Cuentas selectCuentaByFecha(Date cuentaFecha);
 	Cuentas selectCuentaByHora(Date cuentaHora);
-	Cuentas selectCuentaByFechaHora(Date cuentaFecha, Date cuentaHora);
+	//Cuentas selectCuentaByFechaHora(Date cuentaFecha, Date cuentaHora);
 	List<Cuentas> selectAllCuentas();
 	
 
