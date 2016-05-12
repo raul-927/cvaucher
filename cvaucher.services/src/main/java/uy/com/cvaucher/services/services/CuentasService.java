@@ -49,13 +49,13 @@ public class CuentasService implements CuentasInt
 		
 		return this.cuentasMapper.selectCuentaByHora(cuentaHora);
 	}
-
+/*
 	@Override
 	public Cuentas selectCuentaByFechaHora(Date cuentaFecha, Date cuentaHora) {
 		
 		return this.cuentasMapper.selectCuentaByFechaHora(cuentaFecha, cuentaHora);
 	}
-
+*/
 	@Override
 	public List<Cuentas> selectAllCuentas() {
 		
