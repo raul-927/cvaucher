@@ -1,0 +1,20 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+<!--<start id="tile_template"/>-->
+
+	 <definition name ="cuentas/cuentas" extends ="layout">
+	    
+	    <put-attribute name="left"
+   			value ="/WEB-INF/views/cuentas/cuentasForm.jsp"/>
+	    	
+		<put-attribute name="content"
+   			value =""/>
+   			
+   		<put-attribute name="right"
+   			value =""/>
+	</definition>
+	
+</tiles-definitions>
