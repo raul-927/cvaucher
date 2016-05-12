@@ -119,6 +119,15 @@
               </li>
               <li><a href='<s:url value="/formasDePagos?insert"/>'>Formas de Pagos</a></li>
               	<li class="divider"></li>
+              		<li class="dropdown-submenu">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contabilidad</a>
+                        <ul class="dropdown-menu">
+                        	<li><a href='<s:url value="/domain_user?insert"/>'>Cuentas</a></li>
+		                 	<li><a href='<s:url value="/domain_user?update"/>'>Tipos de Cuentas</a></li>
+		                 	<li><a href='<s:url value="/domain_user?delete"/>'>Asientos</a></li>
+		                </ul>	
+                    </li>    
+              	<li class="divider"></li>
               	 <li><a href='<s:url value="/formasDePagos?insert"/>'>Recursos Humanos</a></li>
                </security:authorize> 
                
