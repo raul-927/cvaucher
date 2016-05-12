@@ -57,7 +57,7 @@ public class SqlCuentasProvider {
 			WHERE("cuenta_hora = "+cuentaHora);
 		}}.toString();
 	}
-	
+/*
 	public String selectCuentaByFechaHora(final Date cuentaFecha, final Date cuentaHora){
 		return new SQL(){{
 			SELECT("cuenta_id, cuenta_desc, cuenta_fecha, cuenta_hora, cuenta_usuario");
@@ -66,7 +66,7 @@ public class SqlCuentasProvider {
 			WHERE("cuenta_hora = "+cuentaHora);
 		}}.toString();
 	}
-	
+*/
 	public String selectAllCuentas(){
 		return new SQL(){{
 			SELECT("cuenta_id, cuenta_desc, cuenta_fecha, cuenta_hora, cuenta_usuario");
