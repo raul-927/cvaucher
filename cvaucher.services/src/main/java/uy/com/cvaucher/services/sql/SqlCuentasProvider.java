@@ -72,7 +72,7 @@ public class SqlCuentasProvider {
 */
 	public String selectAllCuentas(){
 		return new SQL(){{
-			SELECT("cuenta_id, cuenta_desc, cuenta_fecha, cuenta_hora, cuenta_usuario");
+			SELECT("cuenta_id, cuenta_grupo_id, cuenta_desc, cuenta_fecha, cuenta_hora, cuenta_usuario");
 			FROM("cuentas");
 		}}.toString();
 	}
