@@ -118,6 +118,10 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>cvaucher</servlet-name>
+    <url-pattern>*.grupoCuentas</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.pagoTarjeta</url-pattern>
   </servlet-mapping>
   <servlet-mapping>

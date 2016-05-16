@@ -1,7 +1,7 @@
 package uy.com.cvaucher.services.enumerador;
 
 public enum TiposMovimientos {
-	DEBITO(1),CREDITO(2);
+	DEBE(1),HABER(2);
 	private int tipoMovimiento;
 	
 	TiposMovimientos(int tipoMovimiento)

@@ -9,6 +9,7 @@ public class Cuentas  implements Serializable
 	private static final long serialVersionUID = 1L;
 	
 	private int 			cuentaId;
+	private GrupoCuentas	grupoCuentas;
 	private String 			cuentaDesc;
 	private Date 			cuentaFecha;
 	private Date 			cuentaHora;
@@ -43,5 +44,11 @@ public class Cuentas  implements Serializable
 	}
 	public void setCuentaUsuario(String cuentaUsuario) {
 		this.cuentaUsuario = cuentaUsuario;
+	}
+	public GrupoCuentas getGrupoCuentas() {
+		return grupoCuentas;
+	}
+	public void setGrupoCuentas(GrupoCuentas grupoCuentas) {
+		this.grupoCuentas = grupoCuentas;
 	}
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.GrupoCuentasMapper">
+		  	
+  	<resultMap type="uy.com.cvaucher.services.domain.GrupoCuentas" id="GrupoCuentasResult">
+  		<id property="grupoCuentaId" column="grupo_cuenta_id"/>
+  		<result property ="tipoCuenta" column ="grupo_tipo_cuenta"/>
+		<result property="grupoCuentaDesc" column="grupo_cuenta_desc"/>
+  	</resultMap>
+
+</mapper>

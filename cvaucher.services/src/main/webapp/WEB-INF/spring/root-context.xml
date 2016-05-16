@@ -173,6 +173,11 @@
 		p:service-ref ="cajaService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.CajaInt"/>
 	
+	<bean id ="httpGrupoCuentasService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+		p:service-ref="grupoCuentasService"
+		p:serviceInterface="uy.com.cvaucher.services.interfaces.GrupoCuentasInt"/>
+	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -339,6 +344,17 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.cuentas = httpCuentasService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingGrupoCuentas"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.grupoCuentas = httpGrupoCuentasService
 			</value>
 		</property>	
 		

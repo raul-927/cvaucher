@@ -1,7 +1,7 @@
 package uy.com.cvaucher.services.enumerador;
 
 public enum SesionEstadoVigencia {
-	SIN_USAR(1,"Sin usar"),
+	VIGENTE(1,"Vigente"),
 	VENCIDA(2,"Vencida"),
 	UTILIZADA(3,"Utilizada");
 	private int opcion;

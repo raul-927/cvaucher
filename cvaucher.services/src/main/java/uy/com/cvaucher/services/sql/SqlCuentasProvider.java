@@ -14,6 +14,9 @@ public class SqlCuentasProvider {
 			if(!cuentas.getCuentaDesc().equals(null)){
 				VALUES("cuenta_desc","#{cuentaDesc}");
 			}
+			if(!cuentas.getGrupoCuentas().equals(null)){
+				VALUES("cuenta_grupo_id","#{grupoCuentas.grupoCuentaId}");
+			}
 			if(!cuentas.getCuentaFecha().equals(null)){
 				VALUES("cuenta_fecha","#{cuentaFecha}");
 			}
