@@ -52,7 +52,6 @@
 					 		<sf:radiobutton  cssClass ="form-control" path="auxListaPreciosId" value ="${auxP.auxListaPreciosId}"/>
 					 		<sf:errors path ="auxListaPreciosId" cssClass ="error"/>
 					 	</td>
-					 	
 					 </tr>
 				</c:forEach>
 			</tbody>		
