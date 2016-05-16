@@ -45,6 +45,8 @@ public class CuentasController
 		}
 		model.addAttribute(new Cuentas());
 		this.cuentasService.insertCuenta(cuentas);
+		model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
+		
 		
 		return "cuentas/cuentas";
 	}
