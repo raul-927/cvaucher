@@ -131,6 +131,12 @@
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.CuentasInt"
 		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 	
+	<bean id ="grupoCuentasService"
+		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="${services.url}/cvaucher.grupoCuentas"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.GrupoCuentasInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
+	
 	<bean id ="pagoTarjetaService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl ="${services.url}/cvaucher.pagoTarjeta"
