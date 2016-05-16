@@ -11,28 +11,21 @@
 		method ="POST" 
 		modelAttribute ="cuentas" >
 		 <fieldset style="width: 350px;">
-		 
-		 	<div class="form-group">
-			 	<sf:hidden cssClass ="form-control" path="cuentaFecha" size ="30"/>
+			 	<sf:hidden cssClass ="form-control" path="cuentaFecha" value ="${fecha}"/>
 			 	<sf:errors path ="cuentaFecha" cssClass ="error"/>
-		 	</div>
 		 	
-		 	<div class="form-group">
-			 	<sf:hidden cssClass ="form-control" path="cuentaHora" size ="30"/>
+			 	<sf:hidden cssClass ="form-control" path="cuentaHora"  value ="${hora}"/>
 			 	<sf:errors path ="cuentaHora" cssClass ="error"/>
-		 	</div>
 		 	
-		 	<div class="form-group">
-			 	<sf:hidden cssClass ="form-control" path="cuentaUsuario" size ="30"/>
+			 	<sf:hidden cssClass ="form-control" path="cuentaUsuario" value ="${user}"/>
 			 	<sf:errors path ="cuentaUsuario" cssClass ="error"/>
-		 	</div>
 		 	
 		 	<div class="form-group">
-		 	<sf:label path="grupoCuentas" for ="grupoCuentas">Seleccione un Grupo de Cuentas</sf:label>
-		 	<sf:select cssClass ="form-control" path="grupoCuentas" size ="1">
-		 		<sf:options items="${tipOpcion}" />
+		 	<sf:label path="grupoCuentas.grupoCuentaId" for ="grupoCuentas.grupoCuentaId">Seleccione un Grupo de Cuentas</sf:label>
+		 	<sf:select cssClass ="form-control" path="grupoCuentas.grupoCuentaId" size ="1">
+		 		<sf:options items="${allGrupoCuentas}" itemLabel="grupoCuentaDesc" itemValue="grupoCuentaId" />
 		 	</sf:select>
-		 	<sf:errors path ="grupoCuentas" cssClass ="error"/>
+		 	<sf:errors path ="grupoCuentas.grupoCuentaId" cssClass ="error"/>
 		 </div>
 		 	
 		 	<div class="form-group">
