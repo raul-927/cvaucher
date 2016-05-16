@@ -11,8 +11,8 @@ public class Cuentas  implements Serializable
 	private int 			cuentaId;
 	private GrupoCuentas	grupoCuentas;
 	private String 			cuentaDesc;
-	private Date 			cuentaFecha;
-	private Date 			cuentaHora;
+	private String 			cuentaFecha;
+	private String 			cuentaHora;
 	private String			cuentaUsuario;
 	
 	public int getCuentaId() {
@@ -27,16 +27,16 @@ public class Cuentas  implements Serializable
 	public void setCuentaDesc(String cuentaDesc) {
 		this.cuentaDesc = cuentaDesc;
 	}
-	public Date getCuentaFecha() {
+	public String getCuentaFecha() {
 		return cuentaFecha;
 	}
-	public void setCuentaFecha(Date cuentaFecha) {
+	public void setCuentaFecha(String cuentaFecha) {
 		this.cuentaFecha = cuentaFecha;
 	}
-	public Date getCuentaHora() {
+	public String getCuentaHora() {
 		return cuentaHora;
 	}
-	public void setCuentaHora(Date cuentaHora) {
+	public void setCuentaHora(String cuentaHora) {
 		this.cuentaHora = cuentaHora;
 	}
 	public String getCuentaUsuario() {

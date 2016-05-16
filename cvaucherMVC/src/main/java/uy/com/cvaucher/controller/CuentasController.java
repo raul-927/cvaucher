@@ -35,9 +35,17 @@ public class CuentasController
 	@RequestMapping(value ="/cuenta",params ="insert", method = RequestMethod.GET)
 	public String showInsertCuenta(Model model, Cuentas cuentas){
 		
+		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
+				getPrincipal();
 		model.addAttribute(new Cuentas());
+		model.addAttribute("user",user.getUsername());
+		model.addAttribute("fecha",this.showDate());
+		model.addAttribute("hora",this.showHora());
 		model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
 		model.addAttribute("allGrupoCuentas",this.grupoCuentasService.showAllGrupoCuentas());
+		System.out.println("user ==>> "+user.getUsername());
+		System.out.println("fecha ==>> "+this.showDate());
+		System.out.println("Hora ==>> "+this.showHora());
 		return "cuentas/cuentas";
 	}
 	
