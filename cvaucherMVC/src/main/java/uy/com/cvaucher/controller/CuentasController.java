@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import uy.com.cvaucher.services.interfaces.CuentasInt;
 import uy.com.cvaucher.services.domain.Cuentas;
+import uy.com.cvaucher.services.enumerador.TiposMovimientos;
 
 @Controller
 @RequestMapping("/cuentas")
@@ -24,24 +25,28 @@ public class CuentasController
 		this.cuentasService = cuentasService;
 	}
 	
-	@RequestMapping(value ="/detPac/{pacCedula}", method = RequestMethod.GET)
+	@RequestMapping(value ="/cuenta",params ="insert", method = RequestMethod.GET)
 	public String showInsertCuenta(Model model, Cuentas cuentas){
 		
 		model.addAttribute(new Cuentas());
+		model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
 		
-		return null;
+		return "cuentas/cuentas";
 	}
 	
-	@RequestMapping(value ="cuenta",params ="insert", method = RequestMethod.GET)
+	@RequestMapping(value ="/cuenta",params ="insert", method = RequestMethod.POST)
 	public String insertCuenta(Model model, @Valid Cuentas cuentas, BindingResult bindingResult){
 		if(bindingResult.hasErrors()){
+			
 			model.addAttribute(new Cuentas());
-			return "";
+			model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
+			
+			return "cuentas/cuentas";
 		}
 		model.addAttribute(new Cuentas());
 		this.cuentasService.insertCuenta(cuentas);
 		
-		return "";
+		return "cuentas/cuentas";
 	}
 	
 }
