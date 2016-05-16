@@ -44,8 +44,12 @@ public class CuentasController
 	@RequestMapping(value ="/cuenta",params ="insert", method = RequestMethod.POST)
 	public String insertCuenta(Model model, @Valid Cuentas cuentas, BindingResult bindingResult){
 		if(bindingResult.hasErrors()){
-			
+			UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
+					getPrincipal();
 			model.addAttribute(new Cuentas());
+			model.addAttribute("user",user.getUsername());
+			model.addAttribute("fecha",this.showDate());
+			model.addAttribute("hora",this.showHora());
 			model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
 			model.addAttribute("allGrupoCuentas",this.grupoCuentasService.showAllGrupoCuentas());
 			return "cuentas/cuentas";
@@ -53,11 +57,13 @@ public class CuentasController
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
 				getPrincipal();
 		model.addAttribute(new Cuentas());
-		this.cuentasService.insertCuenta(cuentas);
-		model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
+		
+		
 		model.addAttribute("user",user.getUsername());
 		model.addAttribute("fecha",this.showDate());
 		model.addAttribute("hora",this.showHora());
+		this.cuentasService.insertCuenta(cuentas);
+		model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
 		model.addAttribute("allGrupoCuentas",this.grupoCuentasService.showAllGrupoCuentas());
 		return "cuentas/cuentas";
 	}
