@@ -11,7 +11,7 @@
    			value ="/WEB-INF/views/cuentas/cuentasForm.jsp"/>
 	    	
 		<put-attribute name="content"
-   			value =""/>
+   			value ="/WEB-INF/views/cuentas/tableCuentas.jsp"/>
    			
    		<put-attribute name="right"
    			value =""/>

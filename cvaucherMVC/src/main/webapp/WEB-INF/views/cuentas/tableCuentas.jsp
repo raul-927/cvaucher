@@ -6,25 +6,25 @@
 <%@ page session="false" %>
 
 <table class="table table-hover table-bordered well well-sm">
-	<caption><h1>Caja</h1></caption>
+	<caption><h1>Cuentas</h1></caption>
 	
 	<thead>
 		<td>Id</td>
-		<td>Estado</td>
-		<td>Forma de pago</td>
-		<td>Monto</td>
-		<td>Tipo de Movimiento</td>
+		<td>Grupo</td>
+		<td>Descripcion</td>
+		<td>Fecha</td>
+		<td>Hora</td>
+		<td>Usuario</td>
 	</thead>
 		<tbody>
-			<c:forEach var="pac" items="${pac}">
+			<c:forEach var="muestroCuentas" items="${muestroCuentas}">
 				<tr>
-			  		<td>${pac.pacId}</td>
-					<td><a href="<s:url value="/detallep/detPac/${pac.cedula}"/>">${pac.cedula}</a></td>
-					<td >${pac.pacNombre}</td>
-					<td >${pac.pacApellido}</td>
-					<td >${pac.ocupacion}</td>
-					<td >${pac.sociedadMedica}</td>
-					<td >${pac.emergenciaMovil}</td>
+			  		<td>${muestroCuentas.cuentaId}</td>
+					<td >${muestroCuentas.grupoCuentas.grupoCuentaDesc}</td>
+					<td >${muestroCuentas.cuentaDesc}</td>
+					<td >${muestroCuentas.cuentaFecha}</td>
+					<td >${muestroCuentas.cuentaHora}</td>
+					<td >${muestroCuentas.cuentaUsuario}</td>
 				</tr>	
 			</c:forEach>
 		</tbody>
