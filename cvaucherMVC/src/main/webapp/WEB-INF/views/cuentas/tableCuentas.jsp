@@ -10,6 +10,7 @@
 	
 	<thead>
 		<td>Id</td>
+		<td>Tipo</td>
 		<td>Grupo</td>
 		<td>Descripcion</td>
 		<td>Fecha</td>
@@ -20,6 +21,7 @@
 			<c:forEach var="muestroCuentas" items="${muestroCuentas}">
 				<tr>
 			  		<td>${muestroCuentas.cuentaId}</td>
+			  		<td >${muestroCuentas.grupoCuentas.tipoCuenta}</td>
 					<td >${muestroCuentas.grupoCuentas.grupoCuentaDesc}</td>
 					<td >${muestroCuentas.cuentaDesc}</td>
 					<td >${muestroCuentas.cuentaFecha}</td>
