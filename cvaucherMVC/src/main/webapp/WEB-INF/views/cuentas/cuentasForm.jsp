@@ -13,37 +13,33 @@
 		 <fieldset style="width: 350px;">
 		 
 		 	<div class="form-group">
-			 	<sf:label path="cuentaDesc" for ="cuentaDesc">Descripcion</sf:label>
-			 	<sf:input cssClass ="form-control" path="cuentaDesc" size ="6"/>
-			 	<sf:errors path ="cuentaDesc" cssClass ="error"/>
+			 	<sf:hidden cssClass ="form-control" path="cuentaFecha" size ="30"/>
+			 	<sf:errors path ="cuentaFecha" cssClass ="error"/>
 		 	</div>
 		 	
 		 	<div class="form-group">
-			 	<sf:label path="cuentaFecha" for ="cuentaFecha">Fecha</sf:label>
-			 	<sf:input cssClass ="form-control" path="cuentaFecha" size ="30"/>
-			 	<sf:errors path ="cuentaFecha" cssClass ="error"/>
-		 	</div>
-		 	<div class="form-group">
-			 	<sf:label path="cuentaHora" for ="cuentaHora">Hora</sf:label>
-			 	<sf:input cssClass ="form-control" path="cuentaHora" size ="30"/>
+			 	<sf:hidden cssClass ="form-control" path="cuentaHora" size ="30"/>
 			 	<sf:errors path ="cuentaHora" cssClass ="error"/>
 		 	</div>
 		 	
 		 	<div class="form-group">
-			 	<sf:label path="cuentaUsuario" for ="cuentaUsuario">Usuario</sf:label>
-			 	<sf:input cssClass ="form-control" path="cuentaUsuario" size ="30"/>
+			 	<sf:hidden cssClass ="form-control" path="cuentaUsuario" size ="30"/>
 			 	<sf:errors path ="cuentaUsuario" cssClass ="error"/>
 		 	</div>
-
+		 	
 		 	<div class="form-group">
-		 	<sf:label path="formPagTipo" for ="formPagTipo">Tipos de Pago</sf:label>
-		 	<sf:select cssClass ="form-control" path="formPagTipo" size ="1">
-		 		
-		 		<sf:options items="${tiposPagos}" />
-	
+		 	<sf:label path="grupoCuentas" for ="grupoCuentas">Seleccione un Grupo de Cuentas</sf:label>
+		 	<sf:select cssClass ="form-control" path="grupoCuentas" size ="1">
+		 		<sf:options items="${tipOpcion}" />
 		 	</sf:select>
-		 	<sf:errors path ="formPagTipo" cssClass ="error"/>
+		 	<sf:errors path ="grupoCuentas" cssClass ="error"/>
 		 </div>
+		 	
+		 	<div class="form-group">
+			 	<sf:label path="cuentaDesc" for ="cuentaDesc">Descripcion</sf:label>
+			 	<sf:input cssClass ="form-control" path="cuentaDesc" size ="6"/>
+			 	<sf:errors path ="cuentaDesc" cssClass ="error"/>
+		 	</div>
 
 		 </fieldset>
 		 <div class="botonForm">
