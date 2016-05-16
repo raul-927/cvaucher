@@ -7,11 +7,12 @@
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.Cuentas" id="CuentasResult">
   		<id property="cuentaId" column="cuenta_id"/>
-  		<result property ="grupoCuentas.grupoCuentaId" column ="cuenta_grupo_id"/>
 		<result property="cuentaDesc" column="cuenta_desc"/>
 		<result property ="cuentaFecha" column ="cuenta_fecha"/>
 		<result property ="cuentaHora" column ="cuenta_hora"/>
 		<result property ="cuentaUsuario" column ="cuenta_usuario"/>
+		
+		<association  property ="grupoCuentas" resultMap ="uy.com.cvaucher.services.mappers.GrupoCuentasMapper.GrupoCuentasResult"/>
   	</resultMap>
 
 </mapper>

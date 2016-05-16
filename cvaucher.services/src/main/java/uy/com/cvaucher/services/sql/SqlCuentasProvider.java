@@ -72,8 +72,9 @@ public class SqlCuentasProvider {
 */
 	public String selectAllCuentas(){
 		return new SQL(){{
-			SELECT("cuenta_id, cuenta_grupo_id, cuenta_desc, cuenta_fecha, cuenta_hora, cuenta_usuario");
-			FROM("cuentas");
+			SELECT("c.cuenta_id, g.grupo_tipo_cuenta, g.grupo_cuenta_desc, c.cuenta_desc, c.cuenta_fecha, c.cuenta_hora, c.cuenta_usuario");
+			FROM("cuentas c, grupo_cuentas g");
+			WHERE("c.cuenta_grupo_id = g.grupo_cuenta_id");
 		}}.toString();
 	}
 }

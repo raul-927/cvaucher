@@ -22,7 +22,7 @@
 		 	
 		 	<div class="form-group">
 		 	<sf:label path="grupoCuentas.grupoCuentaId" for ="grupoCuentas.grupoCuentaId">Seleccione un Grupo de Cuentas</sf:label>
-		 	<sf:select cssClass ="form-control" path="grupoCuentas.grupoCuentaId" size ="1">
+		 	<sf:select cssClass ="form-control" path="grupoCuentas.grupoCuentaId">
 		 		<sf:options items="${allGrupoCuentas}" itemLabel="grupoCuentaDesc" itemValue="grupoCuentaId" />
 		 	</sf:select>
 		 	<sf:errors path ="grupoCuentas.grupoCuentaId" cssClass ="error"/>
