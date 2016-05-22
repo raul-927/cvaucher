@@ -75,6 +75,7 @@ public class SqlCuentasProvider {
 			SELECT("c.cuenta_id, g.grupo_tipo_cuenta, g.grupo_cuenta_desc, c.cuenta_desc, c.cuenta_fecha, c.cuenta_hora, c.cuenta_usuario");
 			FROM("cuentas c, grupo_cuentas g");
 			WHERE("c.cuenta_grupo_id = g.grupo_cuenta_id");
+			ORDER_BY("c.cuenta_id");
 		}}.toString();
 	}
 }
