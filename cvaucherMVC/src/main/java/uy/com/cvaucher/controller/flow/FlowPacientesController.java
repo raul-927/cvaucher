@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.Agenda;
+import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
@@ -26,6 +27,7 @@ import uy.com.cvaucher.services.domain.TratPacByCedula;
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
+import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.interfaces.HistoriaClinicaInt;
@@ -43,6 +45,7 @@ public class FlowPacientesController
 	private final HistoriaClinicaInt		historiaClinicaServices;
 	private final TratamientoPacienteInt	tratamientoPacienteServices;
 	private final FormasDePagosInt			formasDePagosServices;
+	private final AsientoContableInt		asientoContableServices;
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
 	private TratamientoPaciente				tratamientoPaciente;
@@ -54,7 +57,8 @@ public class FlowPacientesController
 									TratamientoInt			tratamientoServices,
 									HistoriaClinicaInt		historiaClinicaServices,
 									TratamientoPacienteInt 	tratamientoPacienteServices,
-									FormasDePagosInt		formasDePagosServices)
+									FormasDePagosInt		formasDePagosServices,
+									AsientoContableInt		asientoContableServices)
 	{
 		this.pacientesServices			 = pacientesServices;
 		this.tratamientoServices		 = tratamientoServices;
@@ -63,6 +67,7 @@ public class FlowPacientesController
 		this.historiaClinicaServices 	 = historiaClinicaServices;
 		this.tratamientoPacienteServices = tratamientoPacienteServices;
 		this.formasDePagosServices 		 = formasDePagosServices;
+		this.asientoContableServices	 = asientoContableServices;
 	}
 	
 	public void insertPacientes(Pacientes pacientes)
@@ -231,7 +236,10 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
 	{
+		AsientoContable asientoContable = null;
 		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo);
+		
+		this.asientoContableServices.ingresarAsientoContable(asientoContable);
 	}
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
