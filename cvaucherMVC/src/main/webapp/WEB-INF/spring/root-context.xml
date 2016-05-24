@@ -172,4 +172,10 @@
 		p:serviceUrl ="${services.url}/cvaucher.caja"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.CajaInt"
 		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
+	
+	<bean id ="asientoContableService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="${services.url}/cvaucher.asientoContable"
+		p:serviceInterface = "uy.com.cvaucher.services.interfaces.AsientoContableInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 </beans>
