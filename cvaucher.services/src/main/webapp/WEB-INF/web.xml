@@ -148,5 +148,9 @@
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.caja</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>cvaucher</servlet-name>
+    <url-pattern>*.asientoContable</url-pattern>
+  </servlet-mapping>
 
 </web-app>

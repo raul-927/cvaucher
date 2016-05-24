@@ -178,6 +178,11 @@
 		p:service-ref="grupoCuentasService"
 		p:serviceInterface="uy.com.cvaucher.services.interfaces.GrupoCuentasInt"/>
 	
+	<bean id ="httpAsientoContableService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+	    p:service-ref="asientoContableService"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.AsientoContableInt"/>
+	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -421,6 +426,17 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.caja = httpCajaService
+			</value>
+		</property>	
+		
+	</bean>
+	
+	<bean id ="urlMappingAsientoContable"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		
+		<property name="mappings">
+			<value>
+				/cvaucher.asientoContable = httpAsientoContableService
 			</value>
 		</property>	
 		
