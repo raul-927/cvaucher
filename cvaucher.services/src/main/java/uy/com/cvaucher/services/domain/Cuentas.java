@@ -10,9 +10,16 @@ public class Cuentas  implements Serializable
 	
 	private int 			cuentaId;
 	private GrupoCuentas	grupoCuentas;
+	private FormasDePagos	formasDePagos;
 	private String 			cuentaDesc;
 	private String 			cuentaFecha;
 	private String 			cuentaHora;
+	public FormasDePagos getFormasDePagos() {
+		return formasDePagos;
+	}
+	public void setFormasDePagos(FormasDePagos formasDePagos) {
+		this.formasDePagos = formasDePagos;
+	}
 	private String			cuentaUsuario;
 	
 	public int getCuentaId() {

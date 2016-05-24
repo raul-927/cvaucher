@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
+import uy.com.cvaucher.services.domain.AsientoContable;
+import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistorialPagos;
 import uy.com.cvaucher.services.domain.MaxTratPacId;
@@ -113,6 +115,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		int c = cvaucher.holaMundo(a, b);
 		System.out.println("Desde Java, La suma de " +a+ " + " +b+ " = "+c);
 		*/
+		
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
 		MaxTratPacId maxTratPacId = new MaxTratPacId();
 		SearchMaxTratPacId search = new SearchMaxTratPacId();
@@ -120,7 +123,12 @@ public class FormasDePagosService implements FormasDePagosInt
 		search.setFecha(tratamientoPaciente.getFecha());
 		search.setTratId(tratamientoPaciente.getTratamId());
 		HistorialPagos historialPagos = new HistorialPagos();
-		
+		List<FormasDePagos> formasDePago = this.formasDePagosMapper.findAllFormasDePagos();
+		AsientoContable asientoContable = new AsientoContable();
+		Cuentas asCuentaDebe = new Cuentas();
+		asCuentaDebe.setCuentaId(1);
+		asientoContable.setAsCuentaDebe(asCuentaDebe);
+		asientoContable.setAsCuentaDebeMonto(pagoEfectivo.getPagoEfImporte());
 		int maxId = this.tratamientoPacienteMapper.findMaxTratPacId(search).getMaxId();
 		maxTratPacId.setMaxId(maxId);
 		historialPagos.setHistTratPacId(maxTratPacId.getMaxId());
@@ -136,6 +144,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
+		
 	}
 	
 	@Override

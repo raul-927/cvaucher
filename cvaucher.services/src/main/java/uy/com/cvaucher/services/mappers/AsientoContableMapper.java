@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.SelectProvider;
 
+import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.sql.SqlAsientoContableProvider;
 
@@ -23,7 +24,7 @@ public interface AsientoContableMapper {
 	
 	@InsertProvider(type =SqlAsientoContableProvider.class, method ="ingresarAsientoContable")
 	@Options(useGeneratedKeys=true, keyProperty="asContId")
-	void ingresarAsientoContable();
+	void ingresarAsientoContable(AsientoContable asientoContable);
 	
 	
 
