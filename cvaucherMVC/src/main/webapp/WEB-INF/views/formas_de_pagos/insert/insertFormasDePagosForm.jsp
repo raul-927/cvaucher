@@ -33,7 +33,16 @@
 		 	</sf:select>
 		 	<sf:errors path ="formPagTipo" cssClass ="error"/>
 		 </div>
-
+		 
+		 <div class="form-group">
+			 	<sf:label path="cuentas.cuentaId" for ="cuentas.cuentaId">Cuentas</sf:label>
+			 	<sf:select cssClass ="form-control" path="cuentas.cuentaId" size ="1" id="descCAT">
+			 		
+			 		<sf:options items="${cuentas}" itemLabel="cuentaDesc" itemValue="cuentaId" />
+			 		
+			 	</sf:select>
+			 	<sf:errors path ="cuentas.cuentaId" cssClass ="error"/>
+		 </div>
 		 </fieldset>
 		 <div class="botonForm">
 		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar"/>

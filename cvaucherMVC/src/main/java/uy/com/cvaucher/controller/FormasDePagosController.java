@@ -12,17 +12,19 @@ import org.springframework.ui.Model;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.enumerador.TiposFormasDePagos;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
-
+import uy.com.cvaucher.services.interfaces.CuentasInt;
 
 @Controller
 @RequestMapping("/formasDePagos")
 public class FormasDePagosController 
 {
 	private final FormasDePagosInt formasDePagosServices;
+	private final CuentasInt		cuentasService;
 	@Autowired
-	public FormasDePagosController(FormasDePagosInt formasDePagosServices)
+	public FormasDePagosController(FormasDePagosInt formasDePagosServices, CuentasInt cuentasService)
 	{
 		this.formasDePagosServices = formasDePagosServices;
+		this.cuentasService = cuentasService;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, params = "insert")
@@ -32,6 +34,7 @@ public class FormasDePagosController
 		model.addAttribute(new FormasDePagos());
 		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
 		model.addAttribute("tiposPagos",TiposFormasDePagos.values());
+		model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
 		return "formasDePagos/insertFormasDePagos";
 	}
 	
@@ -44,11 +47,13 @@ public class FormasDePagosController
 			model.addAttribute(new FormasDePagos());
 			model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
 			model.addAttribute("tiposPagos",TiposFormasDePagos.values());
+			model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
 		}
 		this.formasDePagosServices.insertFormasDePagos(formasDePagos);
 		model.addAttribute(new FormasDePagos());
 		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
 		model.addAttribute("tiposPagos",TiposFormasDePagos.values());
+		model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
 		
 		return "formasDePagos/insertFormasDePagos";
 	}

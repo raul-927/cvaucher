@@ -128,7 +128,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		Cuentas asCuentaDebe = new Cuentas();
 		asCuentaDebe.setCuentaId(1);
 		asientoContable.setAsCuentaDebe(asCuentaDebe);
-		asientoContable.setAsCuentaDebeMonto(pagoEfectivo.getPagoEfImporte());
+		//asientoContable.setAsCuentaDebeMonto(pagoEfectivo.getPagoEfImporte());
 		int maxId = this.tratamientoPacienteMapper.findMaxTratPacId(search).getMaxId();
 		maxTratPacId.setMaxId(maxId);
 		historialPagos.setHistTratPacId(maxTratPacId.getMaxId());

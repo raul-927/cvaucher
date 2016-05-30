@@ -12,7 +12,6 @@
 		<result property ="cuentaHora" column ="cuenta_hora"/>
 		<result property ="cuentaUsuario" column ="cuenta_usuario"/>
 		
-		<association  property ="formasDePagos" resultMap ="uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult"/>
 		<association  property ="grupoCuentas" resultMap ="uy.com.cvaucher.services.mappers.GrupoCuentasMapper.GrupoCuentasResult"/>
   	</resultMap>
 

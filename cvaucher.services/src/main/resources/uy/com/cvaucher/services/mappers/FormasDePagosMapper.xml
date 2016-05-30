@@ -10,7 +10,10 @@
 		<result property="formPagDesc" column="form_pag_desc"/>
 		<result property ="formPagAbreviacion" column ="form_pag_abreviacion"/>
 		<result property ="formPagTipo" column ="form_pag_tipo"/>
+		
+		<association property = "cuentas" resultMap ="uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult"/>
   	</resultMap>
+  	
   	
   	<resultMap type="uy.com.cvaucher.services.clases.FormasDePagosDesc" id="FormasDePagoDescResult">
   		<result property ="formasDePagoDesc" column ="Abreviacion"/>
