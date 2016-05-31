@@ -54,7 +54,6 @@ public class FormasDePagosController
 		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
 		model.addAttribute("tiposPagos",TiposFormasDePagos.values());
 		model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
-		
 		return "formasDePagos/insertFormasDePagos";
 	}
 }

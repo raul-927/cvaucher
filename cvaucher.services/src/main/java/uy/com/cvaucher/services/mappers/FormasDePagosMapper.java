@@ -13,7 +13,9 @@ import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 
 public interface FormasDePagosMapper 
 {
-	@Select("SELECT form_pag_id, form_pag_abreviacion, form_pag_desc, form_pag_tipo FROM formas_de_pagos")
+	@Select("SELECT f.form_pag_id, f.form_pag_abreviacion, f.form_pag_desc, f.form_pag_tipo, c.cuenta_desc FROM formas_de_pagos f, cuentas c "
+			+ "WHERE f.form_pag_cuenta_id = c.cuenta_id")
+	
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
 	List<FormasDePagos> findAllFormasDePagos();
 	
@@ -26,7 +28,7 @@ public interface FormasDePagosMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
 	FormasDePagos findFormasDePagosById(Integer formPagId);
 	
-	@Insert("INSERT INTO formas_de_pagos (form_pag_abreviacion, form_pag_desc, form_pag_tipo)VALUES(#{formPagAbreviacion}, #{formPagDesc}, #{formPagTipo})")
+	@Insert("INSERT INTO formas_de_pagos (form_pag_abreviacion, form_pag_desc, form_pag_tipo, form_pag_cuenta_id)VALUES(#{formPagAbreviacion}, #{formPagDesc}, #{formPagTipo}, #{cuentas.cuentaId})")
 	@Options(useGeneratedKeys=true, keyProperty="formPagId")
 	void insertFormasDePagos(FormasDePagos formasDePagos);
 	

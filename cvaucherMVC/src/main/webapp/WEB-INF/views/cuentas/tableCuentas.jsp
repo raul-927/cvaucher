@@ -10,7 +10,6 @@
 	
 	<thead>
 		<td>Id</td>
-		<td>Forma de Pago</td>
 		<td>Tipo</td>
 		<td>Grupo</td>
 		<td>Descripcion</td>
@@ -22,7 +21,6 @@
 			<c:forEach var="muestroCuentas" items="${muestroCuentas}">
 				<tr>
 			  		<td>${muestroCuentas.cuentaId}</td>
-			  		<td>${muestroCuentas.formasDePagos.formPagAbreviacion}</td>
 			  		<td >${muestroCuentas.grupoCuentas.tipoCuenta}</td>
 					<td >${muestroCuentas.grupoCuentas.grupoCuentaDesc}</td>
 					<td >${muestroCuentas.cuentaDesc}</td>

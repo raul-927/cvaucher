@@ -117,13 +117,15 @@
 		                <li class="divider"></li>
 		            </ul>
               </li>
-              <li><a href='<s:url value="/formasDePagos?insert"/>'>Formas de Pagos</a></li>
+              
               	<li class="divider"></li>
               		<li class="dropdown-submenu">
                     	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contabilidad</a>
                         <ul class="dropdown-menu">
+                        	<li><a href='<s:url value="/grupo_cuentas?insert"/>'>Grupos de Cuentas</a></li>
                         	<li><a href='<s:url value="/cuentas/cuenta?insert"/>'>Cuentas</a></li>
-		                 	<li><a href='<s:url value="/grupo_cuentas?insert"/>'>Grupos de Cuentas</a></li>
+                        	<li><a href='<s:url value="/formasDePagos?insert"/>'>Formas de Pagos</a></li>
+                        	<li class="divider"></li>
 		                 	<li><a href='<s:url value="/domain_user?delete"/>'>Asientos</a></li>
 		                </ul>	
                     </li>    

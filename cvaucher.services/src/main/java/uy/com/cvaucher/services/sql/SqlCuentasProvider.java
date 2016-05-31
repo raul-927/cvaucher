@@ -75,7 +75,6 @@ public class SqlCuentasProvider {
 			SELECT("c.cuenta_id, f.form_pag_abreviacion, g.grupo_tipo_cuenta, g.grupo_cuenta_desc, c.cuenta_desc, c.cuenta_fecha, c.cuenta_hora, c.cuenta_usuario");
 			FROM("cuentas c, grupo_cuentas g, formas_de_pagos f");
 			WHERE("c.cuenta_grupo_id = g.grupo_cuenta_id");
-			WHERE("c.cuenta_form_pago_id = f.form_pag_id");
 			ORDER_BY("c.cuenta_id");
 		}}.toString();
 	}
