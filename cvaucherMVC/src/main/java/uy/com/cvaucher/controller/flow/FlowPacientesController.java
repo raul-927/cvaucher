@@ -97,6 +97,7 @@ public class FlowPacientesController
 	public void setTratamientoPaciente(TratamientoPaciente tratamientoPaciente)
 	{
 		this.tratamientoPaciente = tratamientoPaciente;
+		
 	}
 	public TratamientoPaciente getTratamientoPaciente()
 	{
@@ -235,6 +236,7 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
+		
 		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	

@@ -189,7 +189,7 @@ public class FormasDePagosService implements FormasDePagosInt
 				concat(String.valueOf(segundos)));
 		Cuentas cuentaDebe = new Cuentas();
 		Cuentas cuentaHaber = new Cuentas();
-		cuentaDebe.setCuentaId(idCuenta);
+		cuentaDebe.setCuentaId(tratamientoPaciente.getTratamId());
 		cuentaHaber.setCuentaId(idCuenta);
 		BigDecimal debe = new BigDecimal(historialPagos.getHistPagosMonto());
 		BigDecimal haber = new BigDecimal(historialPagos.getHistPagosMonto());
