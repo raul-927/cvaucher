@@ -19,7 +19,7 @@ public interface FormasDePagosMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
 	List<FormasDePagos> findAllFormasDePagos();
 	
-	@Select("SELECT form_pag_abreviacion Abreviacion, form_pag_tipo Tipo FROM formas_de_pagos "
+	@Select("SELECT form_pag_abreviacion Abreviacion, form_pag_tipo Tipo, form_pag_cuenta_id Cuenta FROM formas_de_pagos "
 			+ "WHERE form_pag_abreviacion = #{formPagoDesc}")
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagoDescResult")
 	FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc);

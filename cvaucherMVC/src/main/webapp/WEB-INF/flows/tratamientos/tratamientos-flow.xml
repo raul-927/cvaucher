@@ -90,7 +90,7 @@
 		</on-render>
 		
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
-			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta, flowScope.tipoFormPag.cuentas.cuentaId)"/>
 		</transition>
 	</view-state>
 	

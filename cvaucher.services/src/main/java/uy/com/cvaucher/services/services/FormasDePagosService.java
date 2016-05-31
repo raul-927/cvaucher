@@ -16,6 +16,7 @@ import uy.com.cvaucher.services.domain.PagoEfectivo;
 import uy.com.cvaucher.services.domain.PagoTarjeta;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
+import uy.com.cvaucher.services.mappers.AsientoContableMapper;
 import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 
 import uy.com.cvaucher.services.mappers.HistorialPagosMapper;
@@ -43,6 +44,9 @@ public class FormasDePagosService implements FormasDePagosInt
 	
 	@Autowired
 	private HistorialPagosMapper historialPagosMapper;
+	
+	@Autowired 
+	private AsientoContableMapper asientoContableMapper;
 
 	@Override
 	public List<FormasDePagos> findAllFormasDePagos() 
@@ -76,7 +80,7 @@ public class FormasDePagosService implements FormasDePagosInt
 
 	@Override
 	@Transactional
-	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta) 
+	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, int idCuenta) 
 	{
 		
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
@@ -100,13 +104,21 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		tratamientoPaciente.setTratPacId(maxTratPacId.getMaxId());
 		tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
-		
+		Cuentas cuentaDebe = new Cuentas();
+		Cuentas cuentaHaber = new Cuentas();
+		cuentaDebe.setCuentaId(idCuenta);
+		AsientoContable asientoContable = new AsientoContable();
+		asientoContable.setAsCuentaDebe(cuentaDebe);
+		asientoContable.setAsCuentaDebeMonto(historialPagos.getHistPagosMonto());
+		asientoContable.setAsCuentaHaber(cuentaHaber);
+		asientoContable.setAsCuentaHaberMonto(historialPagos.getHistPagosMonto());
+		this.asientoContableMapper.ingresarAsientoContable(asientoContable);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 	}
 	
 	@Override
 	@Transactional
-	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
+	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo, int idCuenta)
 	{
 		/*System.out.println("Inicio de CvaucherJni");
 		CvaucherJni cvaucher = new CvaucherJni();
@@ -149,7 +161,7 @@ public class FormasDePagosService implements FormasDePagosInt
 	
 	@Override
 	@Transactional
-	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
+	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo, int idCuenta)
 	{
 
 		tratamientoPaciente.setImportePagado(pagoEfectivo.getPagoEfImporte());
