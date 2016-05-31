@@ -233,6 +233,7 @@ REPLACE INTO `agenda` (`ag_pac_Id`, `ag_tipo`, `ag_dato`, `pac_cedula`) VALUES
 -- Volcando estructura para tabla est_vaucher.asiento_contable
 CREATE TABLE IF NOT EXISTS `asiento_contable` (
   `as_con_id` int(11) NOT NULL AUTO_INCREMENT,
+  `as_con_nro` int(11) NOT NULL DEFAULT '0',
   `as_cuenta_debe` int(11) DEFAULT NULL,
   `as_cuenta_debeMonto` decimal(10,0) DEFAULT '0',
   `as_cuenta_haber` int(11) DEFAULT NULL,
@@ -246,9 +247,9 @@ CREATE TABLE IF NOT EXISTS `asiento_contable` (
 
 -- Volcando datos para la tabla est_vaucher.asiento_contable: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `asiento_contable` DISABLE KEYS */;
-REPLACE INTO `asiento_contable` (`as_con_id`, `as_cuenta_debe`, `as_cuenta_debeMonto`, `as_cuenta_haber`, `as_cuenta_haberMonto`, `as_con_descripcion`, `as_con_fecha`, `as_con_hora`, `as_con_usr`) VALUES
-	(1, 1, 850, 1, 850, NULL, '2016-05-31', '00:20:15', NULL),
-	(2, 30, 3000, 1, 3000, NULL, '2016-05-31', '17:28:33', NULL);
+REPLACE INTO `asiento_contable` (`as_con_id`, `as_con_nro`, `as_cuenta_debe`, `as_cuenta_debeMonto`, `as_cuenta_haber`, `as_cuenta_haberMonto`, `as_con_descripcion`, `as_con_fecha`, `as_con_hora`, `as_con_usr`) VALUES
+	(1, 1, 1, 850, 1, 850, NULL, '2016-05-31', '00:20:15', NULL),
+	(2, 2, 30, 3000, 1, 3000, NULL, '2016-05-31', '17:28:33', NULL);
 /*!40000 ALTER TABLE `asiento_contable` ENABLE KEYS */;
 
 
