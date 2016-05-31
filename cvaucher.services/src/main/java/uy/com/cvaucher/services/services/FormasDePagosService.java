@@ -176,17 +176,10 @@ public class FormasDePagosService implements FormasDePagosInt
 		tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
 		
 		Date fechaHoy = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String fecha = dateFormat.format(fechaHoy);
-		Calendar calendario = new GregorianCalendar();
-		int hora, minutos, segundos;
-		hora =calendario.get(Calendar.HOUR_OF_DAY);
-		minutos = calendario.get(Calendar.MINUTE);
-		segundos = calendario.get(Calendar.SECOND);
-		String horaFinal = String.valueOf(hora).concat(":").
-				concat(String.valueOf(minutos).
-				concat(":").
-				concat(String.valueOf(segundos)));
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
+		String fecha = formatoFecha.format(fechaHoy);
+		String hora = formatoHora.format(fechaHoy);
 		Cuentas cuentaDebe = new Cuentas();
 		Cuentas cuentaHaber = new Cuentas();
 		cuentaDebe.setCuentaId(tratamientoPaciente.getTratamId());
@@ -195,7 +188,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		BigDecimal haber = new BigDecimal(historialPagos.getHistPagosMonto());
 		AsientoContable asientoContable = new AsientoContable();
 		asientoContable.setAsConFecha(fecha);
-		asientoContable.setAsConHora(horaFinal);
+		asientoContable.setAsConHora(hora);
 		asientoContable.setAsCuentaDebe(cuentaDebe);
 		asientoContable.setAsCuentaDebeMonto(debe);
 		asientoContable.setAsCuentaHaber(cuentaHaber);
