@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.Agenda;
-import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
@@ -45,10 +44,10 @@ public class FlowPacientesController
 	private final HistoriaClinicaInt		historiaClinicaServices;
 	private final TratamientoPacienteInt	tratamientoPacienteServices;
 	private final FormasDePagosInt			formasDePagosServices;
-	private final AsientoContableInt		asientoContableServices;
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
 	private TratamientoPaciente				tratamientoPaciente;
+	private FormasDePagosDesc				formasDePagosDesc;
 	
 	@Autowired
 	public FlowPacientesController(PacientesInt 			pacientesServices, 
@@ -67,7 +66,6 @@ public class FlowPacientesController
 		this.historiaClinicaServices 	 = historiaClinicaServices;
 		this.tratamientoPacienteServices = tratamientoPacienteServices;
 		this.formasDePagosServices 		 = formasDePagosServices;
-		this.asientoContableServices	 = asientoContableServices;
 	}
 	
 	public void insertPacientes(Pacientes pacientes)
@@ -226,27 +224,26 @@ public class FlowPacientesController
 	
 	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc)
 	{
+		this.formasDePagosDesc = this.formasDePagosServices.findFormPagoTipoByDesc(formPagoDesc);
 		return this.formasDePagosServices.findFormPagoTipoByDesc(formPagoDesc);
 	}
 	
-	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, int idCuenta)
+	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
-		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, idCuenta);
+		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
-	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
+	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		AsientoContable asientoContable = null;
-		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo);
-		
-		this.asientoContableServices.ingresarAsientoContable(asientoContable);
+		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
-	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo)
+	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo);
+		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
 	}
-	
-
+	public FormasDePagosDesc getFormasDePagosDesc(){
+		return this.formasDePagosDesc;
+	}
 	
 }

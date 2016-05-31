@@ -17,8 +17,8 @@ public class AsientoContable implements Serializable
 	private Cuentas		asCuentaHaber;
 	private BigDecimal 	asCuentaHaberMonto;
 	private String		asConDescripcion;
-	private Date 		asConFecha;
-	private Date 		asConHora;
+	private String 		asConFecha;
+	private String 		asConHora;
 	private String 		asConUsr;
 	
 	public int getAsContId() {
@@ -57,16 +57,16 @@ public class AsientoContable implements Serializable
 	public void setAsConDescripcion(String asConDescripcion) {
 		this.asConDescripcion = asConDescripcion;
 	}
-	public Date getAsConFecha() {
+	public String getAsConFecha() {
 		return asConFecha;
 	}
-	public void setAsConFecha(Date asConFecha) {
+	public void setAsConFecha(String asConFecha) {
 		this.asConFecha = asConFecha;
 	}
-	public Date getAsConHora() {
+	public String getAsConHora() {
 		return asConHora;
 	}
-	public void setAsConHora(Date asConHora) {
+	public void setAsConHora(String asConHora) {
 		this.asConHora = asConHora;
 	}
 	public String getAsConUsr() {

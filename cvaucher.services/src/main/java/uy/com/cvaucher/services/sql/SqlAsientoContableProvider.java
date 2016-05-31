@@ -30,26 +30,15 @@ public class SqlAsientoContableProvider {
 	public String ingresarAsientoContable(final AsientoContable asientoContable){
 		return new SQL(){{
 			INSERT_INTO("asiento_contable");
-			if((asientoContable.getAsCuentaDebe().getCuentaId()>0)){
-				VALUES("as_cuenta_debe_id","#{asCuentaDebeId}");
-			}
-			VALUES("as_cuenta_debe","#{asCuentaDebe}");
-			if((asientoContable.getAsCuentaHaber().getCuentaId()>0)){
-				VALUES("as_cuenta_haber_id","#{asCuentaHaberId}");
-			}
-			VALUES("as_cuenta_haber","#{asCuentaHaber}");
-			if(!asientoContable.getAsConDescripcion().equals(null)||!asientoContable.getAsConDescripcion().equals("")){
-				VALUES("as_con_descripcion","#{asConDescripcion}");
-			}
-			if(!asientoContable.getAsConFecha().equals(null)){
-				VALUES("as_con_fecha","#{asConFecha}");
-			}
-			if(!asientoContable.getAsConHora().equals(null)){
-				VALUES("as_con_hora","#{asConHora}");
-			}
-			if(!asientoContable.getAsConUsr().equals(null)){
-				VALUES("as_con_usr","#{asConUsr}");
-			}
+			VALUES("as_cuenta_debe","#{asCuentaDebe.cuentaId}");
+			VALUES("as_cuenta_debeMonto","#{asCuentaDebeMonto}");
+			VALUES("as_cuenta_haber","#{asCuentaHaber.cuentaId}");
+			VALUES("as_cuenta_haberMonto","#{asCuentaHaberMonto}");
+			VALUES("as_con_descripcion","#{asConDescripcion}");
+			VALUES("as_con_fecha","#{asConFecha}");
+			VALUES("as_con_hora","#{asConHora}");
+			VALUES("as_con_usr","#{asConUsr}");
+			
 		}}.toString();
 	}
 }

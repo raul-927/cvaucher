@@ -72,6 +72,7 @@
 	
 	<action-state id="formaPagTipo">
 		<evaluate expression="flowScope.tipoFormPag = flowPacientesController.findFormPagoTipoByDesc(requestParameters.formaDePagoDesc)"/>
+		
 		<transition to ="decisionFormaPago"/>
 	</action-state>
 	
@@ -86,42 +87,46 @@
 	<!-- Tarjeta de Credito -->
 	<view-state id="pagoTarjetaCredito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
 		<on-render>
+			<evaluate result ="flowScope.tipoFormPag" expression = "flowPacientesController.getFormasDePagosDesc()"/>
 			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
 		</on-render>
 		
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
-			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta, flowScope.tipoFormPag.cuentas.cuentaId)"/>
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta, flowScope.tipoFormPag)"/>
 		</transition>
 	</view-state>
 	
 	<!-- Tarjeta de Debito -->
 	<view-state id="pagoTarjetaDebito" view ="tratamientoPaciente/pagoTarjetaCredito" model ="pagoTarjeta">
 		<on-render>
+			<evaluate result ="flowScope.tipoFormPag" expression = "flowPacientesController.getFormasDePagosDesc()"/>
 			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
 		</on-render>
 		
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
-			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta)"/>
+			<evaluate expression="flowPacientesController.insertTratamientoPagoTarjeta(flowScope.tratamientoPaciente, flowScope.pagoTarjeta, flowScope.tipoFormPag)"/>
 		</transition>
 	</view-state>
 	
 	<!-- Pago Efectivo -->
 	<view-state id ="pagoEfectivo" view ="tratamientoPaciente/pagoEfectivo" model ="pagoEfectivo">
 		<on-render>
+			<evaluate result ="flowScope.tipoFormPag" expression = "flowPacientesController.getFormasDePagosDesc()"/>
 			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
 		</on-render>
 		<transition on ="finalizarIngresoTratamientoPago" to ="finIngresoTratamiento">
-			<evaluate expression="flowPacientesController.insertTratamientoPagoEfectivo(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+			<evaluate expression="flowPacientesController.insertTratamientoPagoEfectivo(flowScope.tratamientoPaciente, flowScope.pagoEfectivo, flowScope.tipoFormPag)"/>
 		</transition>
 	</view-state>
 	
 	<!-- Pago Credito de la casa en Efectivo -->
 	<view-state id ="pagoCreditoEfectivo" view ="tratamientoPaciente/pagoCreditoEfectivo" model ="pagoEfectivo">
 		<on-render>
+			<evaluate result ="flowScope.tipoFormPag" expression = "flowPacientesController.getFormasDePagosDesc()"/>
 			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
 		</on-render>
 		<transition on ="finalizarIngresoTratamientoPagoCredito" to ="finIngresoTratamiento">
-			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo)"/>
+			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo, flowScope.tipoFormPag.formasDePagoCuenta)"/>
 		</transition>
 	</view-state>
 	

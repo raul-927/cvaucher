@@ -9,6 +9,7 @@ public class FormasDePagosDesc implements Serializable
 	
 	private String formasDePagoDesc;
 	private String formasDePagoTipo;
+	private int formasDePagoCuenta;
 	
 	public String getFormasDePagoDesc() 
 	{
@@ -26,6 +27,14 @@ public class FormasDePagosDesc implements Serializable
 
 	public void setFormasDePagoTipo(String formasDePagoTipo) {
 		this.formasDePagoTipo = formasDePagoTipo;
+	}
+
+	public int getFormasDePagoCuenta() {
+		return formasDePagoCuenta;
+	}
+
+	public void setFormasDePagoCuenta(int formasDePagoCuenta) {
+		this.formasDePagoCuenta = formasDePagoCuenta;
 	}
 
 }
