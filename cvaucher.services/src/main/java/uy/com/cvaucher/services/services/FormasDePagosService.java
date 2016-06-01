@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
+import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Cuentas;
@@ -130,12 +131,9 @@ public class FormasDePagosService implements FormasDePagosInt
 		asientoContable.setAsCuentaHaber(cuentaHaber);
 		asientoContable.setAsCuentaHaberMonto(haber);
 		int prueba = 0;
-		int maxNumAsContable =0;
+		MaxNumAsientoContable maxNumAsContable;
 		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		if(maxNumAsContable <0){
-			 maxNumAsContable =0;
-		}
-		asientoContable.setAsConNro(maxNumAsContable);
+		asientoContable.setAsConNro(maxNumAsContable.getMaxNumAsientoContable());
 		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 	}
@@ -195,13 +193,10 @@ public class FormasDePagosService implements FormasDePagosInt
 		asientoContable.setAsCuentaDebeMonto(debe);
 		asientoContable.setAsCuentaHaber(cuentaHaber);
 		asientoContable.setAsCuentaHaberMonto(haber);
-		String aux ="";
-		int maxNumAsContable = 0;
-		aux = String.valueOf(this.asientoContableService.maxNumAsientoContable());
-		if(aux != null){
-			maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		}
-		asientoContable.setAsConNro(maxNumAsContable);
+		
+		MaxNumAsientoContable maxNumAsContable;
+		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
+		asientoContable.setAsConNro(maxNumAsContable.getMaxNumAsientoContable());
 		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
@@ -260,13 +255,8 @@ public class FormasDePagosService implements FormasDePagosInt
 		asientoContable.setAsCuentaHaber(cuentaHaber);
 		asientoContable.setAsCuentaHaberMonto(haber);
 		
-		String aux ="";
-		int maxNumAsContable = 0;
-		aux = String.valueOf(this.asientoContableService.maxNumAsientoContable());
-		if(aux != null){
-			maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		}
-		asientoContable.setAsConNro(maxNumAsContable);
+		MaxNumAsientoContable maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
+		asientoContable.setAsConNro(maxNumAsContable.getMaxNumAsientoContable());
 		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);

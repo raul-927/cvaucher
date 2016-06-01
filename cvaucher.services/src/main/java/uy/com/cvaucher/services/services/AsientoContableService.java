@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.mappers.AsientoContableMapper;
@@ -35,9 +36,25 @@ public class AsientoContableService implements uy.com.cvaucher.services.interfac
 	}
 
 	@Override
-	public int maxNumAsientoContable() {
-		// TODO Auto-generated method stub
+	public MaxNumAsientoContable maxNumAsientoContable() {
+		MaxNumAsientoContable cantidadReg = this.cantRegistros();
+		System.out.println("cantidadReg ==>> "+cantidadReg);
+		if(cantidadReg.getMaxNumAsientoContable() > 0){
+			return this.asientoContableMapper.maxNumAsientoContable();
+		}
+		else{
+			cantidadReg.setMaxNumAsientoContable(0);
+		}
 		return this.asientoContableMapper.maxNumAsientoContable();
+
+	}
+
+	@Override
+	public MaxNumAsientoContable cantRegistros() {
+		// TODO Auto-generated method stub
+		MaxNumAsientoContable cantidadRegistros = this.asientoContableMapper.cantRegistros();
+		System.out.println("cantidadRegistros ==>> "+cantidadRegistros.getMaxNumAsientoContable());
+		return cantidadRegistros;
 	}
 
 }

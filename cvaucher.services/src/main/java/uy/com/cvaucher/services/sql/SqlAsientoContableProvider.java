@@ -48,4 +48,11 @@ public class SqlAsientoContableProvider {
 			FROM("asiento_contable");
 		}}.toString();
 	}
+	
+	public String cantRegistros(){
+		return new SQL(){{
+			SELECT("COUNT(*) MAX_NUM_AS_CONT");
+			FROM("asiento_contable");
+		}}.toString();
+	}
 }

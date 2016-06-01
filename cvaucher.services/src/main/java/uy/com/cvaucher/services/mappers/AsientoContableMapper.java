@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.SelectProvider;
 
+import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.sql.SqlAsientoContableProvider;
@@ -28,7 +29,11 @@ public interface AsientoContableMapper {
 	
 	@SelectProvider(type = SqlAsientoContableProvider.class, method ="maxNumAsiento")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
-	int maxNumAsientoContable();
+	MaxNumAsientoContable maxNumAsientoContable();
+	
+	@SelectProvider(type = SqlAsientoContableProvider.class, method ="cantRegistros")
+	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
+	MaxNumAsientoContable cantRegistros();
 	
 
 }
