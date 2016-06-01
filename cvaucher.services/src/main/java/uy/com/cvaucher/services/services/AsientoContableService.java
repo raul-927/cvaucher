@@ -34,4 +34,10 @@ public class AsientoContableService implements uy.com.cvaucher.services.interfac
 		this.asientoContableMapper.ingresarAsientoContable(asientoContable);
 	}
 
+	@Override
+	public int maxNumAsientoContable() {
+		// TODO Auto-generated method stub
+		return this.asientoContableMapper.maxNumAsientoContable();
+	}
+
 }

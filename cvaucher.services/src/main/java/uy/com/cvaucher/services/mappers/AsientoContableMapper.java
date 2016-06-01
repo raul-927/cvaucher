@@ -26,6 +26,9 @@ public interface AsientoContableMapper {
 	@Options(useGeneratedKeys=true, keyProperty="asContId")
 	void ingresarAsientoContable(AsientoContable asientoContable);
 	
+	@SelectProvider(type = SqlAsientoContableProvider.class, method ="maxNumAsiento")
+	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
+	int maxNumAsientoContable();
 	
 
 }

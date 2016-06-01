@@ -9,5 +9,6 @@ public interface AsientoContableInt {
 	ResultadoCuentaAsientoTotal cuentaAsientoTotal();
 	List<ResultadoCuentaAsientoTotal> cuentasAsientoTotal();
 	void ingresarAsientoContable(AsientoContable asientoContable);
+	int maxNumAsientoContable();
 
 }

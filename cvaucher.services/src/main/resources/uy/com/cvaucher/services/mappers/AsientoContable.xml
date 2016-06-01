@@ -22,4 +22,9 @@
   		<result property ="descCuenta" column ="Cuenta"/>
   		<result property ="total" column ="Total"/>
   	</resultMap>
+  	
+  	<resultMap type =" uy.com.cvaucher.services.clases.MaxNumAsientoContable" id ="MaxNumAsientoContableResult">
+  		<result property ="maxNumAsientoContable" column ="MAX_NUM_AS_CONT"/>
+
+  	</resultMap>
 </mapper>

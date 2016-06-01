@@ -12,6 +12,7 @@ public class AsientoContable implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	private int 		asContId;
+	private int 		asConNro;
 	private Cuentas		asCuentaDebe;
 	private BigDecimal 	asCuentaDebeMonto;
 	private Cuentas		asCuentaHaber;
@@ -74,6 +75,12 @@ public class AsientoContable implements Serializable
 	}
 	public void setAsConUsr(String asConUsr) {
 		this.asConUsr = asConUsr;
+	}
+	public int getAsConNro() {
+		return asConNro;
+	}
+	public void setAsConNro(int asConNro) {
+		this.asConNro = asConNro;
 	}
 	
 	

@@ -20,6 +20,7 @@ import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.PagoEfectivo;
 import uy.com.cvaucher.services.domain.PagoTarjeta;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
+import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.mappers.AsientoContableMapper;
 import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
@@ -51,7 +52,7 @@ public class FormasDePagosService implements FormasDePagosInt
 	private HistorialPagosMapper historialPagosMapper;
 	
 	@Autowired 
-	private AsientoContableMapper asientoContableMapper;
+	private AsientoContableInt asientoContableService;
 
 	@Override
 	public List<FormasDePagos> findAllFormasDePagos() 
@@ -128,8 +129,14 @@ public class FormasDePagosService implements FormasDePagosInt
 		asientoContable.setAsCuentaDebeMonto(debe);
 		asientoContable.setAsCuentaHaber(cuentaHaber);
 		asientoContable.setAsCuentaHaberMonto(haber);
-		
-		this.asientoContableMapper.ingresarAsientoContable(asientoContable);
+		int prueba = 0;
+		int maxNumAsContable =0;
+		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
+		if(maxNumAsContable <0){
+			 maxNumAsContable =0;
+		}
+		asientoContable.setAsConNro(maxNumAsContable);
+		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 	}
 	
@@ -179,6 +186,8 @@ public class FormasDePagosService implements FormasDePagosInt
 		cuentaHaber.setCuentaId(idCuenta);
 		BigDecimal debe = new BigDecimal(historialPagos.getHistPagosMonto());
 		BigDecimal haber = new BigDecimal(historialPagos.getHistPagosMonto());
+		
+		
 		AsientoContable asientoContable = new AsientoContable();
 		asientoContable.setAsConFecha(fecha);
 		asientoContable.setAsConHora(hora);
@@ -186,8 +195,14 @@ public class FormasDePagosService implements FormasDePagosInt
 		asientoContable.setAsCuentaDebeMonto(debe);
 		asientoContable.setAsCuentaHaber(cuentaHaber);
 		asientoContable.setAsCuentaHaberMonto(haber);
-		
-		this.asientoContableMapper.ingresarAsientoContable(asientoContable);
+		String aux ="";
+		int maxNumAsContable = 0;
+		aux = String.valueOf(this.asientoContableService.maxNumAsientoContable());
+		if(aux != null){
+			maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
+		}
+		asientoContable.setAsConNro(maxNumAsContable);
+		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 		
@@ -245,7 +260,14 @@ public class FormasDePagosService implements FormasDePagosInt
 		asientoContable.setAsCuentaHaber(cuentaHaber);
 		asientoContable.setAsCuentaHaberMonto(haber);
 		
-		this.asientoContableMapper.ingresarAsientoContable(asientoContable);
+		String aux ="";
+		int maxNumAsContable = 0;
+		aux = String.valueOf(this.asientoContableService.maxNumAsientoContable());
+		if(aux != null){
+			maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
+		}
+		asientoContable.setAsConNro(maxNumAsContable);
+		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);
 	}

@@ -41,4 +41,11 @@ public class SqlAsientoContableProvider {
 			
 		}}.toString();
 	}
+	
+	public String maxNumAsiento(){
+		return new SQL(){{
+			SELECT("MAX(as_con_nro)+1 MAX_NUM_AS_CONT");
+			FROM("asiento_contable");
+		}}.toString();
+	}
 }
