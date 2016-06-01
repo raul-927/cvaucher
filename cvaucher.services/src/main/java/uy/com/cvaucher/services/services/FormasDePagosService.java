@@ -89,7 +89,6 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Transactional
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, int idCuenta) 
 	{
-		
 		this.tratamientoPacienteMapper.insertTratamientoPacienteMapper(tratamientoPaciente);
 		MaxTratPacId maxTratPacId = new MaxTratPacId();
 		SearchMaxTratPacId search = new SearchMaxTratPacId();
@@ -200,9 +199,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
-		
 	}
-	
 	@Override
 	@Transactional
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo, int idCuenta)
