@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+//import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;

@@ -44,14 +44,14 @@ public class SqlAsientoContableProvider {
 	
 	public String maxNumAsiento(){
 		return new SQL(){{
-			SELECT("MAX(as_con_nro)+1 MAX_NUM_AS_CONT");
+			SELECT("MAX(as_con_nro)+1 max_num");
 			FROM("asiento_contable");
 		}}.toString();
 	}
 	
 	public String cantRegistros(){
 		return new SQL(){{
-			SELECT("COUNT(1) MAX_NUM_AS_CONT");
+			SELECT("COUNT(1) max_num");
 			FROM("asiento_contable");
 		}}.toString();
 	}

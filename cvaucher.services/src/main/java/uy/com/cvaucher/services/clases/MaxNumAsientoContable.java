@@ -9,14 +9,15 @@ public class MaxNumAsientoContable implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private int maxNumAsientoContable;
+	private int maxNum;
 
-	public int getMaxNumAsientoContable() {
-		return maxNumAsientoContable;
+	public int getMaxNum() {
+		return maxNum;
 	}
 
-	public void setMaxNumAsientoContable(int maxNumAsientoContable) {
-		this.maxNumAsientoContable = maxNumAsientoContable;
+	public void setMaxNum(int maxNum) {
+		this.maxNum = maxNum;
 	}
+
 
 }

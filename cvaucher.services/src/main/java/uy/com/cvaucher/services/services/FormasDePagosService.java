@@ -132,7 +132,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		int prueba = 0;
 		MaxNumAsientoContable maxNumAsContable;
 		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		asientoContable.setAsConNro(maxNumAsContable.getMaxNumAsientoContable());
+		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
 		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 	}
@@ -195,7 +195,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		MaxNumAsientoContable maxNumAsContable;
 		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		asientoContable.setAsConNro(maxNumAsContable.getMaxNumAsientoContable());
+		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
 		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
@@ -253,7 +253,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		asientoContable.setAsCuentaHaberMonto(haber);
 		
 		MaxNumAsientoContable maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		asientoContable.setAsConNro(maxNumAsContable.getMaxNumAsientoContable());
+		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
 		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);

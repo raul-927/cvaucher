@@ -39,8 +39,8 @@ public class AsientoContableService implements AsientoContableInt {
 	@Override
 	public MaxNumAsientoContable maxNumAsientoContable() {
 		MaxNumAsientoContable cantidadReg = this.cantRegistros();
-		System.out.println("cantidadReg ==>> "+cantidadReg.getMaxNumAsientoContable());
-		if(cantidadReg.getMaxNumAsientoContable() > 0){
+		System.out.println("cantidadReg ==>> "+cantidadReg.getMaxNum());
+		if(cantidadReg.getMaxNum() > 0){
 			return this.asientoContableMapper.maxNumAsientoContable();
 		}
 		return cantidadReg;
