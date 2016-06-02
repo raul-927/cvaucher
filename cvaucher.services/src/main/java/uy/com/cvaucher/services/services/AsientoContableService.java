@@ -41,7 +41,10 @@ public class AsientoContableService implements AsientoContableInt {
 		MaxNumAsientoContable cantidadReg = this.cantRegistros();
 		System.out.println("cantidadReg ==>> "+cantidadReg.getMaxNum());
 		if(cantidadReg.getMaxNum() > 0){
+			int maximo = this.asientoContableMapper.maxNumAsientoContable().getMaxNum();
+			System.out.println("maximo ==>> "+maximo) ;
 			return this.asientoContableMapper.maxNumAsientoContable();
+			
 		}
 		return cantidadReg;
 
@@ -51,7 +54,7 @@ public class AsientoContableService implements AsientoContableInt {
 	public MaxNumAsientoContable cantRegistros() {
 		// TODO Auto-generated method stub
 		MaxNumAsientoContable cantidadRegistros = this.asientoContableMapper.cantRegistros();
-		//System.out.println("cantidadRegistros ==>> "+cantidadRegistros.getMaxNumAsientoContable());
+		System.out.println("cantidadRegistros ==>> "+cantidadRegistros.getMaxNum());
 		return cantidadRegistros;
 	}
 
