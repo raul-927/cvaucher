@@ -33,6 +33,7 @@ public class AsientoContableService implements AsientoContableInt {
 
 	@Override
 	public void ingresarAsientoContable(AsientoContable asientoContable) {
+		
 		this.asientoContableMapper.ingresarAsientoContable(asientoContable);
 	}
 

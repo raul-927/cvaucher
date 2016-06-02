@@ -7,9 +7,9 @@ public class SqlTratamientoProvider
 	public String finTratamientoById()
 	{
 		return new SQL(){{
-		SELECT("tratr_id, trat_tpo_id, trat_descripcion, trat_cant_sesiones");
+		SELECT("trat_id, trat_tpo_id, trat_descripcion, trat_cant_sesiones");
 		 FROM("tratamiento");
-		 WHERE("tratid = #{tratId}");
+		 WHERE("trat_id = #{tratId}");
 			
 			}}.toString();
 	}
