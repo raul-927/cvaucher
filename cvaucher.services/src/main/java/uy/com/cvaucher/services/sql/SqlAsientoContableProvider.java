@@ -30,6 +30,7 @@ public class SqlAsientoContableProvider {
 	public String ingresarAsientoContable(final AsientoContable asientoContable){
 		return new SQL(){{
 			INSERT_INTO("asiento_contable");
+			VALUES("as_con_nro","#{asConNro}");
 			VALUES("as_cuenta_debe","#{asCuentaDebe.cuentaId}");
 			VALUES("as_cuenta_debeMonto","#{asCuentaDebeMonto}");
 			VALUES("as_cuenta_haber","#{asCuentaHaber.cuentaId}");

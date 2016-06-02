@@ -195,7 +195,9 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		MaxNumAsientoContable maxNumAsContable;
 		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
+		System.out.println("FormasDePagosService maxNumAsContable ==>> "+maxNumAsContable.getMaxNum());
 		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
+		System.out.println("FormasDePagosService asientoContable ==>> "+asientoContable.getAsConNro());
 		this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);

@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
-//import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
@@ -29,12 +28,10 @@ public interface AsientoContableMapper {
 	void ingresarAsientoContable(AsientoContable asientoContable);
 	
 	@SelectProvider(type = SqlAsientoContableProvider.class, method ="maxNumAsiento")
-	//@Select("SELECT MAX(as_con_nro)+1 MAX_NUM_AS_CONT FROM asiento_contable")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
 	MaxNumAsientoContable maxNumAsientoContable();
 	
 	@SelectProvider(type = SqlAsientoContableProvider.class, method ="cantRegistros")
-	//@Select("SELECT COUNT(1) MAX_NUM_AS_CONT FROM asiento_contable")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
 	MaxNumAsientoContable cantRegistros();
 	

@@ -42,10 +42,13 @@ public class AsientoContableService implements AsientoContableInt {
 		System.out.println("cantidadReg ==>> "+cantidadReg.getMaxNum());
 		if(cantidadReg.getMaxNum() > 0){
 			int maximo = this.asientoContableMapper.maxNumAsientoContable().getMaxNum();
-			System.out.println("maximo ==>> "+maximo) ;
+			System.out.println("Return maximo ==>> "+maximo) ;
 			return this.asientoContableMapper.maxNumAsientoContable();
-			
 		}
+		else{
+			cantidadReg.setMaxNum(1);
+		}
+		System.out.println("Return cantidadReg ==>> "+cantidadReg.getMaxNum());
 		return cantidadReg;
 
 	}
