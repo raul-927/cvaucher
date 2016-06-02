@@ -8,9 +8,9 @@
   	<resultMap type="uy.com.cvaucher.services.domain.AsientoContable" id="AsientoContableResult">
   		<id	property = "asContId" 	column = "as_con_id"/>
 
-		<result property ="asCuentaDebe" 		column	="as_cuenta_debe"/>
+		<result property ="asCuentaDebe.cuentaId" 		column	="as_cuenta_debe"/>
 		<result property ="asCuentaDebeMonto"	column 	="as_cuenta_debe_monto"/>
-		<result property ="asCuentaHaber" 		column 	="as_cuenta_haber"/>
+		<result property ="asCuentaHaber.cuentaId" 		column 	="as_cuenta_haber"/>
 		<result property ="asCuentaHaberMonto"	column 	="as_cuenta_haber_monto"/>
 		<result property ="asConDescripcion" 	column 	="as_con_descripcion"/>
   		<result property ="asConFecha" 			column 	="as_con_fecha"/>

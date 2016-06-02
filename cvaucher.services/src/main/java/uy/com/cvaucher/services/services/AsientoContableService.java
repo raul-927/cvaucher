@@ -9,11 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
+import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.mappers.AsientoContableMapper;
 
 @Service
 @Transactional
-public class AsientoContableService implements uy.com.cvaucher.services.interfaces.AsientoContableInt {
+public class AsientoContableService implements AsientoContableInt {
 	
 	@Autowired
 	private AsientoContableMapper asientoContableMapper;
@@ -38,14 +39,11 @@ public class AsientoContableService implements uy.com.cvaucher.services.interfac
 	@Override
 	public MaxNumAsientoContable maxNumAsientoContable() {
 		MaxNumAsientoContable cantidadReg = this.cantRegistros();
-		System.out.println("cantidadReg ==>> "+cantidadReg);
+		System.out.println("cantidadReg ==>> "+cantidadReg.getMaxNumAsientoContable());
 		if(cantidadReg.getMaxNumAsientoContable() > 0){
 			return this.asientoContableMapper.maxNumAsientoContable();
 		}
-		else{
-			cantidadReg.setMaxNumAsientoContable(0);
-		}
-		return this.asientoContableMapper.maxNumAsientoContable();
+		return cantidadReg;
 
 	}
 
@@ -53,7 +51,7 @@ public class AsientoContableService implements uy.com.cvaucher.services.interfac
 	public MaxNumAsientoContable cantRegistros() {
 		// TODO Auto-generated method stub
 		MaxNumAsientoContable cantidadRegistros = this.asientoContableMapper.cantRegistros();
-		System.out.println("cantidadRegistros ==>> "+cantidadRegistros.getMaxNumAsientoContable());
+		//System.out.println("cantidadRegistros ==>> "+cantidadRegistros.getMaxNumAsientoContable());
 		return cantidadRegistros;
 	}
 
