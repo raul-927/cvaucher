@@ -27,4 +27,9 @@
   		<result property ="maxNum" column ="max_num"/>
 
   	</resultMap>
+  	
+  	<resultMap type="uy.com.cvaucher.services.clases.ResumenPorCuentas" id="ResumenPorCuentasResult">
+  		<result property = "cuenta" column ="cuenta"/>
+  		<result property = "total" column ="total"/>
+  	</resultMap>
 </mapper>
