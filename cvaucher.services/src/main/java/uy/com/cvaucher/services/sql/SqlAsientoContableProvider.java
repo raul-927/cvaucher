@@ -61,24 +61,8 @@ public class SqlAsientoContableProvider {
 		
 		
 		return new SQL(){{
-			
-			SELECT("CREATE TEMPORARY TABLE tmp_haber");
-			SELECT("as_cuenta_haber, SUM(as_cuenta_haberMonto) haber");
-			FROM("asiento_contable");
-			GROUP_BY("as_cuenta_haber");
-			
-			SELECT("CREATE TEMPORARY TABLE tmp_debe");
-			SELECT("as_cuenta_debe, SUM(as_cuenta_debeMonto) debe");
-			FROM ("asiento_contable");
-			GROUP_BY("as_cuenta_debe");
-			
-			SELECT("c.cuenta_desc, (h.haber - d.debe) total");
-			FROM("cuentas c, tmp_debe d, tmp_haber h");
-			WHERE("c.cuenta_id = h.as_cuenta_haber");
-			WHERE("h.as_cuenta_haber = d.as_cuenta_debe");
-			GROUP_BY("c.cuenta_desc");
-			
-			SELECT("drop table tmp_haber; drop table tmp_debe");
+			//Llamo al Store Procedure resumenPorCuentas
+			SELECT("CALL resumenPorCuentas");
 			
 			
 		}}.toString();
