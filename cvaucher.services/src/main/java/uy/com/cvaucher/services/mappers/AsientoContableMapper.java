@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.mapping.StatementType;
 
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
@@ -37,6 +38,7 @@ public interface AsientoContableMapper {
 	MaxNumAsientoContable cantRegistros();
 	
 	@SelectProvider(type = SqlAsientoContableProvider.class, method ="resumenPorCuentas")
+	@Options(statementType = StatementType.CALLABLE)
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
 	List<ResumenPorCuentas> resumenPorCuentas();
 	
