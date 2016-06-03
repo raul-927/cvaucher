@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
+import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
@@ -60,6 +61,12 @@ public class AsientoContableService implements AsientoContableInt {
 		MaxNumAsientoContable cantidadRegistros = this.asientoContableMapper.cantRegistros();
 		System.out.println("cantidadRegistros ==>> "+cantidadRegistros.getMaxNum());
 		return cantidadRegistros;
+	}
+
+	@Override
+	public List<ResumenPorCuentas> resumenPorCuentas() {
+		
+		return this.asientoContableMapper.resumenPorCuentas();
 	}
 
 }
