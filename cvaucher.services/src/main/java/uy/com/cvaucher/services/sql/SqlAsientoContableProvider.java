@@ -58,13 +58,9 @@ public class SqlAsientoContableProvider {
 	}
 	
 	public String resumenPorCuentas(){
-		
-		
 		return new SQL(){{
 			//Llamo al Store Procedure resumenPorCuentas
 			SELECT("CALL resumenPorCuentas");
-			
-			
 		}}.toString();
 	}
 }
