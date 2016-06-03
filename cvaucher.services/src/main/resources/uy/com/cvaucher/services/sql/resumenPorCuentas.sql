@@ -2,12 +2,12 @@ DROP PROCEDURE IF EXISTS resumenPorCuentas;
 DELIMITER //
 CREATE PROCEDURE resumenPorCuentas()
 BEGIN
-  CREATE TEMPORARY TABLE tmp_haber
+ CREATE TEMPORARY TABLE tmp_haber
 	SELECT as_cuenta_haber cuenta_haber, SUM(as_cuenta_haberMonto) haber
 	FROM asiento_contable
 	GROUP BY as_cuenta_haber;
 	
-	CREATE TEMPORARY TABLE tmp_debe
+ CREATE TEMPORARY TABLE tmp_debe
 	SELECT as_cuenta_debe cuenta_debe, SUM(as_cuenta_debeMonto) debe
 	FROM asiento_contable
 	GROUP BY as_cuenta_haber;
