@@ -14,9 +14,9 @@ public class AsientoContableArray implements Serializable{
 	private ArrayList<Cuentas>		asCuentaHaber 		= 	new ArrayList<Cuentas>();
 	private ArrayList<BigDecimal> 	asCuentaHaberMonto 	= 	new ArrayList<BigDecimal>();
 	private ArrayList<String> 		asConDescripcion 	= 	new ArrayList<String>();
-	private ArrayList<String> 		asConFecha 			= 	new ArrayList<String>();
-	private ArrayList<String> 		asConHora 			= 	new ArrayList<String>();
-	private ArrayList<String> 		asConUsr 			= 	new ArrayList<String>();
+	private String 					asConFecha ;
+	private String 					asConHora;
+	private String 					asConUsr;
 	
 	public int getAsContId() {
 		return asContId;
@@ -60,22 +60,22 @@ public class AsientoContableArray implements Serializable{
 	public void setAsConDescripcion(ArrayList<String> asConDescripcion) {
 		this.asConDescripcion = asConDescripcion;
 	}
-	public ArrayList<String> getAsConFecha() {
+	public String getAsConFecha() {
 		return asConFecha;
 	}
-	public void setAsConFecha(ArrayList<String> asConFecha) {
+	public void setAsConFecha(String asConFecha) {
 		this.asConFecha = asConFecha;
 	}
-	public ArrayList<String> getAsConHora() {
+	public String getAsConHora() {
 		return asConHora;
 	}
-	public void setAsConHora(ArrayList<String> asConHora) {
+	public void setAsConHora(String asConHora) {
 		this.asConHora = asConHora;
 	}
-	public ArrayList<String> getAsConUsr() {
+	public String getAsConUsr() {
 		return asConUsr;
 	}
-	public void setAsConUsr(ArrayList<String> asConUsr) {
+	public void setAsConUsr(String asConUsr) {
 		this.asConUsr = asConUsr;
 	}
 

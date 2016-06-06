@@ -1,5 +1,6 @@
 package uy.com.cvaucher.services.services;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
+import uy.com.cvaucher.services.domain.AsientoContableArray;
+import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.mappers.AsientoContableMapper;
@@ -33,9 +36,32 @@ public class AsientoContableService implements AsientoContableInt {
 	}
 
 	@Override
-	public void ingresarAsientoContable(AsientoContable asientoContable) {
-		
-		this.asientoContableMapper.ingresarAsientoContable(asientoContable);
+	public void ingresarAsientoContable(AsientoContableArray asientoContableArray) {
+		int size = asientoContableArray.getAsCuentaDebe().size();
+		AsientoContable asientoContable = new AsientoContable();
+		int index = 0;
+		while( index < size){
+			int asConNro = asientoContableArray.getAsConNro();
+			Cuentas asCuentaDebe = asientoContableArray.getAsCuentaDebe().get(index);
+			BigDecimal asCuentaDebeMonto = asientoContableArray.getAsCuentaDebeMonto().get(index);
+			Cuentas asCuentaHaber = asientoContableArray.getAsCuentaHaber().get(index);
+			BigDecimal asCuentaHaberMonto = asientoContableArray.getAsCuentaHaberMonto().get(index);
+			String asConDescripcion = asientoContableArray.getAsConDescripcion().get(index);
+			String asConFecha = asientoContableArray.getAsConFecha();
+			String asConHora = asientoContableArray.getAsConHora();
+			String asConUsr = asientoContableArray.getAsConUsr();
+			asientoContable.setAsConNro(asConNro);
+			asientoContable.setAsCuentaDebe(asCuentaDebe);
+			asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
+			asientoContable.setAsCuentaHaber(asCuentaHaber);
+			asientoContable.setAsCuentaHaberMonto(asCuentaHaberMonto);
+			asientoContable.setAsConDescripcion(asConDescripcion);
+			asientoContable.setAsConFecha(asConFecha);
+			asientoContable.setAsConHora(asConHora);
+			asientoContable.setAsConUsr(asConUsr);
+			this.asientoContableMapper.ingresarAsientoContable(asientoContable);
+			index++;
+		}
 	}
 
 	@Override

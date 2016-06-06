@@ -61,7 +61,7 @@ public class SqlAsientoContableProvider {
 		return new SQL(){{
 			//Llamo al Store Procedure resumenPorCuentas
 			//devuelve una lista con, String cuentas y un Double total
-			SELECT("CALL resumenPorCuentas");
+			SELECT("CALL SP_resumenPorCuentasTotal");
 		}}.toString();
 	}
 }
