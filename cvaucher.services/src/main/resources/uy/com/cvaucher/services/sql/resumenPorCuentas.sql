@@ -1,6 +1,7 @@
+DROP PROCEDURE IF EXISTS SP_resumenPorCuentasTotal;
 DROP PROCEDURE IF EXISTS resumenPorCuentas;
 DELIMITER //
-CREATE PROCEDURE resumenPorCuentas()
+CREATE PROCEDURE SP_resumenPorCuentasTotal()
 BEGIN
  CREATE TEMPORARY TABLE tmp_haber
 	SELECT as_cuenta_haber cuenta_haber, SUM(as_cuenta_haberMonto) haber
@@ -14,9 +15,8 @@ BEGIN
 	
 	SELECT c.cuenta_desc cuenta, (h.haber - d.debe) total
 	FROM cuentas c, tmp_debe d, tmp_haber h
-	WHERE c.cuenta_id = h.cuenta_haber
+	WHERE c.cuenta_id = h.cuenta_haber 
 	AND	c.cuenta_id = d.cuenta_debe
-	/*AND h.cuenta_haber = d.cuenta_debe */
 	GROUP BY c.cuenta_desc;
 
 	DROP TABLE tmp_haber;
