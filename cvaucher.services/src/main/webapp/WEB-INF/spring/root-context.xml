@@ -183,6 +183,11 @@
 	    p:service-ref="asientoContableService"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.AsientoContableInt"/>
 	
+	<bean id ="httpImpuestoService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+	    p:service-ref="impuestoService"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.ImpuestoInt"/>
+	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -440,5 +445,14 @@
 			</value>
 		</property>	
 		
+	</bean>
+	
+	<bean id ="urlMappingImpuesto"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/cvaucher.impuesto = httpImpuestoService
+			</value>
+		</property>	
 	</bean>
 </beans>
