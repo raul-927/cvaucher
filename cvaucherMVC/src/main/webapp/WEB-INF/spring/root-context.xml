@@ -178,4 +178,10 @@
 		p:serviceUrl ="${services.url}/cvaucher.asientoContable"
 		p:serviceInterface = "uy.com.cvaucher.services.interfaces.AsientoContableInt"
 		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
+	
+	<bean id ="impuestoService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="${services.url}/cvaucher.impuesto"
+		p:serviceInterface = "uy.com.cvaucher.services.interfaces.ImpuestoInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 </beans>
