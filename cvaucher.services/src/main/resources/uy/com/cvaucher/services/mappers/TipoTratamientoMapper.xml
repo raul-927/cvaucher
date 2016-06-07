@@ -8,6 +8,7 @@
   	<resultMap type="uy.com.cvaucher.services.domain.TipoTratamiento" id="TipoTratResult">
   		<id property="tipTratId" column="tip_trat_id"/>
 		<result property="tipTratDesc" column="tip_trat_descripcion"/>
+		<association property="impuesto" resultMap="uy.com.cvaucher.services.mappers.ImpuestoMapper.ImpuestoResult"/>
   	</resultMap>
 
 </mapper>
