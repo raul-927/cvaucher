@@ -21,7 +21,7 @@
 		 </fieldset>
 		 
 		 <div class="form-group">
-			 	<sf:label path="impuesto.impuestoId" for ="impuesto.impuestoId">Tipo</sf:label>
+			 	<sf:label path="impuesto.impuestoId" for ="impuesto.impuestoId">Impuesto</sf:label>
 			 	<sf:select cssClass ="form-control" path="impuesto.impuestoId" size ="1">
 			 		<sf:options items="${impuestos}" itemLabel="impuestoDescAbrv" itemValue="impuestoId" />
 			 	</sf:select>
