@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import uy.com.cvaucher.services.domain.TipoTratamiento;
+import uy.com.cvaucher.services.interfaces.ImpuestoInt;
 import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 
 
@@ -27,15 +28,16 @@ import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 @RequestMapping("/tipo_tratamiento")
 public class TipoTratamientoController implements uy.com.cvaucher.interfaces.TipoTratamientoInt
 {
-	
+	private ImpuestoInt		   impuestoService;
 	private TipoTratamientoInt tipoTratamientoService;
 	private TipoTratamientoInt tipTratamientoService;
 	
 	
 	@Autowired
-	public TipoTratamientoController(TipoTratamientoInt tipoTratamientoService)
+	public TipoTratamientoController(TipoTratamientoInt tipoTratamientoService, ImpuestoInt impuestoService)
 	{
 		this.tipoTratamientoService = tipoTratamientoService;
+		this.impuestoService		 = impuestoService;
 	}
 	
 	
@@ -48,6 +50,7 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 		model.addAttribute("userName",user.getUsername());
 		model.addAttribute("userRole",user.getAuthorities());
 		model.addAttribute("tpoTrat", tipoTratamientoService.findAllTipoTratamiento());
+		model.addAttribute("impuestos", impuestoService.findAllImpuestos());
   	  	model.addAttribute(new TipoTratamiento());
 		return "tipo_tratamiento/formTipoTratamiento";
 	}
@@ -60,18 +63,19 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 					getPrincipal();
 		model.addAttribute("userName",user.getUsername());
 		model.addAttribute("userRole",user.getAuthorities());
+		
 		 if(bindingResult.hasErrors())
 	     {
 	    	  System.out.println("Error en insertTipoTratamiento");
 	    	  model.addAttribute("tpoTrat",tipoTratamientoService.findAllTipoTratamiento());
 	    	  model.addAttribute(new TipoTratamiento());
-	    	  
+	    	  model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 	    	  return "tipo_tratamiento/formTipoTratamiento"; 
 	     }
 		 this.tipoTratamientoService.createTipoTratamiento(tipoTratamiento);
 	      
 	      model.addAttribute("tpoTrat",tipoTratamientoService.findAllTipoTratamiento());
-	      
+	      model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 	      return "tipo_tratamiento/formTipoTratamiento";
 		 
 	 }
@@ -85,6 +89,7 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 		model.addAttribute("userName",user.getUsername());
 		model.addAttribute("userRole",user.getAuthorities());
 		model.addAttribute("tpoTrat", tipoTratamientoService.findAllTipoTratamiento());
+		model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 		model.addAttribute(new TipoTratamiento());
 		return "tipo_tratamiento/updateTipoTratamiento";
 		
@@ -103,6 +108,7 @@ public class TipoTratamientoController implements uy.com.cvaucher.interfaces.Tip
 		 tipoTratamientoService.updateTipoTratamiento(tipoTratamiento);
 		 model.addAttribute("tpoTrat", tipoTratamientoService.findAllTipoTratamiento());
 		 model.addAttribute(new TipoTratamiento());
+		 model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 		 return "tipo_tratamiento/updateTipoTratamiento";
 	 }
 	 
