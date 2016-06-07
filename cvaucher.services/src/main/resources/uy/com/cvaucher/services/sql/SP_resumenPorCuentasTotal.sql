@@ -1,5 +1,4 @@
 DROP PROCEDURE IF EXISTS SP_resumenPorCuentasTotal;
-DROP PROCEDURE IF EXISTS resumenPorCuentas;
 DELIMITER //
 CREATE PROCEDURE SP_resumenPorCuentasTotal()
 BEGIN
