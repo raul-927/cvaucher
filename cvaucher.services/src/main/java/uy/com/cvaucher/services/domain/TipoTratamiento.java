@@ -10,6 +10,7 @@ public class TipoTratamiento implements Serializable
 	private static final long serialVersionUID = 1L;
 	private Integer	tipTratId;
 	private String 	tipTratDesc;
+	private Impuesto impuesto;
 	
 	
 	public Integer getTipTratId() {
@@ -54,6 +55,12 @@ public class TipoTratamiento implements Serializable
 		} else if (!tipTratId.equals(other.tipTratId))
 			return false;
 		return true;
+	}
+	public Impuesto getImpuesto() {
+		return impuesto;
+	}
+	public void setImpuesto(Impuesto impuesto) {
+		this.impuesto = impuesto;
 	}
 	
 	

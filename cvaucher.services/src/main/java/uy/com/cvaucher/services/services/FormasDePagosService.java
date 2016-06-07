@@ -139,7 +139,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		MaxNumAsientoContable maxNumAsContable;
 		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
 		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
-		this.asientoContableService.ingresarAsientoContable(asientoContable);
+		//this.asientoContableService.ingresarAsientoContable(asientoContable);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 	}
 	
@@ -208,7 +208,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
 		
 		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
-		this.asientoContableService.ingresarAsientoContable(asientoContable);
+		//this.asientoContableService.ingresarAsientoContable(asientoContable);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 	}
 	@Override
@@ -265,7 +265,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		MaxNumAsientoContable maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
 		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
-		this.asientoContableService.ingresarAsientoContable(asientoContable);
+		//this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);
 	}
