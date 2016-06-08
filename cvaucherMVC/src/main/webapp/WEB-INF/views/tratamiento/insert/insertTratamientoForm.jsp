@@ -32,7 +32,13 @@
 		 	<sf:input cssClass ="inputText" path="tratCantSesiones" size ="10" id="descCAT"/>
 		 	<sf:errors path ="tratCantSesiones" cssClass ="error"/>
 		</div>
-
+		<div class="form-group">
+			 	<sf:label path="impuesto.impuestoId" for ="impuesto.impuestoId">Impuesto</sf:label>
+			 	<sf:select cssClass ="form-control" path="impuesto.impuestoId" size ="1">
+			 		<sf:options items="${impuestos}" itemLabel="impuestoDescAbrv" itemValue="impuestoId" />
+			 	</sf:select>
+			 	<sf:errors path ="impuesto.impuestoId" cssClass ="error"/>
+		</div>
 		 </fieldset>
 		 <div class="botonForm">
 		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar"/>

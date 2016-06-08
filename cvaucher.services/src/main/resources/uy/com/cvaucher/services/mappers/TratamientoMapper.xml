@@ -10,13 +10,11 @@
 		<result property="tratDescripcion" column="trat_descripcion"/>
 		<result property ="tratCantSesiones" column ="trat_cant_sesiones"/>
 		<association  property ="tipoTratamiento" resultMap ="uy.com.cvaucher.services.mappers.TipoTratamientoMapper.TipoTratResult"/>
-		
+		<association property="impuesto" resultMap ="uy.com.cvaucher.services.mappers.ImpuestoMapper.ImpuestoResult"/>
   	</resultMap>
   	
   	<resultMap type="uy.com.cvaucher.services.domain.Tratamiento" id="SesionResult">
-  	
   		<result property ="tratCantSesiones"	column ="trat_cant_sesiones"/>
-  	
   	</resultMap>
   	
   	<resultMap type="uy.com.cvaucher.services.domain.TratByList" id="TratByListResult">

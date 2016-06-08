@@ -12,21 +12,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
+import uy.com.cvaucher.services.interfaces.ImpuestoInt;
 import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 
 @Controller
 @RequestMapping("/tratamientos")
 public class TratamientoController 
 {
-	
+	private ImpuestoInt		   impuestoService;
 	private final TratamientoInt tratamientoService;
 	private final TipoTratamientoInt tipoTratamientoService;
 	
 	@Autowired
-	public TratamientoController(TratamientoInt tratamientoService, TipoTratamientoInt tipoTratamientoService)
+	public TratamientoController(TratamientoInt tratamientoService, TipoTratamientoInt tipoTratamientoService,ImpuestoInt impuestoService)
 	{
 		this.tratamientoService = tratamientoService;
 		this.tipoTratamientoService = tipoTratamientoService;
+		this.impuestoService = impuestoService;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, params ="insert")
@@ -35,7 +37,7 @@ public class TratamientoController
 		model.addAttribute(new Tratamiento());
 		model.addAttribute("trat", tratamientoService.findAllTratamientos());
 		model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-		
+		model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 		
 		return "tratamiento/insertTratamiento";
 	}
@@ -50,7 +52,7 @@ public class TratamientoController
 			System.out.println("Error en insertTratamiento");
 			model.addAttribute("trat", tratamientoService.findAllTratamientos());
 			model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-			
+			model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 			
 			return "tratamiento/insertTratamiento";
 		}
@@ -58,7 +60,7 @@ public class TratamientoController
 		model.addAttribute(new Tratamiento());
 		model.addAttribute("trat", tratamientoService.findAllTratamientos());
 		model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-	
+		model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 		
 		return "tratamiento/insertTratamiento";
 	}
@@ -70,7 +72,7 @@ public class TratamientoController
 		model.addAttribute(new Tratamiento());
 		model.addAttribute("trat", tratamientoService.findAllTratamientos());
 		model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-	
+		model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 		
 		return "tratamiento/updateTratamiento";
 	}
@@ -85,7 +87,7 @@ public class TratamientoController
 			model.addAttribute(new Tratamiento());
 			model.addAttribute("trat", tratamientoService.findAllTratamientos());
 			model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-			
+			model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 			
 			return "tratamiento/updateTratamiento";
 		}
@@ -93,7 +95,7 @@ public class TratamientoController
 		model.addAttribute(new Tratamiento());
 		model.addAttribute("trat", tratamientoService.findAllTratamientos());
 		model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-		
+		model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 		
 		return "tratamiento/updateTratamiento";
 	}
@@ -105,7 +107,7 @@ public class TratamientoController
 		model.addAttribute(new Tratamiento());
 		model.addAttribute("trat", tratamientoService.findAllTratamientos());
 		model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-		
+		model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 		
 		return "tratamiento/deleteTratamiento";
 	}
@@ -120,7 +122,7 @@ public class TratamientoController
 			model.addAttribute(new Tratamiento());
 			model.addAttribute("trat", tratamientoService.findAllTratamientos());
 			model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-			
+			model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 			
 			return "tratamiento/deleteTratamiento";
 		}
@@ -128,7 +130,7 @@ public class TratamientoController
 		model.addAttribute(new Tratamiento());
 		model.addAttribute("trat", tratamientoService.findAllTratamientos());
 		model.addAttribute("tipoTrat", tipoTratamientoService.findAllTipoTratamiento());
-		
+		model.addAttribute("impuestos", impuestoService.findAllImpuestos());
 		
 		return "tratamiento/deleteTratamiento";
 	}
