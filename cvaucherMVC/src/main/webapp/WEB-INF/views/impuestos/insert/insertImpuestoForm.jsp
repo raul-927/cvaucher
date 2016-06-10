@@ -9,7 +9,7 @@
 <div class =" well well-lg">
 	<sf:form cssClass = "form"
 		method ="POST" 
-		modelAttribute ="Impuesto" >
+		modelAttribute ="impuesto" >
 		 <fieldset style="width: 350px;">
 		 	<div class="form-group"> 
 			 	<sf:label path="impuestoDesc" for ="impuestoDesc">Descripcion</sf:label>

@@ -25,7 +25,6 @@
 		               	<security:authorize access="hasRole('ROLE_ADMIN')"><li><a href="#">Eliminar un paciente</a></li> </security:authorize>
 	                 </ul>
                 </li>
-               
                 
                 <li>
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cajas<b class="caret"></b></a>
@@ -126,7 +125,8 @@
                         	<li><a href='<s:url value="/cuentas/cuenta?insert"/>'>Cuentas</a></li>
                         	<li><a href='<s:url value="/formasDePagos?insert"/>'>Formas de Pagos</a></li>
                         	<li class="divider"></li>
-		                 	<li><a href='<s:url value="/domain_user?delete"/>'>Asientos</a></li>
+		                 	<li><a href='<s:url value="/impuestos?insert"/>'>Impuestos</a></li>
+		                 	<li><a href='<s:url value="/asientos?insert"/>'>Asientos</a></li>
 		                </ul>	
                     </li>    
               	<li class="divider"></li>

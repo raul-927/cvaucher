@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import uy.com.cvaucher.services.domain.Impuesto;
 import uy.com.cvaucher.services.interfaces.ImpuestoInt;
+
 @Controller
-@RequestMapping("/impuesto")
+@RequestMapping("/impuestos")
 public class ImpuestoController {
 	
-	@Autowired
+	
 	private final ImpuestoInt impuestoService;
 	
+	@Autowired
 	public ImpuestoController(ImpuestoInt impuestoService){
 			this.impuestoService = impuestoService;
 	}
@@ -26,7 +28,7 @@ public class ImpuestoController {
 	public String showImpuestoInsert(Model model, Impuesto impuesto){
 		
 		model.addAttribute(new Impuesto());
-		model.addAttribute("impuesto",impuestoService.findAllImpuestos());
+		model.addAttribute("impuestos",impuestoService.findAllImpuestos());
 		return "impuesto/formImpuesto";
 	}
 	
@@ -35,12 +37,13 @@ public class ImpuestoController {
 		
 		if(bindingResult.hasErrors()){
 			model.addAttribute(new Impuesto());
-			model.addAttribute("impuesto",impuestoService.findAllImpuestos());
+			model.addAttribute("impuestos",impuestoService.findAllImpuestos());
+			System.out.println("Error en impuestoInsert: " +bindingResult.getAllErrors().toString());
 			return "impuesto/formImpuesto";
 		}
 		model.addAttribute(new Impuesto());
-		model.addAttribute("impuesto",impuestoService.findAllImpuestos());
 		impuestoService.insertImpuesto(impuesto);
+		model.addAttribute("impuestos",impuestoService.findAllImpuestos());
 		return "impuesto/formImpuesto";
 	}
 }

@@ -16,11 +16,13 @@
 		<td>Valor</td>
 	</thead>
 		<tbody>
-			<c:forEach var="imp" items="${impuesto}">
-			  	<td >${imp.impuestoId}</td>
-				<td >${imp.impuestoDesc}</td>
-				<td >${imp.impuestoDescAbrv}</td>
-				<td >${imp.impuestoValor}</td>
+			<c:forEach var="imp" items="${impuestos}">
+				<tr>
+			  		<td >${imp.impuestoId}</td>
+					<td >${imp.impuestoDesc}</td>
+					<td >${imp.impuestoDescAbrv}</td>
+					<td >${imp.impuestoValor}</td>
+				</tr>
 			</c:forEach>	
 		</tbody>
 </table>
