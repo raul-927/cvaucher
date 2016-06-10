@@ -26,7 +26,7 @@ import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 @SuppressWarnings("unused")
 @Controller
 @RequestMapping("/tipo_tratamiento")
-public class TipoTratamientoController implements uy.com.cvaucher.interfaces.TipoTratamientoInt
+public class TipoTratamientoController //implements uy.com.cvaucher.interfaces.TipoTratamientoInt
 {
 	
 	private TipoTratamientoInt tipoTratamientoService;
