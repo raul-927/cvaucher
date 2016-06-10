@@ -39,23 +39,15 @@
 <div class="well well-lg">
 	
 	<sf:form cssClass = "form"
-		commandName ="pacientes2">
+		commandName ="pacientes">
 		
 			<input type="hidden" name="_flowExecutionKey" 
              value="${flowExecutionKey}"/>
              
-            <div class="form-group ">
-		 		<sf:label path="tipoDocPaciente" for ="tipoDocPaciente">Tipo de Documento</sf:label>
-		 		<sf:select cssClass ="form-control" path="tipoDocPaciente" size ="1">
-		 		<sf:options items="${tipDoc}" />
-		 		</sf:select>
-		 		<sf:errors path ="tipoDocPaciente" cssClass ="error"/>
-		 	</div>
-		 
 	        <div class="form-group">
-			 	<sf:label path="documento" for ="documento">Documento</sf:label>
-			 	<sf:input cssClass ="input-small " value ="${flowScope.docum}"  path="documento" size ="8" id="documento"/>
-			 	<sf:errors path ="documento" cssClass ="error"/>
+			 	<sf:label path="cedula" for ="cedula">Cedula</sf:label>
+			 	<sf:input cssClass ="input-small "  path="cedula" size ="8"/>
+			 	<sf:errors path ="cedula" cssClass ="error"/>
 		 	</div>
 		 	<!-- <span>Documento ${flowScope.docum}</span> -->
 		 	<div class="form-group">
