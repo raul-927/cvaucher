@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.mapping.StatementType;
 
@@ -33,11 +34,12 @@ public interface AsientoContableMapper {
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
 	MaxNumAsientoContable maxNumAsientoContable();
 	
+	
 	@SelectProvider(type = SqlAsientoContableProvider.class, method ="cantRegistros")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
 	MaxNumAsientoContable cantRegistros();
 	
-	@SelectProvider(type = SqlAsientoContableProvider.class, method ="resumenPorCuentas")
+	@Select(value ="{CALL SP_resumenPorCuentasTotal}")
 	@Options(statementType = StatementType.CALLABLE)
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
 	List<ResumenPorCuentas> resumenPorCuentas();

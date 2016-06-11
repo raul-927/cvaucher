@@ -6,17 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Caja;
+import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.CajaInt;
 
 @Controller
 public class FlowCajasController {
+	
+	
+	private final CajaInt cajaService;
+	private final AsientoContableInt asientoContableService;
+	
 	@Autowired
-	private CajaInt cajaService;
-	
-	
-	public FlowCajasController(){
-		
+	public FlowCajasController(CajaInt cajaService, AsientoContableInt asientoContableService){
+		this.cajaService = cajaService;
+		this.asientoContableService = asientoContableService;
 	}
 	public String showDate(){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -64,6 +73,13 @@ public class FlowCajasController {
 		getPrincipal();
 		System.out.println("user ==>> "+user.getUsername());
 		return user.getUsername();
+	}
+	@RequestMapping(value ="/caja",params ="resumen", method = RequestMethod.GET)
+	public String showResumenCaja(Model model, AsientoContable asientoContable){
+		
+		model.addAttribute(new AsientoContable());
+		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentas());
+		return "caja/resumenCaja";
 	}
 }
 

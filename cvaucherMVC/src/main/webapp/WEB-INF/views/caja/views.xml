@@ -28,4 +28,17 @@
    		<put-attribute name="right"
    			value =""/>
 	</definition>
+	
+	 <definition name ="caja/resumenCaja" extends ="layout">
+	    
+	    <put-attribute name="left"
+   			value ="/WEB-INF/views/caja/tableCaja.jsp"/>
+	    	
+		<put-attribute name="content"
+   			value =""/>
+   			
+   		<put-attribute name="right"
+   			value =""/>
+	</definition>
+	 
 </tiles-definitions>

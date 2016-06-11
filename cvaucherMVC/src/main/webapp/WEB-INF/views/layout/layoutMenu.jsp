@@ -37,6 +37,7 @@
 		                 <li><a href="<s:url value="/caja/arqueo"/>">Arqueo de Caja</a></li>
 		                 <li><a href="<s:url value="/caja/consultas"/>">Consultas</a></li>
 		                <li><a href="<s:url value="/caja/reportes"/>">Reportes</a></li>
+		                <li><a href="<s:url value="/caja?resumen"/>">Resumen</a></li>
 	                 </ul>
                 </li>
              	

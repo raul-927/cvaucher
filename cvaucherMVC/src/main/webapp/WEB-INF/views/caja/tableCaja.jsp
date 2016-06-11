@@ -5,26 +5,18 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
-<table class="table table-hover table-bordered well well-sm">
+<table class="table well-sm">
 	<caption><h1>Caja</h1></caption>
 	
 	<thead>
-		<td>Id</td>
-		<td>Estado</td>
-		<td>Forma de pago</td>
-		<td>Monto</td>
-		<td>Tipo de Movimiento</td>
+		<td>Cuenta</td>
+		<td>Total</td>
 	</thead>
 		<tbody>
-			<c:forEach var="pac" items="${pac}">
+			<c:forEach var="resumenCuentas" items="${resumenCuentas}">
 				<tr>
-			  		<td>${pac.pacId}</td>
-					<td><a href="<s:url value="/detallep/detPac/${pac.cedula}"/>">${pac.cedula}</a></td>
-					<td >${pac.pacNombre}</td>
-					<td >${pac.pacApellido}</td>
-					<td >${pac.ocupacion}</td>
-					<td >${pac.sociedadMedica}</td>
-					<td >${pac.emergenciaMovil}</td>
+					<td >${resumenCuentas.cuenta}</td>
+					<td >${resumenCuentas.total}</td>
 				</tr>	
 			</c:forEach>
 		</tbody>
