@@ -10,6 +10,7 @@
 		<result property="impuestoDesc" column="impuesto_desc"/>
 		<result property="impuestoDescAbrv" column="impuesto_desc_abrv"/>
 		<result property="impuestoValor" column="impuesto_valor"/>
+		<result property="impuestoTipo" column ="impuesto_tipo"/>
   	</resultMap>
 
 </mapper>

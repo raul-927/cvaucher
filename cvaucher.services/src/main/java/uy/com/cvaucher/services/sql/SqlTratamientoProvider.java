@@ -7,9 +7,10 @@ public class SqlTratamientoProvider
 	public String finTratamientoById()
 	{
 		return new SQL(){{
-		SELECT("trat_id, trat_tpo_id, trat_descripcion, trat_cant_sesiones");
-		 FROM("tratamiento");
-		 WHERE("trat_id = #{tratId}");
+		SELECT("t.trat_id, t.trat_tpo_id, t.trat_descripcion, t.trat_cant_sesiones, i.impuesto_desc_abrv");
+		 FROM("tratamiento t, impuesto i");
+		 WHERE("t.trat_ipuesto_id = i.impuesto_id");
+		 WHERE("t.trat_id = #{t.tratId}");
 			
 			}}.toString();
 	}
@@ -17,8 +18,9 @@ public class SqlTratamientoProvider
 	public String findAllTratamientos()
 	{
 		return new SQL(){{
-		SELECT("t.trat_id, tt.tip_trat_descripcion, trat_descripcion, trat_cant_sesiones");
-		FROM("tratamiento t, tipo_tratamiento tt");
+		SELECT("t.trat_id, tt.tip_trat_descripcion, trat_descripcion, trat_cant_sesiones, i.impuesto_desc_abrv");
+		FROM("tratamiento t, tipo_tratamiento tt, impuesto i");
+		 WHERE("t.trat_ipuesto_id = i.impuesto_id");
 		WHERE("t.trat_tpo_id = tt.tip_trat_id");
 		ORDER_BY("trat_id");
 		}}.toString();

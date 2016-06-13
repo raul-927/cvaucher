@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import uy.com.cvaucher.services.enumerador.TipoImpuesto;
 import uy.com.cvaucher.services.domain.Impuesto;
 import uy.com.cvaucher.services.interfaces.ImpuestoInt;
 
@@ -29,6 +29,7 @@ public class ImpuestoController {
 		
 		model.addAttribute(new Impuesto());
 		model.addAttribute("impuestos",impuestoService.findAllImpuestos());
+		model.addAttribute("tipImp",TipoImpuesto.values());
 		return "impuesto/formImpuesto";
 	}
 	
@@ -38,12 +39,13 @@ public class ImpuestoController {
 		if(bindingResult.hasErrors()){
 			model.addAttribute(new Impuesto());
 			model.addAttribute("impuestos",impuestoService.findAllImpuestos());
-			System.out.println("Error en impuestoInsert: " +bindingResult.getAllErrors().toString());
+			model.addAttribute("tipImp",TipoImpuesto.values());
 			return "impuesto/formImpuesto";
 		}
 		model.addAttribute(new Impuesto());
 		impuestoService.insertImpuesto(impuesto);
 		model.addAttribute("impuestos",impuestoService.findAllImpuestos());
+		model.addAttribute("tipImp",TipoImpuesto.values());
 		return "impuesto/formImpuesto";
 	}
 }

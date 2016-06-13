@@ -14,6 +14,7 @@
 		<td>Tipo de tratamiento</td>
 		<td>Descripcion</td>
 		<td>Cantidad Sesiones</td>
+		<td>Impuesto</td>
 	</thead>
 		<tbody>
 			<% int count = 2;%>
@@ -31,6 +32,7 @@
 				<td >${trat.tipoTratamiento.tipTratDesc}</td>
 				<td >${trat.tratDescripcion}</td>
 				<td>${trat.tratCantSesiones}</td>
+				<td>${trat.impuesto.impuestoDescAbrv}</td>
 				
 				</tr>
 				<%count ++; %>

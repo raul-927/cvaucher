@@ -6,11 +6,11 @@
 <%@ page session="false" %>
 
 <table class="table well-sm">
-	<caption><h1>Caja</h1></caption>
+	<caption><h1>Resumen de Caja</h1></caption>
 	
 	<thead>
-		<td>Cuenta</td>
-		<td>Total</td>
+		<td><h3>Cuenta</h3></td>
+		<td><h3>Total</h3></td>
 	</thead>
 		<tbody>
 			<c:forEach var="resumenCuentas" items="${resumenCuentas}">

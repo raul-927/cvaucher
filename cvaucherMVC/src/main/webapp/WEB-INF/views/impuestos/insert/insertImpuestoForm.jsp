@@ -29,6 +29,13 @@
 		 	</div>
 		 </fieldset>
 		 	
+		 <div class="form-group">
+		 	<sf:label path="impuestoTipo" for ="impuestoTipo">Tipos de Impuesto</sf:label>
+		 	<sf:select cssClass ="form-control" path="impuestoTipo" size ="1">
+		 		<sf:options items="${tipImp}" />
+		 	</sf:select>
+		 	<sf:errors path ="impuestoTipo" cssClass ="error"/>
+		 </div>
 		 <div class="botonForm">
 		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar"/>
 		 	<input class ="btn btn-default" type ="reset" value ="Cancelar"/>
