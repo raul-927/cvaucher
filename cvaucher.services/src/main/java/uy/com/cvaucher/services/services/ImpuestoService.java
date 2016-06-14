@@ -38,4 +38,10 @@ public class ImpuestoService implements ImpuestoInt {
 
 	}
 
+	@Override
+	public List<Impuesto> findAllImpuestosByTipo(String impuestoTipo) {
+		// TODO Auto-generated method stub
+		return this.impuestoMapper.findAllImpuestosByTipo(impuestoTipo);
+	}
+
 }

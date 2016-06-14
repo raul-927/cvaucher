@@ -1,6 +1,7 @@
 package uy.com.cvaucher.services.sql;
 
 import org.apache.ibatis.jdbc.SQL;
+import uy.com.cvaucher.services.domain.Impuesto;
 
 public class SqlImpuestoProvider 
 {
@@ -23,6 +24,17 @@ public class SqlImpuestoProvider
 		ORDER_BY("impuesto_id");
 		}}.toString();
 	}
+	
+	public String findAllImpuestosByTipo()
+	{
+		return new SQL(){{
+		SELECT("impuesto_id, impuesto_desc, impuesto_desc_abrv, impuesto_valor, impuesto_tipo");
+		FROM("impuesto");
+		WHERE("impuesto_tipo = #{impuestoTipo}");
+		ORDER_BY("impuesto_id");
+		}}.toString();
+	}
+
 	
 	public String insertImpuesto(){
 		return new SQL(){{

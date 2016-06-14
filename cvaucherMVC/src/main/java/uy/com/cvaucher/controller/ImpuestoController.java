@@ -26,7 +26,7 @@ public class ImpuestoController {
 	
 	@RequestMapping(method = RequestMethod.GET, params = "insert")
 	public String showImpuestoInsert(Model model, Impuesto impuesto){
-		
+		Impuesto imp = new Impuesto();
 		model.addAttribute(new Impuesto());
 		model.addAttribute("impuestos",impuestoService.findAllImpuestos());
 		model.addAttribute("tipImp",TipoImpuesto.values());
@@ -35,7 +35,7 @@ public class ImpuestoController {
 	
 	@RequestMapping(method = RequestMethod.POST, params = "insert")
 	public String impuestoInsert(Model model, @Valid Impuesto impuesto, BindingResult bindingResult){
-		
+		Impuesto imp = new Impuesto();
 		if(bindingResult.hasErrors()){
 			model.addAttribute(new Impuesto());
 			model.addAttribute("impuestos",impuestoService.findAllImpuestos());

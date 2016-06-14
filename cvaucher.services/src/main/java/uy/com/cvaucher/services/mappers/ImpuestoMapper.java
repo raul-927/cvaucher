@@ -23,5 +23,9 @@ public interface ImpuestoMapper
 	@Options(useGeneratedKeys=true, keyProperty="impuestoId") 
 	void insertImpuesto(Impuesto impuesto);
 	
+	@SelectProvider(type = SqlImpuestoProvider.class,  method="findAllImpuestosByTipo")
+	@ResultMap("uy.com.cvaucher.services.mappers.ImpuestoMapper.ImpuestoResult")
+	List<Impuesto> findAllImpuestosByTipo(String impuestoTipo);
+	
 	
 }

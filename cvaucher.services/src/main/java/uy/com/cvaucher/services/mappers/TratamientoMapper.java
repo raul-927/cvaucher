@@ -74,7 +74,7 @@ public interface TratamientoMapper
 	@ResultMap("uy.com.cvaucher.services.mappers.TratamientoMapper.TratByListResult")
 	TratByList findTratamientoByActualListById(int tratId);
 	
-	@Insert("INSERT INTO tratamiento (trat_tpo_id, trat_descripcion,trat_cant_sesiones)VALUES(#{tipoTratamiento.tipTratId}, #{tratDescripcion}, #{tratCantSesiones})")
+	@Insert("INSERT INTO tratamiento (trat_tpo_id, trat_descripcion,trat_cant_sesiones, trat_ipuesto_id)VALUES(#{tipoTratamiento.tipTratId}, #{tratDescripcion}, #{tratCantSesiones}, #{impuesto.impuestoId})")
 	@Options(useGeneratedKeys=true, keyProperty="tratId")
 	void insertTratamiento(Tratamiento tratamiento);
 	

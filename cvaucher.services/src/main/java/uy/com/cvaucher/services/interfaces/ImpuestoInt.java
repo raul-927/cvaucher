@@ -8,4 +8,5 @@ public interface ImpuestoInt{
 	List<Impuesto> findAllImpuestos();
 	Impuesto findImpuestoById(int impuestoId);
 	void insertImpuesto(Impuesto impuesto);
+	List<Impuesto> findAllImpuestosByTipo(String impuestoTipo);
 }
