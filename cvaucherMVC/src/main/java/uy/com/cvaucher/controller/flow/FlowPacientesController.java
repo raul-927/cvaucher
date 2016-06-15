@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
+import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.Agenda;
+import uy.com.cvaucher.services.domain.AsientoContable;
+import uy.com.cvaucher.services.domain.AsientoContableArray;
+import uy.com.cvaucher.services.domain.Caja;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
@@ -27,6 +31,7 @@ import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
+import uy.com.cvaucher.services.interfaces.CajaInt;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.interfaces.HistoriaClinicaInt;
@@ -44,10 +49,14 @@ public class FlowPacientesController
 	private final HistoriaClinicaInt		historiaClinicaServices;
 	private final TratamientoPacienteInt	tratamientoPacienteServices;
 	private final FormasDePagosInt			formasDePagosServices;
+	private final AsientoContableInt		asientoContableServices;
+	private final CajaInt					cajaServices;
+	
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
 	private TratamientoPaciente				tratamientoPaciente;
 	private FormasDePagosDesc				formasDePagosDesc;
+	
 	
 	@Autowired
 	public FlowPacientesController(PacientesInt 			pacientesServices, 
@@ -57,7 +66,8 @@ public class FlowPacientesController
 									HistoriaClinicaInt		historiaClinicaServices,
 									TratamientoPacienteInt 	tratamientoPacienteServices,
 									FormasDePagosInt		formasDePagosServices,
-									AsientoContableInt		asientoContableServices)
+									AsientoContableInt 		asientoContableServices,
+									CajaInt					cajaServices)
 	{
 		this.pacientesServices			 = pacientesServices;
 		this.tratamientoServices		 = tratamientoServices;
@@ -66,6 +76,8 @@ public class FlowPacientesController
 		this.historiaClinicaServices 	 = historiaClinicaServices;
 		this.tratamientoPacienteServices = tratamientoPacienteServices;
 		this.formasDePagosServices 		 = formasDePagosServices;
+		this.asientoContableServices	 = asientoContableServices;
+		this.cajaServices 				 = cajaServices;
 	}
 	
 	public void insertPacientes(Pacientes pacientes)
@@ -246,6 +258,22 @@ public class FlowPacientesController
 	}
 	public FormasDePagosDesc getFormasDePagosDesc(){
 		return this.formasDePagosDesc;
+	}
+	public Caja cargoCajaActual(){
+		Caja caja = this.cajaServices.cargoCajaActual();
+		return caja;
+	}
+	public MaxNumAsientoContable maxNumAsientoContable(){
+		return this.asientoContableServices.maxNumAsientoContable();
+	}
+	
+	public void insertAsientoContable(AsientoContableArray asientoContableArray){
+		this.asientoContableServices.ingresarAsientoContable(asientoContableArray);
+	}
+	
+	public void procesoAsientoContable(){
+		Caja caja = this.cajaServices.cargoCajaActual();
+		
 	}
 	
 }

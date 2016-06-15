@@ -40,5 +40,16 @@
    		<put-attribute name="right"
    			value =""/>
 	</definition>
+	
+	 <definition name ="caja/cajaCerrada" extends ="layout">
+	     <put-attribute name="left"
+   			value ="/WEB-INF/views/caja/cerrada/cajaCerradaForm.jsp"/>
+	    	
+		<put-attribute name="content"
+   			value =""/>
+   			
+   		<put-attribute name="right"
+   			value =""/>
+	 </definition>
 	 
 </tiles-definitions>

@@ -8,7 +8,9 @@ public class AsientoContableArray implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private int 					asContId ;
+	
 	private int 					asConNro;
+	private ArrayList<Caja>			caja				=   new ArrayList<Caja>();
 	private ArrayList<Cuentas>		asCuentaDebe		=	new ArrayList<Cuentas>();
 	private ArrayList<BigDecimal>	asCuentaDebeMonto 	= 	new ArrayList<BigDecimal>();
 	private ArrayList<Cuentas>		asCuentaHaber 		= 	new ArrayList<Cuentas>();
@@ -77,6 +79,12 @@ public class AsientoContableArray implements Serializable{
 	}
 	public void setAsConUsr(String asConUsr) {
 		this.asConUsr = asConUsr;
+	}
+	public ArrayList<Caja> getCaja() {
+		return caja;
+	}
+	public void setCaja(ArrayList<Caja> caja) {
+		this.caja = caja;
 	}
 
 }

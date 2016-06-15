@@ -22,6 +22,9 @@ public interface CajaMapper {
 	
 	@UpdateProvider(type = SqlCajasProvider.class, method ="cerrarCaja")
 	void cerrarCaja(Caja caja);
+	@SelectProvider(type = SqlCajasProvider.class, method = "cargoCajaActual")
+	@ResultMap("uy.com.cvaucher.services.mappers.CajaMapper.CajaResult")
+	Caja cargoCajaActual();
 	
 	
 

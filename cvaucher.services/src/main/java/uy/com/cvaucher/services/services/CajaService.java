@@ -33,4 +33,10 @@ public class CajaService implements CajaInt {
 
 	}
 
+	@Override
+	public Caja cargoCajaActual() {
+		// TODO Auto-generated method stub
+		return this.cajaMapper.cargoCajaActual();
+	}
+
 }

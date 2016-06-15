@@ -11,6 +11,7 @@ public class AsientoContable implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	private int 		asContId;
+	private Caja		caja;
 	private int 		asConNro;
 	private Cuentas		asCuentaDebe;
 	private BigDecimal 	asCuentaDebeMonto;
@@ -26,6 +27,13 @@ public class AsientoContable implements Serializable
 	}
 	public void setAsContId(int asContId) {
 		this.asContId = asContId;
+	}
+	
+	public Caja getCaja() {
+		return caja;
+	}
+	public void setCaja(Caja caja) {
+		this.caja = caja;
 	}
 	public Cuentas getAsCuentaDebe() {
 		return asCuentaDebe;

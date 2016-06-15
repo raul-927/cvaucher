@@ -6,6 +6,15 @@
         
      <!-- Inicio Variables paciente, direccion, agenda, historiaClinica, tratamientoPaciente -->
 	 <on-start>
+	     
+	    <set name="flowScope.caja"
+			value="new uy.com.cvaucher.services.domain.Caja()"
+			type="uy.com.cvaucher.services.domain.Caja" />
+	    
+	    <set name="flowScope.asientoContable"
+			value="new uy.com.cvaucher.services.domain.AsientoContable()"
+			type="uy.com.cvaucher.services.domain.AsientoContable" />
+	     
 		<set name="flowScope.pacientes"
 			value="new uy.com.cvaucher.services.domain.Pacientes()"
 			type="uy.com.cvaucher.services.domain.Pacientes" />
@@ -35,10 +44,19 @@
 			type ="uy.com.cvaucher.services.clases.FormasDePagosDesc"/>			
 	 </on-start>
 	 	
-	<!-- Cargo Pacientes en Tratamientos -->
+	<!-- Cargo Pacientes, y Caja en Tratamientos -->
+	<action-state id="verificoCaja">
+	    <evaluate result ="flowScope.caja" expression ="flowPacientesController.cargoCajaActual()"/>
+	    <transition to ="comprueboEstadoCaja"/>
+	</action-state>
 	
+	<decision-state id="comprueboEstadoCaja">
+	    <if test="flowScope.caja.cajaEstado == 'CERRADO' " then="cajaCerrada"/>
+	    <if test="flowScope.caja.cajaEstado == 'ABIERTO' " then="cargoPacientesEnTratamientos"/>
+	</decision-state>
 	<action-state id="cargoPacientesEnTratamientos">
 		 <evaluate expression="flowScope.tratamientoPaciente.pacientes = flowPacientesController.returnPacientes()"/>
+		 <!--  <evaluate expression="flowScope.caja = "/> -->
 		<transition to ="tratamientoPacienteInsert"/>
 	</action-state>
 	
@@ -133,5 +151,19 @@
 	<!-- Pago Deposito Bancario -->
 	<view-state id ="pagoDepositoBancario" view ="tratamientoPaciente/pagoDepositoBancario" model ="pagoDepositoBancario">
 	</view-state>
-	<end-state id="finIngresoTratamiento"/>
+	
+	<action-state id="finIngresoTratamiento">
+	    <evaluate expression="flowPacientesController.procesoAsientoContable()"/>
+	    <transition to ="final"/>
+	</action-state>
+	
+	<view-state id="cajaCerrada" view ="caja/cajaCerrada" model ="caja">
+	    <transition on ="abrirCaja" to ="procesoAbrirCaja"/>
+	</view-state>
+	
+	 <view-state id="procesoAbrirCaja" view ="caja/aperturaCaja" model ="caja">
+	     
+	 </view-state>
+	<end-state id="final"/>
+	
 </flow>

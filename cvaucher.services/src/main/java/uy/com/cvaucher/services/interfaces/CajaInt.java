@@ -6,4 +6,5 @@ public interface CajaInt {
 	Caja aperturaCaja();
 	void insertarCaja(Caja caja);
 	void cerrarCaja(Caja caja);
+	Caja cargoCajaActual();
 }
