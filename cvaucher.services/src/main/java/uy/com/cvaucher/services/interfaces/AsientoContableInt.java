@@ -4,7 +4,7 @@ import java.util.List;
 
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
-import uy.com.cvaucher.services.domain.AsientoContable;
+//import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.AsientoContableArray;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 

@@ -54,6 +54,8 @@
 	    <if test="flowScope.caja.cajaEstado == 'CERRADO' " then="cajaCerrada"/>
 	    <if test="flowScope.caja.cajaEstado == 'ABIERTO' " then="cargoPacientesEnTratamientos"/>
 	</decision-state>
+	
+	
 	<action-state id="cargoPacientesEnTratamientos">
 		 <evaluate expression="flowScope.tratamientoPaciente.pacientes = flowPacientesController.returnPacientes()"/>
 		 <!--  <evaluate expression="flowScope.caja = "/> -->

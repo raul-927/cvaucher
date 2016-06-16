@@ -10,7 +10,7 @@ import uy.com.cvaucher.services.domain.TratamientoPaciente;
 
 public interface FormasDePagosInt 
 {
-	List<FormasDePagos> findAllFormasDePagos();
+	List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos);
 	
 	FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc);
 	

@@ -5,7 +5,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Pointcut;
 
-import uy.com.cvaucher.services.jni.CvaucherJni;
+//import uy.com.cvaucher.services.jni.CvaucherJni;
 
 @Aspect
 public class EfectivoAspect {

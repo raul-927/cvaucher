@@ -21,7 +21,7 @@ public class FormasDePagosTest
 	@Test
 	public void selectAllFormasDePagos()
 	{
-		List<FormasDePagos> formasPagos = this.formasDePagosServices.findAllFormasDePagos();
+		List<FormasDePagos> formasPagos = this.formasDePagosServices.findAllFormasDePagos(null);
 		
 		for(FormasDePagos fp: formasPagos)
 		{

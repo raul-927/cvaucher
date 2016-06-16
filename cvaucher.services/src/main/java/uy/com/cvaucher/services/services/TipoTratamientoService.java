@@ -2,18 +2,18 @@ package uy.com.cvaucher.services.services;
 
 import java.util.List;
 
-import javax.annotation.security.RolesAllowed;
+//import javax.annotation.security.RolesAllowed;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PostFilter;
+//import org.springframework.security.access.annotation.Secured;
+//import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import uy.com.cvaucher.services.annotations.Acceso;
+//import uy.com.cvaucher.services.annotations.Acceso;
 import uy.com.cvaucher.services.domain.TipoTratamiento;
 import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 import uy.com.cvaucher.services.mappers.TipoTratamientoMapper;

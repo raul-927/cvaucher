@@ -2,8 +2,6 @@ package uy.com.cvaucher.services.domain;
 
 import java.io.Serializable;
 
-import uy.com.cvaucher.services.enumerador.TipoCuenta;
-
 public class GrupoCuentas implements Serializable{
 
 	/**

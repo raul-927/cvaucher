@@ -32,7 +32,7 @@ public class FormasDePagosController
 	{
 		
 		model.addAttribute(new FormasDePagos());
-		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
+		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos(null));
 		model.addAttribute("tiposPagos",TiposFormasDePagos.values());
 		model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
 		return "formasDePagos/insertFormasDePagos";
@@ -45,13 +45,13 @@ public class FormasDePagosController
 		{
 			System.out.println("Error en insertar Tipos de Pagos"+bindingResult.getAllErrors());
 			model.addAttribute(new FormasDePagos());
-			model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
+			model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos(null));
 			model.addAttribute("tiposPagos",TiposFormasDePagos.values());
 			model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
 		}
 		this.formasDePagosServices.insertFormasDePagos(formasDePagos);
 		model.addAttribute(new FormasDePagos());
-		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos());
+		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos(null));
 		model.addAttribute("tiposPagos",TiposFormasDePagos.values());
 		model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
 		return "formasDePagos/insertFormasDePagos";

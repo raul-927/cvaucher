@@ -232,7 +232,7 @@ public class FlowPacientesController
 	
 	public List<FormasDePagos> findAllFormasDePagos()
 	{	
-		return this.formasDePagosServices.findAllFormasDePagos();
+		return this.formasDePagosServices.findAllFormasDePagos(null);
 	}
 	
 	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc)
@@ -241,20 +241,29 @@ public class FlowPacientesController
 		return this.formasDePagosServices.findFormPagoTipoByDesc(formPagoDesc);
 	}
 	
+	public FormasDePagos findAllFormasDePagoById(int formPagId){
+		return this.formasDePagosServices.findFormasDePagosById(formPagId);
+	}
+	
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
-		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
+		
+		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
 	}
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
+		Caja caja = this.cajaServices.cargoCajaActual();
 		
-		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
+		AsientoContable asientoContable = new AsientoContable();
+		asientoContable.setCaja(caja);
+		formasDePagoDesc.getFormasDePagoCuenta();
+		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
 	}
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
+		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
 	}
 	public FormasDePagosDesc getFormasDePagosDesc(){
 		return this.formasDePagosDesc;

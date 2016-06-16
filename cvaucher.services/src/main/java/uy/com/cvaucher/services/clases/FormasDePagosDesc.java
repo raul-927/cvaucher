@@ -2,6 +2,8 @@ package uy.com.cvaucher.services.clases;
 
 import java.io.Serializable;
 
+import uy.com.cvaucher.services.domain.Cuentas;
+
 public class FormasDePagosDesc implements Serializable
 {
 
@@ -9,7 +11,7 @@ public class FormasDePagosDesc implements Serializable
 	
 	private String formasDePagoDesc;
 	private String formasDePagoTipo;
-	private int formasDePagoCuenta;
+	private Cuentas formasDePagoCuenta;
 	
 	public String getFormasDePagoDesc() 
 	{
@@ -29,11 +31,11 @@ public class FormasDePagosDesc implements Serializable
 		this.formasDePagoTipo = formasDePagoTipo;
 	}
 
-	public int getFormasDePagoCuenta() {
+	public Cuentas getFormasDePagoCuenta() {
 		return formasDePagoCuenta;
 	}
 
-	public void setFormasDePagoCuenta(int formasDePagoCuenta) {
+	public void setFormasDePagoCuenta(Cuentas formasDePagoCuenta) {
 		this.formasDePagoCuenta = formasDePagoCuenta;
 	}
 

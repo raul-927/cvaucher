@@ -4,12 +4,12 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.*;
+//import org.springframework.security.access.annotation.Secured;
+//import org.springframework.security.access.prepost.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.access.intercept.aspectj.AspectJCallback;
-import org.springframework.security.access.intercept.aspectj.AspectJMethodSecurityInterceptor;
+//import org.springframework.security.access.intercept.aspectj.AspectJCallback;
+//import org.springframework.security.access.intercept.aspectj.AspectJMethodSecurityInterceptor;
 
 
 @Aspect

@@ -1,7 +1,6 @@
 package uy.com.cvaucher.services.sql;
 
 import org.apache.ibatis.jdbc.SQL;
-import uy.com.cvaucher.services.domain.Impuesto;
 
 public class SqlImpuestoProvider 
 {

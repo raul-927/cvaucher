@@ -2,9 +2,7 @@ package uy.com.cvaucher.services.services;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +21,14 @@ import uy.com.cvaucher.services.domain.PagoTarjeta;
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
-import uy.com.cvaucher.services.interfaces.CuentasInt;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
-import uy.com.cvaucher.services.mappers.AsientoContableMapper;
 import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 
 import uy.com.cvaucher.services.mappers.HistorialPagosMapper;
 import uy.com.cvaucher.services.mappers.PagoEfectivoMapper;
 import uy.com.cvaucher.services.mappers.PagoTarjetaMapper;
 import uy.com.cvaucher.services.mappers.TratamientoPacienteMapper;
-import uy.com.cvaucher.services.jni.CvaucherJni;
 
 
 @Service
@@ -62,9 +57,9 @@ public class FormasDePagosService implements FormasDePagosInt
 	private TratamientoInt tratamientoService;
 
 	@Override
-	public List<FormasDePagos> findAllFormasDePagos() 
+	public List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos) 
 	{
-		return this.formasDePagosMapper.findAllFormasDePagos();
+		return this.formasDePagosMapper.findAllFormasDePagos(formasDePagos);
 	}
 
 	@Override
@@ -135,7 +130,6 @@ public class FormasDePagosService implements FormasDePagosInt
 		asientoContable.setAsCuentaDebeMonto(debe);
 		asientoContable.setAsCuentaHaber(cuentaHaber);
 		asientoContable.setAsCuentaHaberMonto(haber);
-		int prueba = 0;
 		MaxNumAsientoContable maxNumAsContable;
 		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
 		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
@@ -162,7 +156,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		search.setFecha(tratamientoPaciente.getFecha());
 		search.setTratId(tratamientoPaciente.getTratamId());
 		HistorialPagos historialPagos = new HistorialPagos();
-		List<FormasDePagos> formasDePago = this.formasDePagosMapper.findAllFormasDePagos();
+		this.formasDePagosMapper.findAllFormasDePagos(null);
 		
 		int maxId = this.tratamientoPacienteMapper.findMaxTratPacId(search).getMaxId();
 		maxTratPacId.setMaxId(maxId);
