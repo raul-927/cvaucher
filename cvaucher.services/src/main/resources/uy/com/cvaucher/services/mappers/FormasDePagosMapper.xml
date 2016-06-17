@@ -10,8 +10,7 @@
 		<result property="formPagDesc" column="form_pag_desc"/>
 		<result property ="formPagAbreviacion" column ="form_pag_abreviacion"/>
 		<result property ="formPagTipo" column ="form_pag_tipo"/>
-		
-		<association property = "cuentas" resultMap ="uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult"/>
+		<association property = "formPagCuentas" resultMap ="uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult"/>
   	</resultMap>
   	
   	

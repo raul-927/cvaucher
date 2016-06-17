@@ -10,7 +10,7 @@ public class FormasDePagos implements Serializable
 	private static final long serialVersionUID = 1L;
 	private int formPagId;
 	private String formPagAbreviacion;
-	private Cuentas cuentas;
+	private Cuentas formPagCuentas;
 	private String formPagDesc;
 	private String formPagTipo;
 	
@@ -38,11 +38,11 @@ public class FormasDePagos implements Serializable
 	public void setFormPagTipo(String formPagTipo) {
 		this.formPagTipo = formPagTipo;
 	}
-	public Cuentas getCuentas() {
-		return cuentas;
+	public Cuentas getFormPagCuentas() {
+		return formPagCuentas;
 	}
-	public void setCuentas(Cuentas cuentas) {
-		this.cuentas = cuentas;
+	public void setFormPagCuentas(Cuentas formPagCuentas) {
+		this.formPagCuentas = formPagCuentas;
 	}
 	
 }

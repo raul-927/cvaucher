@@ -62,11 +62,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		return this.formasDePagosMapper.findAllFormasDePagos(formasDePagos);
 	}
 
-	@Override
-	public FormasDePagos findFormasDePagosById(Integer formPagId) 
-	{
-		return this.formasDePagosMapper.findFormasDePagosById(formPagId);
-	}
+	
 
 	@Override
 	public void insertFormasDePagos(FormasDePagos formasDePagos) 
@@ -80,11 +76,7 @@ public class FormasDePagosService implements FormasDePagosInt
 		this.formasDePagosMapper.updateFormasDePagos(formasDePagos);
 	}
 
-	@Override
-	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc) 
-	{
-		return this.formasDePagosMapper.findFormPagoTipoByDesc(formPagoDesc);
-	}
+	
 
 	@Override
 	@Transactional

@@ -12,10 +12,6 @@ public interface FormasDePagosInt
 {
 	List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos);
 	
-	FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc);
-	
-	FormasDePagos findFormasDePagosById(Integer formPagId);
-	
 	void insertFormasDePagos(FormasDePagos formasDePagos);
 	
 	void updateFormasDePagos(FormasDePagos formasDePagos);
