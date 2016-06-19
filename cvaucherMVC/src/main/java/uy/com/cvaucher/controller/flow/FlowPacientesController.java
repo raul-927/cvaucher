@@ -235,10 +235,10 @@ public class FlowPacientesController
 		return this.formasDePagosServices.findAllFormasDePagos(null);
 	}
 	
-	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagoDesc)
+	public FormasDePagosDesc findFormPagoTipoByDesc(FormasDePagos formasDePagos)
 	{
-		this.formasDePagosDesc = this.formasDePagosServices.findFormPagoTipoByDesc(formPagoDesc);
-		return this.formasDePagosServices.findFormPagoTipoByDesc(formPagoDesc);
+		this.formasDePagosDesc = this.formasDePagosServices.findAllFormasDePagos(formasDePagos)
+		return ((FlowPacientesController) this.formasDePagosServices).findFormPagoTipoByDesc(formPagoDesc);
 	}
 	
 	public FormasDePagos findAllFormasDePagoById(int formPagId){

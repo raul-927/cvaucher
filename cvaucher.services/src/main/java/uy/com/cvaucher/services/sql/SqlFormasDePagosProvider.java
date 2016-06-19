@@ -7,7 +7,7 @@ public class SqlFormasDePagosProvider {
 
 	public String findAllFormasDePagos(final FormasDePagos formasDePagos){
 		return new SQL(){{
-			SELECT("form_pag_id, form_pag_abreviacion, form_pag_cuenta_id, form_pag_desc, form_pag_tipo");
+			SELECT("form_pag_id, form_pag_abreviacion, form_pag_cuenta, form_pag_desc, form_pag_tipo");
 			FROM("formas_de_pago");
 			if(!(formasDePagos == null)){
 				
@@ -17,8 +17,8 @@ public class SqlFormasDePagosProvider {
 				if(!(formasDePagos.getFormPagAbreviacion()== null)){
 					WHERE("form_pag_abreviacion = #{formPagAbreviacion}");
 				}
-				if(formasDePagos.getFormPagCuentas().getCuentaId() > 0){
-					WHERE("form_pag_cuentas = #{cuentas.cuentaId}");
+				if(formasDePagos.getFormPagCuenta().getCuentaId()> 0){
+					WHERE("form_pag_cuenta = #{formPagCuenta}");
 				}
 				if(!(formasDePagos.getFormPagTipo() == null)){
 					WHERE("form_pag_tipo = #{formPagTipo}");
@@ -33,8 +33,8 @@ public class SqlFormasDePagosProvider {
 			if(!(formasDePagos.getFormPagAbreviacion()== null)){
 				VALUES("form_pag_abreviacion","#{formPagAbreviacion}");
 			}
-			if((formasDePagos.getFormPagCuentas().getCuentaId()>0)){
-				VALUES("form_pag_cuentas","#{cuentas.cuentaId}");
+			if((formasDePagos.getFormPagCuenta().getCuentaId()>0)){
+				VALUES("form_pag_cuentas","#{formPagCuenta}");
 			}
 			if(!(formasDePagos.getFormPagTipo() == null)){
 				VALUES("form_pag_tipo","#{formPagTipo}");
@@ -48,8 +48,8 @@ public class SqlFormasDePagosProvider {
 			if(!(formasDePagos.getFormPagAbreviacion()== null)){
 				SET("form_pag_abreviacion = #{formPagAbreviacion}");
 			}
-			if((formasDePagos.getFormPagCuentas().getCuentaId()>0)){
-				SET("form_pag_cuentas = #{cuentas.cuentaId}");
+			if((formasDePagos.getFormPagCuenta().getCuentaId()>0)){
+				SET("form_pag_cuentas = #{formPagCuenta}");
 				
 			}
 			if(!(formasDePagos.getFormPagTipo() == null)){

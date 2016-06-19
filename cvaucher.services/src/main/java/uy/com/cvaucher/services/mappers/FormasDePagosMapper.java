@@ -17,8 +17,9 @@ import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 
 public interface FormasDePagosMapper 
 {
-	@SelectProvider(type = SqlFormasDePagosProvider.class, method = "findAllFormasDePagos")
-	//@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
+	@Select("SELECT * FROM formas_de_pagos")
+	//@SelectProvider(type = SqlFormasDePagosProvider.class, method = "findAllFormasDePagos")
+	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
 	List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos);
 	
 	@InsertProvider(type = SqlFormasDePagosProvider.class, method = "insertFormasDePagos")
