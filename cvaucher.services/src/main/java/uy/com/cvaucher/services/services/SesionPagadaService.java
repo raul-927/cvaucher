@@ -13,8 +13,8 @@ import uy.com.cvaucher.services.domain.SesionPagada;
 import uy.com.cvaucher.services.interfaces.SesionPagadaInt;
 
 
-@Service
-@Transactional
+//@Service
+//@Transactional
 public class SesionPagadaService implements SesionPagadaInt
 {
 	private Logger logger = LoggerFactory.getLogger(getClass());

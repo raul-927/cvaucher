@@ -237,12 +237,12 @@ public class FlowPacientesController
 	
 	public FormasDePagosDesc findFormPagoTipoByDesc(FormasDePagos formasDePagos)
 	{
-		this.formasDePagosDesc = this.formasDePagosServices.findAllFormasDePagos(formasDePagos)
-		return ((FlowPacientesController) this.formasDePagosServices).findFormPagoTipoByDesc(formPagoDesc);
+		this.formasDePagosDesc = (FormasDePagosDesc) this.formasDePagosServices.findAllFormasDePagos(formasDePagos);
+		return ((FlowPacientesController) this.formasDePagosServices).findFormPagoTipoByDesc(formasDePagos);
 	}
 	
-	public FormasDePagos findAllFormasDePagoById(int formPagId){
-		return this.formasDePagosServices.findFormasDePagosById(formPagId);
+	public FormasDePagos findAllFormasDePagoById(FormasDePagos formasDePagos){
+		return (FormasDePagos) this.formasDePagosServices.findAllFormasDePagos(formasDePagos);
 	}
 	
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)

@@ -64,22 +64,29 @@
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.pacientes</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.seguimientopacientes</url-pattern>
   </servlet-mapping>
+  <!-- 
   <servlet-mapping>
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.sesiones</url-pattern>
   </servlet-mapping>
+   -->
+  <!--  
   <servlet-mapping>
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.sesionpagada</url-pattern>
   </servlet-mapping>
+  -->
+  <!--
   <servlet-mapping>
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.sesionrealizada</url-pattern>
   </servlet-mapping>
+   -->
   <servlet-mapping>
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.tipoagenda</url-pattern>
