@@ -9,19 +9,22 @@ public class SqlFormasDePagosProvider {
 		return new SQL(){{
 			SELECT("form_pag_id, form_pag_abreviacion, form_pag_cuenta, form_pag_desc, form_pag_tipo");
 			FROM("formas_de_pago");
-			if(!(formasDePagos == null)){
+			if(formasDePagos != null){
 				
 				if(formasDePagos.getFormPagId() > 0){
 					WHERE("form_pag_id = #{formPagId}");
 				}
-				if(!(formasDePagos.getFormPagAbreviacion()== null)){
+				if(formasDePagos.getFormPagAbreviacion()!= null){
 					WHERE("form_pag_abreviacion = #{formPagAbreviacion}");
 				}
 				if(formasDePagos.getFormPagCuenta().getCuentaId()> 0){
 					WHERE("form_pag_cuenta = #{formPagCuenta}");
 				}
-				if(!(formasDePagos.getFormPagTipo() == null)){
+				if(formasDePagos.getFormPagTipo() != null){
 					WHERE("form_pag_tipo = #{formPagTipo}");
+				}
+				if(formasDePagos.getFormPagDesc()!=null){
+					WHERE("form_pag_desc = #{formPagDesc}");
 				}
 			}
 		}}.toString();

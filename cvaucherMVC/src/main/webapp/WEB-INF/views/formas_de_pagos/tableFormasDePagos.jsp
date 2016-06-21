@@ -22,7 +22,7 @@
 			<td>${forPag.formPagAbreviacion}</td>
 			<td >${forPag.formPagDesc}</td>
 			<td >${forPag.formPagTipo}</td>
-			<td >${forPag.cuentas.cuentaDesc}</td>
+			<td >${forPag.formPagCuenta.cuentaDesc}</td>
 		</tr>		
 		</c:forEach>	
 	</tbody>

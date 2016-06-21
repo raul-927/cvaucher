@@ -35,13 +35,13 @@
 		 </div>
 		 
 		 <div class="form-group">
-			 	<sf:label path="cuentas.cuentaId" for ="cuentas.cuentaId">Seleccione una Cuenta</sf:label>
-			 	<sf:select cssClass ="form-control" path="cuentas.cuentaId" size ="1" id="descCAT">
+			 	<sf:label path="formPagCuenta.cuentaId" for ="formPagCuenta.cuentaId">Seleccione una Cuenta</sf:label>
+			 	<sf:select cssClass ="form-control" path="formPagCuenta.cuentaId" size ="1" id="descCAT">
 			 		
 			 		<sf:options items="${cuentas}" itemLabel="cuentaDesc" itemValue="cuentaId" />
 			 		
 			 	</sf:select>
-			 	<sf:errors path ="cuentas.cuentaId" cssClass ="error"/>
+			 	<sf:errors path ="formPagCuenta.cuentaId" cssClass ="error"/>
 		 </div>
 		 </fieldset>
 		 <div class="botonForm">
