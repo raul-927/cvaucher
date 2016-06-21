@@ -10,6 +10,10 @@
 			value="new uy.com.cvaucher.services.domain.Pacientes()"
 			type="uy.com.cvaucher.services.domain.Pacientes" />
 		
+		<set name="flowScope.formasDePagos" 
+			value="new uy.com.cvaucher.services.domain.FormasDePagos()" 
+			type ="uy.com.cvaucher.services.domain.FormasDePagos"/>
+		
 		<set name="flowScope.pacientes"
 			value="new uy.com.cvaucher.services.domain.Pacientes()"
 			type="uy.com.cvaucher.services.domain.Pacientes" />
@@ -157,11 +161,9 @@
 	</view-state>
 	
 	<action-state id="formaPagTipo">
-		<evaluate expression="flowScope.tipoFormPag = flowPacientesController.findFormPagoTipoByDesc(requestParameters.formaDePagoDesc)"/>
+		<evaluate expression="flowScope.formasDePagos.formPagDesc = requestParameters.formaDePagoDesc"></evaluate>
+		<evaluate expression="flowScope.tipoFormPag = flowPacientesController.findFormPagoTipoByDesc(flowScope.formasDePagos)"/>
 		<transition to ="decisionFormaPago"/>
-			
-	
-		
 	</action-state>
 	
 	<decision-state id="decisionFormaPago">
