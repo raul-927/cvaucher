@@ -41,7 +41,11 @@
 			
 		<set name ="flowScope.tipoFormPag"
 			value ="new uy.com.cvaucher.services.clases.FormasDePagosDesc()"
-			type ="uy.com.cvaucher.services.clases.FormasDePagosDesc"/>			
+			type ="uy.com.cvaucher.services.clases.FormasDePagosDesc"/>	
+		
+		<set name="flowScope.formasDePagos" 
+		    value="new uy.com.cvaucher.services.domain.FormasDePagos()"
+		    type ="uy.com.cvaucher.services.domain.FormasDePagos"/>		
 	 </on-start>
 	 	
 	<!-- Cargo Pacientes, y Caja en Tratamientos -->
@@ -92,7 +96,6 @@
 	
 	<action-state id="formaPagTipo">
 		<evaluate expression="flowScope.tipoFormPag = flowPacientesController.findFormPagoTipoByDesc(requestParameters.formaDePagoDesc)"/>
-		
 		<transition to ="decisionFormaPago"/>
 	</action-state>
 	
