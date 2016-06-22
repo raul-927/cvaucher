@@ -235,14 +235,10 @@ public class FlowPacientesController
 		return this.formasDePagosServices.findAllFormasDePagos(null);
 	}
 	
-	public List<FormasDePagos> findFormPagoTipoByDesc(FormasDePagos formasDePagos)
+	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagAbreviacion)
 	{
-		FormasDePagos fp = (FormasDePagos) this.formasDePagosServices.findAllFormasDePagos(formasDePagos);
-		
-		this.formasDePagosDesc.setFormasDePagoCuenta(fp.getFormPagCuenta());
-		this.formasDePagosDesc.setFormasDePagoDesc(fp.getFormPagDesc());
-		this.formasDePagosDesc.setFormasDePagoTipo(fp.getFormPagTipo());
-		return this.formasDePagosServices.findAllFormasDePagos(formasDePagos);
+		this.formasDePagosDesc = this.formasDePagosServices.findFormPagoTipoByDesc(formPagAbreviacion);
+		return this.formasDePagosServices.findFormPagoTipoByDesc(formPagAbreviacion);
 	}
 	
 	public FormasDePagos findAllFormasDePagoById(FormasDePagos formasDePagos){
@@ -257,10 +253,10 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		Caja caja = this.cajaServices.cargoCajaActual();
+		/*Caja caja = this.cajaServices.cargoCajaActual();
 		
 		AsientoContable asientoContable = new AsientoContable();
-		asientoContable.setCaja(caja);
+		asientoContable.setCaja(caja);*/
 		formasDePagoDesc.getFormasDePagoCuenta();
 		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
 	}
