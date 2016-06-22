@@ -248,7 +248,7 @@ public class FlowPacientesController
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
 		
-		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
+		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
@@ -258,12 +258,12 @@ public class FlowPacientesController
 		AsientoContable asientoContable = new AsientoContable();
 		asientoContable.setCaja(caja);*/
 		formasDePagoDesc.getFormasDePagoCuenta();
-		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
+		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
+		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	public FormasDePagosDesc getFormasDePagosDesc(){
 		return this.formasDePagosDesc;
