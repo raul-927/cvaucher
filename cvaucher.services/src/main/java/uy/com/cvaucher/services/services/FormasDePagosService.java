@@ -255,4 +255,12 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);
 	}
+
+
+
+	@Override
+	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagAbreviacion) {
+		// TODO Auto-generated method stub
+		return this.formasDePagosMapper.findFormPagoTipoByDesc(formPagAbreviacion);
+	}
 }
