@@ -17,10 +17,16 @@ import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 
 public interface FormasDePagosMapper 
 {
-	@Select("SELECT * FROM formas_de_pagos")
-	//@SelectProvider(type = SqlFormasDePagosProvider.class, method = "findAllFormasDePagos")
+	//@Select("SELECT * FROM formas_de_pagos")
+	@SelectProvider(type = SqlFormasDePagosProvider.class, method = "findAllFormasDePagos")
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagosResult")
 	List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos);
+	
+	
+	@SelectProvider(type = SqlFormasDePagosProvider.class, method = "findFormPagoTipoByDesc")
+	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagoDescResult")
+	FormasDePagosDesc findFormPagoTipoByDesc(String formPagAbreviacion);
+	
 	
 	@InsertProvider(type = SqlFormasDePagosProvider.class, method = "insertFormasDePagos")
 	@Options(useGeneratedKeys=true, keyProperty="formPagId")
