@@ -11,15 +11,12 @@ import uy.com.cvaucher.services.domain.TratamientoPaciente;
 public interface FormasDePagosInt 
 {
 	List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos);
+	FormasDePagosDesc findFormPagoTipoByDesc(String formPagAbreviacion);
 	
 	void insertFormasDePagos(FormasDePagos formasDePagos);
-	
 	void updateFormasDePagos(FormasDePagos formasDePagos);
-	
 	void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, int idCuenta);
-	
 	void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo, int idCuenta);
-	
 	void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo, int idCuenta);
 	
 }
