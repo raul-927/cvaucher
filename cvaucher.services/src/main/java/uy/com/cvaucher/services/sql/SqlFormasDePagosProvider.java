@@ -8,7 +8,7 @@ public class SqlFormasDePagosProvider {
 	public String findAllFormasDePagos(final FormasDePagos formasDePagos){
 		return new SQL(){{
 			SELECT("form_pag_id, form_pag_abreviacion, form_pag_cuenta, form_pag_desc, form_pag_tipo");
-			FROM("formas_de_pago");
+			FROM("formas_de_pagos");
 			if(formasDePagos != null){
 				
 				if(formasDePagos.getFormPagId() > 0){
@@ -28,6 +28,17 @@ public class SqlFormasDePagosProvider {
 				}
 			}
 		}}.toString();
+	}
+	
+	public String findFormPagoTipoByDesc(final String formPagAbreviacion){
+		String sql= new SQL(){{
+				SELECT("form_pag_abreviacion Abreviacion, form_pag_tipo Tipo, form_pag_cuenta ");
+				FROM("formas_de_pagos");
+				WHERE("form_pag_abreviacion = #{formPagAbreviacion}");
+		}}.toString();
+		System.out.println("sql ==>> "+sql);
+		
+		return sql;
 	}
 	
 	public String insertFormasDePagos(final FormasDePagos formasDePagos){
