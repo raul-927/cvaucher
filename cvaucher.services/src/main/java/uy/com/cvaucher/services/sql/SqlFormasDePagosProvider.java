@@ -7,8 +7,9 @@ public class SqlFormasDePagosProvider {
 
 	public String findAllFormasDePagos(final FormasDePagos formasDePagos){
 		return new SQL(){{
-			SELECT("form_pag_id, form_pag_abreviacion, form_pag_cuenta, form_pag_desc, form_pag_tipo");
-			FROM("formas_de_pagos");
+			SELECT("f.form_pag_id, f.form_pag_abreviacion, c.cuenta_desc, f.form_pag_desc, f.form_pag_tipo");
+			FROM("formas_de_pagos f, cuentas c");
+			WHERE("f.form_pag_cuenta = c.cuenta_id");
 			if(formasDePagos != null){
 				
 				if(formasDePagos.getFormPagId() > 0){
@@ -48,7 +49,10 @@ public class SqlFormasDePagosProvider {
 				VALUES("form_pag_abreviacion","#{formPagAbreviacion}");
 			}
 			if((formasDePagos.getFormPagCuenta().getCuentaId()>0)){
-				VALUES("form_pag_cuentas","#{formPagCuenta}");
+				VALUES("form_pag_cuenta","#{formPagCuenta.cuentaId}");
+			}
+			if(formasDePagos.getFormPagDesc()!=null){
+				VALUES("form_pag_desc","#{formPagDesc}");
 			}
 			if(!(formasDePagos.getFormPagTipo() == null)){
 				VALUES("form_pag_tipo","#{formPagTipo}");
