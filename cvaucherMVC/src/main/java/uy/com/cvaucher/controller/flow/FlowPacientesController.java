@@ -266,16 +266,21 @@ public class FlowPacientesController
 		BigDecimal asCuentaDebeMonto = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMonto = new BigDecimal((double)00);
 		AsientoContable asientoContable = new AsientoContable();
+		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
 		Tratamiento tratamiento = this.tratamientoServices.findTratamientoById(tratamientoPaciente.getTratamId());
 		asientoContable.setAsCuentaDebe(asCuentaDebe);
 		asientoContable.setAsCuentaHaber(asCuentaHaber);
 		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
 		asientoContable.setAsCuentaHaberMonto(asCuentaHaberMonto);
 		if(tratamiento.getImpuesto().getImpuestoValor().compareTo((BigDecimal)00)==1){
+			Cuentas asCuentaDebeMontoImp = null;
+			asCuentaDebeMontoImp = asCuentaDebe;
+			asCuentaDebeMontoImp.setCuentaId(tratamiento.getImpuesto().getImpuestoId());
+			asCuentaDebeMontoImp.setCuentaDesc(tratamiento.getImpuesto().getImpuestoDescAbrv());
 			
 		}
 		
-		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
+		
 		asientoContableList.add(asientoContable);
 		asientoContable.setCaja(caja);
 		asientoContable.setAsCuentaDebe(asCuentaDebe);
