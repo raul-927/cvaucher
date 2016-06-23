@@ -1,5 +1,6 @@
 package uy.com.cvaucher.controller.flow;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +19,7 @@ import uy.com.cvaucher.services.domain.Agenda;
 import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.AsientoContableArray;
 import uy.com.cvaucher.services.domain.Caja;
+import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
@@ -32,6 +34,7 @@ import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.CajaInt;
+import uy.com.cvaucher.services.interfaces.CuentasInt;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.interfaces.HistoriaClinicaInt;
@@ -51,6 +54,7 @@ public class FlowPacientesController
 	private final FormasDePagosInt			formasDePagosServices;
 	private final AsientoContableInt		asientoContableServices;
 	private final CajaInt					cajaServices;
+	private final CuentasInt				cuentasServices;
 	
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
@@ -67,7 +71,8 @@ public class FlowPacientesController
 									TratamientoPacienteInt 	tratamientoPacienteServices,
 									FormasDePagosInt		formasDePagosServices,
 									AsientoContableInt 		asientoContableServices,
-									CajaInt					cajaServices)
+									CajaInt					cajaServices,
+									CuentasInt				cuentasServices)
 	{
 		this.pacientesServices			 = pacientesServices;
 		this.tratamientoServices		 = tratamientoServices;
@@ -78,6 +83,7 @@ public class FlowPacientesController
 		this.formasDePagosServices 		 = formasDePagosServices;
 		this.asientoContableServices	 = asientoContableServices;
 		this.cajaServices 				 = cajaServices;
+		this.cuentasServices			 = cuentasServices;
 	}
 	
 	public void insertPacientes(Pacientes pacientes)
@@ -253,11 +259,17 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		/*Caja caja = this.cajaServices.cargoCajaActual();
+		Caja caja = this.cajaServices.cargoCajaActual();
+		Cuentas asCuentaDebe = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
 		
+		BigDecimal asCuentaDebeMonto = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
+		BigDecimal asCuentaHaberMonto = new BigDecimal((double)00);
 		AsientoContable asientoContable = new AsientoContable();
-		asientoContable.setCaja(caja);*/
-		formasDePagoDesc.getFormasDePagoCuenta();
+		asientoContable.setCaja(caja);
+		asientoContable.setAsCuentaDebe(asCuentaDebe);
+		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
+		
+		
 		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
