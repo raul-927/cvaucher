@@ -261,12 +261,15 @@ public class FlowPacientesController
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
 		Caja caja = this.cajaServices.cargoCajaActual();
-		
 		Cuentas asCuentaDebe = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
-		
+		Cuentas asCuentaHaber = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());;
 		BigDecimal asCuentaDebeMonto = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMonto = new BigDecimal((double)00);
 		AsientoContable asientoContable = new AsientoContable();
+		asientoContable.setAsCuentaDebe(asCuentaDebe);
+		asientoContable.setAsCuentaHaber(asCuentaHaber);
+		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
+		asientoContable.setAsCuentaHaberMonto(asCuentaHaberMonto);
 		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
 		asientoContableList.add(asientoContable);
 		asientoContable.setCaja(caja);
