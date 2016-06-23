@@ -266,6 +266,10 @@ public class FlowPacientesController
 		BigDecimal asCuentaDebeMonto = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMonto = new BigDecimal((double)00);
 		AsientoContable asientoContable = new AsientoContable();
+		Tratamiento tratamiento = this.tratamientoServices.findTratamientoById(tratamientoPaciente.getTratamId());
+		if(tratamiento.getImpuesto().getImpuestoValor().compareTo((BigDecimal)00)==1){
+			
+		}
 		asientoContable.setAsCuentaDebe(asCuentaDebe);
 		asientoContable.setAsCuentaHaber(asCuentaHaber);
 		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
