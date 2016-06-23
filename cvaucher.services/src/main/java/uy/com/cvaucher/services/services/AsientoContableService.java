@@ -36,9 +36,9 @@ public class AsientoContableService implements AsientoContableInt {
 	}
 
 	@Override
-	public void ingresarAsientoContable(AsientoContableArray asientoContableArray) {
-		int size = asientoContableArray.getAsCuentaDebe().size();
-		AsientoContable asientoContable = new AsientoContable();
+	public void ingresarAsientoContable(List<AsientoContable> asientoContable) {
+		int size = asientoContable.getAsCuentaDebe().size();
+		//AsientoContable asientoContable = new AsientoContable();
 		int index = 0;
 		while( index < size){
 			int asConNro = asientoContableArray.getAsConNro();
@@ -59,7 +59,7 @@ public class AsientoContableService implements AsientoContableInt {
 			asientoContable.setAsConFecha(asConFecha);
 			asientoContable.setAsConHora(asConHora);
 			asientoContable.setAsConUsr(asConUsr);
-			this.asientoContableMapper.ingresarAsientoContable(asientoContable);
+			//this.asientoContableMapper.ingresarAsientoContable(asientoContable);
 			index++;
 		}
 	}
