@@ -2,6 +2,7 @@ package uy.com.cvaucher.controller.flow;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -254,28 +255,33 @@ public class FlowPacientesController
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
 		
-		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
+		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
 	}
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
 		Caja caja = this.cajaServices.cargoCajaActual();
-		Cuentas asCuentaDebe = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
+		
+		Cuentas asCuentaDebe = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
 		
 		BigDecimal asCuentaDebeMonto = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMonto = new BigDecimal((double)00);
 		AsientoContable asientoContable = new AsientoContable();
+		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
+		asientoContableList.add(asientoContable);
 		asientoContable.setCaja(caja);
 		asientoContable.setAsCuentaDebe(asCuentaDebe);
 		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
+		AsientoContableArray asientoContableArray = new AsientoContableArray();
 		
+		this.asientoContableServices.ingresarAsientoContable(asientoContableArray);
 		
-		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
+		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
 	}
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
+		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
 	}
 	public FormasDePagosDesc getFormasDePagosDesc(){
 		return this.formasDePagosDesc;
