@@ -273,10 +273,13 @@ public class FlowPacientesController
 		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
 		asientoContable.setAsCuentaHaberMonto(asCuentaHaberMonto);
 		if(tratamiento.getImpuesto().getImpuestoValor().compareTo((BigDecimal)00)==1){
-			Cuentas asCuentaDebeMontoImp = null;
+			AsientoContable asientoContableImpuesto = new AsientoContable();
+			Cuentas asCuentaDebeMontoImp = new Cuentas();
 			asCuentaDebeMontoImp = asCuentaDebe;
 			asCuentaDebeMontoImp.setCuentaId(tratamiento.getImpuesto().getImpuestoId());
 			asCuentaDebeMontoImp.setCuentaDesc(tratamiento.getImpuesto().getImpuestoDescAbrv());
+			asientoContableImpuesto.setAsCuentaDebe(asCuentaDebeMontoImp);
+			asientoContableImpuesto.setAsCuentaHaber(asCuentaDebeMontoImp);
 			
 		}
 		
