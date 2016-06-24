@@ -33,7 +33,7 @@ public class SqlFormasDePagosProvider {
 	
 	public String findFormPagoTipoByDesc(final String formPagAbreviacion){
 		String sql= new SQL(){{
-				SELECT("form_pag_abreviacion Abreviacion, form_pag_tipo Tipo, form_pag_cuenta ");
+				SELECT("form_pag_abreviacion Abreviacion, form_pag_tipo Tipo, form_pag_cuenta Cuenta ");
 				FROM("formas_de_pagos");
 				WHERE("form_pag_abreviacion = #{formPagAbreviacion}");
 		}}.toString();

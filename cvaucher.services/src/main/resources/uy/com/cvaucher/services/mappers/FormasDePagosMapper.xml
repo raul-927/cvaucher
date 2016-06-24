@@ -16,7 +16,6 @@
   	<resultMap type="uy.com.cvaucher.services.clases.FormasDePagosDesc" id="FormasDePagoDescResult">
   		<result property ="formasDePagoDesc" column ="Abreviacion"/>
   		<result property ="formasDePagoTipo" column ="Tipo"/>
-  		
-  	<association property = "formasDePagoCuenta" resultMap ="uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult"/>
+  		<result property ="formasDePagoCuenta" column ="Cuenta"/>
   	</resultMap>
 </mapper>
