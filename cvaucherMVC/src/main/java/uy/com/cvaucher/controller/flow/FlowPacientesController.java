@@ -255,14 +255,17 @@ public class FlowPacientesController
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
 		
-		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
+		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
+		System.out.println("formasDePagoDesc ==>> "+formasDePagoDesc.getFormasDePagoDesc());
+		System.out.println("formasDePagoDesc ==>> "+formasDePagoDesc.getFormasDePagoTipo());
+		System.out.println("formasDePagoDesc ==>> "+formasDePagoDesc.getFormasDePagoCuenta());
 		Caja caja = this.cajaServices.cargoCajaActual();
-		Cuentas asCuentaDebe = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
-		Cuentas asCuentaHaber = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());;
+		Cuentas asCuentaDebe = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
+		Cuentas asCuentaHaber = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
 		BigDecimal asCuentaDebeMonto = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMonto = new BigDecimal((double)00);
 		AsientoContable asientoContable = new AsientoContable();
@@ -272,7 +275,8 @@ public class FlowPacientesController
 		asientoContable.setAsCuentaHaber(asCuentaHaber);
 		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
 		asientoContable.setAsCuentaHaberMonto(asCuentaHaberMonto);
-		if(tratamiento.getImpuesto().getImpuestoValor().compareTo((BigDecimal)00)==1){
+		BigDecimal cero = new BigDecimal("00");
+		/*if(tratamiento.getImpuesto().getImpuestoValor().compareTo(cero)==1){
 			AsientoContable asientoContableImpuesto = new AsientoContable();
 			Cuentas asCuentaDebeMontoImp = new Cuentas();
 			asCuentaDebeMontoImp = asCuentaDebe;
@@ -282,7 +286,7 @@ public class FlowPacientesController
 			asientoContableImpuesto.setAsCuentaHaber(asCuentaDebeMontoImp);
 			
 		}
-		
+		*/
 		
 		asientoContableList.add(asientoContable);
 		asientoContable.setCaja(caja);
@@ -292,12 +296,12 @@ public class FlowPacientesController
 		
 		this.asientoContableServices.ingresarAsientoContable(asientoContableArray);
 		
-		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
+		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta().getCuentaId());
+		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	public FormasDePagosDesc getFormasDePagosDesc(){
 		return this.formasDePagosDesc;
