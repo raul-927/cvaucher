@@ -7,9 +7,10 @@ public class SqlTratamientoProvider
 	public String finTratamientoById()
 	{
 		return new SQL(){{
-		SELECT("t.trat_id, t.trat_tpo_id, t.trat_descripcion, t.trat_cant_sesiones, i.impuesto_desc_abrv");
-		 FROM("tratamiento t, impuesto i");
+		SELECT("t.trat_id, t.trat_tpo_id, t.trat_descripcion, t.trat_cant_sesiones, i.impuesto_id, i.impuesto_desc, i.impuesto_desc_abrv, i.impuesto_valor, i.impuesto_tipo, c.cuenta_id");
+		 FROM("tratamiento t, impuesto i, cuentas c");
 		 WHERE("t.trat_ipuesto_id = i.impuesto_id");
+		 WHERE("i.impuesto_cuenta = c.cuenta_id");
 		 WHERE("t.trat_id = #{t.tratId}");
 			
 			}}.toString();

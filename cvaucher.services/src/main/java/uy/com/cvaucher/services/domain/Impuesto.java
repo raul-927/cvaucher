@@ -14,6 +14,7 @@ public class Impuesto implements Serializable{
 	private String impuestoDescAbrv;
 	private BigDecimal impuestoValor;
 	private String impuestoTipo;
+	private Cuentas impuestoCuenta;
 	
 	public int getImpuestoId() {
 		return impuestoId;
@@ -44,6 +45,12 @@ public class Impuesto implements Serializable{
 	}
 	public void setImpuestoTipo(String impuestoTipo) {
 		this.impuestoTipo = impuestoTipo;
+	}
+	public Cuentas getImpuestoCuenta() {
+		return impuestoCuenta;
+	}
+	public void setImpuestoCuenta(Cuentas impuestoCuenta) {
+		this.impuestoCuenta = impuestoCuenta;
 	}
 
 }

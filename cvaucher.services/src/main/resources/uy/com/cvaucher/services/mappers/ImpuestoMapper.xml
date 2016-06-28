@@ -11,6 +11,7 @@
 		<result property="impuestoDescAbrv" column="impuesto_desc_abrv"/>
 		<result property="impuestoValor" column="impuesto_valor"/>
 		<result property="impuestoTipo" column ="impuesto_tipo"/>
+		<association property="impuestoCuenta" resultMap ="uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult"/>
   	</resultMap>
 
 </mapper>
