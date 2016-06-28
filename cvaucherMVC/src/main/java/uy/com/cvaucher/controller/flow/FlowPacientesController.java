@@ -283,9 +283,9 @@ public class FlowPacientesController
 		System.out.println("asCuentaDebeMonto ==>> "+asCuentaDebeMonto);
 		System.out.println("asImpDebeMonto ==>> "+asImpDebeMonto);
 		System.out.println("asImpHaberMonto ==>> "+asImpHaberMonto);
-		BigDecimal resultado = asImpDebeMonto.multiply(asImpHaberMonto);
-		BigDecimal divide = new BigDecimal("100.00");
-		System.out.println("resultado ==>> "+resultado);
+		BigDecimal resultado = asCuentaDebeMonto.multiply(asImpHaberMonto);
+		BigDecimal divisor = new BigDecimal("100.00");
+		System.out.println("resultado ==>> "+resultado.divide(divisor));
 		asientoContable.setAsCuentaDebe(asCuentaDebe);
 		asientoContable.setAsCuentaHaber(asCuentaHaber);
 		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
