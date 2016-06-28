@@ -24,6 +24,7 @@ import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
+import uy.com.cvaucher.services.domain.Impuesto;
 import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.domain.PagoEfectivo;
@@ -39,6 +40,7 @@ import uy.com.cvaucher.services.interfaces.CuentasInt;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.interfaces.HistoriaClinicaInt;
+import uy.com.cvaucher.services.interfaces.ImpuestoInt;
 import uy.com.cvaucher.services.interfaces.PacientesInt;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
 import uy.com.cvaucher.services.interfaces.TratamientoPacienteInt;
@@ -56,6 +58,7 @@ public class FlowPacientesController
 	private final AsientoContableInt		asientoContableServices;
 	private final CajaInt					cajaServices;
 	private final CuentasInt				cuentasServices;
+	private final ImpuestoInt				impuestoServices;
 	
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
@@ -73,7 +76,8 @@ public class FlowPacientesController
 									FormasDePagosInt		formasDePagosServices,
 									AsientoContableInt 		asientoContableServices,
 									CajaInt					cajaServices,
-									CuentasInt				cuentasServices)
+									CuentasInt				cuentasServices,
+									ImpuestoInt				impuestoServices)
 	{
 		this.pacientesServices			 = pacientesServices;
 		this.tratamientoServices		 = tratamientoServices;
@@ -85,6 +89,7 @@ public class FlowPacientesController
 		this.asientoContableServices	 = asientoContableServices;
 		this.cajaServices 				 = cajaServices;
 		this.cuentasServices			 = cuentasServices;
+		this.impuestoServices			 = impuestoServices;
 	}
 	
 	public void insertPacientes(Pacientes pacientes)
@@ -260,34 +265,31 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		System.out.println("formasDePagoDesc ==>> "+formasDePagoDesc.getFormasDePagoDesc());
-		System.out.println("formasDePagoDesc ==>> "+formasDePagoDesc.getFormasDePagoTipo());
-		System.out.println("formasDePagoDesc ==>> "+formasDePagoDesc.getFormasDePagoCuenta());
 		Caja caja = this.cajaServices.cargoCajaActual();
 		Cuentas asCuentaDebe = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
 		Cuentas asCuentaHaber = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
+		
 		BigDecimal asCuentaDebeMonto = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMonto = new BigDecimal((double)00);
 		AsientoContable asientoContable = new AsientoContable();
 		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
 		Tratamiento tratamiento = this.tratamientoServices.findTratamientoById(tratamientoPaciente.getTratamId());
+		Cuentas asImpDebe = this.cuentasServices.selectCuentaByCuentaId(tratamiento.getImpuesto().getImpuestoCuenta().getCuentaId());
+		Cuentas asImpHaber = asImpDebe;
+		System.out.println("asImpDebe ==>> "+asImpDebe.getCuentaDesc());
+		System.out.println("asImpHaber ==>> "+asImpHaber.getCuentaDesc());
+		BigDecimal asImpDebeMonto = new BigDecimal("00");
+		BigDecimal asImpHaberMonto = tratamiento.getImpuesto().getImpuestoValor();
+		System.out.println("asCuentaDebeMonto ==>> "+asCuentaDebeMonto);
+		System.out.println("asImpDebeMonto ==>> "+asImpDebeMonto);
+		System.out.println("asImpHaberMonto ==>> "+asImpHaberMonto);
+		BigDecimal resultado = asImpDebeMonto.multiply(asImpHaberMonto);
+		BigDecimal divide = new BigDecimal("100.00");
+		System.out.println("resultado ==>> "+resultado);
 		asientoContable.setAsCuentaDebe(asCuentaDebe);
 		asientoContable.setAsCuentaHaber(asCuentaHaber);
 		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
 		asientoContable.setAsCuentaHaberMonto(asCuentaHaberMonto);
-		BigDecimal cero = new BigDecimal("00");
-		/*if(tratamiento.getImpuesto().getImpuestoValor().compareTo(cero)==1){
-			AsientoContable asientoContableImpuesto = new AsientoContable();
-			Cuentas asCuentaDebeMontoImp = new Cuentas();
-			asCuentaDebeMontoImp = asCuentaDebe;
-			asCuentaDebeMontoImp.setCuentaId(tratamiento.getImpuesto().getImpuestoId());
-			asCuentaDebeMontoImp.setCuentaDesc(tratamiento.getImpuesto().getImpuestoDescAbrv());
-			asientoContableImpuesto.setAsCuentaDebe(asCuentaDebeMontoImp);
-			asientoContableImpuesto.setAsCuentaHaber(asCuentaDebeMontoImp);
-			
-		}
-		*/
-		
 		asientoContableList.add(asientoContable);
 		asientoContable.setCaja(caja);
 		asientoContable.setAsCuentaDebe(asCuentaDebe);
