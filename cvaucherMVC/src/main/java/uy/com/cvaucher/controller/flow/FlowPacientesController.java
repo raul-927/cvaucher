@@ -259,50 +259,19 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
-		
+		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
-		Caja caja = this.cajaServices.cargoCajaActual();
-		Cuentas asCuentaDebe = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
-		Cuentas asCuentaHaber = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
-		
-		BigDecimal asCuentaDebeMonto = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
-		BigDecimal asCuentaHaberMonto = new BigDecimal((double)00);
-		AsientoContable asientoContable = new AsientoContable();
-		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
-		Tratamiento tratamiento = this.tratamientoServices.findTratamientoById(tratamientoPaciente.getTratamId());
-		Cuentas asImpDebe = this.cuentasServices.selectCuentaByCuentaId(tratamiento.getImpuesto().getImpuestoCuenta().getCuentaId());
-		Cuentas asImpHaber = asImpDebe;
-		System.out.println("asImpDebe ==>> "+asImpDebe.getCuentaDesc());
-		System.out.println("asImpHaber ==>> "+asImpHaber.getCuentaDesc());
-		BigDecimal asImpDebeMonto = new BigDecimal("00");
-		BigDecimal asImpHaberMonto = tratamiento.getImpuesto().getImpuestoValor();
-		System.out.println("asCuentaDebeMonto ==>> "+asCuentaDebeMonto);
-		System.out.println("asImpDebeMonto ==>> "+asImpDebeMonto);
-		System.out.println("asImpHaberMonto ==>> "+asImpHaberMonto);
-		BigDecimal resultado = asCuentaDebeMonto.multiply(asImpHaberMonto);
-		BigDecimal divisor = new BigDecimal("100.00");
-		System.out.println("resultado ==>> "+resultado.divide(divisor));
-		asientoContable.setAsCuentaDebe(asCuentaDebe);
-		asientoContable.setAsCuentaHaber(asCuentaHaber);
-		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
-		asientoContable.setAsCuentaHaberMonto(asCuentaHaberMonto);
-		asientoContableList.add(asientoContable);
-		asientoContable.setCaja(caja);
-		asientoContable.setAsCuentaDebe(asCuentaDebe);
-		asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
-		AsientoContableArray asientoContableArray = new AsientoContableArray();
-		
-		this.asientoContableServices.ingresarAsientoContable(asientoContableArray);
-		
+		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
+		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	public FormasDePagosDesc getFormasDePagosDesc(){
@@ -316,8 +285,56 @@ public class FlowPacientesController
 		return this.asientoContableServices.maxNumAsientoContable();
 	}
 	
-	public void insertAsientoContable(AsientoContableArray asientoContableArray){
-		this.asientoContableServices.ingresarAsientoContable(asientoContableArray);
+	private void insertAsientoContable(TratamientoPaciente tratamientoPaciente, FormasDePagosDesc formasDePagoDesc){
+		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
+		
+		Caja caja = this.cajaServices.cargoCajaActual();
+		Cuentas asCuentaL1 = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
+		BigDecimal asCuentaDebeMontoL1 = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
+		BigDecimal asCuentaHaberMontoL1 = new BigDecimal((double)00);
+		
+		Tratamiento tratamiento = this.tratamientoServices.findTratamientoById(tratamientoPaciente.getTratamId());
+		Cuentas cuentaImp = this.cuentasServices.selectCuentaByCuentaId(tratamiento.getImpuesto().getImpuestoCuenta().getCuentaId());
+		
+		
+		MaxNumAsientoContable asContId = this.asientoContableServices.maxNumAsientoContable();
+		AsientoContable asientoContableL1 = new AsientoContable();
+		AsientoContable asientoContableL2 = new AsientoContable();
+		AsientoContable asientoContableL3 = new AsientoContable();
+		
+		asientoContableL1.setAsContId(asContId.getMaxNum());
+		asientoContableL2.setAsContId(asContId.getMaxNum());
+		asientoContableL3.setAsContId(asContId.getMaxNum());
+		
+		asientoContableL1.setCaja(caja);
+		asientoContableL2.setCaja(caja);
+		asientoContableL3.setCaja(caja);
+		
+		System.out.println("cuentaImp ==>> "+cuentaImp.getCuentaDesc());
+
+		BigDecimal asImpDebeMonto = new BigDecimal("00");
+		BigDecimal asImpHaberMonto = tratamiento.getImpuesto().getImpuestoValor();
+		System.out.println("asCuentaDebeMonto ==>> "+asCuentaDebeMontoL1);
+		System.out.println("asImpDebeMonto ==>> "+asImpDebeMonto);
+		System.out.println("asImpHaberMonto ==>> "+asImpHaberMonto);
+		BigDecimal resultado = asCuentaDebeMontoL1.multiply(asImpHaberMonto);
+		BigDecimal divisor = new BigDecimal("100.00");
+		System.out.println("resultado ==>> "+resultado.divide(divisor));
+		
+		
+		asientoContableL1.setAsCuentaDebe(asCuentaL1);
+		asientoContableL1.setAsCuentaHaber(asCuentaL1);
+		asientoContableL1.setAsContId(asContId.getMaxNum());
+		asientoContableL1.setAsCuentaDebeMonto(asCuentaDebeMontoL1);
+		asientoContableL1.setAsCuentaHaberMonto(asCuentaHaberMontoL1);
+		asientoContableL1.setAsConDescripcion(asCuentaL1.getCuentaDesc());
+		asientoContableList.add(asientoContableL1);
+		asientoContableList.add(asientoContableL2);
+		asientoContableList.add(asientoContableL3);
+		
+		asientoContableL2.setAsCuentaDebe(cuentaImp);
+		asientoContableL2.setAsCuentaHaber(cuentaImp);
+		this.asientoContableServices.ingresarAsientoContable(asientoContableList);
 	}
 	
 	public void procesoAsientoContable(){

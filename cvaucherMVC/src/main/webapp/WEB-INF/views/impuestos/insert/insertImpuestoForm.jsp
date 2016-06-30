@@ -36,6 +36,13 @@
 		 	</sf:select>
 		 	<sf:errors path ="impuestoTipo" cssClass ="error"/>
 		 </div>
+		 <div class="form-group">
+		 	<sf:label path="impuestoCuenta.cuentaId" for ="impuestoCuenta.cuentaId">Seleccione una Cuenta</sf:label>
+		 	<sf:select cssClass ="form-control" path="impuestoCuenta.cuentaId">
+		 		<sf:options items="${cuenta}" itemLabel="cuentaDesc" itemValue="cuentaId" />
+		 	</sf:select>
+		 	<sf:errors path ="impuestoCuenta.cuentaId" cssClass ="error"/>
+		 </div>
 		 <div class="botonForm">
 		 	<input class= "btn btn-primary" type ="submit" value ="Aceptar"/>
 		 	<input class ="btn btn-default" type ="reset" value ="Cancelar"/>

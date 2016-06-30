@@ -15,6 +15,7 @@
 		<td>Abreviaci&oacute;n</td>
 		<td>Valor</td>
 		<td>Tipo impuesto</td>
+		<td>Cuenta</td>
 	</thead>
 		<tbody>
 			<c:forEach var="imp" items="${impuestos}">
@@ -24,6 +25,7 @@
 					<td >${imp.impuestoDescAbrv}</td>
 					<td >${imp.impuestoValor}</td>
 					<td >${imp.impuestoTipo}</td>
+					<td >${imp.impuestoCuenta.cuentaDesc}</td>
 				</tr>
 			</c:forEach>	
 		</tbody>

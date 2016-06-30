@@ -1,5 +1,8 @@
 package uy.com.cvaucher.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,7 @@ import uy.com.cvaucher.services.interfaces.CuentasInt;
 @RequestMapping("/formasDePagos")
 public class FormasDePagosController 
 {
+	private ArrayList<Integer>grupoCuentaId = new ArrayList<Integer>();
 	private final FormasDePagosInt formasDePagosServices;
 	private final CuentasInt		cuentasService;
 	@Autowired
@@ -25,16 +29,20 @@ public class FormasDePagosController
 	{
 		this.formasDePagosServices = formasDePagosServices;
 		this.cuentasService = cuentasService;
+		grupoCuentaId.add(7);
+		grupoCuentaId.add(8);
+		grupoCuentaId.add(9);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, params = "insert")
 	public String showFormasDePagos(Model model, FormasDePagos formasDePagos)
 	{
 		
+		
 		model.addAttribute(new FormasDePagos());
 		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos(null));
 		model.addAttribute("tiposPagos",TiposFormasDePagos.values());
-		model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
+		model.addAttribute("cuentas",this.cuentasService.selectAllCuentasByGrupo(grupoCuentaId));
 		return "formasDePagos/insertFormasDePagos";
 	}
 	
@@ -47,13 +55,15 @@ public class FormasDePagosController
 			model.addAttribute(new FormasDePagos());
 			model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos(null));
 			model.addAttribute("tiposPagos",TiposFormasDePagos.values());
-			model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
+			model.addAttribute("cuentas",this.cuentasService.selectAllCuentasByGrupo(grupoCuentaId));
 		}
 		this.formasDePagosServices.insertFormasDePagos(formasDePagos);
 		model.addAttribute(new FormasDePagos());
 		model.addAttribute("forPag", this.formasDePagosServices.findAllFormasDePagos(null));
 		model.addAttribute("tiposPagos",TiposFormasDePagos.values());
-		model.addAttribute("cuentas",this.cuentasService.selectAllCuentas());
+		
+		
+		model.addAttribute("cuentas",this.cuentasService.selectAllCuentasByGrupo(grupoCuentaId));
 		return "formasDePagos/insertFormasDePagos";
 	}
 }
