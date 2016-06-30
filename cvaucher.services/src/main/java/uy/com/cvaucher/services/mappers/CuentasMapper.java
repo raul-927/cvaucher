@@ -1,10 +1,12 @@
 package uy.com.cvaucher.services.mappers;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.SelectProvider;
 
@@ -33,14 +35,13 @@ public interface CuentasMapper {
 	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByHora")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
 	Cuentas selectCuentaByHora(Date cuentaHora);
-	/*
-	@SelectProvider(type = SqlCuentasProvider.class, method ="selectCuentaByFechaHora")
-	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
-	Cuentas selectCuentaByFechaHora(Date cuentaFecha, Date cuentaHora);
-	*/
+	
 	@SelectProvider(type = SqlCuentasProvider.class, method ="selectAllCuentas")
 	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
 	List<Cuentas> selectAllCuentas();
 	
+	@SelectProvider(type = SqlCuentasProvider.class, method ="selectAllCuentasByGrupo")
+	@ResultMap("uy.com.cvaucher.services.mappers.CuentasMapper.CuentasResult")
+	List<Cuentas> selectAllCuentasByGrupo(@Param("grupoCuentaId")ArrayList<Integer> grupoCuentaId );
 
 }
