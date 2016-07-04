@@ -78,7 +78,7 @@ public class FlowCajasController {
 	public String showResumenCaja(Model model, AsientoContable asientoContable){
 		
 		model.addAttribute(new AsientoContable());
-		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentas());
+		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentas(1));
 		return "caja/resumenCaja";
 	}
 }

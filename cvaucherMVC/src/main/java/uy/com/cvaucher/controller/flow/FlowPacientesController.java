@@ -62,6 +62,7 @@ public class FlowPacientesController
 	
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
+	private BigDecimal 						total = new BigDecimal("00");
 	private TratamientoPaciente				tratamientoPaciente;
 	private FormasDePagosDesc				formasDePagosDesc;
 	
@@ -146,12 +147,6 @@ public class FlowPacientesController
 		return tratPac;
 	}
 	
-	public List<Tratamiento> findAllTratamientos()
-	{
-		List<Tratamiento> tratamiento =  this.tratamientoServices.findAllTratamientos();
-		return tratamiento;
-	}
-	
 	public List<Tratamiento> findNewTratamientos()
 	{
 		return this.tratamientoServices.findNewTratamiento();
@@ -167,6 +162,12 @@ public class FlowPacientesController
 		return this.tratamientoServices.findSesionesByTratamientoId(tratId);
 	}
 	
+	public List<Tratamiento> findAllTratamientos()
+	{
+		List<Tratamiento> tratamiento =  this.tratamientoServices.findAllTratamientos();
+		return tratamiento;
+	}
+
 	public Pacientes findPacientesByCedula(int cedula)
 	{
 		return this.pacientesServices.findPacientesByCedula(cedula);
@@ -265,6 +266,7 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
+		//pagoEfectivo.setPagoEfImporte(total.intValue());
 		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
 	}
@@ -289,22 +291,29 @@ public class FlowPacientesController
 		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
 		
 		Caja caja = this.cajaServices.cargoCajaActual();
+		System.out.println("Caja==>> "+caja.getCajaId() + ", "+caja.getCajaEstado());
 		Cuentas asCuentaL1 = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
+		
 		BigDecimal asCuentaDebeMontoL1 = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMontoL1 = new BigDecimal((double)00);
 		
 		Tratamiento tratamiento = this.tratamientoServices.findTratamientoById(tratamientoPaciente.getTratamId());
 		Cuentas cuentaImp = this.cuentasServices.selectCuentaByCuentaId(tratamiento.getImpuesto().getImpuestoCuenta().getCuentaId());
 		
+		Cuentas cuentaTratamiento = new Cuentas();
+		cuentaTratamiento.setCuentaId(12);
+		cuentaTratamiento.setCuentaDesc(tratamiento.getTratDescripcion());
+	
 		
-		MaxNumAsientoContable asContId = this.asientoContableServices.maxNumAsientoContable();
+		MaxNumAsientoContable asConNro = this.asientoContableServices.maxNumAsientoContable();
+		System.out.println("asConNro ==>> "+asConNro.getMaxNum());
 		AsientoContable asientoContableL1 = new AsientoContable();
 		AsientoContable asientoContableL2 = new AsientoContable();
 		AsientoContable asientoContableL3 = new AsientoContable();
 		
-		asientoContableL1.setAsContId(asContId.getMaxNum());
-		asientoContableL2.setAsContId(asContId.getMaxNum());
-		asientoContableL3.setAsContId(asContId.getMaxNum());
+		asientoContableL1.setAsConNro(asConNro.getMaxNum());
+		asientoContableL2.setAsConNro(asConNro.getMaxNum());
+		asientoContableL3.setAsConNro(asConNro.getMaxNum());
 		
 		asientoContableL1.setCaja(caja);
 		asientoContableL2.setCaja(caja);
@@ -313,27 +322,43 @@ public class FlowPacientesController
 		System.out.println("cuentaImp ==>> "+cuentaImp.getCuentaDesc());
 
 		BigDecimal asImpDebeMonto = new BigDecimal("00");
-		BigDecimal asImpHaberMonto = tratamiento.getImpuesto().getImpuestoValor();
+		BigDecimal impuesto = tratamiento.getImpuesto().getImpuestoValor();
 		System.out.println("asCuentaDebeMonto ==>> "+asCuentaDebeMontoL1);
 		System.out.println("asImpDebeMonto ==>> "+asImpDebeMonto);
-		System.out.println("asImpHaberMonto ==>> "+asImpHaberMonto);
-		BigDecimal resultado = asCuentaDebeMontoL1.multiply(asImpHaberMonto);
+		BigDecimal aux = asCuentaDebeMontoL1.multiply(impuesto);
 		BigDecimal divisor = new BigDecimal("100.00");
-		System.out.println("resultado ==>> "+resultado.divide(divisor));
-		
+		BigDecimal resultado = aux.divide(divisor);
+		BigDecimal asImpHaberMonto = new BigDecimal("00");
+		this.total = asCuentaDebeMontoL1.subtract(resultado);
+		asImpHaberMonto.add(resultado);
+		System.out.println("resultado ==>> "+resultado);
+		System.out.println("total ==>> "+total);
 		
 		asientoContableL1.setAsCuentaDebe(asCuentaL1);
 		asientoContableL1.setAsCuentaHaber(asCuentaL1);
-		asientoContableL1.setAsContId(asContId.getMaxNum());
 		asientoContableL1.setAsCuentaDebeMonto(asCuentaDebeMontoL1);
 		asientoContableL1.setAsCuentaHaberMonto(asCuentaHaberMontoL1);
 		asientoContableL1.setAsConDescripcion(asCuentaL1.getCuentaDesc());
+		
+		asientoContableL2.setAsCuentaDebe(cuentaImp);
+		asientoContableL2.setAsCuentaHaber(cuentaImp);
+		asientoContableL2.setAsCuentaDebeMonto(asImpDebeMonto);
+		asientoContableL2.setAsCuentaHaberMonto(resultado);
+		asientoContableL2.setAsConDescripcion(cuentaImp.getCuentaDesc());
+		
+		//BigDecimal resultado = new BigDecimal("00");
+		
+		asientoContableL3.setAsCuentaDebe(cuentaTratamiento);
+		asientoContableL3.setAsCuentaHaber(cuentaTratamiento);
+		asientoContableL3.setAsCuentaDebeMonto(asImpDebeMonto);
+		asientoContableL3.setAsCuentaHaberMonto(total);
+		asientoContableL3.setAsConDescripcion(cuentaTratamiento.getCuentaDesc());
+		
 		asientoContableList.add(asientoContableL1);
 		asientoContableList.add(asientoContableL2);
 		asientoContableList.add(asientoContableL3);
 		
-		asientoContableL2.setAsCuentaDebe(cuentaImp);
-		asientoContableL2.setAsCuentaHaber(cuentaImp);
+		
 		this.asientoContableServices.ingresarAsientoContable(asientoContableList);
 	}
 	
