@@ -293,7 +293,6 @@ public class FlowPacientesController
 		Caja caja = this.cajaServices.cargoCajaActual();
 		System.out.println("Caja==>> "+caja.getCajaId() + ", "+caja.getCajaEstado());
 		Cuentas asCuentaL1 = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
-		
 		BigDecimal asCuentaDebeMontoL1 = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMontoL1 = new BigDecimal((double)00);
 		
@@ -303,6 +302,7 @@ public class FlowPacientesController
 		Cuentas cuentaTratamiento = new Cuentas();
 		cuentaTratamiento.setCuentaId(12);
 		cuentaTratamiento.setCuentaDesc(tratamiento.getTratDescripcion());
+		cuentaTratamiento.setCuentaTipo(3);
 	
 		
 		MaxNumAsientoContable asConNro = this.asientoContableServices.maxNumAsientoContable();
@@ -339,21 +339,26 @@ public class FlowPacientesController
 		asientoContableL1.setAsCuentaDebeMonto(asCuentaDebeMontoL1);
 		asientoContableL1.setAsCuentaHaberMonto(asCuentaHaberMontoL1);
 		asientoContableL1.setAsConDescripcion(asCuentaL1.getCuentaDesc());
+		asientoContableL1.setAsCuentaTipo(asCuentaL1.getCuentaTipo());
+		
+		System.out.println("asCuentaL1.getCuentaTipo ==>> "+asCuentaL1.getCuentaTipo());
 		
 		asientoContableL2.setAsCuentaDebe(cuentaImp);
 		asientoContableL2.setAsCuentaHaber(cuentaImp);
 		asientoContableL2.setAsCuentaDebeMonto(asImpDebeMonto);
 		asientoContableL2.setAsCuentaHaberMonto(resultado);
 		asientoContableL2.setAsConDescripcion(cuentaImp.getCuentaDesc());
+		asientoContableL2.setAsCuentaTipo(cuentaImp.getCuentaTipo());
 		
-		//BigDecimal resultado = new BigDecimal("00");
+		System.out.println("cuentaImp.getCuentaTipo() ==>> "+cuentaImp.getCuentaTipo());
 		
 		asientoContableL3.setAsCuentaDebe(cuentaTratamiento);
 		asientoContableL3.setAsCuentaHaber(cuentaTratamiento);
 		asientoContableL3.setAsCuentaDebeMonto(asImpDebeMonto);
 		asientoContableL3.setAsCuentaHaberMonto(total);
 		asientoContableL3.setAsConDescripcion(cuentaTratamiento.getCuentaDesc());
-		
+		asientoContableL3.setAsCuentaTipo(cuentaTratamiento.getCuentaTipo());
+		System.out.println("cuentaTratamiento.getCuentaTipo() ==>> "+cuentaTratamiento.getCuentaTipo());
 		asientoContableList.add(asientoContableL1);
 		asientoContableList.add(asientoContableL2);
 		asientoContableList.add(asientoContableL3);
