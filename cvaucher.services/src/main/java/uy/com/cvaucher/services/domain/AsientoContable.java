@@ -17,6 +17,7 @@ public class AsientoContable implements Serializable
 	private BigDecimal 	asCuentaDebeMonto;
 	private Cuentas		asCuentaHaber;
 	private BigDecimal 	asCuentaHaberMonto;
+	private int			asCuentaTipo;
 	private String		asConDescripcion;
 	private String 		asConFecha;
 	private String 		asConHora;
@@ -88,6 +89,12 @@ public class AsientoContable implements Serializable
 	}
 	public void setAsConNro(int asConNro) {
 		this.asConNro = asConNro;
+	}
+	public int getAsCuentaTipo() {
+		return asCuentaTipo;
+	}
+	public void setAsCuentaTipo(int asCuentaTipo) {
+		this.asCuentaTipo = asCuentaTipo;
 	}
 	
 	
