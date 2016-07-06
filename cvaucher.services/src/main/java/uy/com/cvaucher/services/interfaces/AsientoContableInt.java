@@ -1,5 +1,6 @@
 package uy.com.cvaucher.services.interfaces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
@@ -12,10 +13,9 @@ import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 public interface AsientoContableInt {
 	ResultadoCuentaAsientoTotal cuentaAsientoTotal();
 	List<ResultadoCuentaAsientoTotal> cuentasAsientoTotal();
-	void ingresarAsientoContable(List<AsientoContable> asientoContable);
+	void ingresarAsientoContable(ArrayList<AsientoContable> asientoContableList);
 	MaxNumAsientoContable maxNumAsientoContable();
 	MaxNumAsientoContable cantRegistros();
-	List<ResumenPorCuentas> resumenPorCuentas();
-	
+	List<ResumenPorCuentas> resumenPorCuentas(int asConTipo);
 
 }
