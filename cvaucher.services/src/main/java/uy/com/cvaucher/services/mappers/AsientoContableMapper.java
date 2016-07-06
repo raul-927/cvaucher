@@ -39,10 +39,10 @@ public interface AsientoContableMapper {
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
 	MaxNumAsientoContable cantRegistros();
 	
-	@Select(value ="{CALL SP_resumenPorCuentasTotal}")
+	@Select(value ="{CALL SP_resumenPorCuentasTotal(#{asConTipo, mode=IN, jdbcType=INTEGER})}")
 	@Options(statementType = StatementType.CALLABLE)
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
-	List<ResumenPorCuentas> resumenPorCuentas();
+	List<ResumenPorCuentas> resumenPorCuentas(int asConTipo);
 	
 
 }

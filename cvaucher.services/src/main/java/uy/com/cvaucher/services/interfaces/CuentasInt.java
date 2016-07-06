@@ -1,5 +1,6 @@
 package uy.com.cvaucher.services.interfaces;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ public interface CuentasInt {
 	Cuentas selectCuentaByHora(Date cuentaHora);
 	//Cuentas selectCuentaByFechaHora(Date cuentaFecha, Date cuentaHora);
 	List<Cuentas> selectAllCuentas();
+	List<Cuentas> selectAllCuentasByGrupo(ArrayList<Integer> grupoCuentaId);
 	
 
 }

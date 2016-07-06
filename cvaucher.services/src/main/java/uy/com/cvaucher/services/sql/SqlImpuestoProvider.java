@@ -19,9 +19,10 @@ public class SqlImpuestoProvider
 	public String findAllImpuestos()
 	{
 		return new SQL(){{
-		SELECT("impuesto_id, impuesto_desc, impuesto_desc_abrv, impuesto_valor, impuesto_tipo");
-		FROM("impuesto");
-		ORDER_BY("impuesto_id");
+		SELECT("i.impuesto_id, i.impuesto_desc, i.impuesto_desc_abrv, i.impuesto_valor, i.impuesto_tipo, c.cuenta_desc");
+		FROM("impuesto i, cuentas c");
+		WHERE("i.impuesto_cuenta = c.cuenta_id");
+		ORDER_BY("i.impuesto_id");
 		}}.toString();
 	}
 	

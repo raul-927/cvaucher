@@ -1,6 +1,8 @@
 package uy.com.cvaucher.services.services;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +63,26 @@ public class CuentasService implements CuentasInt
 		
 		return this.cuentasMapper.selectAllCuentas();
 	}
+
+@Override
+public List<Cuentas> selectAllCuentasByGrupo(ArrayList<Integer> grupoCuentaId) {
+	StringBuilder aux = new StringBuilder();
+	Iterator<Integer> it = grupoCuentaId.iterator();
+	while(it.hasNext()){
+		aux.append(it.next()+",");
+	}
+	aux.deleteCharAt(aux.length()-1);
+	String resultado = String.valueOf(aux);
+	Integer a= new Integer(3);
+	Integer b= new Integer(3);
+	if(a==b){
+		System.out.println("OK");
+	}
+	else{
+		System.out.println("NO OK");
+	}
+	return this.cuentasMapper.selectAllCuentasByGrupo(resultado);
+}
 	
 	
 }
