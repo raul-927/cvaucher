@@ -1,6 +1,8 @@
 package uy.com.cvaucher.services.services;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,35 +37,7 @@ public class AsientoContableService implements AsientoContableInt {
 		return this.asientoContableMapper.cuentasAsientoTotal();
 	}
 
-	@Override
-	public void ingresarAsientoContable(List<AsientoContable> asientoContable) {
-		int size = asientoContable.getAsCuentaDebe().size();
-		//AsientoContable asientoContable = new AsientoContable();
-		int index = 0;
-		while( index < size){
-			int asConNro = asientoContableArray.getAsConNro();
-			Cuentas asCuentaDebe = asientoContableArray.getAsCuentaDebe().get(index);
-			BigDecimal asCuentaDebeMonto = asientoContableArray.getAsCuentaDebeMonto().get(index);
-			Cuentas asCuentaHaber = asientoContableArray.getAsCuentaHaber().get(index);
-			BigDecimal asCuentaHaberMonto = asientoContableArray.getAsCuentaHaberMonto().get(index);
-			String asConDescripcion = asientoContableArray.getAsConDescripcion().get(index);
-			String asConFecha = asientoContableArray.getAsConFecha();
-			String asConHora = asientoContableArray.getAsConHora();
-			String asConUsr = asientoContableArray.getAsConUsr();
-			asientoContable.setAsConNro(asConNro);
-			asientoContable.setAsCuentaDebe(asCuentaDebe);
-			asientoContable.setAsCuentaDebeMonto(asCuentaDebeMonto);
-			asientoContable.setAsCuentaHaber(asCuentaHaber);
-			asientoContable.setAsCuentaHaberMonto(asCuentaHaberMonto);
-			asientoContable.setAsConDescripcion(asConDescripcion);
-			asientoContable.setAsConFecha(asConFecha);
-			asientoContable.setAsConHora(asConHora);
-			asientoContable.setAsConUsr(asConUsr);
-			//this.asientoContableMapper.ingresarAsientoContable(asientoContable);
-			index++;
-		}
-	}
-
+	
 	@Override
 	public MaxNumAsientoContable maxNumAsientoContable() {
 		MaxNumAsientoContable cantidadReg = this.cantRegistros();
@@ -90,9 +64,17 @@ public class AsientoContableService implements AsientoContableInt {
 	}
 
 	@Override
-	public List<ResumenPorCuentas> resumenPorCuentas() {
+	public List<ResumenPorCuentas> resumenPorCuentas(int asConTipo) {
 		
-		return this.asientoContableMapper.resumenPorCuentas();
+		return this.asientoContableMapper.resumenPorCuentas(asConTipo);
 	}
 
+	@Override
+	public void ingresarAsientoContable(ArrayList<AsientoContable> asientoContableList) {
+		Iterator<AsientoContable> it = asientoContableList.iterator();
+		
+		while(it.hasNext()){
+			this.asientoContableMapper.ingresarAsientoContable(it.next());
+		}	
+	}
 }
