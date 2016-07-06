@@ -15,7 +15,7 @@
 		<tbody>
 			<c:forEach var="resumenCuentas" items="${resumenCuentas}">
 				<tr>
-					<td >${resumenCuentas.cuenta}</td>
+					<td ><a href='<s:url value="#"/>'>${resumenCuentas.cuenta}</a></td>
 					<td >${resumenCuentas.total}</td>
 				</tr>	
 			</c:forEach>

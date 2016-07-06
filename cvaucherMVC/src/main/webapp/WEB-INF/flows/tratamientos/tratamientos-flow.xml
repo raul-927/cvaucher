@@ -149,7 +149,7 @@
 			<evaluate result ="flowScope.paciente" expression="flowPacientesController.returnPacientes()"/>
 		</on-render>
 		<transition on ="finalizarIngresoTratamientoPagoCredito" to ="finIngresoTratamiento">
-			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo, flowScope.tipoFormPag.formasDePagoCuenta)"/>
+			<evaluate expression="flowPacientesController.insertTratamientoPagoCredito(flowScope.tratamientoPaciente, flowScope.pagoEfectivo, flowScope.tipoFormPag)"/>
 		</transition>
 	</view-state>
 	
