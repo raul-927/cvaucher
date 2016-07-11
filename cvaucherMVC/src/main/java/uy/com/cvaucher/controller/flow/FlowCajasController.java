@@ -77,8 +77,12 @@ public class FlowCajasController {
 	@RequestMapping(value ="/caja",params ="resumen", method = RequestMethod.GET)
 	public String showResumenCaja(Model model, AsientoContable asientoContable){
 		
+		Caja caja = this.cajaService.cargoCajaActual();
+		int idCaja = caja.getCajaId();
+		System.out.println("idCaja ==>> "+idCaja);
 		model.addAttribute(new AsientoContable());
-		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentas(1));
+		
+		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentasTotalPorCaja(1, idCaja));
 		return "caja/resumenCaja";
 	}
 }

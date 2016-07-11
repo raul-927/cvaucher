@@ -2,8 +2,10 @@ package uy.com.cvaucher.services.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
@@ -43,6 +45,14 @@ public interface AsientoContableMapper {
 	@Options(statementType = StatementType.CALLABLE)
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
 	List<ResumenPorCuentas> resumenPorCuentas(int asConTipo);
+	
+	
+	@Select(value ="{CALL SP_resumenPorCuentasTotalPorCaja(#{cuentaTipo, mode=IN, jdbcType=INTEGER}, #{idCaja, mode=IN, jdbcType=INTEGER})}")
+	@Options(statementType = StatementType.CALLABLE)
+	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
+	List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(@Param("cuentaTipo") int cuentaTipo, @Param("idCaja")int idCaja);
+	
+	
 	
 
 }

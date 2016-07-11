@@ -10,6 +10,7 @@
   		<id 	property = "histPagosId" 		column = "hist_pagos_id"/>
   		
 		<result property = "histTratPacId" 		column = "hist_pagos_trat_pac_id"/>
+		<result property = "histPagosCajaId"	column = "hist_pagos_caja_id"/>
 		<result property = "histPagosFechaPago"	column = "hist_pagos_fecha_pago"/>
 		<result property = "histPagosMonto"		column = "hist_pagos_monto"/> 
 		<result property = "histPagosTipo"		column = "hist_tipo_pago"/>

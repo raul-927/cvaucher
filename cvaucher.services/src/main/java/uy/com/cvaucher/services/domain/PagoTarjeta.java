@@ -4,13 +4,10 @@ import java.io.Serializable;
 
 public class PagoTarjeta implements Serializable
 {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private int tarjId;
+	private int tarjetaCajaId;
 	private int tarjPacCedula;
 	private int tarjPagoId;
 	private long tarjNro;
@@ -66,6 +63,12 @@ public class PagoTarjeta implements Serializable
 	}
 	public void setTarjDesc(String tarjDesc) {
 		this.tarjDesc = tarjDesc;
+	}
+	public int getTarjetaCajaId() {
+		return tarjetaCajaId;
+	}
+	public void setTarjetaCajaId(int tarjetaCajaId) {
+		this.tarjetaCajaId = tarjetaCajaId;
 	}
 	
 

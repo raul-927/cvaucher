@@ -18,13 +18,11 @@ import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.Agenda;
 import uy.com.cvaucher.services.domain.AsientoContable;
-import uy.com.cvaucher.services.domain.AsientoContableArray;
 import uy.com.cvaucher.services.domain.Caja;
 import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
-import uy.com.cvaucher.services.domain.Impuesto;
 import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.domain.PagoEfectivo;
@@ -58,8 +56,6 @@ public class FlowPacientesController
 	private final AsientoContableInt		asientoContableServices;
 	private final CajaInt					cajaServices;
 	private final CuentasInt				cuentasServices;
-	private final ImpuestoInt				impuestoServices;
-	
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
 	private BigDecimal 						total = new BigDecimal("00");
@@ -90,7 +86,6 @@ public class FlowPacientesController
 		this.asientoContableServices	 = asientoContableServices;
 		this.cajaServices 				 = cajaServices;
 		this.cuentasServices			 = cuentasServices;
-		this.impuestoServices			 = impuestoServices;
 	}
 	
 	public void insertPacientes(Pacientes pacientes)
@@ -260,12 +255,17 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
+		Caja cajaActual  = this.cajaServices.cargoCajaActual();
+		pagoTarjeta.setTarjetaCajaId(cajaActual.getCajaId());
 		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
-	{
+	{	
+		Caja cajaActual  = this.cajaServices.cargoCajaActual();
+		System.out.println("cajaActual.getCajaId() ==>> "+cajaActual.getCajaId());
+		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
 		//pagoEfectivo.setPagoEfImporte(total.intValue());
 		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
@@ -273,6 +273,9 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
+		Caja cajaActual  = this.cajaServices.cargoCajaActual();
+		System.out.println("cajaActual.getCajaId() ==>> "+cajaActual.getCajaId());
+		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
 		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
 	}

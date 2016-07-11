@@ -10,9 +10,10 @@
 	
 	<thead>
 		<td>Id</td>
-		<td>Tipo</td>
+		<td>Tipo grupo</td>
 		<td>Grupo</td>
 		<td>Descripcion</td>
+		<td>Tipo de Cuenta</td>
 		<td>Fecha</td>
 		<td>Hora</td>
 		<td>Usuario</td>
@@ -24,6 +25,7 @@
 			  		<td >${muestroCuentas.grupoCuentas.tipoCuenta}</td>
 					<td >${muestroCuentas.grupoCuentas.grupoCuentaDesc}</td>
 					<td >${muestroCuentas.cuentaDesc}</td>
+					<td >${muestroCuentas.cuentaTipo}</td>
 					<td >${muestroCuentas.cuentaFecha}</td>
 					<td >${muestroCuentas.cuentaHora}</td>
 					<td >${muestroCuentas.cuentaUsuario}</td>

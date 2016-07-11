@@ -12,6 +12,7 @@ import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.AsientoContable;
+import uy.com.cvaucher.services.domain.Caja;
 import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistorialPagos;
@@ -21,8 +22,10 @@ import uy.com.cvaucher.services.domain.PagoTarjeta;
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
+import uy.com.cvaucher.services.interfaces.CajaInt;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
+import uy.com.cvaucher.services.mappers.CajaMapper;
 import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 
 import uy.com.cvaucher.services.mappers.HistorialPagosMapper;
@@ -55,6 +58,9 @@ public class FormasDePagosService implements FormasDePagosInt
 	
 	@Autowired
 	private TratamientoInt tratamientoService;
+	
+	@Autowired
+	private CajaMapper		   cajaMapper;
 
 	@Override
 	public List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos) 
@@ -92,6 +98,8 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		int maxId = this.tratamientoPacienteMapper.findMaxTratPacId(search).getMaxId();
 		maxTratPacId.setMaxId(maxId);
+		Caja caja = this.cajaMapper.cargoCajaActual();
+		historialPagos.setHistPagosCajaId(caja.getCajaId());
 		historialPagos.setHistTratPacId(maxTratPacId.getMaxId());
 		historialPagos.setHistPagosFechaPago(tratamientoPaciente.getFecha());
 		historialPagos.setHistPagosMonto(tratamientoPaciente.getCostoTratSesion());
@@ -152,6 +160,8 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		int maxId = this.tratamientoPacienteMapper.findMaxTratPacId(search).getMaxId();
 		maxTratPacId.setMaxId(maxId);
+		Caja caja = this.cajaMapper.cargoCajaActual();
+		historialPagos.setHistPagosCajaId(caja.getCajaId());
 		historialPagos.setHistTratPacId(maxTratPacId.getMaxId());
 		historialPagos.setHistPagosFechaPago(tratamientoPaciente.getFecha());
 		historialPagos.setHistPagosMonto(tratamientoPaciente.getCostoTratSesion());
@@ -214,6 +224,8 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		int maxId = this.tratamientoPacienteMapper.findMaxTratPacId(search).getMaxId();
 		maxTratPacId.setMaxId(maxId);
+		Caja caja = this.cajaMapper.cargoCajaActual();
+		historialPagos.setHistPagosCajaId(caja.getCajaId());
 		historialPagos.setHistTratPacId(maxTratPacId.getMaxId());
 		historialPagos.setHistPagosFechaPago(tratamientoPaciente.getFecha());
 		historialPagos.setHistPagosMonto(tratamientoPaciente.getImportePagado());

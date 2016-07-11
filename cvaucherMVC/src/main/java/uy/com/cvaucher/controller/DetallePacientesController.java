@@ -21,8 +21,10 @@ import uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt;
 import uy.com.cvaucher.services.interfaces.SesionesInt;
 import uy.com.cvaucher.services.interfaces.TratamientoInt;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
+import uy.com.cvaucher.services.interfaces.CajaInt;
 import uy.com.cvaucher.services.interfaces.TratamientoPacienteInt;
 import uy.com.cvaucher.services.interfaces.HistorialPagosInt;
+import uy.com.cvaucher.services.domain.Caja;
 import uy.com.cvaucher.services.domain.HistorialPagos;
 import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.domain.PagoEfectivo;
@@ -44,7 +46,7 @@ public class DetallePacientesController
 	private final HistorialPagosInt			historialPagosServices;
 	private final SeguimientoPacientesInt	seguimientoPacientesServices;
 	private final PagoEfectivoInt			pagoEfectivoServices;
-	
+	private final CajaInt					cajaServices;
 	@Autowired
 	public DetallePacientesController(PacientesInt				pacientesServices, 
 									  DireccionInt 				direccionServices, 
@@ -55,7 +57,8 @@ public class DetallePacientesController
 									  TratamientoPacienteInt	tratamientoPacienteServices,
 									  HistorialPagosInt			historialPagosServices,
 									  SeguimientoPacientesInt	seguimientoPacientesServices,
-									  PagoEfectivoInt			pagoEfectivoServices){
+									  PagoEfectivoInt			pagoEfectivoServices,
+									  CajaInt					cajaServices){
 		
 		this.pacientesServices 				= pacientesServices;
 		this.direccionServices 				= direccionServices;
@@ -65,6 +68,7 @@ public class DetallePacientesController
 		this.historialPagosServices			= historialPagosServices;
 		this.seguimientoPacientesServices	= seguimientoPacientesServices;
 		this.pagoEfectivoServices			= pagoEfectivoServices;
+		this.cajaServices					= cajaServices;
 	}
 	
 	@RequestMapping(value ="/detPac/{pacCedula}", method = RequestMethod.GET)
@@ -118,6 +122,8 @@ public class DetallePacientesController
 			return "tratamientoPaciente/tratamientoPacienteDetalle";
 		}
 		
+		Caja caja = this.cajaServices.cargoCajaActual();
+		historialPagos.setHistPagosCajaId(caja.getCajaId());
 		historialPagos.setHistTratPacId(histTratPacId);
 		if(historialPagos.getHistPagosMonto()!= 0)
 		{

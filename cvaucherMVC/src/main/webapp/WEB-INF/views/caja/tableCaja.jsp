@@ -10,14 +10,22 @@
 	
 	<thead>
 		<td><h3>Cuenta</h3></td>
-		<td><h3>Total</h3></td>
+		<td><h3>Importe</h3></td>
 	</thead>
 		<tbody>
+			<c:set var="resutlado" value="${0}"></c:set>
 			<c:forEach var="resumenCuentas" items="${resumenCuentas}">
+				<c:set var="resutlado" value="${resutlado + resumenCuentas.total}"></c:set>
 				<tr>
 					<td ><a href='<s:url value="#"/>'>${resumenCuentas.cuenta}</a></td>
 					<td >${resumenCuentas.total}</td>
 				</tr>	
 			</c:forEach>
+		</tbody>
+		<tbody>
+			<tr>
+				<td><h3>TOTAL</h3></td>
+				<td><h3><c:out value="${resutlado}"></c:out></h3></td>
+			</tr>
 		</tbody>
 </table>

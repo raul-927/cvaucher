@@ -2,23 +2,21 @@ package uy.com.cvaucher.services.mappers;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 
 import uy.com.cvaucher.services.domain.HistorialPagos;
+import uy.com.cvaucher.services.sql.SqlHistorialPagosProvider;
 
 public interface HistorialPagosMapper 
 {
-	@Select("SELECT * FROM historial_pagos WHERE hist_pagos_trat_pac_id = #{histTratPacId}")
+	@SelectProvider(type= SqlHistorialPagosProvider.class, method="findHistorialPagoByHistTratPacId")
 	@ResultMap("uy.com.cvaucher.services.mappers.HistorialPagosMapper.HistorialPagosResult")
 	List<HistorialPagos> findHistorialPagoByHistTratPacId(int histTratPacId);
 	
-	
-	@Insert("INSERT INTO historial_pagos(hist_pagos_trat_pac_id, hist_pagos_fecha_pago, hist_pagos_monto, hist_tipo_pago) "+
-			" VALUES (#{histTratPacId}, #{histPagosFechaPago}, #{histPagosMonto}, #{histPagosTipo})")
+	@InsertProvider(type =SqlHistorialPagosProvider.class, method ="insertHistorialPago")
 	@Options(useGeneratedKeys=true, keyProperty="histPagosId")
 	void insertHistorialPago(HistorialPagos historialPagos);
-
 }

@@ -77,4 +77,10 @@ public class AsientoContableService implements AsientoContableInt {
 			this.asientoContableMapper.ingresarAsientoContable(it.next());
 		}	
 	}
+
+	@Override
+	public List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(int cuentaTipo, int idCaja) {
+		// TODO Auto-generated method stub
+		return this.asientoContableMapper.resumenPorCuentasTotalPorCaja(cuentaTipo, idCaja);
+	}
 }
