@@ -15,6 +15,7 @@ public class PagoEfectivo implements Serializable
 	private int pagoEfId;
 	private long pagoEfCedula;
 	private int pagoEfImporte;
+	private String pagoEfCuenta;
 	private String pagoEfDesc;
 	private String pagoEfUsuario;
 	
@@ -60,6 +61,12 @@ public class PagoEfectivo implements Serializable
 	}
 	public void setPagoEfUsuario(String pagEfUsuario) {
 		this.pagoEfUsuario = pagEfUsuario;
+	}
+	public String getPagoEfCuenta() {
+		return pagoEfCuenta;
+	}
+	public void setPagoEfCuenta(String pagoEfCuenta) {
+		this.pagoEfCuenta = pagoEfCuenta;
 	}
 	
 }
