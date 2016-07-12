@@ -1,5 +1,7 @@
 package uy.com.cvaucher.services.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +15,7 @@ import uy.com.cvaucher.services.mappers.PagoEfectivoMapper;
 @Transactional
 public class PagoEfectivoService implements PagoEfectivoInt 
 {
-	
+
 	@Autowired
 	private PagoEfectivoMapper pagoEfectivoMapper;
 	
@@ -21,8 +23,12 @@ public class PagoEfectivoService implements PagoEfectivoInt
 	public void insertPagoEfectivo(PagoEfectivo pagoEfectivo) 
 	{
 		this.pagoEfectivoMapper.insertPagoEfectivo(pagoEfectivo);
-		
+	}
 
+	@Override
+	public List<PagoEfectivo> showPagoEfectivoByCaja(int idCaja) {
+		
+		return this.pagoEfectivoMapper.showPagoEfectivoByCaja(idCaja);
 	}
 
 }

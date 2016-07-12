@@ -1,15 +1,22 @@
 package uy.com.cvaucher.services.mappers;
 
-import org.apache.ibatis.annotations.Insert;
+import java.util.List;
+
+import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.SelectProvider;
 
 import uy.com.cvaucher.services.domain.PagoEfectivo;
+import uy.com.cvaucher.services.sql.SqlPagoEfectivoProvider;
 
 public interface PagoEfectivoMapper 
 {
-	@Insert("INSERT INTO pago_efectivo (pago_ef_id, pago_ef_caja_id, pago_ef_cedula, pago_ef_importe, pago_ef_desc) "
-			+ "VALUES (#{pagoEfId}, #{pagoEfCajaId}, #{pagoEfCedula}, #{pagoEfImporte}, #{pagoEfDesc})")
+	@InsertProvider(type = SqlPagoEfectivoProvider.class, method ="insertPagoEfectivo")
 	@Options(useGeneratedKeys=true, keyProperty="efId") 
 	void insertPagoEfectivo(PagoEfectivo pagoEfectivo);
-
+	
+	@SelectProvider(type =SqlPagoEfectivoProvider.class, method ="showPagoEfectivoByCaja")
+	@ResultMap("uy.com.cvaucher.services.mappers.PagoEfectivoMapper.PagoEfectivoResult")
+	List<PagoEfectivo> showPagoEfectivoByCaja(int idCaja);
 }

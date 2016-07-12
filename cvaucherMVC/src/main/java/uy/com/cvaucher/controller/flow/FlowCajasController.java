@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,18 +15,27 @@ import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Caja;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.CajaInt;
+import uy.com.cvaucher.services.interfaces.PagoEfectivoInt;
+import uy.com.cvaucher.services.interfaces.PagoTarjetaInt;
 
 @Controller
-public class FlowCajasController {
+public class FlowCajasController{
 	
 	
 	private final CajaInt cajaService;
 	private final AsientoContableInt asientoContableService;
+	private final PagoEfectivoInt	 pagoEfectivoService;
+	private final PagoTarjetaInt 	 pagoTarjetaService;
 	
 	@Autowired
-	public FlowCajasController(CajaInt cajaService, AsientoContableInt asientoContableService){
+	public FlowCajasController(CajaInt cajaService, 
+								AsientoContableInt 	asientoContableService,
+								PagoEfectivoInt 	pagoEfectivoService,
+								PagoTarjetaInt 		pagoTarjetaService){
 		this.cajaService = cajaService;
 		this.asientoContableService = asientoContableService;
+		this.pagoEfectivoService 	= pagoEfectivoService;
+		this.pagoTarjetaService 	= pagoTarjetaService;
 	}
 	public String showDate(){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -84,6 +94,25 @@ public class FlowCajasController {
 		
 		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentasTotalPorCaja(1, idCaja));
 		return "caja/resumenCaja";
+	}
+	
+	@RequestMapping(value = "caja/detalle/{tipo}", method = RequestMethod.GET)
+	public String showResumenCajaCuenta(Model model, @PathVariable("tipo")String tipo){
+		String resultado ="";
+		Caja caja = this.cajaService.cargoCajaActual();
+		int idCaja = caja.getCajaId();
+		if(tipo.equals("EF")||tipo.equals("CE")){
+			model.addAttribute("pagoEfectivo", this.pagoEfectivoService.showPagoEfectivoByCaja(idCaja));
+			resultado = "cajaResumen/efectivo";
+		}
+		if(tipo.equals("TC")||tipo.equals("TD")){
+			
+			resultado = "cajaResumen/tarjetaCredito";
+		}
+		if(tipo.equals("DP")){
+			resultado = "cajaResumen/depositoBancario";
+		}
+		return resultado;
 	}
 }
 

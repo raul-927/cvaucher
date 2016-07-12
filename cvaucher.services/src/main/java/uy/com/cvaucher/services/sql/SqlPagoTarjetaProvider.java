@@ -19,5 +19,13 @@ public class SqlPagoTarjetaProvider {
 			VALUES("tarj_cuotas","#{cantCuotas}");
 		}}.toString();
 	}
+	
+	public String showPagoTarjetaByCaja(final int idCaja){
+		return new SQL(){{
+			SELECT("tarj_pac_cedula, tarjeta_caja_id, tarj_pago_id, tarj_nro, tarj_desc, tarj_vence, tarj_importe, tarj_cuotas");
+			FROM("pago_tarjetas");
+			WHERE("tarjeta_caja_id = "+idCaja);
+		}}.toString();
+	}
 
 }

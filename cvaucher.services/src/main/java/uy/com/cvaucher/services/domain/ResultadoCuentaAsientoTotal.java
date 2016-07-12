@@ -8,6 +8,7 @@ public class ResultadoCuentaAsientoTotal implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String descCuenta;
 	private BigDecimal total;
+	private String tipo;
 	
 	public String getDescCuenta() {
 		return descCuenta;
@@ -20,5 +21,11 @@ public class ResultadoCuentaAsientoTotal implements Serializable {
 	}
 	public void setTotal(BigDecimal total) {
 		this.total = total;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 }

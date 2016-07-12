@@ -22,6 +22,7 @@
   	<resultMap type="uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal" id="CuentaAsientoResult">
   		<result property ="descCuenta" column ="Cuenta"/>
   		<result property ="total" column ="Total"/>
+  		<result property ="tipo"  column = "Tipo"/>
   	</resultMap>
   	
   	<resultMap type ="uy.com.cvaucher.services.clases.MaxNumAsientoContable" id ="MaxNumAsientoContableResult">

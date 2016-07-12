@@ -9,6 +9,7 @@ public class ResumenPorCuentas implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String cuenta;
 	private double total;
+	private String tipo;
 	public String getCuenta() {
 		return cuenta;
 	}
@@ -20,6 +21,12 @@ public class ResumenPorCuentas implements Serializable{
 	}
 	public void setTotal(double total) {
 		this.total = total;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }
