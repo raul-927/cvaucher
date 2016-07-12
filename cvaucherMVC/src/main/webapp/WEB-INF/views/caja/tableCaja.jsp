@@ -17,7 +17,7 @@
 			<c:forEach var="resumenCuentas" items="${resumenCuentas}">
 				<c:set var="resutlado" value="${resutlado + resumenCuentas.total}"></c:set>
 				<tr>
-					<td ><a href='<s:url value="/caja/detalle/${resumenCuentas.tipo}"/>'>${resumenCuentas.cuenta}</a></td>
+					<td ><a href='<s:url value="/caja/detalle/${resumenCuentas.tipo}/${resumenCuentas.cuenta}"/>'>${resumenCuentas.cuenta}</a></td>
 					<td >${resumenCuentas.total}</td>
 				</tr>	
 			</c:forEach>

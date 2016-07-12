@@ -2,6 +2,8 @@ package uy.com.cvaucher.controller.flow;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,8 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Caja;
+import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
+import uy.com.cvaucher.services.enumerador.CuentaTipo;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.CajaInt;
 import uy.com.cvaucher.services.interfaces.PagoEfectivoInt;
@@ -89,25 +94,28 @@ public class FlowCajasController{
 		
 		Caja caja = this.cajaService.cargoCajaActual();
 		int idCaja = caja.getCajaId();
+		
+		List<ResumenPorCuentas> rs = asientoContableService.resumenPorCuentasTotalPorCaja(CuentaTipo.VENTA.getCodigo(), idCaja);
+		
 		System.out.println("idCaja ==>> "+idCaja);
 		model.addAttribute(new AsientoContable());
-		
-		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentasTotalPorCaja(1, idCaja));
+		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentasTotalPorCaja(CuentaTipo.VENTA.getCodigo(), idCaja));
 		return "caja/resumenCaja";
 	}
 	
-	@RequestMapping(value = "caja/detalle/{tipo}", method = RequestMethod.GET)
-	public String showResumenCajaCuenta(Model model, @PathVariable("tipo")String tipo){
+	@RequestMapping(value = "caja/detalle/${tipo}/${cuenta}", method = RequestMethod.GET)
+	public String showResumenCajaCuenta(Model model, @PathVariable("tipo")String tipo, @PathVariable("cuenta")String cuenta){
 		String resultado ="";
 		Caja caja = this.cajaService.cargoCajaActual();
 		int idCaja = caja.getCajaId();
 		System.out.println("Caja actual en FlowCajasController = "+idCaja);
 		if(tipo.equals("EF")||tipo.equals("CE")){
-			model.addAttribute("pagoEfectivo", this.pagoEfectivoService.showPagoEfectivoByCaja(idCaja));
+			
+			model.addAttribute("pagoEfectivo", this.pagoEfectivoService.showPagoEfectivoByCaja(idCaja, cuenta));
 			resultado = "cajaResumen/efectivo";
 		}
 		if(tipo.equals("TC")||tipo.equals("TD")){
-			//model.addAttribute("pagoTarjeta", this.pagoTarjetaService.showPagoTarjetaByCaja(idCaja));
+			model.addAttribute("pagoTarjeta", this.pagoTarjetaService.showPagoTarjetaByCaja(idCaja, cuenta));
 			resultado = "cajaResumen/tarjetaCredito";
 		}
 		if(tipo.equals("DP")){

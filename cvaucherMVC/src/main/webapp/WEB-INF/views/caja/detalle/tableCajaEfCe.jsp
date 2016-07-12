@@ -6,7 +6,7 @@
 <%@ page session="false" %>
 
 <table class="table well-sm">
-	<caption><h1>Cuenta Efectivo</h1></caption>
+	<caption><h1>Cuenta Efectivo: ${pagoEfectivo.pagEfCuenta}</h1></caption>
 	
 	<thead>
 		<td>Id</td>
@@ -20,7 +20,7 @@
 		<tbody>
 			<c:forEach var="pagoEfectivo" items="${pagoEfectivo}">
 				<tr>
-					<td ><a href='<s:url value="/caja/detalle/#"/>'>${pagoEfectivo.efId}</a></td>
+					<td ><a href='<s:url value="#"/>'>${pagoEfectivo.efId}</a></td>
 					<td >${pagoEfectivo.pagoEfCajaId}</td>
 					<td>${pagoEfectivo.pagoEfId}</td>
 					<td>${pagoEfectivo.pagoEfCedula}</td>
