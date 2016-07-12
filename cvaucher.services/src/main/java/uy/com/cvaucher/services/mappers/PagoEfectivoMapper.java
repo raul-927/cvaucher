@@ -18,5 +18,5 @@ public interface PagoEfectivoMapper
 	
 	@SelectProvider(type =SqlPagoEfectivoProvider.class, method ="showPagoEfectivoByCaja")
 	@ResultMap("uy.com.cvaucher.services.mappers.PagoEfectivoMapper.PagoEfectivoResult")
-	List<PagoEfectivo> showPagoEfectivoByCaja(int idCaja);
+	List<PagoEfectivo> showPagoEfectivoByCaja(int idCaja, String cuenta);
 }

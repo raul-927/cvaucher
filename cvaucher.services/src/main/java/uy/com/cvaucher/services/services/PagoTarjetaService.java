@@ -25,9 +25,9 @@ public class PagoTarjetaService implements PagoTarjetaInt
 	}
 
 	@Override
-	public List<PagoTarjeta> showPagoTarjetaByCaja(int idCaja) {
+	public List<PagoTarjeta> showPagoTarjetaByCaja(int idCaja, String cuenta) {
 
-		return this.pagoTarjetaMapper.showPagoTarjetaByCaja(idCaja);
+		return this.pagoTarjetaMapper.showPagoTarjetaByCaja(idCaja, cuenta);
 	}
 
 }

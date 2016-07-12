@@ -7,6 +7,6 @@ import uy.com.cvaucher.services.domain.PagoTarjeta;
 public interface PagoTarjetaInt 
 {
 	void insertPagoTarjeta(PagoTarjeta pagoTarjeta);
-	List<PagoTarjeta> showPagoTarjetaByCaja(int idCaja);
+	List<PagoTarjeta> showPagoTarjetaByCaja(int idCaja, String cuenta);
 
 }

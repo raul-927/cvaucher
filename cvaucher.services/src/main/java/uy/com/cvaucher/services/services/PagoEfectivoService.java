@@ -26,9 +26,9 @@ public class PagoEfectivoService implements PagoEfectivoInt
 	}
 
 	@Override
-	public List<PagoEfectivo> showPagoEfectivoByCaja(int idCaja) {
+	public List<PagoEfectivo> showPagoEfectivoByCaja(int idCaja, String cuenta) {
 		
-		return this.pagoEfectivoMapper.showPagoEfectivoByCaja(idCaja);
+		return this.pagoEfectivoMapper.showPagoEfectivoByCaja(idCaja, cuenta);
 	}
 
 }

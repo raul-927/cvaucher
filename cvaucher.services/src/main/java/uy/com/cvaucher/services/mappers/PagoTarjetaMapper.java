@@ -18,5 +18,5 @@ public interface PagoTarjetaMapper {
 	
 	@SelectProvider(type=SqlPagoTarjetaProvider.class,method="showPagoTarjetaByCaja")
 	@ResultMap("uy.com.cvaucher.services.mappers.PagoTarjetaMapper.PagoTarjetaResult")
-	List<PagoTarjeta> showPagoTarjetaByCaja(int idCaja);
+	List<PagoTarjeta> showPagoTarjetaByCaja(int idCaja, String cuenta);
 }
