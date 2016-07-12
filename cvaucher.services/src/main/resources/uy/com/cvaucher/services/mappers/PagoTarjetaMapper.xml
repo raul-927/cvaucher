@@ -17,6 +17,7 @@
 		<result property = "tarjVence" column ="tarj_vence"/>
 		<result property = "tarjImporte" column ="tarj_importe"/>
 		<result property = "cantCuotas" column ="tarj_cuotas"/>
+		<result property = "tarjPagoUsuario" column ="tarj_pago_usuario"/>
   	</resultMap>
   	
   

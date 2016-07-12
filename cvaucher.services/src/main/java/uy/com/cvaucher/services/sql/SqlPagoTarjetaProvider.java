@@ -22,7 +22,7 @@ public class SqlPagoTarjetaProvider {
 	
 	public String showPagoTarjetaByCaja(final int idCaja){
 		return new SQL(){{
-			SELECT("tarj_pac_cedula, tarjeta_caja_id, tarj_pago_id, tarj_nro, tarj_desc, tarj_vence, tarj_importe, tarj_cuotas");
+			SELECT("tarj_id,tarj_pac_cedula, tarjeta_caja_id, tarj_pago_id, tarj_nro, tarj_desc, tarj_vence, tarj_importe, tarj_cuotas, tarj_pago_usuario");
 			FROM("pago_tarjetas");
 			WHERE("tarjeta_caja_id = "+idCaja);
 		}}.toString();

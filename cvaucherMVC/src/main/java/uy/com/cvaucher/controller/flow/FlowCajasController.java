@@ -101,12 +101,13 @@ public class FlowCajasController{
 		String resultado ="";
 		Caja caja = this.cajaService.cargoCajaActual();
 		int idCaja = caja.getCajaId();
+		System.out.println("Caja actual en FlowCajasController = "+idCaja);
 		if(tipo.equals("EF")||tipo.equals("CE")){
 			model.addAttribute("pagoEfectivo", this.pagoEfectivoService.showPagoEfectivoByCaja(idCaja));
 			resultado = "cajaResumen/efectivo";
 		}
 		if(tipo.equals("TC")||tipo.equals("TD")){
-			
+			//model.addAttribute("pagoTarjeta", this.pagoTarjetaService.showPagoTarjetaByCaja(idCaja));
 			resultado = "cajaResumen/tarjetaCredito";
 		}
 		if(tipo.equals("DP")){

@@ -15,6 +15,7 @@ public class PagoTarjeta implements Serializable
 	private String tarjVence;
 	private int tarjImporte;
 	private int cantCuotas;
+	private String tarjPagoUsuario;
 	
 	public int getTarjId() {
 		return tarjId;
@@ -69,6 +70,12 @@ public class PagoTarjeta implements Serializable
 	}
 	public void setTarjetaCajaId(int tarjetaCajaId) {
 		this.tarjetaCajaId = tarjetaCajaId;
+	}
+	public String getTarjPagoUsuario() {
+		return tarjPagoUsuario;
+	}
+	public void setTarjPagoUsuario(String tarjPagoUsuario) {
+		this.tarjPagoUsuario = tarjPagoUsuario;
 	}
 	
 
