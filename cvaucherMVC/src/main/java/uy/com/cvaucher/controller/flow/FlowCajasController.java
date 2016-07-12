@@ -103,7 +103,7 @@ public class FlowCajasController{
 		return "caja/resumenCaja";
 	}
 	
-	@RequestMapping(value = "caja/detalle/${tipo}/${cuenta}", method = RequestMethod.GET)
+	@RequestMapping(value = "/caja/detalle/{tipo}/{cuenta}", method = RequestMethod.GET)
 	public String showResumenCajaCuenta(Model model, @PathVariable("tipo")String tipo, @PathVariable("cuenta")String cuenta){
 		String resultado ="";
 		Caja caja = this.cajaService.cargoCajaActual();
