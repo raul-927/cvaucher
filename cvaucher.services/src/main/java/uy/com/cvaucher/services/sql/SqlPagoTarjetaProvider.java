@@ -16,13 +16,14 @@ public class SqlPagoTarjetaProvider {
 			VALUES("tarj_desc","#{tarjDesc}");
 			VALUES("tarj_vence","#{tarjVence}");
 			VALUES("tarj_importe","#{tarjImporte}");
+			VALUES("tarj_cuenta","#{tarjCuenta}");
 			VALUES("tarj_cuotas","#{cantCuotas}");
 		}}.toString();
 	}
 	
 	public String showPagoTarjetaByCaja(final int idCaja){
 		return new SQL(){{
-			SELECT("tarj_id,tarj_pac_cedula, tarjeta_caja_id, tarj_pago_id, tarj_nro, tarj_desc, tarj_vence, tarj_importe, tarj_cuotas, tarj_pago_usuario");
+			SELECT("tarj_id,tarj_pac_cedula, tarjeta_caja_id, tarj_pago_id, tarj_nro, tarj_desc, tarj_vence, tarj_importe, tarj_cuenta, tarj_cuotas, tarj_pago_usuario");
 			FROM("pago_tarjetas");
 			WHERE("tarjeta_caja_id = "+idCaja);
 		}}.toString();
