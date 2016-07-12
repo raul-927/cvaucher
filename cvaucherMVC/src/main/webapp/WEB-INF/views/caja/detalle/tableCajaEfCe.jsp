@@ -6,7 +6,8 @@
 <%@ page session="false" %>
 
 <table class="table well-sm">
-	<caption><h1>Cuenta Efectivo: ${pagoEfectivo.pagEfCuenta}</h1></caption>
+	
+	<caption><h1>Cuenta Efectivo:${pagoEfectivo.pagoEfDesc}</h1></caption>
 	
 	<thead>
 		<td>Id</td>

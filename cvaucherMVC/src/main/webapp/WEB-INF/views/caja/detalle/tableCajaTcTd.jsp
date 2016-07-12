@@ -6,26 +6,41 @@
 <%@ page session="false" %>
 
 <table class="table well-sm">
-	<caption><h1>Resumen de Caja</h1></caption>
+	<c:set var="tarjeta" value="${''}"></c:set>
+	<c:set var="tarjeta" value="${pagoTarjeta.pagoEfDesc}"></c:set>
+	<caption><h1>Cuenta Tarjeta:<c:out value="${tarjeta}"></c:out> </h1></caption>
 	
 	<thead>
-		<td><h3>Cuenta</h3></td>
-		<td><h3>Importe</h3></td>
+		<td>Id</td>
+		<td>Caja</td>
+		<td>Cedula</td>
+		<td>Pago</td>
+		<td>Nro Tarjeta</td>
+		<td>Tarjeta Detalle</td>
+		<td>Vencimiento</td>
+		<td>Importe</td>
+		<td>Cuenta</td>
+		<td>Cuotas</td>
+		<td>Usuario</td>
+		
+		<td>TratamientoId</td>
 	</thead>
 		<tbody>
-			<c:set var="resutlado" value="${0}"></c:set>
-			<c:forEach var="resumenCuentas" items="${resumenCuentas}">
-				<c:set var="resutlado" value="${resutlado + resumenCuentas.total}"></c:set>
+			<c:forEach var="pagoTarjeta" items="${pagoTarjeta}">
 				<tr>
-					<td ><a href='<s:url value="/caja/detalle/${resumenCuentas.tipo}"/>'>${resumenCuentas.cuenta}</a></td>
-					<td >${resumenCuentas.total}</td>
+					<td ><a href='<s:url value="#"/>'>${pagoTarjeta.tarjId}</a></td>
+					<td >${pagoTarjeta.tarjId}</td>
+					<td>${pagoTarjeta.tarjetaCajaId}</td>
+					<td>${pagoTarjeta.tarjPacCedula}</td>
+					<td>${pagoTarjeta.tarjPagoId}</td>
+					<td>${pagoTarjeta.tarjNro}</td>
+					<td>${pagoTarjeta.tarjDesc}</td>
+					<td>${pagoTarjeta.tarjVence}</td>
+					<td>${pagoTarjeta.tarjImporte}</td>
+					<td>${pagoTarjeta.tarjCuenta}</td>
+					<td>${pagoTarjeta.cantCuotas}</td>
+					<td>${pagoTarjeta.tarjPagoUsuario}</td>
 				</tr>	
 			</c:forEach>
-		</tbody>
-		<tbody>
-			<tr>
-				<td><h3>TOTAL</h3></td>
-				<td><h3><c:out value="${resutlado}"></c:out></h3></td>
-			</tr>
 		</tbody>
 </table>
