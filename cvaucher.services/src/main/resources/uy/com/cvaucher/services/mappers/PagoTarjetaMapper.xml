@@ -7,16 +7,17 @@
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.PagoTarjeta" id="PagoTarjetaResult">
   	    
-  		<id property="tarjId" column="tarj_id"/>
+  		<id property="tarjId" 				 column="tarj_id"/>
   		
-		<result property="tarjPacCedula" column="tarj_pac_cedula"/>
-		<result property="tarjetaCajaId" column="tarjeta_caja_id"/>
-		<result property = "tarjPagoId" column ="tarj_pago_id"/>
-		<result property = "tarjNro" column ="tarj_nro"/>
-		<result property = "tarjDesc" column ="tarj_desc"/>
-		<result property = "tarjVence" column ="tarj_vence"/>
-		<result property = "tarjImporte" column ="tarj_importe"/>
-		<result property = "cantCuotas" column ="tarj_cuotas"/>
+		<result property="tarjPacCedula" 	 column="tarj_pac_cedula"/>
+		<result property="tarjetaCajaId" 	 column="tarjeta_caja_id"/>
+		<result property = "tarjPagoId" 	 column ="tarj_pago_id"/>
+		<result property = "tarjNro" 		 column ="tarj_nro"/>
+		<result property = "tarjDesc" 		 column ="tarj_desc"/>
+		<result property = "tarjVence" 		 column ="tarj_vence"/>
+		<result property = "tarjImporte" 	 column ="tarj_importe"/>
+		<result property = "tarjCuenta"		 column ="tarj_cuenta"/>
+		<result property = "cantCuotas" 	 column ="tarj_cuotas"/>
 		<result property = "tarjPagoUsuario" column ="tarj_pago_usuario"/>
   	</resultMap>
   	
