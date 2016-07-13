@@ -11,18 +11,16 @@
 	
 	<thead>
 		<td>Id</td>
-		<td>Caja</td>
 		<td>Cedula</td>
-		<td>Pago</td>
+		<td>Caja</td>
+		<<td>Serie</td>
+		<td>Numero</td>
+		<td>Tipo de documento</td>
+		<td>Lote</td>		
 		<td>Nro Tarjeta</td>
-		<td>Tarjeta Detalle</td>
-		<td>Vencimiento</td>
 		<td>Importe</td>
-		<td>Cuenta</td>
-		<td>Cuotas</td>
+		<td>Tratamiento</td>
 		<td>Usuario</td>
-		
-		<td>TratamientoId</td>
 	</thead>
 		<tbody>
 			<c:forEach var="pagoTarjeta" items="${pagoTarjeta}">

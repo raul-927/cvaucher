@@ -11,11 +11,13 @@
 	
 	<thead>
 		<td>Id</td>
-		<td>Caja</td>
-		<td>TratamientoId</td>
 		<td>Cedula</td>
+		<td>Caja</td>
+		<td>Serie</td>
+		<td>Numero</td>
+		<td>Tipo de documento</td>
+		<td>Tratamiento</td>
 		<td>Importe</td>
-		<td>Descripcion</td>
 		<td>Usuario</td>
 	</thead>
 		<tbody>
