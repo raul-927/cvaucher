@@ -6,9 +6,8 @@
 <%@ page session="false" %>
 
 <table class="table well-sm">
-	<c:set var="tarjeta" value="${''}"></c:set>
-	<c:set var="tarjeta" value="${pagoTarjeta.pagoEfDesc}"></c:set>
-	<caption><h1>Cuenta Tarjeta:<c:out value="${tarjeta}"></c:out> </h1></caption>
+	
+	<caption><h1>Cuenta Tarjeta:</h1></caption>
 	
 	<thead>
 		<td>Id</td>

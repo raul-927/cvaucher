@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.SelectProvider;
 
@@ -18,5 +19,5 @@ public interface PagoTarjetaMapper {
 	
 	@SelectProvider(type=SqlPagoTarjetaProvider.class,method="showPagoTarjetaByCaja")
 	@ResultMap("uy.com.cvaucher.services.mappers.PagoTarjetaMapper.PagoTarjetaResult")
-	List<PagoTarjeta> showPagoTarjetaByCaja(int idCaja, String cuenta);
+	List<PagoTarjeta> showPagoTarjetaByCaja(@Param("idCaja")int idCaja, @Param("cuenta")String cuenta);
 }
