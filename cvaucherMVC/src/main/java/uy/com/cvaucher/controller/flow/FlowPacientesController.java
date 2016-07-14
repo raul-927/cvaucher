@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import uy.com.cvaucher.services.clases.DescCuentaFormaDePago;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
@@ -256,7 +257,8 @@ public class FlowPacientesController
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
 		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
-		String pagoTarjCuenta = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+		DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+		String pagoTarjCuenta = desCuentaFormaDePago.getCuentaDesc();
 		
 		Caja cajaActual  = this.cajaServices.cargoCajaActual();
 		pagoTarjeta.setTarjetaCajaId(cajaActual.getCajaId());
@@ -268,7 +270,8 @@ public class FlowPacientesController
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{	
 		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
-		String pagoEfCuenta = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+		DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+		String pagoEfCuenta = desCuentaFormaDePago.getCuentaDesc();
 		
 		Caja cajaActual  = this.cajaServices.cargoCajaActual();
 		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
@@ -280,7 +283,9 @@ public class FlowPacientesController
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
 		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
-		String pagoEfCuenta = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+		DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+		String pagoEfCuenta = desCuentaFormaDePago.getCuentaDesc();
+		
 		Caja cajaActual  = this.cajaServices.cargoCajaActual();
 		System.out.println("cajaActual.getCajaId() ==>> "+cajaActual.getCajaId());
 		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
