@@ -76,7 +76,7 @@ public class SqlFormasDePagosProvider {
 		}}.toString();
 	}
 	
-	public String cuentaFormaDePagoDesc(){
+	public String cuentaFormaDePagoDesc(final int cuentaId){
 		return new SQL(){{
 			SELECT("cu.cuenta_desc");
 			FROM("formas_de_pagos f, cuentas cu");
