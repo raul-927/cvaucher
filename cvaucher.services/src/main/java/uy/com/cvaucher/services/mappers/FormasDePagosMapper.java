@@ -38,7 +38,11 @@ public interface FormasDePagosMapper
 	@UpdateProvider(type = SqlFormasDePagosProvider.class, method = "updateFormasDePagos")
 	void updateFormasDePagos(FormasDePagos formasDePagos);
 	
-	@SelectProvider(type = SqlFormasDePagosProvider.class, method = "cuentaFormaDePagoDesc")
+	//@SelectProvider(type = SqlFormasDePagosProvider.class, method = "cuentaFormaDePagoDesc")
+	@Select("SELECT cu.cuenta_desc "
+			+ "FROM formas_de_pagos f, cuentas cu "
+			+ "WHERE cu.cuenta_id = #{cuentaId} "
+			+ "AND f.form_pag_cuenta = cu.cuenta_id LIMIT 1")
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.DescCuentaFormaDePago")
 	DescCuentaFormaDePago cuentaFormaDePagoDesc(@Param("cuentaId")int cuentaId);
 }
