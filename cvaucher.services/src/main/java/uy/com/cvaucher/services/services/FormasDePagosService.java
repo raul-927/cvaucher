@@ -8,6 +8,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import uy.com.cvaucher.services.clases.DescCuentaFormaDePago;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
@@ -273,13 +275,16 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Override
 	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagAbreviacion) {
 		// TODO Auto-generated method stub
+		System.out.println("formPagAbreviacion == "+formPagAbreviacion);
+		FormasDePagosDesc d = this.formasDePagosMapper.findFormPagoTipoByDesc(formPagAbreviacion);
+		System.out.println("d == "+d.getFormasDePagoTipo());
 		return this.formasDePagosMapper.findFormPagoTipoByDesc(formPagAbreviacion);
 	}
 
 
 
 	@Override
-	public String cuentaFormaDePagoDesc(int cuentaId) {
+	public DescCuentaFormaDePago cuentaFormaDePagoDesc(int cuentaId){
 		
 		return this.formasDePagosMapper.cuentaFormaDePagoDesc(cuentaId);
 	}

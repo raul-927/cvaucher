@@ -76,12 +76,13 @@ public class SqlFormasDePagosProvider {
 		}}.toString();
 	}
 	
-	public String cuentaFormaDePagoDesc(final int cuentaId){
+	public String cuentaFormaDePagoDesc(){
 		return new SQL(){{
 			SELECT("cu.cuenta_desc");
 			FROM("formas_de_pagos f, cuentas cu");
 			WHERE("cu.cuenta_id = #{cuentaId}");
 			WHERE("f.form_pag_cuenta = cu.cuenta_id LIMIT 1");
+			
 		}}.toString();
 		
 	}

@@ -1,6 +1,5 @@
 package uy.com.cvaucher.services.services;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
-import uy.com.cvaucher.services.domain.AsientoContableArray;
-import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.mappers.AsientoContableMapper;
@@ -27,13 +24,12 @@ public class AsientoContableService implements AsientoContableInt {
 	
 	@Override
 	public ResultadoCuentaAsientoTotal cuentaAsientoTotal() {
-		// TODO Auto-generated method stub
 		return this.asientoContableMapper.cuentaAsientoTotal();
 	}
 
 	@Override
 	public List<ResultadoCuentaAsientoTotal> cuentasAsientoTotal() {
-		// TODO Auto-generated method stub
+
 		return this.asientoContableMapper.cuentasAsientoTotal();
 	}
 
@@ -57,7 +53,7 @@ public class AsientoContableService implements AsientoContableInt {
 
 	@Override
 	public MaxNumAsientoContable cantRegistros() {
-		// TODO Auto-generated method stub
+		
 		MaxNumAsientoContable cantidadRegistros = this.asientoContableMapper.cantRegistros();
 		System.out.println("cantidadRegistros ==>> "+cantidadRegistros.getMaxNum());
 		return cantidadRegistros;
@@ -80,7 +76,7 @@ public class AsientoContableService implements AsientoContableInt {
 
 	@Override
 	public List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(int cuentaTipo, int idCaja) {
-		// TODO Auto-generated method stub
+		
 		return this.asientoContableMapper.resumenPorCuentasTotalPorCaja(cuentaTipo, idCaja);
 	}
 }
