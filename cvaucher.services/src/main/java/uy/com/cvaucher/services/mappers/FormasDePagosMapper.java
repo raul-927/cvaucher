@@ -25,8 +25,8 @@ public interface FormasDePagosMapper
 	List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos);
 	
 	
-	//@SelectProvider(type = SqlFormasDePagosProvider.class, method = "findFormPagoTipoByDesc")
-	@Select("SELECT form_pag_abreviacion Abreviacion, form_pag_tipo Tipo, form_pag_cuenta Cuenta FROM formas_de_pagos WHERE form_pag_abreviacion = #{formPagAbreviacion}")
+	@SelectProvider(type = SqlFormasDePagosProvider.class, method = "findFormPagoTipoByDesc")
+	//@Select("SELECT form_pag_abreviacion Abreviacion, form_pag_tipo Tipo, form_pag_cuenta Cuenta FROM formas_de_pagos WHERE form_pag_abreviacion = #{formPagAbreviacion}")
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.FormasDePagoDescResult")
 	FormasDePagosDesc findFormPagoTipoByDesc(@Param("formPagAbreviacion") String formPagAbreviacion);
 	
@@ -38,11 +38,11 @@ public interface FormasDePagosMapper
 	@UpdateProvider(type = SqlFormasDePagosProvider.class, method = "updateFormasDePagos")
 	void updateFormasDePagos(FormasDePagos formasDePagos);
 	
-	//@SelectProvider(type = SqlFormasDePagosProvider.class, method = "cuentaFormaDePagoDesc")
-	@Select("SELECT cu.cuenta_desc "
+	@SelectProvider(type = SqlFormasDePagosProvider.class, method = "cuentaFormaDePagoDesc")
+	/*@Select("SELECT cu.cuenta_desc "
 			+ "FROM formas_de_pagos f, cuentas cu "
 			+ "WHERE cu.cuenta_id = #{cuentaId} "
-			+ "AND f.form_pag_cuenta = cu.cuenta_id LIMIT 1")
+			+ "AND f.form_pag_cuenta = cu.cuenta_id LIMIT 1")*/
 	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.DescCuentaFormaDePago")
 	DescCuentaFormaDePago cuentaFormaDePagoDesc(@Param("cuentaId")int cuentaId);
 }

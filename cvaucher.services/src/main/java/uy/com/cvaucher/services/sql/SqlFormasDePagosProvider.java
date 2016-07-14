@@ -31,7 +31,7 @@ public class SqlFormasDePagosProvider {
 		}}.toString();
 	}
 	
-	public String findFormPagoTipoByDesc(final String formPagAbreviacion){
+	public String findFormPagoTipoByDesc(){
 		String sql= new SQL(){{
 				SELECT("form_pag_abreviacion Abreviacion, form_pag_tipo Tipo, form_pag_cuenta Cuenta ");
 				FROM("formas_de_pagos");
@@ -78,10 +78,10 @@ public class SqlFormasDePagosProvider {
 	
 	public String cuentaFormaDePagoDesc(){
 		return new SQL(){{
-			SELECT("cu.cuenta_desc");
+			SELECT_DISTINCT("cu.cuenta_desc");
 			FROM("formas_de_pagos f, cuentas cu");
 			WHERE("cu.cuenta_id = #{cuentaId}");
-			WHERE("f.form_pag_cuenta = cu.cuenta_id LIMIT 1");
+			WHERE("f.form_pag_cuenta = cu.cuenta_id");
 			
 		}}.toString();
 		
