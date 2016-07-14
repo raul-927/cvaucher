@@ -18,4 +18,9 @@
   		<result property ="formasDePagoTipo" column ="Tipo"/>
   		<result property ="formasDePagoCuenta" column ="Cuenta"/>
   	</resultMap>
+  	
+  	<resultMap type="uy.com.cvaucher.services.clases.DescCuentaFormaDePago" id="DescCuentaFormaDePago">
+  	    <result property ="cuentaDesc" column ="cuenta_desc"/>
+  	</resultMap>
+	
 </mapper>

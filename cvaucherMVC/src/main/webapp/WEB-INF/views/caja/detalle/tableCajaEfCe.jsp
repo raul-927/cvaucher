@@ -7,7 +7,7 @@
 
 <table class="table well-sm">
 	
-	<caption><h1>Cuenta Efectivo:</h1></caption>
+	<caption><h1>Cuenta: ${cuenta}</h1></caption>
 	
 	<thead>
 		<td>Id</td>

@@ -255,27 +255,36 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
+		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
+		String pagoTarjCuenta = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+		
 		Caja cajaActual  = this.cajaServices.cargoCajaActual();
 		pagoTarjeta.setTarjetaCajaId(cajaActual.getCajaId());
+		pagoTarjeta.setTarjCuenta(pagoTarjCuenta);
 		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{	
+		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
+		String pagoEfCuenta = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+		
 		Caja cajaActual  = this.cajaServices.cargoCajaActual();
-		System.out.println("cajaActual.getCajaId() ==>> "+cajaActual.getCajaId());
 		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
-		//pagoEfectivo.setPagoEfImporte(total.intValue());
+		pagoEfectivo.setPagoEfCuenta(pagoEfCuenta);
 		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{
+		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
+		String pagoEfCuenta = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
 		Caja cajaActual  = this.cajaServices.cargoCajaActual();
 		System.out.println("cajaActual.getCajaId() ==>> "+cajaActual.getCajaId());
 		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
+		pagoEfectivo.setPagoEfCuenta(pagoEfCuenta);
 		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
 	}
@@ -294,7 +303,6 @@ public class FlowPacientesController
 		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
 		
 		Caja caja = this.cajaServices.cargoCajaActual();
-		System.out.println("Caja==>> "+caja.getCajaId() + ", "+caja.getCajaEstado());
 		Cuentas asCuentaL1 = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
 		BigDecimal asCuentaDebeMontoL1 = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
 		BigDecimal asCuentaHaberMontoL1 = new BigDecimal((double)00);
@@ -309,7 +317,6 @@ public class FlowPacientesController
 	
 		
 		MaxNumAsientoContable asConNro = this.asientoContableServices.maxNumAsientoContable();
-		System.out.println("asConNro ==>> "+asConNro.getMaxNum());
 		AsientoContable asientoContableL1 = new AsientoContable();
 		AsientoContable asientoContableL2 = new AsientoContable();
 		AsientoContable asientoContableL3 = new AsientoContable();
@@ -322,51 +329,40 @@ public class FlowPacientesController
 		asientoContableL2.setCaja(caja);
 		asientoContableL3.setCaja(caja);
 		
-		System.out.println("cuentaImp ==>> "+cuentaImp.getCuentaDesc());
-
 		BigDecimal asImpDebeMonto = new BigDecimal("00");
 		BigDecimal impuesto = tratamiento.getImpuesto().getImpuestoValor();
-		System.out.println("asCuentaDebeMonto ==>> "+asCuentaDebeMontoL1);
-		System.out.println("asImpDebeMonto ==>> "+asImpDebeMonto);
 		BigDecimal aux = asCuentaDebeMontoL1.multiply(impuesto);
 		BigDecimal divisor = new BigDecimal("100.00");
 		BigDecimal resultado = aux.divide(divisor);
 		BigDecimal asImpHaberMonto = new BigDecimal("00");
 		this.total = asCuentaDebeMontoL1.subtract(resultado);
 		asImpHaberMonto.add(resultado);
-		System.out.println("resultado ==>> "+resultado);
-		System.out.println("total ==>> "+total);
-		
+
 		asientoContableL1.setAsCuentaDebe(asCuentaL1);
 		asientoContableL1.setAsCuentaHaber(asCuentaL1);
 		asientoContableL1.setAsCuentaDebeMonto(asCuentaDebeMontoL1);
 		asientoContableL1.setAsCuentaHaberMonto(asCuentaHaberMontoL1);
 		asientoContableL1.setAsConDescripcion(asCuentaL1.getCuentaDesc());
 		asientoContableL1.setAsCuentaTipo(asCuentaL1.getCuentaTipo());
-		
-		System.out.println("asCuentaL1.getCuentaTipo ==>> "+asCuentaL1.getCuentaTipo());
-		
+
 		asientoContableL2.setAsCuentaDebe(cuentaImp);
 		asientoContableL2.setAsCuentaHaber(cuentaImp);
 		asientoContableL2.setAsCuentaDebeMonto(asImpDebeMonto);
 		asientoContableL2.setAsCuentaHaberMonto(resultado);
 		asientoContableL2.setAsConDescripcion(cuentaImp.getCuentaDesc());
 		asientoContableL2.setAsCuentaTipo(cuentaImp.getCuentaTipo());
-		
-		System.out.println("cuentaImp.getCuentaTipo() ==>> "+cuentaImp.getCuentaTipo());
-		
+
 		asientoContableL3.setAsCuentaDebe(cuentaTratamiento);
 		asientoContableL3.setAsCuentaHaber(cuentaTratamiento);
 		asientoContableL3.setAsCuentaDebeMonto(asImpDebeMonto);
 		asientoContableL3.setAsCuentaHaberMonto(total);
 		asientoContableL3.setAsConDescripcion(cuentaTratamiento.getCuentaDesc());
 		asientoContableL3.setAsCuentaTipo(cuentaTratamiento.getCuentaTipo());
-		System.out.println("cuentaTratamiento.getCuentaTipo() ==>> "+cuentaTratamiento.getCuentaTipo());
+	
 		asientoContableList.add(asientoContableL1);
 		asientoContableList.add(asientoContableL2);
 		asientoContableList.add(asientoContableL3);
-		
-		
+
 		this.asientoContableServices.ingresarAsientoContable(asientoContableList);
 	}
 	

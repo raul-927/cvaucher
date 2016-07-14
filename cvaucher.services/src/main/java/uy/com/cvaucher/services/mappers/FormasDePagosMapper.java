@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
@@ -35,5 +36,7 @@ public interface FormasDePagosMapper
 	@UpdateProvider(type = SqlFormasDePagosProvider.class, method = "updateFormasDePagos")
 	void updateFormasDePagos(FormasDePagos formasDePagos);
 	
-
+	@SelectProvider(type = SqlFormasDePagosProvider.class, method = "findFormPagoTipoByDesc")
+	@ResultMap("uy.com.cvaucher.services.mappers.FormasDePagosMapper.DescCuentaFormaDePago")
+	String cuentaFormaDePagoDesc(@Param("cuentaId")int cuentaId);
 }

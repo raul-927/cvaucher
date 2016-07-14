@@ -275,4 +275,14 @@ public class FormasDePagosService implements FormasDePagosInt
 		// TODO Auto-generated method stub
 		return this.formasDePagosMapper.findFormPagoTipoByDesc(formPagAbreviacion);
 	}
+
+
+
+	@Override
+	public String cuentaFormaDePagoDesc(int cuentaId) {
+		
+		return this.formasDePagosMapper.cuentaFormaDePagoDesc(cuentaId);
+	}
+	
+	
 }
