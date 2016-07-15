@@ -73,14 +73,6 @@ public List<Cuentas> selectAllCuentasByGrupo(ArrayList<Integer> grupoCuentaId) {
 	}
 	aux.deleteCharAt(aux.length()-1);
 	String resultado = String.valueOf(aux);
-	Integer a= new Integer(3);
-	Integer b= new Integer(3);
-	if(a==b){
-		System.out.println("OK");
-	}
-	else{
-		System.out.println("NO OK");
-	}
 	return this.cuentasMapper.selectAllCuentasByGrupo(resultado);
 }
 	
