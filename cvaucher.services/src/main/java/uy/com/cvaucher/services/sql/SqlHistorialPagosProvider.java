@@ -8,7 +8,7 @@ public class SqlHistorialPagosProvider {
 	
 	public String findHistorialPagoByHistTratPacId(final int histTratPacId){
 		return new SQL(){{
-			SELECT("hist_pagos_id, hist_pagos_caja_id, hist_tipo_pago, hist_pagos_fecha_pago"
+			SELECT("hist_pagos_id, hist_pagos_caja_id, hist_tipo_pago, hist_pagos_fecha_pago, "
 					+ "hist_pagos_hora_pago, hist_pagos_monto, hist_pagos_usuario");
 			FROM("historial_pagos");
 			WHERE("hist_pagos_trat_pac_id = "+histTratPacId);

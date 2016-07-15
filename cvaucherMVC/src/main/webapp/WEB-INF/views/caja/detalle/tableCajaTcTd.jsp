@@ -8,35 +8,38 @@
 <table class="table well-sm">
 	
 	<caption><h1>Cuenta Tarjeta: ${cuenta}</h1></caption>
+<%-- 	<caption><h3>Caja: <a href='<s:url value="#"/>'>${pagoTarjeta.tarjetaCajaId}</a></h3></caption> --%>
 	
 	<thead>
-		<td>Id</td>
-		<td>Cedula</td>
 		<td>Caja</td>
-		<<td>Serie</td>
+		
+		<td>Nro Tarjeta</td>
+		<td>Vencimiento</td>
+		<%-- <td>Serie</td>
 		<td>Numero</td>
 		<td>Tipo de documento</td>
-		<td>Lote</td>		
-		<td>Nro Tarjeta</td>
+		<td>Lote</td>		 --%>
 		<td>Importe</td>
+		<td>Cuotas</td>
+		<td>Cedula</td>
 		<td>Tratamiento</td>
 		<td>Usuario</td>
 	</thead>
 		<tbody>
 			<c:forEach var="pagoTarjeta" items="${pagoTarjeta}">
 				<tr>
-					<td ><a href='<s:url value="#"/>'>${pagoTarjeta.tarjId}</a></td>
-					<td >${pagoTarjeta.tarjId}</td>
-					<td>${pagoTarjeta.tarjetaCajaId}</td>
-					<td>${pagoTarjeta.tarjPacCedula}</td>
-					<td>${pagoTarjeta.tarjPagoId}</td>
-					<td>${pagoTarjeta.tarjNro}</td>
-					<td>${pagoTarjeta.tarjDesc}</td>
+					<td><a href='<s:url value="#"/>'>${pagoTarjeta.tarjetaCajaId}</a></td>
+					
+					<td >${pagoTarjeta.tarjNro}</td>
 					<td>${pagoTarjeta.tarjVence}</td>
 					<td>${pagoTarjeta.tarjImporte}</td>
+					<td>${pagoTarjeta.cantCuotas}</td>
+					<td>${pagoTarjeta.tarjPacCedula}</td>
+					<%-- <td>${pagoTarjeta.tarjDesc}</td>
+					<td>${pagoTarjeta.tarjVence}</td>
 					<td>${pagoTarjeta.tarjCuenta}</td>
 					<td>${pagoTarjeta.cantCuotas}</td>
-					<td>${pagoTarjeta.tarjPagoUsuario}</td>
+					<td>${pagoTarjeta.tarjPagoUsuario}</td> --%>
 				</tr>	
 			</c:forEach>
 		</tbody>

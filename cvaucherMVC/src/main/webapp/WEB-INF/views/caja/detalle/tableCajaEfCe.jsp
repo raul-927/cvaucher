@@ -13,20 +13,23 @@
 		<td>Id</td>
 		<td>Cedula</td>
 		<td>Caja</td>
-		<td>Serie</td>
+		<%-- <td>Serie</td>
 		<td>Numero</td>
-		<td>Tipo de documento</td>
+		<td>Tipo de documento</td> --%>
 		<td>Tratamiento</td>
 		<td>Importe</td>
+		<td>Tipo pago</td>
 		<td>Usuario</td>
 	</thead>
 		<tbody>
 			<c:forEach var="pagoEfectivo" items="${pagoEfectivo}">
 				<tr>
 					<td ><a href='<s:url value="#"/>'>${pagoEfectivo.efId}</a></td>
-					<td >${pagoEfectivo.pagoEfCajaId}</td>
-					<td>${pagoEfectivo.pagoEfId}</td>
 					<td>${pagoEfectivo.pagoEfCedula}</td>
+					<td >${pagoEfectivo.pagoEfCajaId}</td>
+					
+					<td>${pagoEfectivo.pagoEfId}</td>
+					
 					<td>${pagoEfectivo.pagoEfImporte}</td>
 					<td>${pagoEfectivo.pagoEfDesc}</td>
 					<td>${pagoEfectivo.pagoEfUsuario}</td>
