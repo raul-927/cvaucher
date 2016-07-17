@@ -21,12 +21,20 @@
 			 	<sf:errors path ="cuentaUsuario" cssClass ="error"/>
 		 	
 		 	<div class="form-group">
-		 	<sf:label path="grupoCuentas.grupoCuentaId" for ="grupoCuentas.grupoCuentaId">Seleccione un Grupo de Cuentas</sf:label>
+		 	<sf:label path="grupoCuentas.grupoCuentaId" for ="grupoCuentas.grupoCuentaId">Seleccione un tipo de grupo Cuentas</sf:label>
 		 	<sf:select cssClass ="form-control" path="grupoCuentas.grupoCuentaId">
 		 		<sf:options items="${allGrupoCuentas}" itemLabel="grupoCuentaDesc" itemValue="grupoCuentaId" />
 		 	</sf:select>
 		 	<sf:errors path ="grupoCuentas.grupoCuentaId" cssClass ="error"/>
 		 </div>
+		 
+		 <div class="form-group">
+		 		<sf:label path="cuentaTipo" for ="cuentaTipo">Seleccione un Tipo de Cuenta</sf:label>
+		 		<sf:select cssClass ="form-control" path="cuentaTipo" size ="1">
+		 		<sf:options items="${cuentaTipo}" />
+		 		</sf:select>
+		 		<sf:errors path ="cuentaTipo" cssClass ="error"/>
+		 	</div>
 		 	
 		 	<div class="form-group">
 			 	<sf:label path="cuentaDesc" for ="cuentaDesc">Descripcion</sf:label>

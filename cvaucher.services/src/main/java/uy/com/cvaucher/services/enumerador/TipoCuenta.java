@@ -5,7 +5,9 @@ public enum TipoCuenta {
 	VENTA(2,"Ventas"),
 	GASTOS(3, "Gastos Perdidas"),
 	DEUDAS(4, "Deudas Prestamos"),
-	PATRIMONIO(5,"Patrimonio");
+	PATRIMONIO(5,"Patrimonio"),
+	EGRESO(6,"Egreso");
+	
 	private int tipo;
 	private String descripcion;
 	

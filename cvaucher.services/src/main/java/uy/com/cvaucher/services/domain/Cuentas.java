@@ -10,7 +10,7 @@ public class Cuentas  implements Serializable
 	private int 			cuentaId;
 	private GrupoCuentas	grupoCuentas;
 	private String 			cuentaDesc;
-	private int				cuentaTipo;
+	private String			cuentaTipo;
 	private String 			cuentaFecha;
 	private String 			cuentaHora;
 	private String			cuentaUsuario;
@@ -51,10 +51,10 @@ public class Cuentas  implements Serializable
 	public void setGrupoCuentas(GrupoCuentas grupoCuentas) {
 		this.grupoCuentas = grupoCuentas;
 	}
-	public int getCuentaTipo() {
+	public String getCuentaTipo() {
 		return cuentaTipo;
 	}
-	public void setCuentaTipo(int cuentaTipo) {
+	public void setCuentaTipo(String cuentaTipo) {
 		this.cuentaTipo = cuentaTipo;
 	}
 }

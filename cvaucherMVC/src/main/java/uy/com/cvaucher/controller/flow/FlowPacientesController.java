@@ -32,6 +32,7 @@ import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.TratPacByCedula;
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
+import uy.com.cvaucher.services.enumerador.CuentaTipo;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.CajaInt;
@@ -323,7 +324,7 @@ public class FlowPacientesController
 		Cuentas cuentaTratamiento = new Cuentas();
 		cuentaTratamiento.setCuentaId(12);
 		cuentaTratamiento.setCuentaDesc(tratamiento.getTratDescripcion());
-		cuentaTratamiento.setCuentaTipo(3);
+		cuentaTratamiento.setCuentaTipo(CuentaTipo.TRATAMIENTO.getDescripcion());
 	
 		
 		MaxNumAsientoContable asConNro = this.asientoContableServices.maxNumAsientoContable();

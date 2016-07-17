@@ -1,10 +1,6 @@
 package uy.com.cvaucher.services.sql;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-
 import org.apache.ibatis.jdbc.SQL;
 
 import uy.com.cvaucher.services.domain.Cuentas;
@@ -20,7 +16,7 @@ public class SqlCuentasProvider {
 			if(!cuentas.getGrupoCuentas().equals(null)){
 				VALUES("cuenta_grupo_id","#{grupoCuentas.grupoCuentaId}");
 			}
-			if(!(cuentas.getCuentaTipo()<0)){
+			if(!(cuentas.getCuentaTipo()==null)){
 				VALUES("cuenta_tipo","#{cuentaTipo}");
 			}
 			if(!cuentas.getCuentaFecha().equals(null)){

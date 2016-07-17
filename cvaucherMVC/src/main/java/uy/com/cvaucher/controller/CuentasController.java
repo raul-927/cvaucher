@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import uy.com.cvaucher.services.interfaces.CuentasInt;
 import uy.com.cvaucher.services.interfaces.GrupoCuentasInt;
 import uy.com.cvaucher.services.domain.Cuentas;
+import uy.com.cvaucher.services.enumerador.CuentaTipo;
 import uy.com.cvaucher.services.enumerador.TiposMovimientos;
 
 @Controller
@@ -41,6 +42,7 @@ public class CuentasController
 		model.addAttribute("user",user.getUsername());
 		model.addAttribute("fecha",this.showDate());
 		model.addAttribute("hora",this.showHora());
+		model.addAttribute("cuentaTipo", CuentaTipo.values());
 		model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
 		model.addAttribute("allGrupoCuentas",this.grupoCuentasService.showAllGrupoCuentas());
 		System.out.println("user ==>> "+user.getUsername());
@@ -58,6 +60,7 @@ public class CuentasController
 			model.addAttribute("user",user.getUsername());
 			model.addAttribute("fecha",this.showDate());
 			model.addAttribute("hora",this.showHora());
+			model.addAttribute("cuentaTipo", CuentaTipo.values());
 			model.addAttribute("muestroCuentas", this.cuentasService.selectAllCuentas());
 			model.addAttribute("allGrupoCuentas",this.grupoCuentasService.showAllGrupoCuentas());
 			return "cuentas/cuentas";
