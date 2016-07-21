@@ -75,7 +75,7 @@ public class AsientoContableService implements AsientoContableInt {
 	}
 
 	@Override
-	public List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(int cuentaTipo, int idCaja) {
+	public List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(String cuentaTipo, int idCaja) {
 		
 		return this.asientoContableMapper.resumenPorCuentasTotalPorCaja(cuentaTipo, idCaja);
 	}

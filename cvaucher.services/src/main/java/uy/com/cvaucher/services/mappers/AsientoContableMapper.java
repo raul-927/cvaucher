@@ -50,7 +50,7 @@ public interface AsientoContableMapper {
 	@Select(value ="{CALL SP_resumenPorCuentasTotalPorCaja(#{cuentaTipo, mode=IN, jdbcType=INTEGER}, #{idCaja, mode=IN, jdbcType=INTEGER})}")
 	@Options(statementType = StatementType.CALLABLE)
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
-	List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(@Param("cuentaTipo") int cuentaTipo, @Param("idCaja")int idCaja);
+	List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(@Param("cuentaTipo") String cuentaTipo, @Param("idCaja")int idCaja);
 	
 	
 	

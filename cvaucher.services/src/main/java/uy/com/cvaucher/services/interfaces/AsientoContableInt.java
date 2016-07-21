@@ -16,6 +16,6 @@ public interface AsientoContableInt {
 	MaxNumAsientoContable maxNumAsientoContable();
 	MaxNumAsientoContable cantRegistros();
 	List<ResumenPorCuentas> resumenPorCuentas(int cuentaTipo);
-	List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(int cuentaTipo, int idCaja);
+	List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(String cuentaTipo, int idCaja);
 
 }

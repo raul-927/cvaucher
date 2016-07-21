@@ -95,11 +95,11 @@ public class FlowCajasController{
 		Caja caja = this.cajaService.cargoCajaActual();
 		int idCaja = caja.getCajaId();
 		
-		List<ResumenPorCuentas> rs = asientoContableService.resumenPorCuentasTotalPorCaja(CuentaTipo.VENTA.getCodigo(), idCaja);
+		List<ResumenPorCuentas> rs = asientoContableService.resumenPorCuentasTotalPorCaja(CuentaTipo.VENTA.getDescripcion(), idCaja);
 		
 		System.out.println("idCaja ==>> "+idCaja);
 		model.addAttribute(new AsientoContable());
-		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentasTotalPorCaja(CuentaTipo.VENTA.getCodigo(), idCaja));
+		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentasTotalPorCaja(CuentaTipo.VENTA.getDescripcion(), idCaja));
 		return "caja/resumenCaja";
 	}
 	

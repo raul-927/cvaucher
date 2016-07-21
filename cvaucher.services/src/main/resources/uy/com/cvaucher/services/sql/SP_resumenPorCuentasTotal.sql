@@ -1,6 +1,6 @@
 DROP PROCEDURE IF EXISTS SP_resumenPorCuentasTotal;
 DELIMITER //
-CREATE PROCEDURE SP_resumenPorCuentasTotal(cuentaTipo INT)
+CREATE PROCEDURE SP_resumenPorCuentasTotal(cuentaTipo VARCHAR(10))
 BEGIN
  CREATE TEMPORARY TABLE tmp_haber
 	SELECT as_con_caja_id, as_cuenta_haber cuenta_haber, SUM(as_cuenta_haberMonto) haber, as_cuenta_tipo tipo
