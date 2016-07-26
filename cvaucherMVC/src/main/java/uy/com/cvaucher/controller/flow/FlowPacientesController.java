@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -257,31 +258,16 @@ public class FlowPacientesController
 	
 	public void insertTratamientoPagoTarjeta(TratamientoPaciente tratamientoPaciente, PagoTarjeta pagoTarjeta, FormasDePagosDesc formasDePagoDesc)
 	{
-		MaxNumAsientoContable tarjetaAsientoNro = this.asientoContableServices.maxNumAsientoContable();
-		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
-		DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
-		String pagoTarjCuenta = desCuentaFormaDePago.getCuentaDesc();
 		
-		Caja cajaActual  = this.cajaServices.cargoCajaActual();
-		pagoTarjeta.setTarjetaCajaId(cajaActual.getCajaId());
-		pagoTarjeta.setTarjCuenta(pagoTarjCuenta);
-		pagoTarjeta.setTarjetaAsientoNro(tarjetaAsientoNro.getMaxNum());
-		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
-		this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente, pagoTarjeta, formasDePagoDesc.getFormasDePagoCuenta());
+		this.insertAsientoContable(pagoTarjeta,tratamientoPaciente, formasDePagoDesc);
+		
 	}
 	
 	public void insertTratamientoPagoEfectivo(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
 	{	
-		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
-		DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
-		String pagoEfCuenta = desCuentaFormaDePago.getCuentaDesc();
-		MaxNumAsientoContable pagoEfAsientoNro = this.asientoContableServices.maxNumAsientoContable();
-		Caja cajaActual  = this.cajaServices.cargoCajaActual();
-		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
-		pagoEfectivo.setPagoEfCuenta(pagoEfCuenta);
-		pagoEfectivo.setPagoEfAsientoNro(pagoEfAsientoNro.getMaxNum());
-		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
-		this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, pagoEfectivo,formasDePagoDesc.getFormasDePagoCuenta());
+		
+		this.insertAsientoContable(pagoEfectivo,tratamientoPaciente, formasDePagoDesc);
+		
 	}
 	
 	public void insertTratamientoPagoCredito(TratamientoPaciente tratamientoPaciente, PagoEfectivo pagoEfectivo,  FormasDePagosDesc formasDePagoDesc)
@@ -296,7 +282,7 @@ public class FlowPacientesController
 		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
 		pagoEfectivo.setPagoEfCuenta(pagoEfCuenta);
 		pagoEfectivo.setPagoEfAsientoNro(pagoEfAsientoNro.getMaxNum());
-		this.insertAsientoContable(tratamientoPaciente, formasDePagoDesc);
+		this.insertAsientoContable(pagoEfectivo, tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
 	}
 	public FormasDePagosDesc getFormasDePagosDesc(){
@@ -310,7 +296,31 @@ public class FlowPacientesController
 		return this.asientoContableServices.maxNumAsientoContable();
 	}
 	
-	private void insertAsientoContable(TratamientoPaciente tratamientoPaciente, FormasDePagosDesc formasDePagoDesc){
+	@Transactional
+	private void insertAsientoContable(Object formaDePago,TratamientoPaciente tratamientoPaciente, FormasDePagosDesc formasDePagoDesc){
+		/*Caja cajaActual  = this.cajaServices.cargoCajaActual();
+		if(formaDePago instanceof PagoEfectivo){
+			int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
+			DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+			String pagoEfCuenta = desCuentaFormaDePago.getCuentaDesc();
+			MaxNumAsientoContable pagoEfAsientoNro = this.asientoContableServices.maxNumAsientoContable();
+			
+			((PagoEfectivo) formaDePago).setPagoEfCajaId(cajaActual.getCajaId());
+			((PagoEfectivo) formaDePago).setPagoEfCuenta(pagoEfCuenta);
+			((PagoEfectivo) formaDePago).setPagoEfAsientoNro(pagoEfAsientoNro.getMaxNum());
+			this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, (PagoEfectivo) formaDePago,formasDePagoDesc.getFormasDePagoCuenta());
+		}
+		if(formaDePago instanceof PagoTarjeta){
+			MaxNumAsientoContable tarjetaAsientoNro = this.asientoContableServices.maxNumAsientoContable();
+			int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
+			DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
+			String pagoTarjCuenta = desCuentaFormaDePago.getCuentaDesc();
+
+			((PagoTarjeta) formaDePago).setTarjetaCajaId(cajaActual.getCajaId());
+			((PagoTarjeta) formaDePago).setTarjCuenta(pagoTarjCuenta);
+			((PagoTarjeta) formaDePago).setTarjetaAsientoNro(tarjetaAsientoNro.getMaxNum());
+			this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente,(PagoTarjeta) formaDePago, formasDePagoDesc.getFormasDePagoCuenta());
+		}
 		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
 		
 		Caja caja = this.cajaServices.cargoCajaActual();
@@ -372,9 +382,9 @@ public class FlowPacientesController
 	
 		asientoContableList.add(asientoContableL1);
 		asientoContableList.add(asientoContableL2);
-		asientoContableList.add(asientoContableL3);
+		asientoContableList.add(asientoContableL3);*/
 
-		this.asientoContableServices.ingresarAsientoContable(asientoContableList);
+		this.asientoContableServices.ingresarAsientoContable(formaDePago, tratamientoPaciente, formasDePagoDesc);
 	}
 	
 	public void procesoAsientoContable(){
