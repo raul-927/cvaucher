@@ -108,7 +108,7 @@ public class AsientoContableService implements AsientoContableInt {
 			((PagoEfectivo) formaDePago).setPagoEfCajaId(cajaActual.getCajaId());
 			((PagoEfectivo) formaDePago).setPagoEfCuenta(pagoEfCuenta);
 			((PagoEfectivo) formaDePago).setPagoEfAsientoNro(maxNumAsientoContable.getMaxNum());
-			this.formasDePagosService.insertTratamientoPagoEfectivo(tratamientoPaciente, (PagoEfectivo) formaDePago,formasDePagoDesc.getFormasDePagoCuenta());
+			this.formasDePagosService.insertTratamientoPagoEfectivo(tratamientoPaciente, (PagoEfectivo) formaDePago, formasDePagoDesc.getFormasDePagoCuenta());
 		}
 		if(formaDePago instanceof PagoTarjeta){
 			DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosService.cuentaFormaDePagoDesc(cuentaId);
