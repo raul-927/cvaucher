@@ -41,22 +41,22 @@ import uy.com.cvaucher.services.mappers.TratamientoPacienteMapper;
 public class FormasDePagosService implements FormasDePagosInt 
 {
 	@Autowired
-	private FormasDePagosMapper formasDePagosMapper;
+	private FormasDePagosMapper 	  formasDePagosMapper;
 	
 	@Autowired
 	private TratamientoPacienteMapper tratamientoPacienteMapper;
 	
 	@Autowired
-	private PagoTarjetaMapper pagoTarjetaMapper;
+	private PagoTarjetaMapper 		  pagoTarjetaMapper;
 	
 	@Autowired 
-	private PagoEfectivoMapper pagoEfectivoMapper;
+	private PagoEfectivoMapper 		  pagoEfectivoMapper;
 	
 	@Autowired
-	private HistorialPagosMapper historialPagosMapper;
+	private HistorialPagosMapper 	  historialPagosMapper;
 	
 	@Autowired
-	private CajaMapper		   cajaMapper;
+	private CajaMapper		   		  cajaMapper;
 
 	@Override
 	public List<FormasDePagos> findAllFormasDePagos(FormasDePagos formasDePagos) 
