@@ -55,12 +55,6 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Autowired
 	private HistorialPagosMapper historialPagosMapper;
 	
-	//@Autowired 
-	//private AsientoContableInt asientoContableService;
-	
-	@Autowired
-	private TratamientoInt tratamientoService;
-	
 	@Autowired
 	private CajaMapper		   cajaMapper;
 
