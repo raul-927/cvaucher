@@ -55,8 +55,8 @@ public class FormasDePagosService implements FormasDePagosInt
 	@Autowired
 	private HistorialPagosMapper historialPagosMapper;
 	
-	@Autowired 
-	private AsientoContableInt asientoContableService;
+	//@Autowired 
+	//private AsientoContableInt asientoContableService;
 	
 	@Autowired
 	private TratamientoInt tratamientoService;
@@ -113,29 +113,6 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		tratamientoPaciente.setTratPacId(maxTratPacId.getMaxId());
 		tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
-		
-		Date fechaHoy = new Date();
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
-		String fecha = formatoFecha.format(fechaHoy);
-		String hora = formatoHora.format(fechaHoy);
-		Cuentas cuentaDebe = new Cuentas();
-		Cuentas cuentaHaber = new Cuentas();
-		cuentaDebe.setCuentaId(tratamientoPaciente.getTratamId());
-		cuentaHaber.setCuentaId(idCuenta);
-		BigDecimal debe = new BigDecimal(historialPagos.getHistPagosMonto());
-		BigDecimal haber = new BigDecimal(historialPagos.getHistPagosMonto());
-		AsientoContable asientoContable = new AsientoContable();
-		asientoContable.setAsConFecha(fecha);
-		asientoContable.setAsConHora(hora);
-		asientoContable.setAsCuentaDebe(cuentaDebe);
-		asientoContable.setAsCuentaDebeMonto(debe);
-		asientoContable.setAsCuentaHaber(cuentaHaber);
-		asientoContable.setAsCuentaHaberMonto(haber);
-		MaxNumAsientoContable maxNumAsContable;
-		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
-		//this.asientoContableService.ingresarAsientoContable(asientoContable);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 	}
 	
@@ -175,38 +152,6 @@ public class FormasDePagosService implements FormasDePagosInt
 		
 		tratamientoPaciente.setTratPacId(maxTratPacId.getMaxId());
 		tratamientoPaciente.setImportePagado(historialPagos.getHistPagosMonto());
-		
-		Date fechaHoy = new Date();
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
-		String fecha = formatoFecha.format(fechaHoy);
-		String hora = formatoHora.format(fechaHoy);
-		
-		
-		Cuentas cuentaDebe = new Cuentas();
-		Cuentas cuentaHaber = new Cuentas();
-		
-		cuentaDebe.setCuentaId(tratamientoPaciente.getTratamId());
-		cuentaHaber.setCuentaId(idCuenta);
-		
-		BigDecimal debe = new BigDecimal(historialPagos.getHistPagosMonto());
-		BigDecimal haber = new BigDecimal(historialPagos.getHistPagosMonto());
-		
-		Tratamiento tratamiento = this.tratamientoService.findTratamientoById(tratamientoPaciente.getTratamId());
-		AsientoContable asientoContable = new AsientoContable();
-		asientoContable.setAsConFecha(fecha);
-		asientoContable.setAsConHora(hora);
-		asientoContable.setAsCuentaDebe(cuentaDebe);
-		asientoContable.setAsCuentaDebeMonto(debe);
-		asientoContable.setAsCuentaHaber(cuentaHaber);
-		asientoContable.setAsCuentaHaberMonto(haber);
-		asientoContable.setAsConDescripcion(tratamiento.getTratDescripcion());
-		
-		MaxNumAsientoContable maxNumAsContable;
-		maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		
-		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
-		//this.asientoContableService.ingresarAsientoContable(asientoContable);
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporte(tratamientoPaciente);
 	}
 	@Override
@@ -243,29 +188,6 @@ public class FormasDePagosService implements FormasDePagosInt
 		int saldoPendiente = costoTratSesion - importePagado;
 		tratamientoPaciente.setSaldoPendiente(saldoPendiente);
 		tratamientoPaciente.setImportePagado(0);
-		
-		Date fechaHoy = new Date();
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
-		String fecha = formatoFecha.format(fechaHoy);
-		String hora = formatoHora.format(fechaHoy);
-		Cuentas cuentaDebe = new Cuentas();
-		Cuentas cuentaHaber = new Cuentas();
-		cuentaDebe.setCuentaId(tratamientoPaciente.getTratamId());
-		cuentaHaber.setCuentaId(idCuenta);
-		BigDecimal debe = new BigDecimal(historialPagos.getHistPagosMonto());
-		BigDecimal haber = new BigDecimal(historialPagos.getHistPagosMonto());
-		AsientoContable asientoContable = new AsientoContable();
-		asientoContable.setAsConFecha(fecha);
-		asientoContable.setAsConHora(hora);
-		asientoContable.setAsCuentaDebe(cuentaDebe);
-		asientoContable.setAsCuentaDebeMonto(debe);
-		asientoContable.setAsCuentaHaber(cuentaHaber);
-		asientoContable.setAsCuentaHaberMonto(haber);
-		
-		MaxNumAsientoContable maxNumAsContable = this.asientoContableService.maxNumAsientoContable();
-		asientoContable.setAsConNro(maxNumAsContable.getMaxNum());
-		//this.asientoContableService.ingresarAsientoContable(asientoContable);
 		
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);
 	}
