@@ -23,10 +23,10 @@ import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.enumerador.CuentaTipo;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
+import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
 import uy.com.cvaucher.services.mappers.AsientoContableMapper;
 import uy.com.cvaucher.services.mappers.CajaMapper;
 import uy.com.cvaucher.services.mappers.CuentasMapper;
-import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 import uy.com.cvaucher.services.mappers.TratamientoMapper;
 
 @Service
@@ -40,7 +40,7 @@ public class AsientoContableService implements AsientoContableInt {
 	private CajaMapper cajaMapper;
 	
 	@Autowired
-	private FormasDePagosService formasDePagosService;
+	private FormasDePagosInt formasDePagosService;
 	
 	@Autowired
 	private CuentasMapper cuentasMapper;
