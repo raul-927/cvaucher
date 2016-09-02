@@ -16,15 +16,15 @@
 		<td>Tipo de Movimiento</td>
 	</thead>
 		<tbody>
-			<c:forEach var="pac" items="${pac}">
+			<c:forEach var="asiento" items="${asCont}">
 				<tr>
-			  		<td>${pac.pacId}</td>
-					<td><a href="<s:url value="/detallep/detPac/${pac.cedula}"/>">${pac.cedula}</a></td>
-					<td >${pac.pacNombre}</td>
-					<td >${pac.pacApellido}</td>
-					<td >${pac.ocupacion}</td>
-					<td >${pac.sociedadMedica}</td>
-					<td >${pac.emergenciaMovil}</td>
+			  		<td>${asiento.pacId}</td>
+					<td><a href="<s:url value="/detallep/detPac/${asiento.cedula}"/>">${asiento.cedula}</a></td>
+					<td >${asiento.pacNombre}</td>
+					<td >${asiento.pacApellido}</td>
+					<td >${asiento.ocupacion}</td>
+					<td >${asiento.sociedadMedica}</td>
+					<td >${asiento.emergenciaMovil}</td>
 				</tr>	
 			</c:forEach>
 		</tbody>
