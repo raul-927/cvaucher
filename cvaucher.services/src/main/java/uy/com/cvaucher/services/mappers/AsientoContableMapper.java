@@ -18,8 +18,7 @@ import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.sql.SqlAsientoContableProvider;
 
 public interface AsientoContableMapper {
-	
-	
+
 	@SelectProvider(type = SqlAsientoContableProvider.class,  method="cuentaAsientoTotal")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.CuentaAsientoResult")
 	ResultadoCuentaAsientoTotal cuentaAsientoTotal();
@@ -36,7 +35,6 @@ public interface AsientoContableMapper {
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
 	MaxNumAsientoContable maxNumAsientoContable();
 	
-	
 	@SelectProvider(type = SqlAsientoContableProvider.class, method ="cantRegistros")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
 	MaxNumAsientoContable cantRegistros();
@@ -46,13 +44,12 @@ public interface AsientoContableMapper {
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
 	List<ResumenPorCuentas> resumenPorCuentas(int asConTipo);
 	
-	
 	@Select(value ="{CALL SP_resumenPorCuentasTotalPorCaja(#{cuentaTipo, mode=IN, jdbcType=INTEGER}, #{idCaja, mode=IN, jdbcType=INTEGER})}")
 	@Options(statementType = StatementType.CALLABLE)
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
 	List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(@Param("cuentaTipo") String cuentaTipo, @Param("idCaja")int idCaja);
 	
-	
-	
-
+	@SelectProvider(type = SqlAsientoContableProvider.class, method ="showAsientoContable")
+	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.AsientoContableResult")
+	List<AsientoContable> showAsientoContable(@Param("asientoContable") AsientoContable asientoContable);
 }

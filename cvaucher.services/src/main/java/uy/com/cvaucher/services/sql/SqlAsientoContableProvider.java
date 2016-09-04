@@ -59,4 +59,27 @@ public class SqlAsientoContableProvider {
 		}}.toString();
 	}
 	
+	public String showAsientoContable(final AsientoContable asientoContable){
+		return new SQL(){{
+			SELECT("as_con_id, as_con_caja_id, as_con_nro, as_cuenta_debe, as_cuenta_debeMonto, "
+					+ "as_cuenta_haber, as_cuenta_haberMonto, as_cuenta_tipo, as_con_descripcion, "
+					+ "as_con_fecha");
+			FROM("asiento_contable");
+			if(asientoContable.getAsContId()>0){
+				WHERE("as_con_id = "+asientoContable.getAsContId());
+			}
+			if(asientoContable.getCaja().getCajaId()>0){
+				WHERE("as_con_caja_id = "+asientoContable.getCaja().getCajaId());
+			}
+			if(asientoContable.getAsConNro()>0){
+				WHERE("as_con_nro = "+asientoContable.getAsConNro());
+			}
+			if(!asientoContable.getAsCuentaDebe().equals(null)||!asientoContable.getAsCuentaDebe().equals("")){
+				WHERE("as_cuenta_debe");
+			}
+			if(!asientoContable.getAsCuentaHaber().equals(null)||!asientoContable.getAsCuentaHaber().equals("")){
+				WHERE("as_cuenta_haber = "+asientoContable.getAsCuentaHaber());
+			}
+		}}.toString();
+	}
 }

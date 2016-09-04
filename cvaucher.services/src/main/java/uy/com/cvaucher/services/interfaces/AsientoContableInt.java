@@ -5,6 +5,7 @@ import java.util.List;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
+import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 
@@ -17,5 +18,5 @@ public interface AsientoContableInt {
 	MaxNumAsientoContable cantRegistros();
 	List<ResumenPorCuentas> resumenPorCuentas(int cuentaTipo);
 	List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(String cuentaTipo, int idCaja);
-
+	List<AsientoContable> showAsientoContable(AsientoContable asientoContable);
 }

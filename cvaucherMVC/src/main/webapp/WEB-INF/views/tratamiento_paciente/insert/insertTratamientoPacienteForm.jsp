@@ -32,7 +32,7 @@
 		 	<div class="form-group">
 			 	<sf:label path="tratamId" for ="tratamId">Tratamiento</sf:label>
 			 	<sf:select cssClass ="form-control" path="tratamId" size ="1" >
-			 		<sf:options path="tratamId" items="${tratP}" itemLabel="descripcion" itemValue="id"/>
+			 		<sf:options path="tratamId" items="${tratP}" itemLabel="descripcion" name ="_eventId_cantSesionesTratamiento" itemValue="id"/>
 			 	</sf:select>
 			 	<sf:errors path ="tratamId" cssClass ="error"/>
 		 	</div>

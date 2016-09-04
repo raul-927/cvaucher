@@ -194,4 +194,11 @@ public class AsientoContableService implements AsientoContableInt {
 		
 		return this.asientoContableMapper.resumenPorCuentasTotalPorCaja(cuentaTipo, idCaja);
 	}
+
+	@Override
+	public List<AsientoContable> showAsientoContable(AsientoContable asientoContable) {
+		return this.asientoContableMapper.showAsientoContable(asientoContable);
+	}
+
+	
 }
