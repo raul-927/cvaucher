@@ -25,6 +25,7 @@
 			<![endif]-->
 	</head>
 	<body>
+		<script src="<s:url value="/resources" />/js/csvaucher.js"></script>
 		<script src="<s:url value="/resources" />/js/jquery.js"></script>
 		<script src="<s:url value="/resources" />/js/bootstrap.js"></script>
 		

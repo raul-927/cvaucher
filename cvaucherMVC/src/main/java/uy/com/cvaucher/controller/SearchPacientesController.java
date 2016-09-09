@@ -60,6 +60,11 @@ public class SearchPacientesController implements SearchPacientesControllerInt
 		return "pacientes/searchPacientes";
 	}
 	
+	@RequestMapping(method = RequestMethod.POST)
+	public void ShowSearchPacientes2(Model model){
+		System.out.println("Esto es una prueba");
+	}
+	
 	@RequestMapping(value ="/search",method = RequestMethod.POST)
 	public String searchPacientes(Model model,@Valid SearchPacientes searchPacientes, BindingResult bindingResult)
 	{

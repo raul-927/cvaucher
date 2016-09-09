@@ -124,5 +124,12 @@ public class FlowCajasController{
 		}
 		return resultado;
 	}
+	
+	@RequestMapping(value = "/caja/detalle/{tipo}/{cuenta}/{idAsientoContable}", method = RequestMethod.GET)
+	public String showAsientoContable(Model model, @PathVariable("asientoContable")AsientoContable asientoContable){
+		model.addAttribute("asientoContable", this.asientoContableService.showAsientoContable(asientoContable));
+		
+		return "caja/detalleCuenta";
+	}
 }
 

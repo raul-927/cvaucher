@@ -15,7 +15,7 @@
 		modelAttribute ="tratamientoPaciente"
 		commandName ="tratamientoPaciente">
 		
-			<input type="hidden" name="_flowExecutionKey" 
+			<input type="hidden" name="_flowExecutionKey" id ="flowExecutionKey"
              value="${flowExecutionKey}"/>
              
            
@@ -27,8 +27,8 @@
 		 	
 		 	<div class="form-group">
 			 	<sf:label path="tratamId" for ="tratamId">Tratamiento</sf:label>
-			 	<sf:select cssClass ="form-control" path="tratamId" size ="1" >
-			 		<sf:options  id ="prueba" path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId"/>
+			 	<sf:select cssClass ="form-control" path="tratamId"  size ="1" >
+			 		<sf:options  path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId"/>
 			 	</sf:select>
 			 	<sf:errors path ="tratamId" cssClass ="error"/>
 		 	</div>
@@ -58,8 +58,8 @@
 		 	</div>
 		 	
 			 <div class="botonForm">
-				 <input class ="btn btn-default" type ="reset" value ="Cancelar" name ="_eventId_cancelar"/>
-				 <input class="btn btn-primary" type ="submit" value ="Ingresar Tratamiento" name ="_eventId_tratamientoPacienteIngresado"/>
+				 <input class ="btn btn-default" id="cancel" type ="reset" value ="Cancelar" name ="_eventId_cancelar"/>
+				 <input class="btn btn-primary"  type ="submit" value ="Ingresar Tratamiento" name ="_eventId_tratamientoPacienteIngresado"/>
 			
 			</div>
 			

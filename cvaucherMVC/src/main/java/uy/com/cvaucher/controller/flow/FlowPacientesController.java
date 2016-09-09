@@ -296,94 +296,7 @@ public class FlowPacientesController
 		return this.asientoContableServices.maxNumAsientoContable();
 	}
 	
-	@Transactional
 	private void insertAsientoContable(Object formaDePago,TratamientoPaciente tratamientoPaciente, FormasDePagosDesc formasDePagoDesc){
-		/*Caja cajaActual  = this.cajaServices.cargoCajaActual();
-		if(formaDePago instanceof PagoEfectivo){
-			int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
-			DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
-			String pagoEfCuenta = desCuentaFormaDePago.getCuentaDesc();
-			MaxNumAsientoContable pagoEfAsientoNro = this.asientoContableServices.maxNumAsientoContable();
-			
-			((PagoEfectivo) formaDePago).setPagoEfCajaId(cajaActual.getCajaId());
-			((PagoEfectivo) formaDePago).setPagoEfCuenta(pagoEfCuenta);
-			((PagoEfectivo) formaDePago).setPagoEfAsientoNro(pagoEfAsientoNro.getMaxNum());
-			this.formasDePagosServices.insertTratamientoPagoEfectivo(tratamientoPaciente, (PagoEfectivo) formaDePago,formasDePagoDesc.getFormasDePagoCuenta());
-		}
-		if(formaDePago instanceof PagoTarjeta){
-			MaxNumAsientoContable tarjetaAsientoNro = this.asientoContableServices.maxNumAsientoContable();
-			int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
-			DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosServices.cuentaFormaDePagoDesc(cuentaId);
-			String pagoTarjCuenta = desCuentaFormaDePago.getCuentaDesc();
-
-			((PagoTarjeta) formaDePago).setTarjetaCajaId(cajaActual.getCajaId());
-			((PagoTarjeta) formaDePago).setTarjCuenta(pagoTarjCuenta);
-			((PagoTarjeta) formaDePago).setTarjetaAsientoNro(tarjetaAsientoNro.getMaxNum());
-			this.formasDePagosServices.insertTratamientoPagoTarjeta(tratamientoPaciente,(PagoTarjeta) formaDePago, formasDePagoDesc.getFormasDePagoCuenta());
-		}
-		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
-		
-		Caja caja = this.cajaServices.cargoCajaActual();
-		Cuentas asCuentaL1 = this.cuentasServices.selectCuentaByCuentaId(formasDePagoDesc.getFormasDePagoCuenta());
-		BigDecimal asCuentaDebeMontoL1 = new BigDecimal((double)tratamientoPaciente.getCostoTratSesion());
-		BigDecimal asCuentaHaberMontoL1 = new BigDecimal((double)00);
-		
-		Tratamiento tratamiento = this.tratamientoServices.findTratamientoById(tratamientoPaciente.getTratamId());
-		Cuentas cuentaImp = this.cuentasServices.selectCuentaByCuentaId(tratamiento.getImpuesto().getImpuestoCuenta().getCuentaId());
-		
-		Cuentas cuentaTratamiento = new Cuentas();
-		cuentaTratamiento.setCuentaId(12);
-		cuentaTratamiento.setCuentaDesc(tratamiento.getTratDescripcion());
-		cuentaTratamiento.setCuentaTipo(CuentaTipo.TRATAMIENTO.getDescripcion());
-	
-		
-		MaxNumAsientoContable asConNro = this.asientoContableServices.maxNumAsientoContable();
-		AsientoContable asientoContableL1 = new AsientoContable();
-		AsientoContable asientoContableL2 = new AsientoContable();
-		AsientoContable asientoContableL3 = new AsientoContable();
-		
-		asientoContableL1.setAsConNro(asConNro.getMaxNum());
-		asientoContableL2.setAsConNro(asConNro.getMaxNum());
-		asientoContableL3.setAsConNro(asConNro.getMaxNum());
-		
-		asientoContableL1.setCaja(caja);
-		asientoContableL2.setCaja(caja);
-		asientoContableL3.setCaja(caja);
-		
-		BigDecimal asImpDebeMonto = new BigDecimal("00");
-		BigDecimal impuesto = tratamiento.getImpuesto().getImpuestoValor();
-		BigDecimal aux = asCuentaDebeMontoL1.multiply(impuesto);
-		BigDecimal divisor = new BigDecimal("100.00");
-		BigDecimal resultado = aux.divide(divisor);
-		BigDecimal asImpHaberMonto = new BigDecimal("00");
-		this.total = asCuentaDebeMontoL1.subtract(resultado);
-		asImpHaberMonto.add(resultado);
-
-		asientoContableL1.setAsCuentaDebe(asCuentaL1);
-		asientoContableL1.setAsCuentaHaber(asCuentaL1);
-		asientoContableL1.setAsCuentaDebeMonto(asCuentaDebeMontoL1);
-		asientoContableL1.setAsCuentaHaberMonto(asCuentaHaberMontoL1);
-		asientoContableL1.setAsConDescripcion(asCuentaL1.getCuentaDesc());
-		asientoContableL1.setAsCuentaTipo(asCuentaL1.getCuentaTipo());
-
-		asientoContableL2.setAsCuentaDebe(cuentaImp);
-		asientoContableL2.setAsCuentaHaber(cuentaImp);
-		asientoContableL2.setAsCuentaDebeMonto(asImpDebeMonto);
-		asientoContableL2.setAsCuentaHaberMonto(resultado);
-		asientoContableL2.setAsConDescripcion(cuentaImp.getCuentaDesc());
-		asientoContableL2.setAsCuentaTipo(cuentaImp.getCuentaTipo());
-
-		asientoContableL3.setAsCuentaDebe(cuentaTratamiento);
-		asientoContableL3.setAsCuentaHaber(cuentaTratamiento);
-		asientoContableL3.setAsCuentaDebeMonto(asImpDebeMonto);
-		asientoContableL3.setAsCuentaHaberMonto(total);
-		asientoContableL3.setAsConDescripcion(cuentaTratamiento.getCuentaDesc());
-		asientoContableL3.setAsCuentaTipo(cuentaTratamiento.getCuentaTipo());
-	
-		asientoContableList.add(asientoContableL1);
-		asientoContableList.add(asientoContableL2);
-		asientoContableList.add(asientoContableL3);*/
-
 		this.asientoContableServices.ingresarAsientoContable(formaDePago, tratamientoPaciente, formasDePagoDesc);
 	}
 	
@@ -391,5 +304,4 @@ public class FlowPacientesController
 		Caja caja = this.cajaServices.cargoCajaActual();
 		
 	}
-	
 }
