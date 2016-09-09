@@ -28,7 +28,7 @@
 		 	<div class="form-group">
 			 	<sf:label path="tratamId" for ="tratamId">Tratamiento</sf:label>
 			 	<sf:select cssClass ="form-control" path="tratamId"  size ="1" >
-			 		<sf:options  path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId"/>
+			 		<sf:options  path="tratamId" items="${tratP}" itemLabel="tratDescripcion" itemValue="tratId" name ="_eventId_cantSesionesTratamiento"/>
 			 	</sf:select>
 			 	<sf:errors path ="tratamId" cssClass ="error"/>
 		 	</div>
@@ -36,7 +36,7 @@
 		<t:insertAttribute name ="showCantSes"/>
 			
 		 <div class="botonForm">
-		 	<input class="btn btn-primary"  type ="submit" value ="Actualizar" name ="_eventId_cantSesionesTratamiento"/>
+		 	<input class="btn btn-primary"  type ="submit" value ="Actualizar" />
 		 </div>
 
 		 	<div class="form-group">
