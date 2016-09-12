@@ -10,7 +10,7 @@ public class SqlPagoTarjetaProvider {
 		return new SQL(){{
 			INSERT_INTO("pago_tarjetas");
 			VALUES("tarjeta_caja_id","#{tarjetaCajaId}");
-			VALUES("tarjeta_asiento_nro","#{tarjetaAsientoNro}");
+			VALUES("tarjeta_asiento_nro","#{asientoNro}");
 			VALUES("tarj_pac_cedula","#{tarjPacCedula}");
 			VALUES("tarj_pago_id","#{tarjPagoId}");
 			VALUES("tarj_nro","#{tarjNro}");

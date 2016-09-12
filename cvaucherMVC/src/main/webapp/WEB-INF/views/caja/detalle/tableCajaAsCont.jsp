@@ -7,32 +7,29 @@
 
 <table class="table well-sm">
 	
-	<caption><h1>Cuenta: ${cuenta}</h1></caption>
+	<caption><h1>Asiento contable Nro: ${asientoContable.asConNro}</h1></caption>
 	
 	<thead>
-		<td>Id</td>
-		<td>Cedula</td>
-		<td>Caja</td>
-		<%-- <td>Serie</td>
-		<td>Numero</td>
-		<td>Tipo de documento</td> --%>
-		<td>Tratamiento</td>
-		<td>Importe</td>
-		<td>Tipo pago</td>
+		<td>Cuenta debe</td>
+		<td>Debe</td>
+		<td>Cuenta Haber</td>
+		<td>Haber</td>
+		<td>Descripcion</td>
+		<td>Fecha</td>
+		<td>Hora</td>
 		<td>Usuario</td>
 	</thead>
 		<tbody>
-			<c:forEach var="pagoEfectivo" items="${pagoEfectivo}">
+			<c:forEach var="asCont" items="${asientoContable}">
 				<tr>
-					<td ><a href='<s:url value="#"/>'>${pagoEfectivo.efId}</a></td>
-					<td>${pagoEfectivo.pagoEfCedula}</td>
-					<td >${pagoEfectivo.pagoEfCajaId}</td>
-					
-					<td>${pagoEfectivo.pagoEfId}</td>
-					
-					<td>${pagoEfectivo.pagoEfImporte}</td>
-					<td>${pagoEfectivo.pagoEfDesc}</td>
-					<td>${pagoEfectivo.pagoEfUsuario}</td>
+					<td>${asCont.asCuentaDebe}</td>
+					<td >${asCont.asCuentaDebeMonto}</td>
+					<td>${asCont.asCuentaHaber}</td>
+					<td>${asCont.asCuentaHaberMonto}</td>
+					<td>${asCont.asConDescripcion}</td>
+					<td>${asCont.asConFecha}</td>
+					<td>${asCont.asConHora}</td>
+					<td>${asCont.asConUsr}</td>
 				</tr>	
 			</c:forEach>
 		</tbody>

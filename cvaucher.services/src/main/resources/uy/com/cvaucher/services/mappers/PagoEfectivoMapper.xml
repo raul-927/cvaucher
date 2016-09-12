@@ -9,7 +9,7 @@
   	    
   		<id property="efId" column="ef_id"/>
 		<result property = "pagoEfCajaId"	  column ="pago_ef_caja_id"/>
-		<result property = "pagoEfAsientoNro" column = "pago_ef_asiento_nro"/>
+		<result property = "asientoNro" 	  column = "pago_ef_asiento_nro"/>
 		<result property = "pagoEfId" 		  column = "pago_ef_id"/>
 		<result property = "pagoEfCedula" 	  column = "pago_ef_cedula"/>
 		<result property = "pagoEfImporte" 	  column = "pago_ef_importe"/>

@@ -281,7 +281,7 @@ public class FlowPacientesController
 		System.out.println("cajaActual.getCajaId() ==>> "+cajaActual.getCajaId());
 		pagoEfectivo.setPagoEfCajaId(cajaActual.getCajaId());
 		pagoEfectivo.setPagoEfCuenta(pagoEfCuenta);
-		pagoEfectivo.setPagoEfAsientoNro(pagoEfAsientoNro.getMaxNum());
+		pagoEfectivo.setAsientoNro(pagoEfAsientoNro.getMaxNum());
 		this.insertAsientoContable(pagoEfectivo, tratamientoPaciente, formasDePagoDesc);
 		this.formasDePagosServices.insertTratamientoPagoCredito(tratamientoPaciente, pagoEfectivo, formasDePagoDesc.getFormasDePagoCuenta());
 	}

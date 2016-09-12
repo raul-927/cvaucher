@@ -31,6 +31,8 @@ public class FlowCajasController{
 	private final AsientoContableInt asientoContableService;
 	private final PagoEfectivoInt	 pagoEfectivoService;
 	private final PagoTarjetaInt 	 pagoTarjetaService;
+	private String tipo;
+	private String cuenta;
 	
 	@Autowired
 	public FlowCajasController(CajaInt cajaService, 
@@ -110,6 +112,7 @@ public class FlowCajasController{
 		int idCaja = caja.getCajaId();
 		System.out.println("Caja actual en FlowCajasController = "+idCaja);
 		if(tipo.equals("EF")||tipo.equals("CE")){
+			
 			model.addAttribute("cuenta", cuenta);
 			model.addAttribute("pagoEfectivo", this.pagoEfectivoService.showPagoEfectivoByCaja(idCaja, cuenta));
 			resultado = "cajaResumen/efectivo";
@@ -122,14 +125,30 @@ public class FlowCajasController{
 		if(tipo.equals("DP")){
 			resultado = "cajaResumen/depositoBancario";
 		}
+		this.cuenta = cuenta;
+		this.tipo = tipo;
 		return resultado;
 	}
 	
-	@RequestMapping(value = "/caja/detalle/{tipo}/{cuenta}/{idAsientoContable}", method = RequestMethod.GET)
+	@RequestMapping(value = "/caja/detalle/{tipo}/{cuenta}/{asientoNro}", method = RequestMethod.GET)
 	public String showAsientoContable(Model model, @PathVariable("asientoContable")AsientoContable asientoContable){
+		System.out.println("asientoContable.getAsConDescripcion() ==>> "+asientoContable.getAsConDescripcion());
+		System.out.println("asientoContable.getAsConFecha() ==>> "+asientoContable.getAsConFecha());
+		System.out.println("asientoContable.getAsConHora() ==>> "+asientoContable.getAsConHora());
+		System.out.println("asientoContable.getAsConUsr() ==>> "+asientoContable.getAsConUsr());
+		System.out.println("asientoContable.getAsCuentaTipo() ==>> "+asientoContable.getAsCuentaTipo());
+		System.out.println("asientoContable.getAsConNro() ==>> "+asientoContable.getAsConNro());
+		System.out.println("asientoContable.getAsContId() ==>> "+asientoContable.getAsContId());
+		System.out.println("asientoContable.getAsCuentaDebe() ==>> "+asientoContable.getAsCuentaDebe());
+		System.out.println("asientoContable.getAsCuentaDebeMonto() ==>> "+asientoContable.getAsCuentaDebeMonto());
+		System.out.println("asientoContable.getAsCuentaHaber() ==>> "+asientoContable.getAsCuentaHaber());
+		System.out.println("asientoContable.getAsCuentaHaberMonto() ==>> "+asientoContable.getAsCuentaHaberMonto());
+		System.out.println("asientoContable.getAsCuentaTipo() ==>> "+asientoContable.getAsCuentaTipo());
+		model.addAttribute("cuenta",this.cuenta);
+		model.addAttribute("tipo",this.tipo);
 		model.addAttribute("asientoContable", this.asientoContableService.showAsientoContable(asientoContable));
 		
-		return "caja/detalleCuenta";
+		return "cajaResumen/detalleCuenta";
 	}
 }
 

@@ -11,7 +11,7 @@
   		
 		<result property = "tarjPacCedula" 	   column="tarj_pac_cedula"/>
 		<result property = "tarjetaCajaId" 	   column="tarjeta_caja_id"/>
-		<result property = "tarjetaAsientoNro" column="tarjeta_asiento_nro"/>
+		<result property = "asientoNro" 	   column="tarjeta_asiento_nro"/>
 		<result property = "tarjPagoId" 	   column ="tarj_pago_id"/>
 		<result property = "tarjNro" 		   column ="tarj_nro"/>
 		<result property = "tarjDesc" 		   column ="tarj_desc"/>

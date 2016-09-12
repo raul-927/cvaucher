@@ -7,7 +7,7 @@
 
 <table class="table well-sm">
 	
-	<caption><h1>Cuenta: ${cuenta}</h1></caption>
+	<caption><h1>Comprobante: </h1></caption>
 	
 	<thead>
 		<td>Id</td>
@@ -22,18 +22,6 @@
 		<td>Usuario</td>
 	</thead>
 		<tbody>
-			<c:forEach var="pagoEfectivo" items="${pagoEfectivo}">
-				<tr>
-					<td ><a href='<s:url value="#"/>'>${pagoEfectivo.efId}</a></td>
-					<td>${pagoEfectivo.pagoEfCedula}</td>
-					<td >${pagoEfectivo.pagoEfCajaId}</td>
-					
-					<td>${pagoEfectivo.pagoEfId}</td>
-					
-					<td>${pagoEfectivo.pagoEfImporte}</td>
-					<td>${pagoEfectivo.pagoEfDesc}</td>
-					<td>${pagoEfectivo.pagoEfUsuario}</td>
-				</tr>	
-			</c:forEach>
+			
 		</tbody>
 </table>

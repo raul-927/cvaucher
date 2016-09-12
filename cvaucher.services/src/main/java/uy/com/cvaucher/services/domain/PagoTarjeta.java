@@ -8,7 +8,7 @@ public class PagoTarjeta implements Serializable
 	
 	private int tarjId;
 	private int tarjetaCajaId;
-	private int tarjetaAsientoNro;
+	private int asientoNro;
 	private int tarjPacCedula;
 	private int tarjPagoId;
 	private long tarjNro;
@@ -85,11 +85,11 @@ public class PagoTarjeta implements Serializable
 	public void setTarjCuenta(String tarjCuenta) {
 		this.tarjCuenta = tarjCuenta;
 	}
-	public int getTarjetaAsientoNro() {
-		return tarjetaAsientoNro;
+	public int getAsientoNro() {
+		return asientoNro;
 	}
-	public void setTarjetaAsientoNro(int tarjetaAsientoNro) {
-		this.tarjetaAsientoNro = tarjetaAsientoNro;
+	public void setAsientoNro(int asientoNro) {
+		this.asientoNro = asientoNro;
 	}
 	
 

@@ -10,7 +10,7 @@ public class SqlPagoEfectivoProvider {
 			INSERT_INTO("pago_efectivo");
 			VALUES("pago_ef_id","#{pagoEfId}");
 			VALUES("pago_ef_caja_id","#{pagoEfCajaId}");
-			VALUES("pago_ef_asiento_nro","#{pagoEfAsientoNro}");
+			VALUES("pago_ef_asiento_nro","#{asientoNro}");
 			VALUES("pago_ef_cedula","#{pagoEfCedula}");
 			VALUES("pago_ef_importe","#{pagoEfImporte}");
 			VALUES("pago_ef_cuenta","#{pagoEfCuenta}");

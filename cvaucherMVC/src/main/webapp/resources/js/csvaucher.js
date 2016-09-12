@@ -5,7 +5,7 @@ window.addEventListener("load", function(){
 	setTimeout(
 			function(){
 				var r = new XMLHttpRequest();
-				r.open("POST","/cvaucherMVC/pacsearch", true);
+				r.open("POST","/cvaucherMVC/pacsearch/prueba", false);
 				r.onreadystatechange = function () {  
 					if (r.readyState != 4 || r.status != 200) return;   
 					console.log(r.responseText); 

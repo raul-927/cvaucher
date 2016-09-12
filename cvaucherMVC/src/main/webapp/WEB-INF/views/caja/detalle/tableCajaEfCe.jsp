@@ -24,7 +24,7 @@
 		<tbody>
 			<c:forEach var="pagoEfectivo" items="${pagoEfectivo}">
 				<tr>
-					<td ><a href='<s:url value="#"/>'>${pagoEfectivo.efId}</a></td>
+					<td><a href='<s:url value="/caja/detalle/${tipo}/${cuenta}/${pagoEfectivo.asConNro}"/>'>${pagoEfectivo.asConNro}</a></td>
 					<td>${pagoEfectivo.pagoEfCedula}</td>
 					<td >${pagoEfectivo.pagoEfCajaId}</td>
 					

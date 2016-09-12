@@ -107,7 +107,7 @@ public class AsientoContableService implements AsientoContableInt {
 			
 			((PagoEfectivo) formaDePago).setPagoEfCajaId(cajaActual.getCajaId());
 			((PagoEfectivo) formaDePago).setPagoEfCuenta(pagoEfCuenta);
-			((PagoEfectivo) formaDePago).setPagoEfAsientoNro(maxNumAsientoContable.getMaxNum());
+			((PagoEfectivo) formaDePago).setAsientoNro(maxNumAsientoContable.getMaxNum());
 			this.formasDePagosService.insertTratamientoPagoEfectivo(tratamientoPaciente, (PagoEfectivo) formaDePago, formasDePagoDesc.getFormasDePagoCuenta());
 		}
 		if(formaDePago instanceof PagoTarjeta){
@@ -116,7 +116,7 @@ public class AsientoContableService implements AsientoContableInt {
 
 			((PagoTarjeta) formaDePago).setTarjetaCajaId(cajaActual.getCajaId());
 			((PagoTarjeta) formaDePago).setTarjCuenta(pagoTarjCuenta);
-			((PagoTarjeta) formaDePago).setTarjetaAsientoNro(maxNumAsientoContable.getMaxNum());
+			((PagoTarjeta) formaDePago).setAsientoNro(maxNumAsientoContable.getMaxNum());
 			this.formasDePagosService.insertTratamientoPagoTarjeta(tratamientoPaciente,(PagoTarjeta) formaDePago, formasDePagoDesc.getFormasDePagoCuenta());
 		}
 		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
@@ -197,6 +197,7 @@ public class AsientoContableService implements AsientoContableInt {
 
 	@Override
 	public List<AsientoContable> showAsientoContable(AsientoContable asientoContable) {
+		
 		return this.asientoContableMapper.showAsientoContable(asientoContable);
 	}
 
