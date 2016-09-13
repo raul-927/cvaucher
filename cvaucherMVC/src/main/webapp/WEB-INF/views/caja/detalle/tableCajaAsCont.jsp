@@ -7,7 +7,7 @@
 
 <table class="table well-sm">
 	
-	<caption><h1>Asiento contable Nro: ${asientoContable.asConNro}</h1></caption>
+	<caption><h1>Asiento contable Nro: ${asConNro}</h1></caption>
 	
 	<thead>
 		<td>Cuenta debe</td>
@@ -20,11 +20,11 @@
 		<td>Usuario</td>
 	</thead>
 		<tbody>
-			<c:forEach var="asCont" items="${asientoContable}">
+			<c:forEach var="asCont" items="${asCont}">
 				<tr>
-					<td>${asCont.asCuentaDebe}</td>
+					<td>${asCont.asCuentaDebe.cuentaDesc}</td>
 					<td >${asCont.asCuentaDebeMonto}</td>
-					<td>${asCont.asCuentaHaber}</td>
+					<td>${asCont.asCuentaHaber.cuentaDesc}</td>
 					<td>${asCont.asCuentaHaberMonto}</td>
 					<td>${asCont.asConDescripcion}</td>
 					<td>${asCont.asConFecha}</td>

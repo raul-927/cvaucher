@@ -52,4 +52,8 @@ public interface AsientoContableMapper {
 	@SelectProvider(type = SqlAsientoContableProvider.class, method ="showAsientoContable")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.AsientoContableResult")
 	List<AsientoContable> showAsientoContable(@Param("asientoContable") AsientoContable asientoContable);
+	
+	@SelectProvider(type= SqlAsientoContableProvider.class,method="showAsientoContableByAsConNro")
+	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.AsientoContableResult")
+	List<AsientoContable> showAsientoContableByAsConNro(int asConNro);
 }

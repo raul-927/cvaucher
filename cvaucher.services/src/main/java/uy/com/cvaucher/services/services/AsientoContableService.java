@@ -201,5 +201,11 @@ public class AsientoContableService implements AsientoContableInt {
 		return this.asientoContableMapper.showAsientoContable(asientoContable);
 	}
 
+	@Override
+	public List<AsientoContable> showAsientoContableByAsConNro(int asConNro) {
+		// TODO Auto-generated method stub
+		return this.asientoContableMapper.showAsientoContableByAsConNro(asConNro);
+	}
+
 	
 }

@@ -19,4 +19,5 @@ public interface AsientoContableInt {
 	List<ResumenPorCuentas> resumenPorCuentas(int cuentaTipo);
 	List<ResumenPorCuentas> resumenPorCuentasTotalPorCaja(String cuentaTipo, int idCaja);
 	List<AsientoContable> showAsientoContable(AsientoContable asientoContable);
+	List<AsientoContable> showAsientoContableByAsConNro(int asConNro);
 }

@@ -86,7 +86,7 @@ public class SqlAsientoContableProvider {
 		return new SQL(){{
 			SELECT("as_con_id, as_con_caja_id, as_con_nro, as_cuenta_debe, as_cuenta_debeMonto, "
 					+ "as_cuenta_haber, as_cuenta_haberMonto, as_cuenta_tipo, as_con_descripcion, "
-					+ "as_con_fecha");
+					+ "as_con_fecha, as_con_hora, as_con_usr");
 			FROM("asiento_contable");
 			WHERE("as_con_nro = #{asConNro}");
 		}}.toString();

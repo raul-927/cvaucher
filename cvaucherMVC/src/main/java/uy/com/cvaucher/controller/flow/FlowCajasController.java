@@ -2,6 +2,7 @@ package uy.com.cvaucher.controller.flow;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,24 +131,23 @@ public class FlowCajasController{
 		return resultado;
 	}
 	
-	@RequestMapping(value = "/caja/detalle/{tipo}/{cuenta}/{asientoNro}", method = RequestMethod.GET)
-	public String showAsientoContable(Model model, @PathVariable("asientoContable")AsientoContable asientoContable){
-		System.out.println("asientoContable.getAsConDescripcion() ==>> "+asientoContable.getAsConDescripcion());
-		System.out.println("asientoContable.getAsConFecha() ==>> "+asientoContable.getAsConFecha());
-		System.out.println("asientoContable.getAsConHora() ==>> "+asientoContable.getAsConHora());
-		System.out.println("asientoContable.getAsConUsr() ==>> "+asientoContable.getAsConUsr());
-		System.out.println("asientoContable.getAsCuentaTipo() ==>> "+asientoContable.getAsCuentaTipo());
-		System.out.println("asientoContable.getAsConNro() ==>> "+asientoContable.getAsConNro());
-		System.out.println("asientoContable.getAsContId() ==>> "+asientoContable.getAsContId());
-		System.out.println("asientoContable.getAsCuentaDebe() ==>> "+asientoContable.getAsCuentaDebe());
-		System.out.println("asientoContable.getAsCuentaDebeMonto() ==>> "+asientoContable.getAsCuentaDebeMonto());
-		System.out.println("asientoContable.getAsCuentaHaber() ==>> "+asientoContable.getAsCuentaHaber());
-		System.out.println("asientoContable.getAsCuentaHaberMonto() ==>> "+asientoContable.getAsCuentaHaberMonto());
-		System.out.println("asientoContable.getAsCuentaTipo() ==>> "+asientoContable.getAsCuentaTipo());
+	@RequestMapping(value = "/caja/detalle/{tipo}/{cuenta}/{asConNro}", method = RequestMethod.GET)
+	public String showAsientoContable(Model model, @PathVariable("asConNro")int asConNro){
 		model.addAttribute("cuenta",this.cuenta);
 		model.addAttribute("tipo",this.tipo);
-		model.addAttribute("asientoContable", this.asientoContableService.showAsientoContable(asientoContable));
+		model.addAttribute("asCont", this.asientoContableService.showAsientoContableByAsConNro(asConNro));
+		/*
+		List<AsientoContable> asientoContable = this.asientoContableService.showAsientoContableByAsConNro(asConNro);
+		Iterator<AsientoContable> it = asientoContable.iterator();
+		while(it.hasNext()){
+			System.out.println("asientoContableService.getAsConDescripcion "+it.next().getAsConDescripcion());
+			System.out.println("asientoContableService.getAsCuentaDebe "+it.next().getAsCuentaDebe().getCuentaDesc());
+			System.out.println("asientoContableService.getAsCuentaDebeMonto "+it.next().getAsCuentaDebeMonto());
+			System.out.println("asientoContableService.getAsCuentaHaber "+it.next().getAsCuentaHaber().getCuentaDesc());
+			System.out.println("asientoContableService.getAsCuentaHaberMonto "+it.next().getAsCuentaHaberMonto());
 		
+	}
+	*/
 		return "cajaResumen/detalleCuenta";
 	}
 }
