@@ -4,7 +4,35 @@
   
 <tiles-definitions>
 <!--<start id="tile_template"/>-->
+	
+	 <definition name="cajaTemplate" 
+             template="/WEB-INF/views/layout/layoutTemplate.jsp">
+             
+       <put-attribute name="header"
+       		value ="/WEB-INF/views/layout/layoutHead.jsp"/>
+       
+       <put-attribute name="menu"
+           value = "/WEB-INF/views/layout/layoutMenu.jsp"/>
+       
+       <put-attribute name="left"
+           value = ""/>
+       
+       <put-attribute name="content"
+           value = ""/>
+       
+       <put-attribute name="right"
+           
+           value = ""/>
+       
+       <put-attribute name="tabs"
+           value = ""/>
 
+       
+       <put-attribute name="footer"
+           value = "/WEB-INF/views/layout/layoutFooter.jsp"/>
+              
+   </definition>
+	
 	 <definition name ="caja/aperturaCaja" extends ="layout">
 	    
 	    <put-attribute name="left"
@@ -74,15 +102,17 @@
    			value =""/>
 	 </definition>
 	 
-	 <definition name ="cajaResumen/detalleCuenta" extends ="layout">
+	 <definition name ="cajaResumen/detalleCuenta" extends ="cajaTemplate">
 	     <put-attribute name="left"
-   			value ="/WEB-INF/views/caja/detalle/tableCajaComp.jsp"/>
-	    	
+	        value ="/WEB-INF/views/caja/detalle/tableCajaComp.jsp"/>
+	     	    	
 		<put-attribute name="content"
-   			value =""/>
-   			
+		   value =""/>
+
    		<put-attribute name="right"
-   			value ="/WEB-INF/views/caja/detalle/tableCajaAsCont.jsp"/>
+   		     value ="/WEB-INF/views/caja/detalle/tableCajaAsCont.jsp"/>
+   			
+   		
 	 </definition>
 	 
 </tiles-definitions>
