@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
+import uy.com.cvaucher.services.domain.AsientoContableMap;
 import uy.com.cvaucher.services.domain.Caja;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.enumerador.CuentaTipo;
@@ -141,13 +142,13 @@ public class FlowCajasController{
 		Iterator<AsientoContable> it = asientoContable.iterator();
 		while(it.hasNext()){
 			System.out.println("asientoContableService.getAsConDescripcion "+it.next().getAsConDescripcion());
-			System.out.println("asientoContableService.getAsCuentaDebe "+it.next().getAsCuentaDebe().getCuentaDesc());
+			System.out.println("asientoContableService.getAsCuentaDebe "+it.next().getAsCuentaDebe());
 			System.out.println("asientoContableService.getAsCuentaDebeMonto "+it.next().getAsCuentaDebeMonto());
-			System.out.println("asientoContableService.getAsCuentaHaber "+it.next().getAsCuentaHaber().getCuentaDesc());
+			System.out.println("asientoContableService.getAsCuentaHaber "+it.next().getAsCuentaHaber());
 			System.out.println("asientoContableService.getAsCuentaHaberMonto "+it.next().getAsCuentaHaberMonto());
 		
-	}
-	*/
+	}*/
+	
 		return "cajaResumen/detalleCuenta";
 	}
 }

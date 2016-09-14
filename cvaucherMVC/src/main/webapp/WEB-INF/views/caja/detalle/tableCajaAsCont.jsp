@@ -10,9 +10,7 @@
 	<caption><h1>Asiento contable Nro: ${asConNro}</h1></caption>
 	
 	<thead>
-		<td>Cuenta debe</td>
 		<td>Debe</td>
-		<td>Cuenta Haber</td>
 		<td>Haber</td>
 		<td>Descripcion</td>
 		<td>Fecha</td>
@@ -22,9 +20,7 @@
 		<tbody>
 			<c:forEach var="asCont" items="${asCont}">
 				<tr>
-					<td>${asCont.asCuentaDebe.cuentaDesc}</td>
 					<td >${asCont.asCuentaDebeMonto}</td>
-					<td>${asCont.asCuentaHaber.cuentaDesc}</td>
 					<td>${asCont.asCuentaHaberMonto}</td>
 					<td>${asCont.asConDescripcion}</td>
 					<td>${asCont.asConFecha}</td>

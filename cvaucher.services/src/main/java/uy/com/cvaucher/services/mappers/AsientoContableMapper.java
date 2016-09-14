@@ -14,6 +14,7 @@ import org.apache.ibatis.mapping.StatementType;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
+import uy.com.cvaucher.services.domain.AsientoContableMap;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.sql.SqlAsientoContableProvider;
 
@@ -53,7 +54,7 @@ public interface AsientoContableMapper {
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.AsientoContableResult")
 	List<AsientoContable> showAsientoContable(@Param("asientoContable") AsientoContable asientoContable);
 	
-	@SelectProvider(type= SqlAsientoContableProvider.class,method="showAsientoContableByAsConNro")
+	@SelectProvider(type= SqlAsientoContableProvider.class, method="showAsientoContableByAsConNro")
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.AsientoContableResult")
 	List<AsientoContable> showAsientoContableByAsConNro(int asConNro);
 }

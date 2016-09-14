@@ -69,7 +69,7 @@ public class SqlAsientoContableProvider {
 				WHERE("as_con_id = #{asConId}");
 			}
 			if(asientoContable.getCaja().getCajaId()>0){
-				WHERE("as_con_caja_id = #{cajaId}"+asientoContable.getCaja().getCajaId());
+				WHERE("as_con_caja_id = #{cajaId}");
 			}
 			if(asientoContable.getAsConNro()>0){
 				WHERE("as_con_nro = #{asConNro}");
@@ -84,11 +84,15 @@ public class SqlAsientoContableProvider {
 	}
 	public String showAsientoContableByAsConNro(final int asConNro){
 		return new SQL(){{
-			SELECT("as_con_id, as_con_caja_id, as_con_nro, as_cuenta_debe, as_cuenta_debeMonto, "
-					+ "as_cuenta_haber, as_cuenta_haberMonto, as_cuenta_tipo, as_con_descripcion, "
-					+ "as_con_fecha, as_con_hora, as_con_usr");
-			FROM("asiento_contable");
-			WHERE("as_con_nro = #{asConNro}");
+			SELECT("a.as_con_id as CON_ID, a.as_con_caja_id as CAJA_ID, a.as_con_nro as NRO, "
+					+ "c.cuenta_desc as DEBE, a.as_cuenta_debeMonto as DEBE_MONTO, "
+					+ "c.cuenta_desc as HABER, a.as_cuenta_haberMonto as HABER_MONTO, "
+					+ "a.as_cuenta_tipo as TIPO, a.as_con_descripcion as DESCRIPCION, "
+					+ "a.as_con_fecha as FECHA, a.as_con_hora as HORA, a.as_con_usr as USR");
+			FROM("asiento_contable a, cuentas c");
+			WHERE("a.as_cuenta_debe = c.cuenta_id");
+			WHERE("a.as_cuenta_haber = c.cuenta_id");
+			WHERE("a.as_con_nro = #{asConNro}");
 		}}.toString();
 	}
 }

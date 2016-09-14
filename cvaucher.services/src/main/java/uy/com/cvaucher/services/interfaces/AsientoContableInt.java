@@ -6,6 +6,7 @@ import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
+import uy.com.cvaucher.services.domain.AsientoContableMap;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 

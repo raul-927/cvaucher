@@ -14,6 +14,7 @@ import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
+import uy.com.cvaucher.services.domain.AsientoContableMap;
 import uy.com.cvaucher.services.domain.Caja;
 import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.PagoEfectivo;
@@ -204,6 +205,15 @@ public class AsientoContableService implements AsientoContableInt {
 	@Override
 	public List<AsientoContable> showAsientoContableByAsConNro(int asConNro) {
 		// TODO Auto-generated method stub
+		/*List<AsientoContable> asContable = this.asientoContableMapper.showAsientoContableByAsConNro(asConNro);
+		Iterator<AsientoContable> it = asContable.iterator();
+		while(it.hasNext()){
+			System.out.print("getAsCuentaHaber ==>> "+it.next().getAsCuentaHaber());
+			System.out.println("getAsCuentaTipo ==>> "+it.next().getAsCuentaTipo());
+			System.out.println("getAsConNro ==>> "+it.next().getAsConNro());
+			System.out.println("getAsCuentaDebeMonto ==>> "+it.next().getAsCuentaDebeMonto());
+			System.out.println("getAsCuentaHaberMonto ==>> "+it.next().getAsCuentaHaberMonto());
+		}*/
 		return this.asientoContableMapper.showAsientoContableByAsConNro(asConNro);
 	}
 

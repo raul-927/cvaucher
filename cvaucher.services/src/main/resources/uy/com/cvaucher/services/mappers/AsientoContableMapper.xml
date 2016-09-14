@@ -6,19 +6,19 @@
 <mapper namespace="uy.com.cvaucher.services.mappers.AsientoContableMapper">
 		  	
   	<resultMap type="uy.com.cvaucher.services.domain.AsientoContable" id="AsientoContableResult">
-  		<id	property = "asContId" 	column = "as_con_id"/>
+  		<id	property = "asContId" 	column = "CON_ID"/>
 		
-  		<result property ="caja.cajaId"				column  ="as_con_caja_id"/>
-		<result property ="asConNro"				column  ="as_con_nro"/>
-		<result property ="asCuentaDebe.cuentaId" 	column	="as_cuenta_debe"/>
-		<result property ="asCuentaDebeMonto"		column 	="as_cuenta_debe_monto"/>
-		<result property ="asCuentaHaber.cuentaId" 	column 	="as_cuenta_haber"/>
-		<result property ="asCuentaHaberMonto"		column 	="as_cuenta_haber_monto"/>
-		<result property ="asCuentaTipo"			column ="as_cuenta_tipo"/>
-		<result property ="asConDescripcion" 		column 	="as_con_descripcion"/>
-  		<result property ="asConFecha" 				column 	="as_con_fecha"/>
-  		<result property ="asConHora" 				column 	="as_con_hora"/>
-  		<result property ="asConUsr" 				column 	="as_con_usr"/>
+  		<result property ="caja.cajaId"				 column  	="CAJA_ID"/>
+		<result property ="asConNro"				 column  	="NRO"/>
+		<result property ="asCuentaDebe.cuentaDesc"  column		="DEBE"/>
+		<result property ="asCuentaDebeMonto"		 column 	="DEBE_MONTO"/>
+		<result property ="asCuentaHaber.cuentaDesc" column 	="HABER"/>
+		<result property ="asCuentaHaberMonto"		 column 	="HABER_MONTO"/>
+		<result property ="asCuentaTipo"			 column 	="TIPO"/>
+		<result property ="asConDescripcion" 		 column 	="DESCRIPCION"/>
+  		<result property ="asConFecha" 				 column 	="FECHA"/>
+  		<result property ="asConHora" 				 column 	="HORA"/>
+  		<result property ="asConUsr" 				 column 	="USR"/>
   	</resultMap>
   	
   	<resultMap type="uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal" id="CuentaAsientoResult">
