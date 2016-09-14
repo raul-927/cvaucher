@@ -15,6 +15,7 @@ window.addEventListener("load", function(){
 				//assert(true,"Forever!");
 			},
 			2000);
+	/*
 	var tag = document.getElementsByName("tratamId");
 	for(var i =0;i<tag.length;i++){
 		tag[i].addEventListener("change",function(){
@@ -25,16 +26,17 @@ window.addEventListener("load", function(){
 		var aux4 = aux3+aux2;
 		window.location="http://localhost:8091/cvaucherMVC/tratamientos?execution="
 				+aux4;
-			/*var r = new XMLHttpRequest();
+			var r = new XMLHttpRequest();
 			r.open("POST","_eventId_cantSesionesTratamiento", true);
 			r.onreadystatechange = function () {  
 				if (r.readyState != 4 || r.status != 200) return;   
 				console.log(r.responseText); 
 			}; 
 			r.send();
-			*/
+			
 			alert("Prueba");
 		}, false);
 	}
+	*/
 }, false);
 

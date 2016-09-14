@@ -10,22 +10,22 @@
 	<caption><h1>Asiento contable Nro: ${asConNro}</h1></caption>
 	
 	<thead>
-		<td>Debe</td>
-		<td>Haber</td>
-		<td>Descripcion</td>
-		<td>Fecha</td>
-		<td>Hora</td>
-		<td>Usuario</td>
+		<td><h4>Debe</h3></td>
+		<td><h4>Haber</h4></td>
+		<td><h4>Descripcion</h4></td>
+		<td><h4>Fecha</h4></td>
+		<td><h4>Hora</h4></td>
+		<td><h4>Usuario</h4></td>
 	</thead>
 		<tbody>
 			<c:forEach var="asCont" items="${asCont}">
 				<tr>
-					<td >${asCont.asCuentaDebeMonto}</td>
-					<td>${asCont.asCuentaHaberMonto}</td>
-					<td>${asCont.asConDescripcion}</td>
-					<td>${asCont.asConFecha}</td>
-					<td>${asCont.asConHora}</td>
-					<td>${asCont.asConUsr}</td>
+					<td><h4>${asCont.asCuentaDebeMonto}</h4></td>
+					<td><h4>${asCont.asCuentaHaberMonto}</h4></td>
+					<td><h4>${asCont.asConDescripcion}</h4></td>
+					<td><h4>${asCont.asConFecha}</h4></td>
+					<td><h4>${asCont.asConHora}</h4></td>
+					<td><h4>${asCont.asConUsr}</h4></td>
 				</tr>	
 			</c:forEach>
 		</tbody>
