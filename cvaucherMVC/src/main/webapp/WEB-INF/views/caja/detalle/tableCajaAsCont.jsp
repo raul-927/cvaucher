@@ -5,7 +5,7 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
-<table class="table well-sm">
+<table class="table table-striped table-bordered">
 	
 	<caption><h1>Asiento contable Nro: ${asConNro}</h1></caption>
 	
