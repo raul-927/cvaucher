@@ -13,9 +13,6 @@
 		<td><h4>Debe</h3></td>
 		<td><h4>Haber</h4></td>
 		<td><h4>Descripcion</h4></td>
-		<td><h4>Fecha</h4></td>
-		<td><h4>Hora</h4></td>
-		<td><h4>Usuario</h4></td>
 	</thead>
 		<tbody>
 			<c:forEach var="asCont" items="${asCont}">
@@ -23,9 +20,6 @@
 					<td><h4>${asCont.asCuentaDebeMonto}</h4></td>
 					<td><h4>${asCont.asCuentaHaberMonto}</h4></td>
 					<td><h4>${asCont.asConDescripcion}</h4></td>
-					<td><h4>${asCont.asConFecha}</h4></td>
-					<td><h4>${asCont.asConHora}</h4></td>
-					<td><h4>${asCont.asConUsr}</h4></td>
 				</tr>	
 			</c:forEach>
 		</tbody>

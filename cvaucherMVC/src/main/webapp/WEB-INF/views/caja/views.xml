@@ -6,7 +6,7 @@
 <!--<start id="tile_template"/>-->
 	
 	 <definition name="cajaTemplate" 
-             template="/WEB-INF/views/layout/layoutTemplate.jsp">
+             template="/WEB-INF/views/caja/detalle/cajaTemplate.jsp">
              
        <put-attribute name="header"
        		value ="/WEB-INF/views/layout/layoutHead.jsp"/>

@@ -12,10 +12,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="shortcut icon" href="<s:url value="/resources"/>/ICO/FaviconCEV.ico" />
-		 
 		<link rel="stylesheet" type="text/css" href="<s:url value="/resources"/>/css/bootstrap.css">
 		<link href="<s:url value="/resources"/>/css/styles.css" rel="stylesheet"/> 
-			
 			<title>Vaucher Admin</title>
 			<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/
@@ -25,42 +23,33 @@
 			<![endif]-->
 	</head>
 	<body>
-		<script src="<s:url value="/resources" />/js/csvaucher.js"></script>
 		<script src="<s:url value="/resources" />/js/jquery.js"></script>
 		<script src="<s:url value="/resources" />/js/bootstrap.js"></script>
 		
-			<div class="col-xs-12 col6 fondo">
+			<header class="col-xs-12 col6 fondo">
 				<t:insertAttribute name ="header"/>
-			</div>
-		
-		
+			</header>
 		<div class="container">
-			
-			<header class="page-header">
+			<div class="page-header">
 				<h1 ><small>Centro Estético</small>Vaucher </h1>
 				<t:insertAttribute name ="menu"/>	
-			</header>
-			
+			</div>
 			<div class="row">
-				  <div class="col-xs-10 col-sm-12 col-md-6 col-lg-6">
+				<div class="col-md-6 col2">
 					<t:insertAttribute name ="left"/>
 				</div>
-				 <div class="col-xs-10 col-sm-12 col-md-12 col-lg-12">
+				<div class="col-md-6 col2">
 					<t:insertAttribute name ="content"/>
-					
 				</div>
-				
-				<div class="col-xs-10 col-sm-12 col-md-4 col-lg-4">
+				<div class="col-md-6 col2">
 					<t:insertAttribute name ="right"/>
 				</div>
-				
 			</div>
-			
 		</div>
 		<footer>
-				<div>
-					<t:insertAttribute name ="footer"/>
-				</div>
+			<div>
+				<t:insertAttribute name ="footer"/>
+			</div>
 		</footer>
 	</body>
 </html>
