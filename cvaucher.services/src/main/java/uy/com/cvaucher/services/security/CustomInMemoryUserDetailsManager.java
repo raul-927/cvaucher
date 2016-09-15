@@ -20,6 +20,7 @@ public class CustomInMemoryUserDetailsManager implements UserDetailsService {
 		}
 	}
 
+	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
 		User user = users.get(username.toLowerCase());
