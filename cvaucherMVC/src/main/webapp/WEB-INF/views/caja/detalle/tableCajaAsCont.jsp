@@ -5,21 +5,21 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered ">
 	
 	<caption><h1>Asiento contable Nro: ${asConNro}</h1></caption>
 	
-	<thead>
-		<td><h4>Debe</h3></td>
-		<td><h4>Haber</h4></td>
-		<td><h4>Descripcion</h4></td>
+	<thead class="align-center">
+		<td class="text-center"><h4>Debe</h3></td>
+		<td class="text-center"><h4>Haber</h4></td>
+		<td class="text-center"><h4>Descripcion</h4></td>
 	</thead>
 		<tbody>
 			<c:forEach var="asCont" items="${asCont}">
 				<tr>
-					<td><h4>${asCont.asCuentaDebeMonto}</h4></td>
-					<td><h4>${asCont.asCuentaHaberMonto}</h4></td>
-					<td><h4>${asCont.asConDescripcion}</h4></td>
+					<td class="text-right"><h4>${asCont.asCuentaDebeMonto}</h4></td>
+					<td class="text-right"><h4>${asCont.asCuentaHaberMonto}</h4></td>
+					<td class="text-center"><h4>${asCont.asConDescripcion}</h4></td>
 				</tr>	
 			</c:forEach>
 		</tbody>

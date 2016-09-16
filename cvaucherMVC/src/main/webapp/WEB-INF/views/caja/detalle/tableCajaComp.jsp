@@ -5,21 +5,21 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 
-<table class="table well-sm">
+<table class="table table-striped table-bordered">
 	
 	<caption><h1>Comprobante: </h1></caption>
 	
-	<thead>
-		<td>Id</td>
-		<td>Cedula</td>
-		<td>Caja</td>
+	<thead class="align-center">
+		<td class="text-center"><h4>Id</h4></td>
+		<td class="text-center"><h4>Cedula</h4></td>
+		<td class="text-center"><h4>Caja</h4></td>
 		<%-- <td>Serie</td>
 		<td>Numero</td>
 		<td>Tipo de documento</td> --%>
-		<td>Tratamiento</td>
-		<td>Importe</td>
-		<td>Tipo pago</td>
-		<td>Usuario</td>
+		<td class="text-center"><h4>Tratamiento</h4></td>
+		<td class="text-center"><h4>Importe</h4></td>
+		<td class="text-center"><h4>Tipo pago</h4></td>
+		<td class="text-center"><h4>Usuario</h4></td>
 	</thead>
 		<tbody>
 			
