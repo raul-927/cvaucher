@@ -263,6 +263,21 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<artifactId>jackson-core-asl</artifactId>
 			<version>0.9.8</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-feed -->
+		<dependency>
+		    <groupId>org.springframework.integration</groupId>
+		    <artifactId>spring-integration-feed</artifactId>
+		    <version>3.0.8.RELEASE</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-oxm -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-oxm</artifactId>
+		    <version>3.0.4.RELEASE</version>
+		</dependency>
+		
 		<!--  
 		<dependency>
 			<groupId>mysql</groupId>

@@ -7,4 +7,4 @@
  
  
 
-	<span > © Copyright 2014. Centro Estetico Vaucher. Todos los derechos reservados.</span>
+	<span > © Copyright 2014-2016. Centro Estetico Vaucher. Todos los derechos reservados.</span>

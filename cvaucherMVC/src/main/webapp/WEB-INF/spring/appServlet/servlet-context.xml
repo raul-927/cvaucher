@@ -46,13 +46,12 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
+	
 	<beans:bean id="mvcViewFactoryCreator" 
 		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
      	<beans:property name="defaultViewSuffix" value=".jsp" />
 		<beans:property name="viewResolvers" ref="tilesViewResolver" />  
   	</beans:bean>
-	
-	  
-	
 	
 </beans:beans>
