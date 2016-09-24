@@ -2,9 +2,6 @@ package uy.com.cvaucher.controller.flow;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,11 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
-import uy.com.cvaucher.services.domain.AsientoContableMap;
 import uy.com.cvaucher.services.domain.Caja;
-import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.enumerador.CuentaTipo;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.CajaInt;
@@ -92,7 +86,6 @@ public class FlowCajasController{
 	public String  showUser(){
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
 		getPrincipal();
-		System.out.println("user ==>> "+user.getUsername());
 		return user.getUsername();
 	}
 	@RequestMapping(value ="/caja",params ="resumen", method = RequestMethod.GET)
@@ -100,10 +93,6 @@ public class FlowCajasController{
 		
 		Caja caja = this.cajaService.cargoCajaActual();
 		int idCaja = caja.getCajaId();
-		
-		List<ResumenPorCuentas> rs = asientoContableService.resumenPorCuentasTotalPorCaja(CuentaTipo.VENTA.getDescripcion(), idCaja);
-		
-		System.out.println("idCaja ==>> "+idCaja);
 		model.addAttribute(new AsientoContable());
 		model.addAttribute("resumenCuentas",asientoContableService.resumenPorCuentasTotalPorCaja(CuentaTipo.VENTA.getDescripcion(), idCaja));
 		return "caja/resumenCaja";
@@ -134,24 +123,12 @@ public class FlowCajasController{
 		this.tipo = tipo;
 		return resultado;
 	}
-	
+
 	@RequestMapping(value = "/caja/detalle/{tipo}/{cuenta}/{asConNro}", method = RequestMethod.GET)
 	public String showAsientoContable(Model model, @PathVariable("asConNro")int asConNro){
 		model.addAttribute("cuenta",this.cuenta);
 		model.addAttribute("tipo",this.tipo);
 		model.addAttribute("asCont", this.asientoContableService.showAsientoContableByAsConNro(asConNro));
-		/*
-		List<AsientoContable> asientoContable = this.asientoContableService.showAsientoContableByAsConNro(asConNro);
-		Iterator<AsientoContable> it = asientoContable.iterator();
-		while(it.hasNext()){
-			System.out.println("asientoContableService.getAsConDescripcion "+it.next().getAsConDescripcion());
-			System.out.println("asientoContableService.getAsCuentaDebe "+it.next().getAsCuentaDebe());
-			System.out.println("asientoContableService.getAsCuentaDebeMonto "+it.next().getAsCuentaDebeMonto());
-			System.out.println("asientoContableService.getAsCuentaHaber "+it.next().getAsCuentaHaber());
-			System.out.println("asientoContableService.getAsCuentaHaberMonto "+it.next().getAsCuentaHaberMonto());
-		
-	}*/
-	
 		return "cajaResumen/detalleCuenta";
 	}
 }
