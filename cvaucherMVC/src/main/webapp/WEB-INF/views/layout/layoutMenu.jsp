@@ -132,9 +132,9 @@
                     </li>    
               	<li class="divider"></li>
               	 <li><a href='<s:url value="/formasDePagos?insert"/>'>Recursos Humanos</a></li>
-               </security:authorize> 
                
            </ul>
+           </security:authorize>
              <li>
 	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
 	                 <ul class="dropdown-menu">
