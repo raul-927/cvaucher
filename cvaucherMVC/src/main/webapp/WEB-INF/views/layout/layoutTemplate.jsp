@@ -29,13 +29,10 @@
 		<script src="<s:url value="/resources" />/js/jquery.js"></script>
 		<script src="<s:url value="/resources" />/js/bootstrap.js"></script>
 		
-			<div class="col-xs-12 col6 fondo">
-				<t:insertAttribute name ="header"/>
-			</div>
-		
-		
+		<div class="col-xs-12 col6 fondo">
+			<t:insertAttribute name ="header"/>
+		</div>
 		<div class="container">
-			
 			<header class="page-header">
 				<h1 ><small>Centro Estético</small>Vaucher </h1>
 				<t:insertAttribute name ="menu"/>	
@@ -48,13 +45,10 @@
 				 <div class="col-xs-10 col-sm-12 col-md-12 col-lg-12">
 					<t:insertAttribute name ="content"/>
 				</div>
-				
 				<div class="col-xs-10 col-sm-12 col-md-4 col-lg-4">
 					<t:insertAttribute name ="right"/>
 				</div>
-				
 			</div>
-			
 		</div>
 		<footer>
 				<div>

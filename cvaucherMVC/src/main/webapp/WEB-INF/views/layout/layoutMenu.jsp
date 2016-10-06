@@ -41,6 +41,12 @@
 	                 </ul>
                 </li>
              	
+             	<li>
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+		        	<li><a href='<s:url value="/estadisticas"/>'>Estadisticas</a></li>
+	        	</ul>
+        	</li>
              	<security:authorize access="hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and authentication.name == 'gaby')">
                 <li><!-- Inicio Menu Configuracion -->
                  
@@ -52,9 +58,7 @@
                                 <li><a href='<s:url value="/domain_user?insert"/>'>Crear Usuario</a></li>
 		                 		<li><a href='<s:url value="/domain_user?update"/>'>Modificar Usuario</a></li>
 		                 		<li><a href='<s:url value="/domain_user?delete"/>'>Eliminar Usuario</a></li>
-		                 		<li class="divider"></li>
-                               
-                                
+		                 		<li class="divider"></li>  
                         </li>
                      </ul>
                </li>
@@ -135,12 +139,7 @@
                
            </ul>
            </security:authorize>
-             <li>
-	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
-	                 <ul class="dropdown-menu">
-		                 <li><a href='<s:url value="/estadisticas"/>'>Estadisticas</a></li>
-	                 </ul>
-                </li>
+             
         </div><!--/.nav-collapse -->
     </div>
 </div>
