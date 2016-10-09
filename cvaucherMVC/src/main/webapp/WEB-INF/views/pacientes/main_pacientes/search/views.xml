@@ -5,8 +5,8 @@
 <tiles-definitions>
 <!--<start id="tile_template"/>-->
 
-	 <definition name ="pacientes/searchPacientes" extends ="layout">
-	    
+	 <definition name ="pacientes/searchPacientes" extends ="layout3">
+
 	    <put-attribute name="left"
    			value ="/WEB-INF/views/pacientes/main_pacientes/search/searchPacientesForm.jsp"/>
 	    	

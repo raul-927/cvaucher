@@ -40,38 +40,40 @@
 			
 			<div class="row">
 				<div class="col-md-6 col-lg-12">
-				
-				<t:insertAttribute name ="menuPacientes"/>	
-			</div>
+					<t:insertAttribute name ="menuPacientes"/>	
+				</div>
 				
 				<div class="col-md-6 col2">
-					
 					<t:insertAttribute name ="tableDPacientes"/>
 				</div>
+				
 				<div class="col-md-6 col2">
 					<div class="tabbable">
+					
 						<ul class="nav nav-tabs">
 							<li class="active"><a href="#Direccion" data-toggle="tab">Direccion</a></li>
-							
 							<li><a href="#Agenda" data-toggle="tab">Agenda</a></li>
-							
 							<li><a href ="#HistoriaClinica" data-toggle="tab">Historia Clinica</a></li>
-							
 							<li><a href ="#Tratamientos" data-toggle="tab">Tratamientos</a></li>
 						</ul>
+						
 						<div class="tab-content">
 							<div class="tab-pane" id="DatosBasicos">
 								
 							</div>
+							
 							<div class="tab-pane active" id="Direccion">
 								<t:insertAttribute name ="tableDDireccion"/>
 							</div>
+							
 							<div class="tab-pane" id="Agenda">
 								<t:insertAttribute name ="tableDAgenda"/>
 							</div>
+							
 							<div class ="tab-pane" id="HistoriaClinica">
 								<t:insertAttribute name ="tableDHistoriaClinica"/>
 							</div>
+							
 							<div class ="tab-pane" id="Tratamientos">
 								<t:insertAttribute name ="tableDTratamientos"/>
 							</div>
