@@ -39,7 +39,7 @@
 			</header>
 			<div class="tabbable">
 				<ul class="nav nav-tabs">
-					<li><a href ="#Pacientes" data-toggle="tab"><h3>Pacientes</h3></a></li>
+					<li class="active"><a href ="#Pacientes" data-toggle="tab"><h3>Pacientes</h3></a></li>
 					<li><a href="#Agenda" data-toggle="tab"><h3>Agenda</h3></a></li>
 				</ul>
 				<div class="tab-content">
