@@ -101,11 +101,8 @@ public class AsientoContableService implements AsientoContableInt {
 		int cuentaId = formasDePagoDesc.getFormasDePagoCuenta();
 		MaxNumAsientoContable maxNumAsientoContable = this.asientoContableMapper.maxNumAsientoContable();
 		if(formaDePago instanceof PagoEfectivo){
-			
 			DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosService.cuentaFormaDePagoDesc(cuentaId);
 			String pagoEfCuenta = desCuentaFormaDePago.getCuentaDesc();
-			
-			
 			((PagoEfectivo) formaDePago).setPagoEfCajaId(cajaActual.getCajaId());
 			((PagoEfectivo) formaDePago).setPagoEfCuenta(pagoEfCuenta);
 			((PagoEfectivo) formaDePago).setAsientoNro(maxNumAsientoContable.getMaxNum());
@@ -114,7 +111,6 @@ public class AsientoContableService implements AsientoContableInt {
 		if(formaDePago instanceof PagoTarjeta){
 			DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosService.cuentaFormaDePagoDesc(cuentaId);
 			String pagoTarjCuenta = desCuentaFormaDePago.getCuentaDesc();
-
 			((PagoTarjeta) formaDePago).setTarjetaCajaId(cajaActual.getCajaId());
 			((PagoTarjeta) formaDePago).setTarjCuenta(pagoTarjCuenta);
 			((PagoTarjeta) formaDePago).setAsientoNro(maxNumAsientoContable.getMaxNum());
