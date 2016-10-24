@@ -28,7 +28,6 @@
 		<script src="<s:url value="/resources" />/js/csvaucher.js"></script>
 		<script src="<s:url value="/resources" />/js/jquery.js"></script>
 		<script src="<s:url value="/resources" />/js/bootstrap.js"></script>
-		
 		<div class="col-xs-12 col6 fondo">
 			<t:insertAttribute name ="header"/>
 		</div>

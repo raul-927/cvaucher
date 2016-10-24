@@ -5,13 +5,13 @@
 <tiles-definitions>
 <!--<start id="tile_template"/>-->
 
-	 <definition name ="calendario/calendario" extends ="layout">
+	 <definition name ="calendario/Semana" extends ="layout3">
 	    
 	    <put-attribute name="left"
-   			value ="/WEB-INF/views/calendario/calendarioForm.jsp"/>
+   			value =""/>
 	    	
 		<put-attribute name="content"
-   			value ="/WEB-INF/views/calendario/tableCalendario.jsp"/>
+   			value ="/WEB-INF/views/calendario/calendarioSemanaForm.jsp"/>
    			
    		<put-attribute name="right"
    			value =""/>

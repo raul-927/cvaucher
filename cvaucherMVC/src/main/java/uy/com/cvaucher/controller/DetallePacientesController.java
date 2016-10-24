@@ -97,14 +97,14 @@ public class DetallePacientesController
 	}
 	
 	@RequestMapping(value ="/detPac/{pacCedula}/{histTratPacId}", method = RequestMethod.GET)
-	public String showPacienteTratamientoPago(Model model, @PathVariable("pacCedula")	int pacCedula, 
-															  @PathVariable("histTratPacId")int histTratPacId)
+	public String showPacienteTratamientoPago(Model model, 
+												@PathVariable("pacCedula")	int pacCedula, 
+												@PathVariable("histTratPacId")int histTratPacId)
 	{
 		Date hoy = new Date();
 		String patron = "YYYY-MM-dd";
 		SimpleDateFormat formato = new SimpleDateFormat(patron);
 		String salida = formato.format(hoy);
-		
 		model.addAttribute(new HistorialPagos());
 		model.addAttribute(new SeguimientoPacientes());
 		model.addAttribute("histPagosByTratPacId", this.historialPagosServices.findHistorialPagoByHistTratPacId(histTratPacId));
@@ -121,8 +121,7 @@ public class DetallePacientesController
 		String patron = "YYYY-MM-dd";
 		SimpleDateFormat formato = new SimpleDateFormat(patron);
 		String salida = formato.format(hoy);
-		if(bindingResult.hasErrors())
-		{
+		if(bindingResult.hasErrors()){
 			System.out.println("Error en insertPacienteTratamientoPago");
 			model.addAttribute(new HistorialPagos());
 			model.addAttribute(new SeguimientoPacientes());

@@ -1,5 +1,7 @@
 package uy.com.cvaucher.controller;
 
+import java.util.Calendar;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +80,20 @@ public class SearchPacientesController implements SearchPacientesControllerInt
 		model.addAttribute(new SearchPacientes());
 		model.addAttribute("pac", this.pacientesServices.findPacientes(searchPacientes));
 		return "pacientes/searchPacientes";
+	}
+	@RequestMapping(value ="/calendario",params ="semana", method = RequestMethod.GET)
+	public String showCalendario(Model model){
+		UserDetails user = (UserDetails)SecurityContextHolder.getContext().
+				getAuthentication().
+				getPrincipal();
+		model.addAttribute("userName",user.getUsername());
+		model.addAttribute("userRole",user.getAuthorities());
+		model.addAttribute(new Pacientes());
+		model.addAttribute(new SearchPacientes());
+		model.addAttribute("pac", this.pacientesServices.findAllPacientes());
+		Calendar calendario = Calendar.getInstance();
+		int enero = calendario.MONTH;
+		return "calendario/Semana";
 	}
 
 }

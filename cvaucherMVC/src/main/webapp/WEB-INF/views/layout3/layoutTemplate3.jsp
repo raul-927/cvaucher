@@ -59,7 +59,13 @@
 						</div>
 					</div>
 					<div class="tab-pane" id="Agenda">
-						PRUEBAS
+						<div class="tab-pane active" id="Calendario">
+						<div class="row">
+							<div class="col-xs-10 col-sm-12 col-md-4 col-lg-4">
+								<t:insertAttribute name ="calendario"/>
+							</div>
+						</div>
+					</div>
 					</div>
 				</div>
 			</div>
