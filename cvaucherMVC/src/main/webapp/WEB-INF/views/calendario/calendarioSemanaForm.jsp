@@ -5,10 +5,6 @@
 <%@	taglib prefix ="sf" uri ="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 <h3>Semana</h3>
-
-<sf:form cssClass = "form"
-	method ="POST" 
-	modelAttribute ="calendario" >
 	<table class="table table-hover table-bordered well well-sm">
 		<thead>
 			<tr>
@@ -53,9 +49,6 @@
 			</tr>		
 		</tbody>
 	</table>
-</sf:form>
-
-
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -66,15 +59,15 @@
         </div>
         <div class="modal-body">
           <div class="container">
-          	<div class="form-group">
-          		<input type="text"></input>
-          	</div>
-          	<div class="form-group">
-          		<input type="text"></input>
-          	</div>
-          	<div class="form-group">
-          		<input type="text"></input>
-          	</div>
+	          <sf:form cssClass = "form"
+				method ="POST" 
+				modelAttribute ="calendario" >
+					<div class="form-group">
+			 			<sf:label path="reserva" for ="reserva">reserva</sf:label>
+			 			<sf:input cssClass ="form-control" path="reserva" size ="30" placeholder ="reserva" class="form-control" />
+			 			<sf:errors path ="reserva" cssClass ="error"/>
+		 			</div>
+				</sf:form>
           </div>
         </div>
         <div class="modal-footer">
