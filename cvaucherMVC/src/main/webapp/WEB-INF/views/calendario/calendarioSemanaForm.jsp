@@ -10,28 +10,76 @@
 	method ="POST" 
 	modelAttribute ="calendario" >
 	<table class="table table-hover table-bordered well well-sm">
-	<thead>
-		<tr>
-			<th><h1>Hora</h1></th>
-			<th><h1>Lunes</h1></th>
-			<th><h1>Martes</h1></th>
-			<th><h1>Miércoles</h1></th>
-			<th><h1>Jueves</h1></th>
-			<th><h1>Viernes</h1></th>
-			<th><h1>Sábado</h1></th>
-			<th><h1>Domingo</h1></th>
-		</tr>
-	</thead>
-	<tbody class ="table-striped">	
-		<tr>
-			<td ></td>
-			<td ></td>
-			<td ></td>
-			<td ></td>
-			<td ></td>
-		</tr>		
-	</tbody>
-</table>
-	 </sf:form>
+		<thead>
+			<tr>
+				<th><h1>Hora</h1></th>
+				<th><h1>Lunes</h1></th>
+				<th><h1>Martes</h1></th>
+				<th><h1>Miércoles</h1></th>
+				<th><h1>Jueves</h1></th>
+				<th><h1>Viernes</h1></th>
+				<th><h1>Sábado</h1></th>
+				<th><h1>Domingo</h1></th>
+			</tr>
+		</thead>
+		<tbody>	
+			<tr>
+				<td >
+				8:00	
+				</td>
+				<td >
+					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Gabriela Silveira
+				
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+			</tr>
+			<tr>
+				<td >
+				8:30	
+				</td>
+				<td >
+					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Maria Gonzalez
+				
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+			</tr>		
+		</tbody>
+	</table>
+</sf:form>
 
-	
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+          	<div class="form-group">
+          		<input type="text"></input>
+          	</div>
+          	<div class="form-group">
+          		<input type="text"></input>
+          	</div>
+          	<div class="form-group">
+          		<input type="text"></input>
+          	</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
