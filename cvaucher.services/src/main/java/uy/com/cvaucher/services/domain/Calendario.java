@@ -1,10 +1,19 @@
 package uy.com.cvaucher.services.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
-import uy.com.cvaucher.services.enumerador.Meses;
-
-public class Calendario {
+public class Calendario implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String reserva;
+
+	public String getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(String reserva) {
+		this.reserva = reserva;
+	}
 }
