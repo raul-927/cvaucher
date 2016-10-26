@@ -24,7 +24,7 @@
 				8:00	
 				</td>
 				<td >
-					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Gabriela Silveira
+					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Gabriela Silveira</button>
 				
 				<td ></td>
 				<td ></td>
@@ -38,7 +38,21 @@
 				8:30	
 				</td>
 				<td >
-					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Maria Gonzalez
+					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Maria Gonzalez</button>
+				
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+			</tr>
+			<tr>
+				<td >
+				9:00	
+				</td>
+				<td >
+					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Daniela Rodriguez</button>
 				
 				<td ></td>
 				<td ></td>
@@ -64,7 +78,7 @@
 				modelAttribute ="calendario" >
 					<div class="form-group">
 			 			<sf:label path="reserva" for ="reserva">reserva</sf:label>
-			 			<sf:input cssClass ="form-control" path="reserva" size ="30" placeholder ="reserva" class="form-control" />
+			 			<sf:input path="reserva" size ="15" placeholder ="reserva"/>
 			 			<sf:errors path ="reserva" cssClass ="error"/>
 		 			</div>
 				</sf:form>
