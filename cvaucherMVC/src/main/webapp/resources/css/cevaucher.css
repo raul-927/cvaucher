@@ -1,2 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
+.tituloModal{
+	color:#0080c0;
+}
+.tituloContenidoModal{
+	color:#0080ff;
+}
+.tituloNombreModal{
+	
+}
+.cuerpoModal{
+	color:#004040;
+}
+.contenidoEstadoVigente{
+	color:#008040;
+}

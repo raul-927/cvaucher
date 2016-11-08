@@ -88,43 +88,57 @@
 	</table> 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Reserva</h4>
-        </div>
-        <div class="modal-body">
-          <div class="container">
-	          <sf:form cssClass = "form"
-				method ="POST" 
-				modelAttribute ="calendario" >
-					<div class="form-group">
-			 			<sf:label path="fecha" for ="fecha">fecha</sf:label>
-			 			<sf:input cssClass ="inputText" path="fecha" size ="30"/>
-			 			<sf:errors path ="fecha" cssClass ="error"/>
-		 			</div>
-		 			
-		 			<div class="form-group">
-			 			<sf:label path="hora" for ="hora">hora</sf:label>
-			 			<sf:input cssClass ="inputText" path="hora" size ="30"/>
-			 			<sf:errors path ="hora" cssClass ="error"/>
-		 			</div>
-		 			
-		 			<div class="form-group">
-			 			<sf:label path="tratamiento" for ="tratamiento">tratamiento</sf:label>
-			 			<sf:textarea cssClass ="inputText" path="tratamiento" size ="30" id="descCAT"/>
-			 			<sf:errors path ="tratamiento" cssClass ="error"/>
-		 			</div>
-		 			
-				</sf:form>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
+	   <div class="modal-dialog modal-lg">
+	   	<div class="modal-content">
+	    	<div class="modal-header fondo">
+	    		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <div class="row">
+		          <div class="col-xs-10 col-sm-12 col-md-6 col-lg-6">
+		          	<span>&nbsp;</span>
+		          	<h2 class="modal-title"><span class="tituloModal">RESERVA:</span> <span class="contenidoTituloModal">17</span></h2>
+		          </div>
+		          <div class="col-xs-10 col-sm-12 col-md-6 col-lg-6">
+		          	<h2 class="modal-title"><span class="tituloModal">PACIENTE:</span> <span class="cuerpoModal">Gabriela Silveira</span></h2>
+		          </div>
+		        </div>
+	        </div>
+	        <div class="modal-body">
+	          <div class="container">
+	          <div class="row">
+	          	<div class="col-xs-10 col-sm-12 col-md-6">
+	          		<div class="form-group">
+				 		<h4>
+				 		<span class="tituloModal">FECHA:</span> <span class="cuerpoModal">27/11/2016</span>
+				 		<span class="tituloModal">DIA:</span> <span class="cuerpoModal">Martes</span>
+				 		<span class="tituloModal">HORA:</span><span class="cuerpoModal"> 16:00</span>
+				 		</h4>			 			
+			 		</div>
+			 		<div class="form-group">
+			 			<h4><span class="tituloModal">TIEMPO DE TRATAMIENTO:</span><span class="cuerpoModal"> 50 minutos</span></h4>
+			 		</div>
+			 		<div class="form-group">
+				 		<h4><span class="tituloModal">TRATAMIENTO:</span> &nbsp;<span class="cuerpoModal">Masaje descontracturante</span></h4>
+			 		</div>
+	          	</div>
+		          <div class="col-xs-10 col-sm-12 col-md-6">
+		          	<div class="form-group">
+					 	<h4><span class="tituloModal">CONSULTORIO:</span> <span class="cuerpoModal">16</span></h4>
+				 	</div>
+				 	<div class="form-group">
+					 	<h4><span class="tituloModal">CAMILLA:</span> <span class="cuerpoModal">3</span></h4>
+				 	<div class="form-group">
+					 	<h4><span class="tituloModal">ESTADO:</span> <span class="contenidoEstadoVigente">Vigente</span></h4>
+				 	</div>
+		          </div>
+	          </div>
+	          </div>
+	        </div>
+	        <div class="modal-footer">
+	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
   </div>
   <!-- 
   Fin Modal -->

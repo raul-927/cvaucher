@@ -14,6 +14,7 @@
 		<link rel="shortcut icon" href="<s:url value="/resources"/>/ICO/FaviconCEV.ico" />
 		<link rel="stylesheet" type="text/css" href="<s:url value="/resources"/>/css/bootstrap.css">
 		<link href="<s:url value="/resources"/>/css/styles.css" rel="stylesheet"/> 
+		<link href="<s:url value="/resources"/>/css/cevaucher.css" rel="stylesheet"/>
 			<title>Vaucher Admin</title>
 			<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/
