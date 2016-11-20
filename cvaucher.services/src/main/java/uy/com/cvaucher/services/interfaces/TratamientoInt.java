@@ -22,6 +22,7 @@ public interface TratamientoInt {
 	 
 	 void insertTratamiento(Tratamiento tratamiento);
 	 void updateTratamiento(Tratamiento tratamiento);
+	
 	 void deleteTratamiento(int tratId);
 	
 

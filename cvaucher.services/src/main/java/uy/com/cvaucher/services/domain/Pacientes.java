@@ -36,7 +36,7 @@ public class Pacientes implements Serializable
 	@Max(value=99999999, message ="ERROR; Ingrse un maximo de 8 digitos")
 	@NotNull(message ="ERROR; Debe ingresar un nro de cedula valido")
 	@Min(value=1111111, message ="ERROR; Ingrse un valor mayor a 6 digitos")
-	@Cedula(message ="Cedula Invalida")
+	@Cedula(message ="Cedula Inválida")
 	private int	cedula;
 
 	private String 	ocupacion;
