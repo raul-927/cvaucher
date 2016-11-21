@@ -52,28 +52,33 @@
 		 	<!-- <span>Documento ${flowScope.docum}</span> -->
 		 	<div class="form-group">
 			 	<sf:label path="pacNombre" for ="pacNombre">Nombre</sf:label>
-			 	<sf:input cssClass ="form-control" path="pacNombre" size ="30" placeholder ="Nombre" id="descCAT" class="form-control" />
 			 	<sf:errors path ="pacNombre" cssClass ="error"/>
+			 	<sf:input cssClass ="form-control" path="pacNombre" size ="30" placeholder ="Nombre" id="descCAT" class="form-control" />
+			 	
 		 	</div>
 		 	<div class="form-group">
 			 	<sf:label path="pacApellido" for ="pacApellido">Apellido</sf:label>
-			 	<sf:input cssClass ="form-control" path="pacApellido" placeholder ="Apellido" size ="30" id="descCAT"/>
 			 	<sf:errors path ="pacApellido" cssClass ="error"/>
+			 	<sf:input cssClass ="form-control" path="pacApellido" placeholder ="Apellido" size ="30" id="descCAT"/>
+			 	
 		 	</div>
 		 	<div class="form-group">
 			 	<sf:label path="ocupacion" for ="ocupacion">Ocupacion</sf:label>
-			 	<sf:input cssClass ="form-control" path="ocupacion" placeholder ="Ocupacion" size ="30" id="descCAT"/>
 			 	<sf:errors path ="ocupacion" cssClass ="error"/>
+			 	<sf:input cssClass ="form-control" path="ocupacion" placeholder ="Ocupacion" size ="30" id="descCAT"/>
+			 	
 		 	</div>
 		 	<div class="form-group">
 			 	<sf:label path="sociedadMedica" for ="sociedadMedica">Soc Medica</sf:label>
-			 	<sf:input cssClass ="form-control" path="sociedadMedica" placeholder ="Sociedad Medica" size ="30" id="descCAT"/>
 			 	<sf:errors path ="sociedadMedica" cssClass ="error"/>
+			 	<sf:input cssClass ="form-control" path="sociedadMedica" placeholder ="Sociedad Medica" size ="30" id="descCAT"/>
+			 	
 		 	</div>
 		 	<div class="form-group">
 			 	<sf:label path="emergenciaMovil" for ="emergenciaMovil">Emerg Movil</sf:label>
-			 	<sf:input cssClass ="form-control" path="emergenciaMovil" placeholder ="Emergencia Movil" size ="30" id="descCAT"/>
 			 	<sf:errors path ="emergenciaMovil" cssClass ="error"/>
+			 	<sf:input cssClass ="form-control" path="emergenciaMovil" placeholder ="Emergencia Movil" size ="30" id="descCAT"/>
+			 	
 		 	</div>
 		 	
 			 <div class="botonForm">

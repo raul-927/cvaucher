@@ -6,6 +6,10 @@
         
      <!-- Inicio Variables pacientes, direccion, agenda, historiaClinica, tratamientoPaciente,tratamiento, formPagosOptions, pagoTarjeta, pagoEfectivo-->
 	 <on-start>
+	 	<set name="flowScope.caja"
+			value="new uy.com.cvaucher.services.domain.Caja()"
+			type="uy.com.cvaucher.services.domain.Caja" /> 
+			
 		<set name="flowScope.pacientes"
 			value="new uy.com.cvaucher.services.domain.Pacientes()"
 			type="uy.com.cvaucher.services.domain.Pacientes" />
@@ -116,7 +120,7 @@
 	 
 	 <!-- Historia Clinica -->
 	<view-state id="historiaClinicaInsert" view ="historiaClinica/insertHistoriaClinica" model ="historiaClinica">
-		<transition on ="seguirIngresandoTratamiento" to ="cargoPacientesEnTratamientos">
+		<transition on ="seguirIngresandoTratamiento" to ="verificoCaja">
 			<evaluate expression="flowPacientesController.insertHistoriaClinica(flowScope.historiaClinica)"/>
 		</transition>
 		<transition on ="historiaClinicaIngresado" to ="finIngresoPacientes">
@@ -124,6 +128,21 @@
 		</transition>
 	</view-state>
 	 	
+	 <!-- Cargo Pacientes, y Caja en Tratamientos -->
+	<action-state id="verificoCaja">
+	    <evaluate result ="flowScope.caja" expression ="flowPacientesController.cargoCajaActual()"/>
+	    <transition to ="comprueboEstadoCaja"/>
+	</action-state>
+	
+	<decision-state id="comprueboEstadoCaja">
+	    <if test="flowScope.caja.cajaEstado == 'CERRADO' " then="cajaCerrada"/>
+	    <if test="flowScope.caja.cajaEstado == 'ABIERTO' " then="cargoPacientesEnTratamientos"/>
+	</decision-state>	
+	
+	<view-state id="cajaCerrada" view ="caja/cajaCerrada" model ="caja">
+	    <transition on ="abrirCaja" to ="procesoAbrirCaja"/>
+	</view-state>
+	
 	<!-- Cargo Pacientes en Tratamientos -->
 	 
 	<action-state id="cargoPacientesEnTratamientos">
@@ -225,8 +244,11 @@
 		</transition>
 	</view-state>
 	
-	<end-state id="finIngresoPacientes"/>
+	<end-state id="finIngresoPacientes">
+	</end-state>
 	
-	<end-state id="finIngresoTratamiento"/>
+	<end-state id="finIngresoTratamiento">
+		
+	</end-state>
 	
 </flow>

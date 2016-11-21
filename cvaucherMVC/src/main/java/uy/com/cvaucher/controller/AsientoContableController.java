@@ -21,15 +21,15 @@ public class AsientoContableController {
 		this.tipoTratamientoService = tipoTratamientoService;
 	}
 	
-	@RequestMapping(value="/prueba", method = RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value="/prueba", headers ={"Accept=text/html, application/json"}, method = RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody 
 	public String getPrueba(){
 		System.out.println("Centro Estetico Vaucher REST!!");
 		return "Centro Estetico Vaucher REST!!";
 	}
 	
-	@RequestMapping(value ="/prueba2", method =RequestMethod.GET, produces ={MediaType.APPLICATION_JSON_VALUE})
-	@ResponseBody
-	public TipoTratamiento getTipoTratamiento(){
+	@RequestMapping(value ="/prueba2", headers ={"Accept=text/html, application/json"}, method =RequestMethod.GET, produces ={MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody TipoTratamiento getTipoTratamiento(){
 		TipoTratamiento tipoTratamiento = tipoTratamientoService.findTipoTratamientoById(1);
 		return tipoTratamiento;
 	}
