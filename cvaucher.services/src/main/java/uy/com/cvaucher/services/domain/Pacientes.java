@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import uy.com.cvaucher.services.annotations.Cedula;
+import uy.com.cvaucher.services.annotations.CedulaExistente;
 
 
 public class Pacientes implements Serializable
@@ -37,6 +38,7 @@ public class Pacientes implements Serializable
 	@NotNull(message ="ERROR; Debe ingresar un nro de cedula valido")
 	@Min(value=1111111, message ="ERROR; Ingrse un valor mayor a 6 digitos")
 	@Cedula(message ="Cedula Inválida")
+	@CedulaExistente(message ="Cedula ya ingresada en el sistema")
 	private int	cedula;
 
 	private String 	ocupacion;

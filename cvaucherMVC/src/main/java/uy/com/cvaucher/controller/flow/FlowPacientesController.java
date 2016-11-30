@@ -1,14 +1,11 @@
 package uy.com.cvaucher.controller.flow;
 
-import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +16,7 @@ import uy.com.cvaucher.services.clases.FormasDePagosDesc;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
 import uy.com.cvaucher.services.domain.Agenda;
-import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Caja;
-import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.Direccion;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistoriaClinica;
@@ -33,7 +28,6 @@ import uy.com.cvaucher.services.domain.TratByList;
 import uy.com.cvaucher.services.domain.TratPacByCedula;
 import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
-import uy.com.cvaucher.services.enumerador.CuentaTipo;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.AsientoContableInt;
 import uy.com.cvaucher.services.interfaces.CajaInt;
@@ -58,10 +52,8 @@ public class FlowPacientesController
 	private final FormasDePagosInt			formasDePagosServices;
 	private final AsientoContableInt		asientoContableServices;
 	private final CajaInt					cajaServices;
-	private final CuentasInt				cuentasServices;
 	private  static Pacientes 				pacientes ;
 	private String 							fechaAux;
-	private BigDecimal 						total = new BigDecimal("00");
 	private TratamientoPaciente				tratamientoPaciente;
 	private FormasDePagosDesc				formasDePagosDesc;
 	
@@ -88,7 +80,6 @@ public class FlowPacientesController
 		this.formasDePagosServices 		 = formasDePagosServices;
 		this.asientoContableServices	 = asientoContableServices;
 		this.cajaServices 				 = cajaServices;
-		this.cuentasServices			 = cuentasServices;
 	}
 	
 	public void insertPacientes(Pacientes pacientes)
@@ -301,7 +292,7 @@ public class FlowPacientesController
 	}
 	
 	public void procesoAsientoContable(){
-		Caja caja = this.cajaServices.cargoCajaActual();
+		this.cajaServices.cargoCajaActual();
 		
 	}
 }
