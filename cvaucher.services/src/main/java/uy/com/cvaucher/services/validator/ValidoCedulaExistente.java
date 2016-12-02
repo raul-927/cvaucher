@@ -34,9 +34,6 @@ public class ValidoCedulaExistente extends NroVerifCedula implements ConstraintV
 				control = true;
 			}
 		}
-				
-				
-		
 		return control;
 	}	
 	@Override
