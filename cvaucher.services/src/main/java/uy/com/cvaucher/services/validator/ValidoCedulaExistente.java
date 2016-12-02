@@ -16,7 +16,6 @@ public class ValidoCedulaExistente extends NroVerifCedula implements ConstraintV
 	private PacientesInt pacientesService;
 	
 	
-	
 	@Override
 	public boolean isValid(Integer value, ConstraintValidatorContext context){
 		boolean control = true;
