@@ -18,9 +18,6 @@ public class Pacientes implements Serializable
 {
 
 	private static final long serialVersionUID = 1L;
-
-	
-	
 	private int		pacId;
 	
 	@NotNull(message ="\n ERROR; Debe ingresar un Nombre")
