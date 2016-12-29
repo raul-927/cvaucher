@@ -11,7 +11,7 @@ public abstract class NroVerifCedula {
 		if(value >0){
 			try{
 				
-				this.numero = value;
+				numero = value;
 				int suma=0;
 				int total =0;
 				
@@ -24,7 +24,7 @@ public abstract class NroVerifCedula {
 				int control2 = 3;
 				int control1 = 4;
 				
-				int valor1 = this.numero % 10;
+				int valor1 = numero % 10;
 				int valor2 = numero % 100;
 				int valor3 = numero % 1000;
 				int valor4 = numero % 10000;
