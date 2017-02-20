@@ -198,6 +198,11 @@
 	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 	    p:service-ref="jornadaLaboralService"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.JornadaLaboralInt"/>
+		
+	<bean id ="httpHorarioLaboralService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+	    p:service-ref="horarioLaboralService"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.HorarioLaboralInt"/>
 	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -473,6 +478,15 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.jornadaLaboral = httpJornadaLaboralService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingHorarioLaboral"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/cvaucher.horarioLaboral = httpHorarioLaboralService
 			</value>
 		</property>	
 	</bean>

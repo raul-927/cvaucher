@@ -17,6 +17,12 @@ public interface JornadaLaboralMapper {
 	void insertJornadaLaboral(JornadaLaboral jornadaLaboral);
 	
 	@SelectProvider(type= SqlJornadaLaboralProvider.class, method ="selectJornadaLaboral")
-	@ResultMap("")
+	@ResultMap("uy.com.cvaucher.services.mappers.JornadaLaboralMapper.JornadaLaboralResult")
 	List<JornadaLaboral> showJornadaLaboral(JornadaLaboral jornadaLaboral);
+	
+	
+
+	@SelectProvider(type= SqlJornadaLaboralProvider.class, method ="selectAllJornadaLaboral")
+	@ResultMap("uy.com.cvaucher.services.mappers.JornadaLaboralMapper.JornadaLaboralResult")
+	List<JornadaLaboral> showAllJornadaLaboral();
 }

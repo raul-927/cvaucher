@@ -6,7 +6,7 @@
 <%@ page session="false" %>
 
 <table class="table table-hover table-bordered well well-sm">
-	<caption><h1>Jornadas Laborales</h1></caption>
+	<caption><h1>Horarios Laborales</h1></caption>
 	
 	<thead>
 		<td>Hora desde</td>
@@ -17,14 +17,14 @@
 
 	</thead>
 		<tbody>
-			<c:forEach var="muestroJornadaLaboral" items="${muestroJornadaLaboral}">
+			<c:forEach var="muestroHorarioLaboral" items="${muestroHorarioLaboral}">
 				<tr>
-			  		<td>${muestroJornadaLaboral.jorLabId}</td>
-			  		<td >${muestroJornadaLaboral.jorLabHoraDesde}</td>
-					<td >${muestroJornadaLaboral.jorLabHoraHasta}</td>
-					<td >${muestroJornadaLaboral.jorLabSemana}</td>
-					<td >${muestroJornadaLaboral.jorLabMes}</td>
-					<td >${muestroJornadaLaboral.jorLabDesc}</td>
+			  		<td>${muestroHorarioLaboral.horLabId}</td>
+			  		<td >${muestroHorarioLaboral.horLabHoraDesde}</td>
+					<td >${muestroHorarioLaboral.horLabHoraHasta}</td>
+					<td >${muestroHorarioLaboral.horLabSemana}</td>
+					<td >${muestroHorarioLaboral.horLabMes}</td>
+					<td >${muestroHorarioLaboral.horLabDesc}</td>
 				</tr>	
 			</c:forEach>
 		</tbody>

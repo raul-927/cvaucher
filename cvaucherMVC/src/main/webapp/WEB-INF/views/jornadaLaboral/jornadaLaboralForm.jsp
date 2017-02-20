@@ -11,31 +11,35 @@
 		method ="POST" 
 		modelAttribute ="jonradaLaboral" >
 		 <fieldset style="width: 350px;">
-			 	<sf:hidden cssClass ="form-control" path="cuentaFecha" value ="${fecha}"/>
-			 	<sf:errors path ="cuentaFecha" cssClass ="error"/>
-		 	
-			 	<sf:hidden cssClass ="form-control" path="cuentaHora"  value ="${hora}"/>
-			 	<sf:errors path ="cuentaHora" cssClass ="error"/>
-		 	
-			 	<sf:hidden cssClass ="form-control" path="cuentaUsuario" value ="${user}"/>
-			 	<sf:errors path ="cuentaUsuario" cssClass ="error"/>
-		 	
+			 	
 		 	<div class="form-group">
-			 	<sf:label path="cuentaDesc" for ="cuentaDesc">Descripcion</sf:label>
-			 	<sf:input cssClass ="form-control" path="cuentaDesc" size ="6"/>
-			 	<sf:errors path ="cuentaDesc" cssClass ="error"/>
+			 	<sf:label path="jorLabHoraDesde" for ="jorLabHoraDesde">Hora desde</sf:label>
+			 	<sf:input cssClass ="form-control" path="jorLabHoraDesde" size ="6"/>
+			 	<sf:errors path ="jorLabHoraDesde" cssClass ="error"/>
 		 	</div>
 		 
-		 <div class="form-group">
-			 	<sf:label path="cuentaDesc" for ="cuentaDesc">Descripcion</sf:label>
-			 	<sf:input cssClass ="form-control" path="cuentaDesc" size ="6"/>
-			 	<sf:errors path ="cuentaDesc" cssClass ="error"/>
+		 	<div class="form-group">
+			 	<sf:label path="jorLabHoraHasta" for ="jorLabHoraHasta">Hora hasta</sf:label>
+			 	<sf:input cssClass ="form-control" path="jorLabHoraHasta" size ="6"/>
+			 	<sf:errors path ="jorLabHoraHasta" cssClass ="error"/>
 		 	</div>
 		 	
 		 	<div class="form-group">
-			 	<sf:label path="cuentaDesc" for ="cuentaDesc">Descripcion</sf:label>
-			 	<sf:input cssClass ="form-control" path="cuentaDesc" size ="6"/>
-			 	<sf:errors path ="cuentaDesc" cssClass ="error"/>
+			 	<sf:label path="jorLabSemana" for ="jorLabSemana">Semana</sf:label>
+			 	<sf:input cssClass ="form-control" path="jorLabSemana" size ="6"/>
+			 	<sf:errors path ="jorLabSemana" cssClass ="error"/>
+		 	</div>
+		 	
+		 	<div class="form-group">
+			 	<sf:label path="jorLabMes" for ="jorLabMes">Mes</sf:label>
+			 	<sf:input cssClass ="form-control" path="jorLabMes" size ="6"/>
+			 	<sf:errors path ="jorLabMes" cssClass ="error"/>
+		 	</div>
+		 	
+		 	<div class="form-group">
+			 	<sf:label path="jorLabDesc" for ="jorLabDesc">Descripcion</sf:label>
+			 	<sf:input cssClass ="form-control" path="jorLabDesc" size ="6"/>
+			 	<sf:errors path ="jorLabDesc" cssClass ="error"/>
 		 	</div>
 
 		 </fieldset>

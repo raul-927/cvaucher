@@ -30,5 +30,11 @@ public class JornadaLaboralService implements JornadaLaboralInt {
 		jornadaLaboralMapper.insertJornadaLaboral(jornadaLaboral);
 	}
 
+	@Override
+	public List<JornadaLaboral> showAllJornadaLaboral() {
+		// TODO Auto-generated method stub
+		return jornadaLaboralMapper.showAllJornadaLaboral();
+	}
+
 
 }

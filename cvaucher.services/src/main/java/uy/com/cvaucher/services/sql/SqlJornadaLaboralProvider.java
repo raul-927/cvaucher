@@ -11,12 +11,13 @@ public class SqlJornadaLaboralProvider {
 			VALUES("jor_lab_hora_hasta","#{jorLabHoraHasta}");
 			VALUES("jor_lab_semana","#{jorLabSemana}");
 			VALUES("jor_lab_mes","#{jorLabMes}");
+			VALUES("jor_lab_desc","#{jorLabDesc}");
 		}}.toString();
 	}
 	
 	public String selectJornadaLaboral(final JornadaLaboral jornadaLaboral){
 		return new SQL(){{
-			SELECT("jor_lab_id, jor_lab_hora_desde, jor_lab_hora_hasta, jor_lab_semana, jor_lab_mes");
+			SELECT("jor_lab_id, jor_lab_hora_desde, jor_lab_hora_hasta, jor_lab_semana, jor_lab_mes, jor_lab_desc");
 			FROM("jornada_laboral");
 			
 			if(jornadaLaboral.getJorLabId()!=0){
@@ -30,6 +31,13 @@ public class SqlJornadaLaboralProvider {
 			if(jornadaLaboral.getJorLabHoraHasta()!=null){
 				WHERE("jor_lab_hora_hasta = "+jornadaLaboral.getJorLabHoraHasta());
 			}
+		}}.toString();
+	}
+	
+	public String selectAllJornadaLaboral(){
+		return new SQL(){{
+			SELECT("jor_lab_id, jor_lab_hora_desde, jor_lab_hora_hasta, jor_lab_semana jor_lab_mes, jor_lab_desc");
+			FROM("jornada_laboral");
 		}}.toString();
 	}
 }

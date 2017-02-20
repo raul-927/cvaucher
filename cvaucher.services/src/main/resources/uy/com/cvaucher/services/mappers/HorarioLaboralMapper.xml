@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.HorarioLaboralMapper">
+  	<resultMap 	type="uy.com.cvaucher.services.domain.HorarioLaboral" 
+  				id="HorarioLaboralResult">
+  		<id property="horLabId" column="hor_lab_id"/>
+  		
+		<result property ="horLabHoraDesde" 	column ="hor_lab_hora_desde"/>
+		<result property ="horLabHoraHasta" 	column ="hor_lab_hora_hasta"/>
+		<result property ="horLabSemana" 		column ="hor_lab_semana"/>
+		<result property ="horLabMes" 			column ="hor_lab_mes"/>
+  	</resultMap>
+</mapper>

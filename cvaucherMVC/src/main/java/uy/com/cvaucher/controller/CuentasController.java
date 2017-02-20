@@ -68,8 +68,6 @@ public class CuentasController
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
 				getPrincipal();
 		model.addAttribute(new Cuentas());
-		
-		
 		model.addAttribute("user",user.getUsername());
 		model.addAttribute("fecha",this.showDate());
 		model.addAttribute("hora",this.showHora());

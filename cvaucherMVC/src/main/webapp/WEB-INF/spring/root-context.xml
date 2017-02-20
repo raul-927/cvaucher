@@ -194,4 +194,10 @@
 		p:serviceUrl ="${services.url}/cvaucher.jornadaLaboral"
 		p:serviceInterface = "uy.com.cvaucher.services.interfaces.JornadaLaboralInt"
 		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
+		
+	<bean id ="horarioLaboralService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl ="${services.url}/cvaucher.horarioLaboral"
+		p:serviceInterface = "uy.com.cvaucher.services.interfaces.HorarioLaboralInt"
+		p:httpInvokerRequestExecutor-ref="httpInvokerRequestExecutor"/>
 </beans>
