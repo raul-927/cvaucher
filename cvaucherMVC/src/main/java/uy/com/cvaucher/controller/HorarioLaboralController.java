@@ -35,6 +35,8 @@ public class HorarioLaboralController {
 		
 		model.addAttribute(new HorarioLaboral());
 		model.addAttribute("user",user);
+		model.addAttribute(this.showDate());
+		model.addAttribute(this.showHora());
 		model.addAttribute("muestroHorarioLaboral",horarioLaboralService.showHorarioLaboral(horarioLaboral));
 		return "horarioLaboral/horarioLaboral";
 	}
