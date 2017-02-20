@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.cvaucher.services.mappers.JornadaLaboralMapper">
+  	<resultMap 	type="uy.com.cvaucher.services.domain.JornadaLaboral" 
+  				id="JornadaLaboralResult">
+  		<id property="jorLabId" column="jor_lab_id"/>
+  		
+		<result property ="jorLabHoraDesde" 	column ="jor_lab_hora_desde"/>
+		<result property ="jorLabHoraHasta" 	column ="jor_lab_hora_hasta"/>
+		<result property ="jorLabSemana" 		column ="jor_lab_semana"/>
+		<result property ="jorLabMes" 			column ="jor_lab_mes"/>
+  	</resultMap>
+</mapper>
