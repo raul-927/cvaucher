@@ -14,7 +14,7 @@ import uy.com.cvaucher.services.interfaces.TratamientoInt;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:root-Context.xml")
+@ContextConfiguration(locations={"file:src/test/resources/test-Context.xml"})
 public class TratamientoTest 
 {
 	

@@ -24,8 +24,7 @@ public class AgendaTest {
 	AgendaInt agendaService;
 	
 	@Test
-	public void selectAgendaByCedula()
-	{
+	public void selectAgendaByCedula(){
 	
 		List<Agenda> agenda = (List<Agenda>)   agendaService.findAgendaByCedula(19455549);
 		

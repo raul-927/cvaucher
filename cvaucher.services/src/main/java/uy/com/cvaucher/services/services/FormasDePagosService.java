@@ -1,8 +1,5 @@
 package uy.com.cvaucher.services.services;
 
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,22 +8,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import uy.com.cvaucher.services.clases.DescCuentaFormaDePago;
 import uy.com.cvaucher.services.clases.FormasDePagosDesc;
-import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.SearchMaxTratPacId;
-import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Caja;
-import uy.com.cvaucher.services.domain.Cuentas;
 import uy.com.cvaucher.services.domain.FormasDePagos;
 import uy.com.cvaucher.services.domain.HistorialPagos;
 import uy.com.cvaucher.services.domain.MaxTratPacId;
 import uy.com.cvaucher.services.domain.PagoEfectivo;
 import uy.com.cvaucher.services.domain.PagoTarjeta;
-import uy.com.cvaucher.services.domain.Tratamiento;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
-import uy.com.cvaucher.services.interfaces.AsientoContableInt;
-import uy.com.cvaucher.services.interfaces.CajaInt;
 import uy.com.cvaucher.services.interfaces.FormasDePagosInt;
-import uy.com.cvaucher.services.interfaces.TratamientoInt;
 import uy.com.cvaucher.services.mappers.CajaMapper;
 import uy.com.cvaucher.services.mappers.FormasDePagosMapper;
 
@@ -64,7 +54,6 @@ public class FormasDePagosService implements FormasDePagosInt
 		return this.formasDePagosMapper.findAllFormasDePagos(formasDePagos);
 	}
 
-	
 
 	@Override
 	public void insertFormasDePagos(FormasDePagos formasDePagos) 
@@ -77,8 +66,6 @@ public class FormasDePagosService implements FormasDePagosInt
 	{
 		this.formasDePagosMapper.updateFormasDePagos(formasDePagos);
 	}
-
-	
 
 	@Override
 	@Transactional
@@ -186,8 +173,6 @@ public class FormasDePagosService implements FormasDePagosInt
 		this.tratamientoPacienteMapper.updateTratamientoPacienteImporteCredito(tratamientoPaciente);
 	}
 
-
-
 	@Override
 	public FormasDePagosDesc findFormPagoTipoByDesc(String formPagAbreviacion) {
 		// TODO Auto-generated method stub
@@ -197,13 +182,10 @@ public class FormasDePagosService implements FormasDePagosInt
 		return this.formasDePagosMapper.findFormPagoTipoByDesc(formPagAbreviacion);
 	}
 
-
-
 	@Override
 	public DescCuentaFormaDePago cuentaFormaDePagoDesc(int cuentaId){
 		
 		return this.formasDePagosMapper.cuentaFormaDePagoDesc(cuentaId);
 	}
-	
 	
 }

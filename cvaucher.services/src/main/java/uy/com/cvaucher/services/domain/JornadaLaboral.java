@@ -13,7 +13,7 @@ public class JornadaLaboral implements Serializable{
 	private Date jorLabHoraHasta;
 	private int jorLabSemana;
 	private int jorLabMes;
-	
+	private String jorLabDesc;
 	
 	public int getJorLabId() {
 		return jorLabId;
@@ -44,6 +44,12 @@ public class JornadaLaboral implements Serializable{
 	}
 	public void setJorLabMes(int jorLabMes) {
 		this.jorLabMes = jorLabMes;
+	}
+	public String getJorLabDesc() {
+		return jorLabDesc;
+	}
+	public void setJorLabDesc(String jorLabDesc) {
+		this.jorLabDesc = jorLabDesc;
 	}
 	
 }

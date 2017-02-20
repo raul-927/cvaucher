@@ -14,7 +14,7 @@ import uy.com.cvaucher.services.domain.SeguimientoPacientes;
 import uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:root-Context.xml")
+@ContextConfiguration(locations={"file:src/test/resources/test-Context.xml"})
 public class SeguimientoPacienteTest
 {
 	@Autowired

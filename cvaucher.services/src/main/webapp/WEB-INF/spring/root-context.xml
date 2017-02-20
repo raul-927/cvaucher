@@ -193,6 +193,11 @@
 	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 	    p:service-ref="impuestoService"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.ImpuestoInt"/>
+		
+	<bean id ="httpJornadaLaboralService"
+	    class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
+	    p:service-ref="jornadaLaboralService"
+		p:serviceInterface ="uy.com.cvaucher.services.interfaces.JornadaLaboralInt"/>
 	
 	<bean id ="urlMappingAgenda"
 		class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -459,6 +464,15 @@
 		<property name="mappings">
 			<value>
 				/cvaucher.impuesto = httpImpuestoService
+			</value>
+		</property>	
+	</bean>
+	
+	<bean id ="urlMappingJornadaLaboral"
+		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/cvaucher.jornadaLaboral = httpJornadaLaboralService
 			</value>
 		</property>	
 	</bean>

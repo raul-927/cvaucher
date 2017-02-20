@@ -10,20 +10,16 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Volcando estructura de base de datos para est_vaucher
-DROP DATABASE IF EXISTS `est_vaucher`;
-CREATE DATABASE IF NOT EXISTS `est_vaucher` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `est_vaucher`;
-
-
 -- Volcando estructura para tabla est_vaucher.jornada_laboral
 DROP TABLE IF EXISTS `jornada_laboral`;
 CREATE TABLE IF NOT EXISTS `jornada_laboral` (
-  `jor_lab_id` int(11) DEFAULT NULL,
+  `jor_lab_id` int(11) NOT NULL AUTO_INCREMENT,
   `jor_lab_hora_desde` time DEFAULT NULL,
   `jor_lab_hora_hasta` time DEFAULT NULL,
   `jor_lab_semana` int(11) DEFAULT NULL,
-  `jor_lab_mes` int(11) DEFAULT NULL
+  `jor_lab_mes` int(11) DEFAULT NULL,
+  `jor_lab_desc` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`jor_lab_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Volcando datos para la tabla est_vaucher.jornada_laboral: ~0 rows (aproximadamente)

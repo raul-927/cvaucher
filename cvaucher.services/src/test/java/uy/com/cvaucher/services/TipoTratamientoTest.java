@@ -17,7 +17,7 @@ import uy.com.cvaucher.services.interfaces.TipoTratamientoInt;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="test-Context.xml")
+@ContextConfiguration(locations={"file:src/test/resources/test-Context.xml"})
 public class TipoTratamientoTest 
 {
 	

@@ -159,5 +159,10 @@
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.impuesto</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>cvaucher</servlet-name>
+    <url-pattern>*.jornadaLaboral</url-pattern>
+  </servlet-mapping>
 
 </web-app>

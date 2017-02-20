@@ -86,21 +86,7 @@
 		p:service-ref = "seguimientoPacientesService"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt"/>
 	
-	<bean id ="httpSesionesService"
-		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
-		p:service-ref = "sesionesService"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.SesionesInt"/>
-		
-	<bean id ="httpSesionPagadaService"
-		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
-		p:service-ref = "sesionPagadaService"
-		p:serviceInterface ="uy.com.cvaucher.services.interfaces.SesionPagadaInt"/>
 	
-	<bean id ="httpSesionRealizadaService"
-		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
-		p:service-ref ="sesionRealizadaService"
-		p:serviceInterface="uy.com.cvaucher.services.interfaces.SesionRealizadaInt"/>
-		
 	<bean id ="httpTipoAgendaService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 		p:service-ref ="tipoAgendaService"
@@ -214,35 +200,7 @@
 		</property>	
 	</bean>
 	
-	<bean id ="urlSesiones" 
-		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		
-		<property name="mappings">
-			<value>
-				/cvaucher.sesiones= httpSesionesService
-			</value>
-		</property>	
-	</bean>
 	
-	<bean id ="urlMappingSesionPagada" 
-		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		
-		<property name="mappings">
-			<value>
-				/cvaucher.sesionPagada= httpSesionPagadaService 
-			</value>
-		</property>	
-	</bean>
-	
-	<bean id ="urlMappingSesionRealizada" 
-		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		
-		<property name="mappings">
-			<value>
-				/cvaucher.sesionRealizada= httpSesionRealizadaService
-			</value>
-		</property>	
-	</bean>
 	
 	<bean id ="urlTipoAgenda" 
 		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
