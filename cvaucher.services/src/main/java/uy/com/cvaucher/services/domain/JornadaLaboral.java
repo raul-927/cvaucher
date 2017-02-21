@@ -8,12 +8,13 @@ public class JornadaLaboral implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int jorLabId;
-	private Date jorLabHoraDesde;
-	private Date jorLabHoraHasta;
-	private int jorLabSemana;
-	private int jorLabMes;
-	private String jorLabDesc;
+	private int 	jorLabId;
+	private Date 	jorLabHoraDesde;
+	private Date 	jorLabHoraHasta;
+	private int		jorLabCantHoras;
+	private Date	jorLabHoraDescDesde;
+	private Date	jorLabHoraDescHasta;
+	private String  jorLabDesc;
 	
 	public int getJorLabId() {
 		return jorLabId;
@@ -33,23 +34,29 @@ public class JornadaLaboral implements Serializable{
 	public void setJorLabHoraHasta(Date jorLabHoraHasta) {
 		this.jorLabHoraHasta = jorLabHoraHasta;
 	}
-	public int getJorLabSemana() {
-		return jorLabSemana;
-	}
-	public void setJorLabSemana(int jorLabSemana) {
-		this.jorLabSemana = jorLabSemana;
-	}
-	public int getJorLabMes() {
-		return jorLabMes;
-	}
-	public void setJorLabMes(int jorLabMes) {
-		this.jorLabMes = jorLabMes;
-	}
 	public String getJorLabDesc() {
 		return jorLabDesc;
 	}
 	public void setJorLabDesc(String jorLabDesc) {
 		this.jorLabDesc = jorLabDesc;
+	}
+	public int getJorLabCantHoras() {
+		return jorLabCantHoras;
+	}
+	public void setJorLabCantHoras(int jorLabCantHoras) {
+		this.jorLabCantHoras = jorLabCantHoras;
+	}
+	public Date getJorLabHoraDescDesde() {
+		return jorLabHoraDescDesde;
+	}
+	public void setJorLabHoraDescDesde(Date jorLabHoraDescDesde) {
+		this.jorLabHoraDescDesde = jorLabHoraDescDesde;
+	}
+	public Date getJorLabHoraDescHasta() {
+		return jorLabHoraDescHasta;
+	}
+	public void setJorLabHoraDescHasta(Date jorLabHoraDescHasta) {
+		this.jorLabHoraDescHasta = jorLabHoraDescHasta;
 	}
 	
 }
