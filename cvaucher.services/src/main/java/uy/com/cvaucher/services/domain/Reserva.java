@@ -3,24 +3,26 @@ package uy.com.cvaucher.services.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Calendario implements Serializable {
+public class Reserva implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private int 		idCalendario;
+	private int 		resId;
 	private Date 		fecha;
 	private Date 		hora;
 	private Tratamiento tratamiento;
+	private Pacientes	pacientes;
 	private String 		estadoReserva;
 	
-	public int getIdCalendario() {
-		return idCalendario;
+	public int getResId() {
+		return resId;
 	}
-	public void setIdCalendario(int idCalendario) {
-		this.idCalendario = idCalendario;
+	public void setResId(int resId) {
+		this.resId = resId;
 	}
+	
 	public Date getFecha() {
 		return fecha;
 	}
@@ -44,6 +46,12 @@ public class Calendario implements Serializable {
 	}
 	public void setEstadoReserva(String estadoReserva) {
 		this.estadoReserva = estadoReserva;
+	}
+	public Pacientes getPacientes() {
+		return pacientes;
+	}
+	public void setPacientes(Pacientes pacientes) {
+		this.pacientes = pacientes;
 	}
 	
 }
