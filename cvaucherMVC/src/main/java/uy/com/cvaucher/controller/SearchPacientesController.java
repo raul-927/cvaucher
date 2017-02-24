@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import uy.com.cvaucher.interfaces.SearchPacientesControllerInt;
 import uy.com.cvaucher.services.clases.SearchPacientes;
 import uy.com.cvaucher.services.domain.Pacientes;
-import uy.com.cvaucher.services.domain.Calendario;
+import uy.com.cvaucher.services.domain.CalendarioArray;
 import uy.com.cvaucher.services.interfaces.AgendaInt;
 import uy.com.cvaucher.services.interfaces.DireccionInt;
 import uy.com.cvaucher.services.interfaces.HistoriaClinicaInt;
@@ -58,7 +58,7 @@ public class SearchPacientesController implements SearchPacientesControllerInt
 		model.addAttribute(new Pacientes());
 		model.addAttribute(new SearchPacientes());
 		model.addAttribute("pac", this.pacientesServices.findAllPacientes());
-		model.addAttribute(new Calendario());
+		model.addAttribute(new CalendarioArray());
 		//model.addAttribute("pacientesS",this.pacientesSearch.values());
 		
 		return "pacientes/searchPacientes";
@@ -79,7 +79,7 @@ public class SearchPacientesController implements SearchPacientesControllerInt
 		}
 		
 		//model.addAttribute(new Pacientes());
-		model.addAttribute(new Calendario());
+		model.addAttribute(new CalendarioArray());
 		model.addAttribute(new SearchPacientes());
 		model.addAttribute("pac", this.pacientesServices.findPacientes(searchPacientes));
 		return "pacientes/searchPacientes";
@@ -89,7 +89,7 @@ public class SearchPacientesController implements SearchPacientesControllerInt
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().
 				getAuthentication().
 				getPrincipal();
-		model.addAttribute(new Calendario());
+		model.addAttribute(new CalendarioArray());
 		model.addAttribute("userName",user.getUsername());
 		model.addAttribute("userRole",user.getAuthorities());
 		model.addAttribute(new Pacientes());

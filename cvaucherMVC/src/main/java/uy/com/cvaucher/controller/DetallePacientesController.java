@@ -33,6 +33,7 @@ import uy.com.cvaucher.services.domain.Pacientes;
 import uy.com.cvaucher.services.domain.PagoEfectivo;
 import uy.com.cvaucher.services.domain.TratamientoPaciente;
 import uy.com.cvaucher.services.domain.SeguimientoPacientes;
+import uy.com.cvaucher.services.domain.Sesiones;
 
 
 
@@ -52,6 +53,7 @@ public class DetallePacientesController
 	private final CajaInt					cajaServices;
 	private final AsientoContableInt		asientoContableServices;
 	private final FormasDePagosInt			formasDePagosServices;
+	private final SesionesInt				sesionesServices;
 	@Autowired
 	public DetallePacientesController(PacientesInt				pacientesServices, 
 									  DireccionInt 				direccionServices, 
@@ -78,7 +80,7 @@ public class DetallePacientesController
 		this.cajaServices					= cajaServices;
 		this.asientoContableServices		= asientoContableServices;
 		this.formasDePagosServices			= formasDePagosServices;
-		
+		this.sesionesServices				= sesionesServices;
 	}
 	
 	@RequestMapping(value ="/detPac/{pacCedula}", method = RequestMethod.GET)
@@ -168,6 +170,7 @@ public class DetallePacientesController
 		return "tratamientoPaciente/tratamientoPacienteDetalle";
 	}
 	
+	
 	@RequestMapping(value ="/detPac/{pacCedula}/{histTratPacId}",params = "seg", method = RequestMethod.POST)
 	public String insertPacienteTratamientoSeguimiento(Model model, @PathVariable("pacCedula")	int pacCedula, 
 			  @PathVariable("histTratPacId")int histTratPacId, @Valid SeguimientoPacientes seguimientoPacientes, BindingResult bindingResult)
@@ -201,5 +204,42 @@ public class DetallePacientesController
 		return "tratamientoPaciente/tratamientoPacienteDetalle";
 	}
 	
+	@RequestMapping(value ="/detPac/{pacCedula}/{histTratPacId}",params = "ses", method = RequestMethod.POST)
+	public String insertPacienteTratamientoSesion(Model model, @PathVariable("pacCedula")	int pacCedula, 
+			  @PathVariable("histTratPacId")int histTratPacId, @Valid Sesiones sesiones, BindingResult bindingResult)
+	{
+		Date hoy = new Date();
+		String patron = "YYYY-MM-dd";
+		SimpleDateFormat formato = new SimpleDateFormat(patron);
+		String salida = formato.format(hoy);
+		TratamientoPaciente tratPaciente = new TratamientoPaciente();
+		tratPaciente.setTratPacId(histTratPacId);
+		sesiones.setTratPaciente(tratPaciente);
+		if(bindingResult.hasErrors())
+		{
+			System.out.println("Error en insertPacienteTratamientoSeguimientoPaciente");
+			model.addAttribute(new HistorialPagos());
+			model.addAttribute(new SeguimientoPacientes());
+			model.addAttribute(new Sesiones());
+			
+			model.addAttribute("histPagosByTratPacId", this.historialPagosServices.findHistorialPagoByHistTratPacId(histTratPacId));
+			model.addAttribute("segP", this.seguimientoPacientesServices.findSeguimientoPacientesByTratPacId(histTratPacId));
+			model.addAttribute("salida", salida);
+			return "tratamientoPaciente/tratamientoPacienteDetalle";
+		}
+		int tratPacId = histTratPacId;
+		TratamientoPaciente tratamientoPaciente  = new TratamientoPaciente();
+		
+		tratamientoPaciente.setTratPacId(tratPacId);
+
+		this.sesionesServices.insertSesiones(sesiones);
+		model.addAttribute(new HistorialPagos());
+		model.addAttribute(new SeguimientoPacientes());
+		model.addAttribute("sesiones", this.sesionesServices.findSesionesByPacId(tratPacId));
+		model.addAttribute("histPagosByTratPacId", this.historialPagosServices.findHistorialPagoByHistTratPacId(histTratPacId));
+		model.addAttribute("segP", this.seguimientoPacientesServices.findSeguimientoPacientesByTratPacId(histTratPacId));
+		model.addAttribute("salida", salida);
+		return "tratamientoPaciente/tratamientoPacienteDetalle";
+	}
 	
 }

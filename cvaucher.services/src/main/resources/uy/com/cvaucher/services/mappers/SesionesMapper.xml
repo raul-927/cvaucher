@@ -15,10 +15,8 @@
 		<result property = "sesEstadoPago" column ="ses_estado_pago"/>  	
   		<result property = "sesFechaPago" column ="ses_fecha_pago"/>  
   		
-  		
   		<association property = "tratPaciente" 
   			resultMap ="uy.com.cvaucher.services.mappers.TratamientoPacienteMapper.TratamientoPacienteResult"/>
-  		
   	</resultMap>
   	
   

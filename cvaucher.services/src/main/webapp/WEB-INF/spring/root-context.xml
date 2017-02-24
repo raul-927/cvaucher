@@ -88,12 +88,11 @@
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 		p:service-ref = "seguimientoPacientesService"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.SeguimientoPacientesInt"/>
-<!--  
+  
 	<bean id ="httpSesionesService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
 		p:service-ref = "sesionesService"
 		p:serviceInterface ="uy.com.cvaucher.services.interfaces.SesionesInt"/>
--->
 <!-- 
 	<bean id ="httpSesionPagadaService"
 		class ="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter"
@@ -251,8 +250,8 @@
 			</value>
 		</property>	
 	</bean>
-<!--  	
-	<bean id ="urlSesiones" 
+  	
+	<bean id ="urlMappingSesiones" 
 		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		
 		<property name="mappings">
@@ -261,7 +260,7 @@
 			</value>
 		</property>	
 	</bean>
--->
+
 <!--  
 	<bean id ="urlMappingSesionPagada" 
 		class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">

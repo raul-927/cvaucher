@@ -9,12 +9,13 @@
 
 	<tr class="labelForm">
 		<td>Id</td>
-		<td>Cedula</td>
-		<td>Nombre</td>
-		<td>Apellido</td>
-		<td>Ocupacion</td>
-		<td>Soc Medica</td>
-		<td>Emerg Movil</td>
+		<td>Tratemiento</td>
+		<td>Cantidad de Sesiones</td>
+		<td>Sesiones realizadas</td>
+		<td>Sesiones pendientes</td>
+		<td>Fecha de reserva</td>
+		<td>Estado de realizada</td>
+		<td>Estado de vigencia</td>
 	</tr>	
 
 	<tr>

@@ -69,12 +69,12 @@
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.seguimientopacientes</url-pattern>
   </servlet-mapping>
-  <!-- 
+  
   <servlet-mapping>
     <servlet-name>cvaucher</servlet-name>
     <url-pattern>*.sesiones</url-pattern>
   </servlet-mapping>
-   -->
+  
   <!--  
   <servlet-mapping>
     <servlet-name>cvaucher</servlet-name>

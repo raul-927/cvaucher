@@ -10,7 +10,9 @@
   		
 		<result property ="jorLabHoraDesde" 	column ="jor_lab_hora_desde"/>
 		<result property ="jorLabHoraHasta" 	column ="jor_lab_hora_hasta"/>
-		<result property ="jorLabSemana" 		column ="jor_lab_semana"/>
-		<result property ="jorLabMes" 			column ="jor_lab_mes"/>
+		<result property ="jorLabCantHoras" 	column ="jor_lab_cant_horas"/>
+		<result property ="jorLabHoraDescDesde"	column ="jor_lab_hora_desc_desde"/>
+		<result property ="jorLabHoraDescHasta"	column ="jor_lab_hora_desc_hasta"/>
+		<result property ="jorLabDesc"			column ="jor_lab_desc"/>
   	</resultMap>
 </mapper>

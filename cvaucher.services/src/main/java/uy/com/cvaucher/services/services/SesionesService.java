@@ -13,8 +13,8 @@ import uy.com.cvaucher.services.interfaces.SesionesInt;
 import uy.com.cvaucher.services.mappers.SesionesMapper;
 
 
-//@Service
-//@Transactional
+@Service
+@Transactional
 public class SesionesService implements SesionesInt {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
