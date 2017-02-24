@@ -5,15 +5,15 @@
   
 <mapper namespace="uy.com.cvaucher.services.mappers.SesionesMapper">
   	<resultMap type="uy.com.cvaucher.services.domain.Sesiones" id="SesionesResult">
-  		<id property="sesId" column="ses_id"/>
-		<result property ="sesCantidad" column ="ses_cantidad"/>
-		<result property ="sesRealizadas" column ="sesiones_realizadas"/>
-		<result property ="sesPendientes" column ="sesiones_pendientes"/>
-		<result property="sesFechaReserva" column="ses_fecha_reserva"/>
-		<result property = "sesEstadoRealizada" column ="ses_estado_realizada"/>
-		<result property = "sesEstadoVigencia" column ="ses_estado_vigencia"/>
-		<result property = "sesEstadoPago" column ="ses_estado_pago"/>  	
-  		<result property = "sesFechaPago" column ="ses_fecha_pago"/>  
+  		<id property 	 ="sesId" 				column ="ses_id"/>
+		<result property ="sesCantidad" 		column ="ses_cantidad"/>
+		<result property ="sesRealizadas" 		column ="sesiones_realizadas"/>
+		<result property ="sesPendientes" 		column ="sesiones_pendientes"/>
+		<result property ="sesFechaReserva" 	column ="ses_fecha_reserva"/>
+		<result property ="sesEstadoRealizada"  column ="ses_estado_realizada"/>
+		<result property ="sesEstadoVigencia" 	column ="ses_estado_vigencia"/>
+		<result property ="sesEstadoPago" 		column ="ses_estado_pago"/>  	
+  		<result property ="sesFechaPago" 		column ="ses_fecha_pago"/>  
   		
   		<association property = "tratPaciente" 
   			resultMap ="uy.com.cvaucher.services.mappers.TratamientoPacienteMapper.TratamientoPacienteResult"/>
