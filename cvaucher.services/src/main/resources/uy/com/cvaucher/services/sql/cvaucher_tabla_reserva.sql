@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS `reserva` (
   `res_id` int(11) NOT NULL AUTO_INCREMENT,
   `res_fecha` date DEFAULT NULL,
   `res_hora` time DEFAULT NULL,
-  `res_trat_id` int(11) DEFAULT NULL,
-  `res_pas_cedula` int(11) DEFAULT NULL,
+  `res_trat_id` int(11) NOT NULL,
+  `res_pas_cedula` int(11) NOT NULL,
   `res_est_res` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`res_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
