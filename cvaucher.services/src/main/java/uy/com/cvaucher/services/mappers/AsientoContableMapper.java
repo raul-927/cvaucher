@@ -2,7 +2,6 @@ package uy.com.cvaucher.services.mappers;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +13,6 @@ import org.apache.ibatis.mapping.StatementType;
 import uy.com.cvaucher.services.clases.MaxNumAsientoContable;
 import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
-import uy.com.cvaucher.services.domain.AsientoContableMap;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
 import uy.com.cvaucher.services.sql.SqlAsientoContableProvider;
 
