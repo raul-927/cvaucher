@@ -16,6 +16,7 @@ import uy.com.cvaucher.services.clases.ResumenPorCuentas;
 import uy.com.cvaucher.services.domain.AsientoContable;
 import uy.com.cvaucher.services.domain.Caja;
 import uy.com.cvaucher.services.domain.Cuentas;
+import uy.com.cvaucher.services.domain.PagoCredito;
 import uy.com.cvaucher.services.domain.PagoEfectivo;
 import uy.com.cvaucher.services.domain.PagoTarjeta;
 import uy.com.cvaucher.services.domain.ResultadoCuentaAsientoTotal;
@@ -114,6 +115,14 @@ public class AsientoContableService implements AsientoContableInt {
 			((PagoTarjeta) formaDePago).setTarjCuenta(pagoTarjCuenta);
 			((PagoTarjeta) formaDePago).setAsientoNro(maxNumAsientoContable.getMaxNum());
 			this.formasDePagosService.insertTratamientoPagoTarjeta(tratamientoPaciente,(PagoTarjeta) formaDePago, formasDePagoDesc.getFormasDePagoCuenta());
+		}
+		if(formaDePago instanceof PagoCredito){
+			DescCuentaFormaDePago desCuentaFormaDePago = this.formasDePagosService.cuentaFormaDePagoDesc(cuentaId);
+			String pagoEfCuenta = desCuentaFormaDePago.getCuentaDesc();
+			((PagoCredito) formaDePago).setPagoEfCajaId(cajaActual.getCajaId());
+			((PagoCredito) formaDePago).setPagoEfCuenta(pagoEfCuenta);
+			((PagoCredito) formaDePago).setAsientoNro(maxNumAsientoContable.getMaxNum());
+			this.formasDePagosService.insertTratamientoPagoEfectivo(tratamientoPaciente, (PagoCredito) formaDePago, formasDePagoDesc.getFormasDePagoCuenta());
 		}
 		ArrayList<AsientoContable> asientoContableList = new ArrayList<AsientoContable>();
 		
