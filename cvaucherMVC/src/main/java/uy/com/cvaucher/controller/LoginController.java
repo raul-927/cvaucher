@@ -29,14 +29,14 @@ public class LoginController
 	@RequestMapping(method=RequestMethod.GET)
 	  public String login(Locale locale, Model model, Login login, String domUserNic) 
 	{
-		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
-				getPrincipal();
-		model.addAttribute("usuario",user);
+		/*UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
+				getPrincipal();*/
+		//model.addAttribute("usuario",user);
 		model.addAttribute(new Login());
 		model.addAttribute("login",loginService.showLoginUser(domUserNic));
-		System.out.println(user.getUsername());
-		System.out.println(user.getPassword());
-		System.out.println(user.getAuthorities());
+		//System.out.println(user.getUsername());
+		//System.out.println(user.getPassword());
+		//System.out.println(user.getAuthorities());
 		return "login";
 	}
 }
