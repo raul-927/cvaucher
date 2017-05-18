@@ -50,6 +50,15 @@ public class SearchPacientesController implements SearchPacientesControllerInt
 	@RequestMapping(method = RequestMethod.GET)
 	public String ShowSearchPacientes(Model model)
 	{
+		Calendar fechaHoy = Calendar.getInstance();
+		
+		int dia		= fechaHoy.get(Calendar.DAY_OF_MONTH);
+		int diaSemana = fechaHoy.get(Calendar.DAY_OF_WEEK);
+		int diaSemanaMes = fechaHoy.get(Calendar.DAY_OF_WEEK_IN_MONTH);
+		int semana 	= fechaHoy.get(Calendar.WEEK_OF_MONTH);
+		int mes  	= fechaHoy.get(Calendar.MONTH);
+		int anio 	= fechaHoy.get(Calendar.YEAR);
+		
 		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().
 		getPrincipal();
 		System.out.println("Bien venido "+user.getUsername()+ ", usted tiene el rol "+user.getAuthorities() +", Su Password es = "+user.getPassword());
@@ -59,8 +68,20 @@ public class SearchPacientesController implements SearchPacientesControllerInt
 		model.addAttribute(new SearchPacientes());
 		model.addAttribute("pac", this.pacientesServices.findAllPacientes());
 		model.addAttribute(new CalendarioArray());
-		//model.addAttribute("pacientesS",this.pacientesSearch.values());
+		model.addAttribute("dia",dia);
+		model.addAttribute("semana",semana);
+		model.addAttribute("mes",mes);
+		model.addAttribute("anio",anio);
+		model.addAttribute("diaSemana",diaSemana);
+		model.addAttribute("diaSemanaMes",diaSemanaMes);
 		
+		
+		System.out.println("Dia ==>> "+dia);
+		System.out.println("Semana ==>> "+semana);
+		System.out.println("Mes ==>> "+mes);
+		System.out.println("Año ==>> "+anio);
+		System.out.println("diaSemana ==>> "+diaSemana);
+		System.out.println("diaSemanaMes ==>> "+diaSemanaMes);
 		return "pacientes/searchPacientes";
 	}
 	
