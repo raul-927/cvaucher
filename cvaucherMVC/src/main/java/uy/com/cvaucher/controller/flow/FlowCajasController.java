@@ -2,6 +2,8 @@ package uy.com.cvaucher.controller.flow;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -90,7 +92,6 @@ public class FlowCajasController{
 	}
 	@RequestMapping(value ="/caja",params ="resumen", method = RequestMethod.GET)
 	public String showResumenCaja(Model model, AsientoContable asientoContable){
-		
 		Caja caja = this.cajaService.cargoCajaActual();
 		int idCaja = caja.getCajaId();
 		model.addAttribute(new AsientoContable());
