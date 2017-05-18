@@ -13,10 +13,27 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="shortcut icon" href="<s:url value="/resources"/>/ICO/FaviconCEV.ico" />
 		 
-		<link rel="stylesheet" type="text/css" href="<s:url value="/resources"/>/css/bootstrap.css">
-		<link href="<s:url value="/resources"/>/css/styles.css" rel="stylesheet"/> 
-		<link href="<s:url value="/resources"/>/css/cevaucher.css" rel="stylesheet"/>
+		<link href="<s:url value="/resources"/>/css/bootstrap.css" 	rel="stylesheet"/>
+		<link href="<s:url value="/resources"/>/css/styles.css" 	rel="stylesheet"/> 
+		<link href="<s:url value="/resources"/>/css/cevaucher.css" 	rel="stylesheet"/>
+		<link href="<s:url value="/resources"/>/AdminLTE-2.3.11/plugins/fullcalendar/fullcalendar.min.css"rel="stylesheet"/>
+		<link href="<s:url value="/resources"/>/AdminLTE-2.3.11/plugins/fullcalendar/fullcalendar.min.css"rel="stylesheet"/>
+		<link href="<s:url value="/resources"/>/AdminLTE-2.3.11/dist/css/AdminLTE.min.css"rel="stylesheet"/>
+		<link href="<s:url value="/resources"/>/AdminLTE-2.3.11/dist/css/skins/_all-skins.min.css"rel="stylesheet"/>
+		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 			
+			<!-- fullCalendar 2.2.5-->
+  		
+  		<link href="<s:url value="/resources"/>/AdminLTE-2.3.11/plugins/fullcalendar/fullcalendar.print.css" media="print">
+  		<!-- Theme style -->
+  		
+  		<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  		
+  
 			<title>Vaucher Admin</title>
 			<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/
@@ -62,7 +79,7 @@
 					<div class="tab-pane" id="Agenda">
 						<div class="tab-pane active" id="Calendario">
 						<div class="row">
-							<div class="col-xs-10 col-sm-12 col-md-4 col-lg-4">
+							<div >
 								<t:insertAttribute name ="calendario"/>
 							</div>
 						</div>
