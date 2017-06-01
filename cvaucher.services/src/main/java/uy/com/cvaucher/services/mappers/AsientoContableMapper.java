@@ -38,11 +38,13 @@ public interface AsientoContableMapper {
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.MaxNumAsientoContableResult")
 	MaxNumAsientoContable cantRegistros();
 	
+	@SuppressWarnings("el-syntax")
 	@Select(value ="{CALL SP_resumenPorCuentasTotal(#{asConTipo, mode=IN, jdbcType=INTEGER})}")
 	@Options(statementType = StatementType.CALLABLE)
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
 	List<ResumenPorCuentas> resumenPorCuentas(int asConTipo);
 	
+	@SuppressWarnings("el-syntax")
 	@Select(value ="{CALL SP_resumenPorCuentasTotalPorCaja(#{cuentaTipo, mode=IN, jdbcType=INTEGER}, #{idCaja, mode=IN, jdbcType=INTEGER})}")
 	@Options(statementType = StatementType.CALLABLE)
 	@ResultMap("uy.com.cvaucher.services.mappers.AsientoContableMapper.ResumenPorCuentasResult")
