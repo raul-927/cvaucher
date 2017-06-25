@@ -11,8 +11,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <url>www.cvaucher.com.uy</url>
 
   <properties>
-		<java-version>1.7</java-version>
-		<org.springframework-version>3.2.0.RELEASE</org.springframework-version>
+		<java-version>1.8</java-version>
+		<org.springframework-version>3.2.14.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 		<mysql.version>5.1.21</mysql.version>
