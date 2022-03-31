@@ -15,7 +15,7 @@
 		<mybatis-spring.version>1.2.0</mybatis-spring.version>
 		<mysql.version>5.1.21</mysql.version>
 		
-		<spring.version>3.2.14.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 		<aspectj.version>1.6.8</aspectj.version>
     	<cglib.version>2.2</cglib.version>
     	<commons.dbcp.version>1.4</commons.dbcp.version>
