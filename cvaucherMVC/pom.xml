@@ -293,7 +293,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-oxm</artifactId>
-		    <version>3.0.4.RELEASE</version>
+		    <version>3.2.4.RELEASE</version>
 		</dependency>
 		
 		<!--  
